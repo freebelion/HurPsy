@@ -1,0 +1,58 @@
+﻿<Window x:Class="HurPsyDesignApp.ExperimentDesignWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HurPsyDesignApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowState="Maximized">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleDefinitions.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel Background="{StaticResource EdgeBrush}">
+        <Expander x:Name="StimulusObjectsPanel"
+                  Background="{StaticResource StimulusObjectsPanelBrush}"
+                  Width="{StaticResource StimulusObjectsPanelWidth}"
+                  Margin="{StaticResource EdgeThickness}">
+            <Expander.Header>
+                <TextBlock Text="Stimulus Objects" />
+            </Expander.Header>
+        </Expander>
+
+        <Expander x:Name="StimulusRegionsPanel"
+                  Background="{StaticResource StimulusRegionsPanelBrush}"
+                  Width="{StaticResource StimulusRegionsPanelWidth}"
+                  Margin="{StaticResource EdgeThickness}">
+            <Expander.Header>
+                <TextBlock Text="Stimulus Regions" />
+            </Expander.Header>
+        </Expander>
+
+        <Grid x:Name="DesignGrid"
+              Margin="{StaticResource EdgeThickness}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource DesignPanelWidth}" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Grid.Column="1"
+                 Background="{StaticResource EdgeBrush}"
+                 Width="{StaticResource SplitterWidth}"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Stretch"
+                 ResizeDirection="Columns" />
+
+            <Rectangle Grid.Column="0" Fill="{StaticResource DesignPanelBrush}"/>
+            <Rectangle Grid.Column="2" Fill="{StaticResource PreviewPanelBrush}"/>
+        </Grid>
+
+    </DockPanel>
+</Window>
