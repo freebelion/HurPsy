@@ -3,4 +3,26 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="BasicDefinitions.xaml" />
     </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="RightExpander" TargetType="Expander">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <ContentPresenter Content="{TemplateBinding Content}">
+                        <ContentPresenter.LayoutTransform>
+                            <RotateTransform Angle="-90"/>
+                        </ContentPresenter.LayoutTransform>
+                    </ContentPresenter>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsExpanded" Value="True">
+                <Setter Property="Expander.Width" Value="{StaticResource ExpanderWidth}"/>
+            </Trigger>
+            <Trigger Property="IsExpanded" Value="False">
+                <Setter Property="Expander.Width" Value="{StaticResource CollapsedWidth}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

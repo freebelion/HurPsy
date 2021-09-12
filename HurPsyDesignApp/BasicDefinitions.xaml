@@ -5,8 +5,8 @@
     <!-- Named dimension values -->
     <Thickness x:Key="EdgeThickness">2,2,2,2</Thickness>
     <GridLength x:Key="DesignPanelWidth">300</GridLength>
-    <System:Double x:Key="StimulusObjectsPanelWidth">300</System:Double>
-    <System:Double x:Key="StimulusRegionsPanelWidth">300</System:Double>
+    <System:Double x:Key="ExpanderWidth">300</System:Double>
+    <System:Double x:Key="CollapsedWidth">32</System:Double>
     <System:Double x:Key="SplitterWidth">2</System:Double>
     
     <!-- Named brush definitions -->

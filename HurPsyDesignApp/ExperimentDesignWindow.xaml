@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HurPsyDesignApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="HurPsy Experiment Design Application"
+        FontSize="20" Height="450" Width="800"
         WindowState="Maximized">
 
     <Window.Resources>
@@ -18,21 +19,34 @@
 
     <DockPanel Background="{StaticResource EdgeBrush}">
         <Expander x:Name="StimulusObjectsPanel"
+                  DockPanel.Dock="Left"
                   Background="{StaticResource StimulusObjectsPanelBrush}"
-                  Width="{StaticResource StimulusObjectsPanelWidth}"
-                  Margin="{StaticResource EdgeThickness}">
-            <Expander.Header>
-                <TextBlock Text="Stimulus Objects" />
-            </Expander.Header>
+                  Margin="{StaticResource EdgeThickness}"
+                  Header="Stimulus Objects"
+                  Style="{StaticResource RightExpander}"
+                  ExpandDirection="Right"
+                  IsExpanded="True">
+
+            <Expander.Content>
+                <Grid Background="AliceBlue" />
+            </Expander.Content>
         </Expander>
 
         <Expander x:Name="StimulusRegionsPanel"
+                  DockPanel.Dock="Left"
                   Background="{StaticResource StimulusRegionsPanelBrush}"
-                  Width="{StaticResource StimulusRegionsPanelWidth}"
-                  Margin="{StaticResource EdgeThickness}">
+                  Margin="{StaticResource EdgeThickness}"
+                  Style="{StaticResource RightExpander}"
+                  ExpandDirection="Right"
+                  IsExpanded="True">
+            
             <Expander.Header>
-                <TextBlock Text="Stimulus Regions" />
+                <TextBlock   Text="Stimulus Regions" />
             </Expander.Header>
+
+            <Expander.Content>
+                <Grid Background="AliceBlue" />
+            </Expander.Content>
         </Expander>
 
         <Grid x:Name="DesignGrid"
