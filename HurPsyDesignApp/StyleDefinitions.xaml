@@ -16,9 +16,11 @@
                 </DataTemplate>
             </Setter.Value>
         </Setter>
+        
         <Style.Triggers>
             <Trigger Property="IsExpanded" Value="True">
-                <Setter Property="Expander.Width" Value="{StaticResource ExpanderWidth}"/>
+                <Setter Property="Expander.Width"
+                        Value="{Binding RelativeSource={RelativeSource Self}, Path=MaxWidth}"/>
             </Trigger>
             <Trigger Property="IsExpanded" Value="False">
                 <Setter Property="Expander.Width" Value="{StaticResource CollapsedWidth}"/>

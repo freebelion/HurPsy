@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HurPsyDesignApp"
+        xmlns:prop="clr-namespace:HurPsyDesignApp.Properties"
         mc:Ignorable="d"
         Title="HurPsy Experiment Design Application"
         FontSize="20" Height="450" Width="800"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -24,6 +26,7 @@
                   Margin="{StaticResource EdgeThickness}"
                   Header="Stimulus Objects"
                   Style="{StaticResource RightExpander}"
+                  MaxWidth="{StaticResource Expander1Width}"
                   ExpandDirection="Right"
                   IsExpanded="True">
 
@@ -37,15 +40,16 @@
                   Background="{StaticResource StimulusRegionsPanelBrush}"
                   Margin="{StaticResource EdgeThickness}"
                   Style="{StaticResource RightExpander}"
+                  MaxWidth="{StaticResource Expander2Width}"
                   ExpandDirection="Right"
                   IsExpanded="True">
-            
+
             <Expander.Header>
                 <TextBlock   Text="Stimulus Regions" />
             </Expander.Header>
 
             <Expander.Content>
-                <Grid Background="AliceBlue" />
+                <Grid Background="AliceBlue"/>
             </Expander.Content>
         </Expander>
 
