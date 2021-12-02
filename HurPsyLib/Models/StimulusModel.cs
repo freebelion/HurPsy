@@ -13,35 +13,25 @@ namespace HurPsyLib.Models
     internal abstract class StimulusModel
     {
         /// <summary>
-        /// This collection will keep track of the stimulus objects
-        /// according to their class types
+        /// This intermediary object will keep track of
+        /// the stimulus objects according to their class types
         /// (assuming they are derived from this base model class)
         /// </summary>
-        static Dictionary<Type, int> stimulusCounter =
-            new Dictionary<Type, int>();
-
-        /// <summary>
-        /// This collection will keep track of the IDs assigned to
-        /// stimulus objects to ensure a unique name for each object.
-        /// </summary>
-        static List<string> stimulusIDs =
-            new List<string>();
+        static InstanceCounter stimulusInstanceCounter =
+            new InstanceCounter();
 
         /// <summary>
         /// Though no instance of this base class can be created,
         /// this constructor will be called any time an instance
         /// of a derived model class is created.
         /// This constructor will assign default IDs based on
-        /// the counter of the model class type.
+        /// the counter of the model class type,
+        /// and will start with an empty filename.
         /// </summary>
         public StimulusModel()
         {
-            Type modelType = this.GetType();
-            if (!(stimulusCounter.ContainsKey(modelType)))
-            { stimulusCounter.Add(modelType, 0); }
-
-            stimulusCounter[modelType]++;
-            this.ID = modelType.Name + stimulusCounter[modelType].ToString();
+            id = stimulusInstanceCounter.AddInstance(this.GetType());
+            filename = string.Empty;
         }
 
         /// <summary>
@@ -63,12 +53,10 @@ namespace HurPsyLib.Models
             get { return id; }
             set
             {
-                // A new ID will be assigned only if it is unique
-                if (!(stimulusIDs.Contains(value)))
+                // The given ID will be assigned only if verified to be unique
+                if (stimulusInstanceCounter.AddInstanceID(value))
                 {
                     id = value;
-                    // and then it will be remembered
-                    stimulusIDs.Add(id);
                 }
             }
         }

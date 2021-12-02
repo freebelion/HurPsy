@@ -27,7 +27,7 @@ namespace HurPsyLib.Models
                 }
                 else
                 {// Throw an exception indicating invalid size value
-                    throw (new ApplicationException(ErrorStrings.InvalidImageWidth));
+                    throw (new ApplicationException(Strings.InvalidImageWidth));
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace HurPsyLib.Models
                 }
                 else
                 {// Throw an exception indicating invalid size value
-                    throw (new ApplicationException(ErrorStrings.InvalidImageHeight));
+                    throw (new ApplicationException(Strings.InvalidImageHeight));
                 }
             }
         }

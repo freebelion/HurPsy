@@ -4,10 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HurPsyDesignApp"
-        xmlns:prop="clr-namespace:HurPsyDesignApp.Properties"
         mc:Ignorable="d"
         Title="HurPsy Experiment Design Application"
-        FontSize="20" Height="450" Width="800"
+        FontSize="20" Height="640" Width="1024"
         WindowState="Maximized"
         Loaded="Window_Loaded">
 
@@ -55,21 +54,7 @@
 
         <Grid x:Name="DesignGrid"
               Margin="{StaticResource EdgeThickness}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{StaticResource DesignPanelWidth}" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
 
-            <GridSplitter Grid.Column="1"
-                 Background="{StaticResource EdgeBrush}"
-                 Width="{StaticResource SplitterWidth}"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Stretch"
-                 ResizeDirection="Columns" />
-
-            <Rectangle Grid.Column="0" Fill="{StaticResource DesignPanelBrush}"/>
-            <Rectangle Grid.Column="2" Fill="{StaticResource PreviewPanelBrush}"/>
         </Grid>
 
     </DockPanel>

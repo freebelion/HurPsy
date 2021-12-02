@@ -20,11 +20,6 @@ namespace HurPsyDesignApp
     /// </summary>
     public partial class ExperimentDesignWindow : Window
     {
-        /// <summary>
-        /// A private reference to this application's setings
-        /// </summary>
-        private Properties.Settings appSettings;
-
         public ExperimentDesignWindow()
         {
             InitializeComponent();
@@ -32,8 +27,7 @@ namespace HurPsyDesignApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            appSettings = new Properties.Settings();
-            appSettings.Reload(); // load the settings beforehand.
+            
         }
     }
 }
