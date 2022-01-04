@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace HurPsyDesignApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ExperimentDesignWindow.xaml
     /// </summary>
     public partial class ExperimentDesignWindow : Window
     {

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace HurPsyLib.Models
 {
+    /// <summary>
+    /// This class will represent image stimulus objects.
+    /// </summary>
     internal class ImageStimulusModel : StimulusModel
     {
         // Width of the image stimulus
@@ -27,7 +30,7 @@ namespace HurPsyLib.Models
                 }
                 else
                 {// Throw an exception indicating invalid size value
-                    throw (new ApplicationException(Strings.InvalidImageWidth));
+                    throw (new ApplicationException(HurPsyLibStrings.InvalidImageWidth));
                 }
             }
         }
@@ -46,7 +49,7 @@ namespace HurPsyLib.Models
                 }
                 else
                 {// Throw an exception indicating invalid size value
-                    throw (new ApplicationException(Strings.InvalidImageHeight));
+                    throw (new ApplicationException(HurPsyLibStrings.InvalidImageHeight));
                 }
             }
         }

@@ -24,9 +24,8 @@ namespace HurPsyLib.Models
         /// Though no instance of this base class can be created,
         /// this constructor will be called any time an instance
         /// of a derived model class is created.
-        /// This constructor will assign default IDs based on
-        /// the counter of the model class type,
-        /// and will start with an empty filename.
+        /// It will keep track of the derived class instances
+        /// and automatically assign them names.
         /// </summary>
         public StimulusModel()
         {

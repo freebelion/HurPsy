@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace HurPsyLib.Models
 {
+    /// <summary>
+    /// This class will be the base for all model classes
+    /// which will assign locations to stimuli
+    /// within the regions they represent.
+    /// </summary>
     internal abstract class RegionModel
     {
         /// <summary>
@@ -19,7 +24,9 @@ namespace HurPsyLib.Models
         /// <summary>
         /// Though no instance of this base class can be created,
         /// this constructor will be called any time an instance
-        /// of a derived model class is created. 
+        /// of a derived model class is created.
+        /// It will keep track of the derived class instances
+        /// and automatically assign them names.
         public RegionModel()
         {
             id = regionInstanceCounter.AddInstance(this.GetType());
