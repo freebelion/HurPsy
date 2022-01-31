@@ -1,2 +1,12 @@
 # HurPsy
-A library of objects and an application to help design psychology experiments on windows environment
+The center point of the HurPsy project is the WPF-based
+HurPsyLib library which consists of classes and controls
+intended to help design psychology experiments in computer
+environments. In time, there will be sample WPF projects
+which utilize the classes and controls from this library
+in various types of computer-based psychology experiments.
+
+The other important part of the project is HurPsyDesignApp,
+a WPF desktop application which will utilize the library's
+classes and controls to help design psychology experiments
+for computers, without writing code.
