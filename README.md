@@ -10,3 +10,11 @@ The other important part of the project is HurPsyDesignApp,
 a WPF desktop application which will utilize the library's
 classes and controls to help design psychology experiments
 for computers, without writing code.
+
+This markdown file will contain general descriptions of
+the classes and controls in the library and the
+applications making up the project.
+
+There is also a more complete history of the project's
+development process (in pdf format) written in Turkish.
+(Lütfen bakýnýz: HurPsy Geliþtirici Not Defteri.pdf)
