@@ -17,4 +17,4 @@ applications making up the project.
 
 There is also a more complete history of the project's
 development process (in pdf format) written in Turkish.
-(Lütfen bakýnýz: HurPsy Geliþtirici Not Defteri.pdf)
+(LÃ¼tfen bakÄ±nÄ±z: HurPsy GeliÅŸtirici Not Defteri.pdf)
