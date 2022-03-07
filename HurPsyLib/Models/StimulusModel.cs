@@ -69,6 +69,8 @@ namespace HurPsyLib.Models
             get { return filename; }
             set
             {
+                // ISSUE: The filename is not being validated,
+                // because model classes will not get involved with the file system.
                 filename = value;
             }
         }
