@@ -8,7 +8,7 @@ namespace HurPsyLib.Models
 {
     /// <summary>
     /// This class will be the base for all model classes
-    /// which will represent audio/visual stimuli.
+    /// which will represent auditory/visual stimuli.
     /// </summary>
     internal abstract class StimulusModel
     {
@@ -25,7 +25,7 @@ namespace HurPsyLib.Models
         /// this constructor will be called any time an instance
         /// of a derived model class is created.
         /// It will keep track of the derived class instances
-        /// and automatically assign them names.
+        /// and automatically assign them temporary names.
         /// </summary>
         public StimulusModel()
         {
@@ -69,7 +69,7 @@ namespace HurPsyLib.Models
             get { return filename; }
             set
             {
-                // ISSUE: The filename is not being validated,
+                // REMINDER: The filename is not being validated,
                 // because model classes will not get involved with the file system.
                 filename = value;
             }

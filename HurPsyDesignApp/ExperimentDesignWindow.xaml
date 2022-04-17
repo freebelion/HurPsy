@@ -18,44 +18,62 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <DockPanel Background="{StaticResource EdgeBrush}">
-        <Expander x:Name="StimulusObjectsPanel"
-                  DockPanel.Dock="Left"
-                  Background="{StaticResource StimulusObjectsPanelBrush}"
-                  Margin="{StaticResource EdgeThickness}"
-                  Header="Stimulus Objects"
-                  Style="{StaticResource RightExpander}"
-                  MaxWidth="{StaticResource Expander1Width}"
-                  ExpandDirection="Right"
-                  IsExpanded="True">
+    <Border BorderBrush="{StaticResource EdgeBrush}" BorderThickness="{StaticResource EdgeThickness}">
+        <Grid x:Name="mainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Source={StaticResource PanelWidth}}" />
+                <ColumnDefinition Width="{Binding Source={StaticResource SplitterWidth}}" />
+                <ColumnDefinition Width="{Binding Source={StaticResource PanelWidth}}" />
+                <ColumnDefinition Width="{Binding Source={StaticResource SplitterWidth}}" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="leftPanel" Grid.Column="0" Background="Beige">
+                <Expander x:Name="stimulusPanel" IsExpanded="False">
+                    <Expander.Header>
+                        <Border BorderBrush="{StaticResource EdgeBrush}"
+                                BorderThickness="{StaticResource EdgeThickness}">
+                            <TextBlock Background="{StaticResource HeaderBrush}" Text="Stimulus Objects"
+                                       HorizontalAlignment="{Binding HorizontalAlignment,
+                                                    RelativeSource={RelativeSource AncestorType=ContentPresenter},
+                                                    Mode=OneWayToSource}"/>
+                        </Border>
+                    </Expander.Header>
+                    <Expander.Content>
+                        <Grid Background="AliceBlue" Height="{StaticResource PanelHeight}">
+                            
+                        </Grid>
+                    </Expander.Content>
+                </Expander>
 
-            <Expander.Content>
-                <Grid Background="AliceBlue" />
-            </Expander.Content>
-        </Expander>
+                <Expander x:Name="regionsPanel" IsExpanded="False">
+                    <Expander.Header>
+                        <Border BorderBrush="{StaticResource EdgeBrush}"
+                                BorderThickness="{StaticResource EdgeThickness}">
+                            <TextBlock Background="{StaticResource HeaderBrush}" Text="Stimulus Regions"
+                                       HorizontalAlignment="{Binding HorizontalAlignment,
+                                                    RelativeSource={RelativeSource AncestorType=ContentPresenter},
+                                                    Mode=OneWayToSource}"/>
+                        </Border>
+                    </Expander.Header>
+                    <Expander.Content>
+                        <Grid Background="AliceBlue" Height="{StaticResource PanelHeight}">
 
-        <Expander x:Name="StimulusRegionsPanel"
-                  DockPanel.Dock="Left"
-                  Background="{StaticResource StimulusRegionsPanelBrush}"
-                  Margin="{StaticResource EdgeThickness}"
-                  Style="{StaticResource RightExpander}"
-                  MaxWidth="{StaticResource Expander2Width}"
-                  ExpandDirection="Right"
-                  IsExpanded="True">
+                        </Grid>
+                    </Expander.Content>
+                </Expander>
+            </StackPanel>
+            <GridSplitter Grid.Column="1" Background="{StaticResource EdgeBrush}"
+                          Width="{Binding Source={StaticResource SplitterWidth}}"
+                          HorizontalAlignment="Stretch" />
+                <DockPanel x:Name="midPanel" Grid.Column="2" Background="Bisque">
 
-            <Expander.Header>
-                <TextBlock   Text="Stimulus Regions" />
-            </Expander.Header>
-
-            <Expander.Content>
-                <Grid Background="AliceBlue"/>
-            </Expander.Content>
-        </Expander>
-
-        <Grid x:Name="DesignGrid"
-              Margin="{StaticResource EdgeThickness}">
-
+            </DockPanel>
+            <GridSplitter Grid.Column="3" Background="{StaticResource EdgeBrush}"
+                          Width="{Binding Source={StaticResource SplitterWidth}}"
+                          HorizontalAlignment="Stretch" />
+            <Grid x:Name="rightGrid" Grid.Column="4" Background="Wheat">
+                
+            </Grid>
         </Grid>
-
-    </DockPanel>
+    </Border>
 </Window>
