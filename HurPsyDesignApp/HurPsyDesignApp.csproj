@@ -8,7 +8,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\btnAddImageStimulus.png" />
+    <None Remove="Images\btnAddImageStimulus.svg" />
+    <None Remove="Images\btnAddPointRegion.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\btnAddImageStimulus.png" />
+    <Resource Include="Images\btnAddImageStimulus.svg" />
+    <Resource Include="Images\btnAddPointRegion.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\HurPsyLib\HurPsyLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="HurPsyDesignAppStrings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HurPsyDesignAppStrings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="HurPsyDesignAppStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HurPsyDesignAppStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

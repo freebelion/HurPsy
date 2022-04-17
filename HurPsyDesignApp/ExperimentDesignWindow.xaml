@@ -33,9 +33,20 @@
                         <TextBlock Text="Stimulus Objects"/>
                     </Expander.Header>
                     <Expander.Content>
-                        <Grid Background="AliceBlue" Height="{StaticResource PanelHeight}">
-                            
-                        </Grid>
+                        <DockPanel>
+                            <ToolBar DockPanel.Dock="Top">
+                                <Button x:Name="btnAddImageStimulus" Background="SkyBlue"
+                                        ToolTip="{x:Static local:HurPsyDesignAppStrings.Tooltip_btnAddImageStimulus}">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5" />
+                                        </Style>
+                                    </Button.Resources>
+                                    <Image Source="pack://application:,,,/Images/btnAddImageStimulus.png"
+                                           Width="36" Height="36" Stretch="Fill"/>
+                                </Button>
+                            </ToolBar>
+                        </DockPanel>
                     </Expander.Content>
                 </Expander>
 
@@ -44,9 +55,20 @@
                         <TextBlock Text="Stimulus Regions"/>
                     </Expander.Header>
                     <Expander.Content>
-                        <Grid Background="AliceBlue" Height="{StaticResource PanelHeight}">
-
-                        </Grid>
+                        <DockPanel>
+                            <ToolBar DockPanel.Dock="Top">
+                                <Button x:Name="btnAddPointRegion" Background="SkyBlue"
+                                        ToolTip="{x:Static local:HurPsyDesignAppStrings.Tooltip_btnAddPointRegion}">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5" />
+                                        </Style>
+                                    </Button.Resources>
+                                    <Image Source="pack://application:,,,/Images/btnAddPointRegion.png"
+                                           Width="36" Height="36" Stretch="Fill"/>
+                                </Button>
+                            </ToolBar>
+                        </DockPanel>
                     </Expander.Content>
                 </Expander>
             </StackPanel>
