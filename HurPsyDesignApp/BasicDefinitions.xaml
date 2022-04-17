@@ -4,8 +4,9 @@
 
     <System:Double x:Key="PanelWidth">250</System:Double>
     <System:Double x:Key="PanelHeight">350</System:Double>
-    <System:Double x:Key="SplitterWidth">5</System:Double>
-    <Thickness x:Key="EdgeThickness">5</Thickness>
+    <System:Double x:Key="SplitterWidth">2</System:Double>
+    <System:Double x:Key="HeaderHeight">35</System:Double>
+    <Thickness x:Key="EdgeThickness">2</Thickness>
     
     <!-- Named brush definitions -->
     <SolidColorBrush x:Key="EdgeBrush" Color="#555555"/>

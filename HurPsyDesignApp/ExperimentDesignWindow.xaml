@@ -28,15 +28,9 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="leftPanel" Grid.Column="0" Background="Beige">
-                <Expander x:Name="stimulusPanel" IsExpanded="False">
+                <Expander x:Name="stimulusPanel" IsExpanded="False" Template="{StaticResource TopExpander}">
                     <Expander.Header>
-                        <Border BorderBrush="{StaticResource EdgeBrush}"
-                                BorderThickness="{StaticResource EdgeThickness}">
-                            <TextBlock Background="{StaticResource HeaderBrush}" Text="Stimulus Objects"
-                                       HorizontalAlignment="{Binding HorizontalAlignment,
-                                                    RelativeSource={RelativeSource AncestorType=ContentPresenter},
-                                                    Mode=OneWayToSource}"/>
-                        </Border>
+                        <TextBlock Text="Stimulus Objects"/>
                     </Expander.Header>
                     <Expander.Content>
                         <Grid Background="AliceBlue" Height="{StaticResource PanelHeight}">
@@ -45,15 +39,9 @@
                     </Expander.Content>
                 </Expander>
 
-                <Expander x:Name="regionsPanel" IsExpanded="False">
+                <Expander x:Name="regionsPanel" IsExpanded="False" Template="{StaticResource TopExpander}">
                     <Expander.Header>
-                        <Border BorderBrush="{StaticResource EdgeBrush}"
-                                BorderThickness="{StaticResource EdgeThickness}">
-                            <TextBlock Background="{StaticResource HeaderBrush}" Text="Stimulus Regions"
-                                       HorizontalAlignment="{Binding HorizontalAlignment,
-                                                    RelativeSource={RelativeSource AncestorType=ContentPresenter},
-                                                    Mode=OneWayToSource}"/>
-                        </Border>
+                        <TextBlock Text="Stimulus Regions"/>
                     </Expander.Header>
                     <Expander.Content>
                         <Grid Background="AliceBlue" Height="{StaticResource PanelHeight}">
