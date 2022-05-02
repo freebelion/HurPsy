@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -27,7 +28,19 @@ namespace HurPsyDesignApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            // String resources will also be loaded at runtime,
+            // to allow users make use of their localized versions.
+            LoadDynamicResourceDictionary("HurPsyDesignAppStrings.xaml");
+        }
+
+        private void LoadDynamicResourceDictionary(string xamlResourceFileName)
+        {
+            if (System.IO.File.Exists(xamlResourceFileName))
+            {
+                ResourceDictionary resdict =
+                    (ResourceDictionary)XamlReader.Load(System.Xml.XmlReader.Create(xamlResourceFileName));
+                this.Resources.MergedDictionaries.Add(resdict);
+            }
         }
     }
 }

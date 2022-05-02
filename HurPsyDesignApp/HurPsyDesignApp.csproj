@@ -14,8 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Include="bin\Debug\net5.0-windows\HurPsyDesignAppStrings.xaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\btnAddImageStimulus.png" />
-    <Resource Include="Images\btnAddImageStimulus.svg" />
     <Resource Include="Images\btnAddPointRegion.png" />
   </ItemGroup>
 

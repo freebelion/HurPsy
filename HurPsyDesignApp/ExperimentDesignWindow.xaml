@@ -14,6 +14,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="StyleDefinitions.xaml" />
+                <ResourceDictionary Source="HurPsyDesignAppStrings.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -28,44 +29,30 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="leftPanel" Grid.Column="0" Background="Beige">
-                <Expander x:Name="stimulusPanel" IsExpanded="False" Template="{StaticResource TopExpander}">
-                    <Expander.Header>
-                        <TextBlock Text="Stimulus Objects"/>
-                    </Expander.Header>
+                <Expander x:Name="stimulusPanel" IsExpanded="False"
+                          Header="{DynamicResource Header_stimulusPanel}">
                     <Expander.Content>
                         <DockPanel>
                             <ToolBar DockPanel.Dock="Top">
-                                <Button x:Name="btnAddImageStimulus" Background="SkyBlue"
-                                        ToolTip="{x:Static local:HurPsyDesignAppStrings.Tooltip_btnAddImageStimulus}">
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5" />
-                                        </Style>
-                                    </Button.Resources>
-                                    <Image Source="pack://application:,,,/Images/btnAddImageStimulus.png"
-                                           Width="36" Height="36" Stretch="Fill"/>
+                                <Button x:Name="btnAddImageStimulus" Background="{StaticResource ButtonBrush}"
+                                        ToolTip="{DynamicResource Tooltip_btnAddImageStimulus}">
+                                    <Image Source="Images/btnAddImageStimulus.png"
+                                           Height="24" Stretch="Fill"/>
                                 </Button>
                             </ToolBar>
                         </DockPanel>
                     </Expander.Content>
                 </Expander>
 
-                <Expander x:Name="regionsPanel" IsExpanded="False" Template="{StaticResource TopExpander}">
-                    <Expander.Header>
-                        <TextBlock Text="Stimulus Regions"/>
-                    </Expander.Header>
+                <Expander x:Name="regionsPanel" IsExpanded="False"
+                          Header="{DynamicResource Header_regionsPanel}">
                     <Expander.Content>
                         <DockPanel>
                             <ToolBar DockPanel.Dock="Top">
-                                <Button x:Name="btnAddPointRegion" Background="SkyBlue"
-                                        ToolTip="{x:Static local:HurPsyDesignAppStrings.Tooltip_btnAddPointRegion}">
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5" />
-                                        </Style>
-                                    </Button.Resources>
-                                    <Image Source="pack://application:,,,/Images/btnAddPointRegion.png"
-                                           Width="36" Height="36" Stretch="Fill"/>
+                                <Button x:Name="btnAddPointRegion" Background="{StaticResource ButtonBrush}"
+                                        ToolTip="{DynamicResource Tooltip_btnAddPointRegion}">
+                                    <Image Source="Images/btnAddPointRegion.png"
+                                           Height="24" Stretch="Fill"/>
                                 </Button>
                             </ToolBar>
                         </DockPanel>

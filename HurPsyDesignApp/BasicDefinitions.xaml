@@ -12,5 +12,6 @@
     <SolidColorBrush x:Key="EdgeBrush" Color="#555555"/>
     <SolidColorBrush x:Key="PanelBrush" Color="#cccccc"/>
     <SolidColorBrush x:Key="HeaderBrush" Color="#eeeeee"/>
+    <SolidColorBrush x:Key="ButtonBrush" Color="#aaaaff"/>
 
 </ResourceDictionary>

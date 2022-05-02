@@ -117,10 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Header_regionsPanel" xml:space="preserve">
+    <value>Region Definitions</value>
+    <comment>Label for the header button of the panel which hosts the region definitions</comment>
+  </data>
+  <data name="Header_stimulusPanel" xml:space="preserve">
+    <value>Stimulus Definitions</value>
+    <comment>Label for the header button of the panel which hosts the stimulus object definitions</comment>
+  </data>
   <data name="Tooltip_btnAddImageStimulus" xml:space="preserve">
     <value>Add Image Stimulus</value>
+    <comment>Tooltip for the button which adds image stimulus objects</comment>
   </data>
   <data name="Tooltip_btnAddPointRegion" xml:space="preserve">
     <value>Add Point Region</value>
+    <comment>Tooltip for the button which adds point regions</comment>
   </data>
 </root>

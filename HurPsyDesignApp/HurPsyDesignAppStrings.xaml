@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+    <System:String x:Key="Header_regionsPanel">Region Definitions</System:String>
+    <System:String x:Key="Header_stimulusPanel">Stimulus Definitions</System:String>
+    <System:String x:Key="Tooltip_btnAddImageStimulus">Add Image Stimulus</System:String>
+    <System:String x:Key="Tooltip_btnAddPointRegion">Add Point Region</System:String>
+</ResourceDictionary>

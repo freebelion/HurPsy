@@ -13,14 +13,6 @@ namespace HurPsyLib.Models
     internal abstract class StimulusModel
     {
         /// <summary>
-        /// This intermediary object will keep track of
-        /// the stimulus objects according to their class types
-        /// (assuming they are derived from this base model class)
-        /// </summary>
-        static InstanceCounter stimulusInstanceCounter =
-            new InstanceCounter();
-
-        /// <summary>
         /// Though no instance of this base class can be created,
         /// this constructor will be called any time an instance
         /// of a derived model class is created.
@@ -29,7 +21,7 @@ namespace HurPsyLib.Models
         /// </summary>
         public StimulusModel()
         {
-            id = stimulusInstanceCounter.AddInstance(this.GetType());
+            id = InstanceCounter.CreateInstance(this.GetType());
             filename = string.Empty;
         }
 
@@ -53,7 +45,7 @@ namespace HurPsyLib.Models
             set
             {
                 // The given ID will be assigned only if verified to be unique
-                if (stimulusInstanceCounter.AddInstanceID(value))
+                if (InstanceCounter.CreateInstanceID(value))
                 {
                     id = value;
                 }

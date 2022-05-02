@@ -4,27 +4,4 @@
         <ResourceDictionary Source="BasicDefinitions.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <ControlTemplate x:Key="TopExpander" TargetType="{x:Type Expander}">
-        <!--Adapted from: https://www.codeproject.com/Articles/248112/Templating-WPF-Expander-Control -->
-        <DockPanel>
-            <ToggleButton x:Name="ExpanderButton"
-                      DockPanel.Dock="Top"
-                      Background="{StaticResource PanelBrush}" Height="{StaticResource HeaderHeight}"
-                      Content="{TemplateBinding Header}"
-                      IsChecked="{Binding Path=IsExpanded, 
-                        RelativeSource={RelativeSource TemplatedParent}}"
-                      Padding="{StaticResource EdgeThickness}">
-            </ToggleButton>
-            <ContentPresenter x:Name="ExpanderContent"
-                          Visibility="Collapsed"
-                          DockPanel.Dock="Bottom"/>
-        </DockPanel>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsExpanded" Value="True">
-                <Setter TargetName="ExpanderContent" 
-              Property="Visibility" Value="Visible"/>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-    
 </ResourceDictionary>

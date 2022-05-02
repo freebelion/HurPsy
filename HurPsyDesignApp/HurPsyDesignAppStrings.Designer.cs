@@ -61,6 +61,24 @@ namespace HurPsyDesignApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Region Definitions.
+        /// </summary>
+        public static string Header_regionsPanel {
+            get {
+                return ResourceManager.GetString("Header_regionsPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Definitions.
+        /// </summary>
+        public static string Header_stimulusPanel {
+            get {
+                return ResourceManager.GetString("Header_stimulusPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Image Stimulus.
         /// </summary>
         public static string Tooltip_btnAddImageStimulus {

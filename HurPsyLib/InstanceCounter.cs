@@ -4,27 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HurPsyLib.Models
+namespace HurPsyLib
 {
     /// <summary>
-    /// This class will be the mediator helping base classes
-    /// to count and name the instances of their derived classes.
+    /// This class will be the mediator helping the app
+    /// to count and name the instances of all object types.
     /// </summary>
-    internal class InstanceCounter
+    internal static class InstanceCounter
     {
         /// This collection will keep track of
-        /// the instances of derived types.
+        /// the instances of the object types.
         /// </summary>
-        private Dictionary<Type, int> typeCounters;
+        private static Dictionary<Type, int> typeCounters;
 
         /// <summary>
         /// This collection will keep track of the IDs assigned to
-        /// instances of derived types.
+        /// instances of the object types.
         /// </summary>
-        private List<string> objectIDs =
+        private static List<string> objectIDs =
             new List<string>();
 
-        public InstanceCounter()
+        static InstanceCounter()
         {
             typeCounters = new Dictionary<Type, int>();
             objectIDs = new List<string>();
@@ -34,18 +34,18 @@ namespace HurPsyLib.Models
         /// This method increments the instance count of the given type,
         /// after (if necessary) adding the given type to the counter list.
         /// </summary>
-        /// <param name="derivedType"></param>
+        /// <param name="objectType"></param>
         /// <returns>The ID string assigned to the instance</returns>
-        public string AddInstance(Type derivedType)
+        public static string CreateInstance(Type objectType)
         {
-            if (!(typeCounters.ContainsKey(derivedType)))
-            { typeCounters.Add(derivedType, 0); }
+            if (!(typeCounters.ContainsKey(objectType)))
+            { typeCounters.Add(objectType, 0); }
 
-            typeCounters[derivedType]++;
-            return derivedType.Name + typeCounters[derivedType].ToString();
+            typeCounters[objectType]++;
+            return objectType.Name + typeCounters[objectType].ToString();
         }
 
-        public bool AddInstanceID(string assignedID)
+        public static bool CreateInstanceID(string assignedID)
         {
             // A new ID will be assigned only if it is unique
             if (!(objectIDs.Contains(assignedID)))
