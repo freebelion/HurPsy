@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
@@ -11,12 +11,6 @@
     <None Remove="Images\btnAddImageStimulus.png" />
     <None Remove="Images\btnAddImageStimulus.svg" />
     <None Remove="Images\btnAddPointRegion.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Include="bin\Debug\net5.0-windows\HurPsyDesignAppStrings.xaml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Page>
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +35,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>HurPsyDesignAppStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net5.0-windows\" />
   </ItemGroup>
 
 </Project>

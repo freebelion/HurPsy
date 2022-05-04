@@ -24,6 +24,11 @@ namespace HurPsyLib
         private static List<string> objectIDs =
             new List<string>();
 
+        /// <summary>
+        /// The constructor function for this static class creates
+        /// a dictionary structure matching the object types to their counters
+        /// and a list to keep track of the ID strings assigned to object instances.
+        /// </summary>
         static InstanceCounter()
         {
             typeCounters = new Dictionary<Type, int>();
@@ -31,12 +36,13 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// This method increments the instance count of the given type,
+        /// This function creates and returns a new ID for a new instance,
+        /// by incrementing the instance count of the given type,
         /// after (if necessary) adding the given type to the counter list.
         /// </summary>
-        /// <param name="objectType"></param>
+        /// <param name="objectType">The type of the new instance</param>
         /// <returns>The ID string assigned to the instance</returns>
-        public static string CreateInstance(Type objectType)
+        public static string CreateInstanceID(Type objectType)
         {
             if (!(typeCounters.ContainsKey(objectType)))
             { typeCounters.Add(objectType, 0); }
@@ -45,7 +51,13 @@ namespace HurPsyLib
             return objectType.Name + typeCounters[objectType].ToString();
         }
 
-        public static bool CreateInstanceID(string assignedID)
+        /// <summary>
+        /// This function checks the ID string assigned to an instance
+        /// and returns a flag indicating whether or not it is unique.
+        /// </summary>
+        /// <param name="assignedID">The ID string assigned to this instance</param>
+        /// <returns>A boolean flag indicating the ID's uniqueness.</returns>
+        public static bool UniqueInstanceID(string assignedID)
         {
             // A new ID will be assigned only if it is unique
             if (!(objectIDs.Contains(assignedID)))

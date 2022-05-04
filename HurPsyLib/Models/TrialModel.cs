@@ -13,21 +13,44 @@ namespace HurPsyLib.Models
     /// </summary>
     internal class TrialModel
     {
-        private StimulusModel[] trialStimuli;
-        private RegionModel[] trialRegions;
+        private List<string> stimulusIDs;
+        private List<string> regionIDs;
+        private ResponseModel referenceResponse;
+        private ResponseModel givenResponse;
 
         /// <summary>
-        /// The only constructor function for this model class
-        /// receives the references of pre-constructed arrays,
-        /// because stimulus objects and their locations must be
-        /// determined according to the rules of the experiment.
+        /// The default constructor creates empty lists for
+        /// the IDs of stimulus and region objects
+        /// and null references for the expected and actual responses.
         /// </summary>
         /// <param name="stimuliArray"></param>
         /// <param name="regionArray"></param>
         public TrialModel(StimulusModel[] stimuliArray, RegionModel[] regionArray)
         {
-            trialStimuli = stimuliArray;
-            trialRegions = regionArray;
+            stimulusIDs = new List<string>();
+            regionIDs = new List<string>();
+            referenceResponse = null;
+            givenResponse = null;
+        }
+
+        /// <summary>
+        /// The accessor for the expected (correct) response
+        /// for the actual trial represented by this object.
+        /// </summary>
+        public ResponseModel CorrectResponse
+        {
+            get { return referenceResponse; }
+            set { referenceResponse = value; }
+        }
+
+        /// <summary>
+        /// The accessor for the response given for
+        /// the actual trial represented by this object.
+        /// </summary>
+        public ResponseModel ActualResponse
+        {
+            get { return givenResponse; }
+            set { givenResponse = value; }
         }
     }
 }

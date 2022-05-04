@@ -21,7 +21,7 @@ namespace HurPsyLib.Models
         /// and automatically assign them names.
         public RegionModel()
         {
-            id = InstanceCounter.CreateInstance(this.GetType());
+            id = InstanceCounter.CreateInstanceID(this.GetType());
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace HurPsyLib.Models
             set
             {
                 // The given ID will be assigned only if verified to be unique
-                if(InstanceCounter.CreateInstanceID(value))
+                if(InstanceCounter.UniqueInstanceID(value))
                 {
                     id = value;
                 }
