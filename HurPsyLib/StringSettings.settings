@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HurPsyLib" GeneratedClassName="StringSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="InvalidImageHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Invalid height for the image stimulus</Value>
+    </Setting>
+    <Setting Name="InvalidImageWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Invalid width for the image stimulus</Value>
+    </Setting>
+    <Setting Name="InvalidStimulusCount" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Invalid value for the stimulus count in the trial</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

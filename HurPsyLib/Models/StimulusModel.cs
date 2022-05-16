@@ -25,15 +25,11 @@ namespace HurPsyLib.Models
             filename = string.Empty;
         }
 
-        /// <summary>
-        /// An ID string which will define a stimulus object.
-        /// </summary>
+        // An ID string which will define a stimulus object.
         private string id;
 
-        /// <summary>
-        /// The name of the file where the stimulus object
-        /// is stored in the computer environment.
-        /// </summary>
+        // The name of the file where the stimulus object
+        // is stored in the computer environment.
         private string filename;
 
         /// <summary>

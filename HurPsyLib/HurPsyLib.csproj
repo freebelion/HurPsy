@@ -12,18 +12,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="HurPsyLibStrings.Designer.cs">
-      <DesignTime>True</DesignTime>
+    <Compile Update="StringSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
-      <DependentUpon>HurPsyLibStrings.resx</DependentUpon>
+      <DependentUpon>StringSettings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="HurPsyLibStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>HurPsyLibStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <None Update="StringSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>StringSettings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

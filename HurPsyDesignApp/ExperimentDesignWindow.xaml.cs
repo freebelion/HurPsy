@@ -28,9 +28,7 @@ namespace HurPsyDesignApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // String resources will also be loaded at runtime,
-            // to allow users make use of their localized versions.
-            LoadDynamicResourceDictionary("HurPsyDesignAppStrings.xaml");
+            
         }
 
         private void LoadDynamicResourceDictionary(string xamlResourceFileName)
@@ -41,6 +39,17 @@ namespace HurPsyDesignApp
                     (ResourceDictionary)XamlReader.Load(System.Xml.XmlReader.Create(xamlResourceFileName));
                 this.Resources.MergedDictionaries.Add(resdict);
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ValueSettings.Default.Save();
+        }
+
+        private void GridSplitter_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            ValueSettings.Default.DefinitionsPanelWidth = mainGrid.ColumnDefinitions[0].ActualWidth;
+            ValueSettings.Default.BlockDesignPanelWidth = mainGrid.ColumnDefinitions[2].ActualWidth;
         }
     }
 }

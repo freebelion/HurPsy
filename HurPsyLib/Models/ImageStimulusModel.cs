@@ -30,7 +30,7 @@ namespace HurPsyLib.Models
                 }
                 else
                 {// Throw an exception indicating invalid size value
-                    throw (new ApplicationException(HurPsyLibStrings.InvalidImageWidth));
+                    throw new ApplicationException(Globals.HurPsyLibStrings.InvalidImageWidth);
                 }
             }
         }
@@ -49,7 +49,7 @@ namespace HurPsyLib.Models
                 }
                 else
                 {// Throw an exception indicating invalid size value
-                    throw (new ApplicationException(HurPsyLibStrings.InvalidImageHeight));
+                    throw new ApplicationException(Globals.HurPsyLibStrings.InvalidImageHeight);
                 }
             }
         }

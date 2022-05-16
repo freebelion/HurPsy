@@ -9,8 +9,10 @@ namespace HurPsyLib.Models
     /// <summary>
     /// This class will act as the base class for all model classes
     /// representing different types of experimental responses.
+    /// However, it can have its own istances for null responses,
+    /// which only require waiting for the period specified as the responseTime.
     /// </summary>
-    internal abstract class ResponseModel
+    internal class ResponseModel
     {
         // Response time (in milliseconds)
         private double responseTime;
@@ -39,10 +41,10 @@ namespace HurPsyLib.Models
         }
 
         /// <summary>
-        /// The function which must be overridden by the derived classes
+        /// The function which can be overridden by the derived classes
         /// to determine whether or not a given response is correct.
         /// </summary>
-        /// <returns></returns>
-        public abstract bool IsCorrect(ResponseModel comparedResponse);
+        /// <returns>true</returns>
+        public virtual bool IsCorrect(ResponseModel comparedResponse) { return true; }
     }
 }

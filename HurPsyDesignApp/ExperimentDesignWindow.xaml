@@ -8,34 +8,37 @@
         Title="HurPsy Experiment Design Application"
         FontSize="20" Height="640" Width="1024"
         WindowState="Maximized"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
 
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="StyleDefinitions.xaml" />
-                <ResourceDictionary Source="HurPsyDesignAppStrings.xaml" />
+                <ResourceDictionary Source="HurPsyColorDefinitions.xaml" />
+                <ResourceDictionary Source="HurPsyStyleDefinitions.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <local:ValueSettings x:Key="HurPsyAppValues"/>
+            <local:StringSettings x:Key="HurPsyAppStrings"/>
         </ResourceDictionary>
     </Window.Resources>
 
-    <Border BorderBrush="{StaticResource EdgeBrush}" BorderThickness="{StaticResource EdgeThickness}">
+    <Border BorderBrush="{StaticResource EdgeBrush}" BorderThickness="{Binding Source={StaticResource HurPsyAppValues}, Path=EdgeThickness}">
         <Grid x:Name="mainGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{Binding Source={StaticResource PanelWidth}}" />
-                <ColumnDefinition Width="{Binding Source={StaticResource SplitterWidth}}" />
-                <ColumnDefinition Width="{Binding Source={StaticResource PanelWidth}}" />
-                <ColumnDefinition Width="{Binding Source={StaticResource SplitterWidth}}" />
+                <ColumnDefinition Width="{Binding Source={StaticResource HurPsyAppValues}, Path=DefinitionsPanelWidth}" />
+                <ColumnDefinition Width="{Binding Source={StaticResource HurPsyAppValues}, Path=SplitterWidth}" />
+                <ColumnDefinition Width="{Binding Source={StaticResource HurPsyAppValues}, Path=BlockDesignPanelWidth}" />
+                <ColumnDefinition Width="{Binding Source={StaticResource HurPsyAppValues}, Path=SplitterWidth}" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel x:Name="leftPanel" Grid.Column="0" Background="Beige">
-                <Expander x:Name="stimulusPanel" IsExpanded="False"
-                          Header="{DynamicResource Header_stimulusPanel}">
+            <StackPanel x:Name="LeftPanel" Grid.Column="0">
+                <Expander x:Name="StimulusDefinitionsPanel" IsExpanded="False" Background="{StaticResource PanelBrush}"
+                          Header="{Binding Source={StaticResource HurPsyAppStrings}, Path=Header_StimulusDefinitionsPanel}">
                     <Expander.Content>
                         <DockPanel>
                             <ToolBar DockPanel.Dock="Top">
-                                <Button x:Name="btnAddImageStimulus" Background="{StaticResource ButtonBrush}"
-                                        ToolTip="{DynamicResource Tooltip_btnAddImageStimulus}">
+                                <Button x:Name="AddImageStimulusButton" Background="{StaticResource ButtonBrush}"
+                                        ToolTip="{Binding Source={StaticResource HurPsyAppStrings}, Path=Tooltip_AddImageStimulusButton}">
                                     <Image Source="Images/btnAddImageStimulus.png"
                                            Height="24" Stretch="Fill"/>
                                 </Button>
@@ -44,13 +47,13 @@
                     </Expander.Content>
                 </Expander>
 
-                <Expander x:Name="regionsPanel" IsExpanded="False"
-                          Header="{DynamicResource Header_regionsPanel}">
+                <Expander x:Name="PositionDefinitionsPanel" IsExpanded="False" Background="{StaticResource PanelBrush}"
+                          Header="{Binding Source={StaticResource HurPsyAppStrings}, Path=Header_PositionDefinitionsPanel}">
                     <Expander.Content>
                         <DockPanel>
                             <ToolBar DockPanel.Dock="Top">
                                 <Button x:Name="btnAddPointRegion" Background="{StaticResource ButtonBrush}"
-                                        ToolTip="{DynamicResource Tooltip_btnAddPointRegion}">
+                                        ToolTip="{Binding Source={StaticResource HurPsyAppStrings}, Path=Tooltip_AddPointPositionButton}">
                                     <Image Source="Images/btnAddPointRegion.png"
                                            Height="24" Stretch="Fill"/>
                                 </Button>
@@ -60,15 +63,14 @@
                 </Expander>
             </StackPanel>
             <GridSplitter Grid.Column="1" Background="{StaticResource EdgeBrush}"
-                          Width="{Binding Source={StaticResource SplitterWidth}}"
-                          HorizontalAlignment="Stretch" />
-                <DockPanel x:Name="midPanel" Grid.Column="2" Background="Bisque">
+                          Width="{Binding Source={StaticResource ValueSettings}, Path=SplitterWidth}"
+                          HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted" />
+                <DockPanel x:Name="midPanel" Grid.Column="2">
 
             </DockPanel>
             <GridSplitter Grid.Column="3" Background="{StaticResource EdgeBrush}"
-                          Width="{Binding Source={StaticResource SplitterWidth}}"
-                          HorizontalAlignment="Stretch" />
-            <Grid x:Name="rightGrid" Grid.Column="4" Background="Wheat">
+                          Width="{Binding Source={StaticResource ValueSettings}, Path=SplitterWidth}"/>
+            <Grid x:Name="rightGrid" Grid.Column="4">
                 
             </Grid>
         </Grid>

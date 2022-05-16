@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Named brush definitions -->
+    <SolidColorBrush x:Key="EdgeBrush" Color="#555555"/>
+    <SolidColorBrush x:Key="PanelBrush" Color="#cccccc"/>
+    <SolidColorBrush x:Key="ButtonBrush" Color="#aaaaaa"/>
+
+</ResourceDictionary>

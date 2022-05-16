@@ -23,22 +23,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="HurPsyDesignAppStrings.Designer.cs">
-      <DesignTime>True</DesignTime>
+    <Folder Include="bin\Debug\net5.0-windows\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="StringSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
-      <DependentUpon>HurPsyDesignAppStrings.resx</DependentUpon>
+      <DependentUpon>StringSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="ValueSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValueSettings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="HurPsyDesignAppStrings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HurPsyDesignAppStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="bin\Debug\net5.0-windows\" />
+    <None Update="StringSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>StringSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="ValueSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ValueSettings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

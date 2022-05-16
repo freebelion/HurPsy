@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HurPsyDesignApp" GeneratedClassName="StringSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Header_PositionDefinitionsPanel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Position Definitions</Value>
+    </Setting>
+    <Setting Name="Header_StimulusDefinitionsPanel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Stimulus Definitions</Value>
+    </Setting>
+    <Setting Name="Tooltip_AddImageStimulusButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Add Image Stimulus</Value>
+    </Setting>
+    <Setting Name="Tooltip_AddPointPositionButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Add Point Position</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
