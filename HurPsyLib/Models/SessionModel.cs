@@ -10,7 +10,7 @@ namespace HurPsyLib.Models
     /// This class will represent an experimental session
     /// made up of a number of trial blocks.
     /// </summary>
-    internal class ExperimentModel
+    internal class SessionModel
     {
         // The name of the experiment
         private string experimentName;
@@ -26,13 +26,14 @@ namespace HurPsyLib.Models
         private TrialModel endTrial;
 
         /// <summary>
-        /// The constructor will assign a temporary name to the experiment,
+        /// The constructor will require the name of the experiment,
         /// create a Guid-based session ID, create an empty list of trial blocks,
         /// along with two trials to appear at the beginning and the end of the session.
         /// </summary>
-        public ExperimentModel()
+        /// <param name="expname"></param>
+        public SessionModel(string expname)
         {
-            experimentName = "Experiment";
+            experimentName = expname;
             sessionID = Guid.NewGuid().ToString();
             trialBlocks = new List<BlockModel>();
             startTrial = new TrialModel();
@@ -40,28 +41,19 @@ namespace HurPsyLib.Models
         }
 
         /// <summary>
-        /// The acessor property for the name of the experiment
+        /// The read-only accessor property for the name of the experiment
         /// </summary>
-        public string Name
+        public string ExperimentName
         {
             get { return experimentName; }
-            set { experimentName = value; }
         }
 
         /// <summary>
-        /// The acessor property for the session ID
+        /// The read-only accessor property for the session ID
         /// </summary>
         public string SessionID
         {
             get { return sessionID; }
-            set
-            {
-                // The given ID will be assigned only if verified to be unique
-                if (InstanceCounter.UniqueInstanceID(value))
-                {
-                    sessionID = value;
-                }
-            }
         }
 
         /// <summary>
@@ -83,6 +75,24 @@ namespace HurPsyLib.Models
             { return trialBlocks[index]; }
             else
             { return null; }
+        }
+
+        /// <summary>
+        /// The accessor property for the starting trial for this block
+        /// </summary>
+        /// <returns>The reference to the startTrial object</returns>
+        public TrialModel StartTrial
+        {
+            get { return startTrial; }
+        }
+
+        /// <summary>
+        /// The accessor property for the ending trial for this block
+        /// </summary>
+        /// <returns>The reference to the endTrial object</returns>
+        public TrialModel EndTrial
+        {
+            get { return endTrial; }
         }
     }
 }

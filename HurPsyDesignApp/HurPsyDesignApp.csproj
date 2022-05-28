@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+    <Page Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Images\btnAddImageStimulus.png" />
     <None Remove="Images\btnAddImageStimulus.svg" />
     <None Remove="Images\btnAddPointRegion.png" />
@@ -24,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="bin\Debug\net5.0-windows\" />
-    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>

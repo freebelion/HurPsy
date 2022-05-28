@@ -95,12 +95,21 @@ namespace HurPsyLib.Models
         }
 
         /// <summary>
-        /// The function to access the end trial for this block
+        /// The accessor property for the starting trial for this block
+        /// </summary>
+        /// <returns>The reference to the startTrial object</returns>
+        public TrialModel StartTrial
+        {
+            get { return startTrial; }
+        }
+
+        /// <summary>
+        /// The accessor property for the ending trial for this block
         /// </summary>
         /// <returns>The reference to the endTrial object</returns>
-        public TrialModel GetEndTrial()
+        public TrialModel EndTrial
         {
-            return endTrial;
+            get { return endTrial; }
         }
     }
 }
