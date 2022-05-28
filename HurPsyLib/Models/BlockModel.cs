@@ -6,22 +6,33 @@ using System.Threading.Tasks;
 
 namespace HurPsyLib.Models
 {
+    /// <summary>
+    /// This class will represent a block of trials
+    /// </summary>
     internal class BlockModel
     {
         // The id string that defines the block
-        private string id;
+        private string blockID;
         // The list of trials making up the block
         private List<TrialModel> blockTrials;
         // The list of in-between trials (one for every block trial)
         private List<TrialModel> interimTrials;
-        // The end-of block trial
+        // The start-of-the-block trial
+        private TrialModel startTrial;
+        // The end-of-the-block trial
         private TrialModel endTrial;
 
+        /// <summary>
+        /// The constructor will assign a unique ID temporarily,
+        /// while also creating the starting and ending trials,
+        /// along with an empty list of trials which will make up this block.
+        /// </summary>
         public BlockModel()
         {
-            id = InstanceCounter.CreateInstanceID(this.GetType());
+            blockID = InstanceCounter.CreateInstanceID(this.GetType());
             blockTrials = new List<TrialModel>();
             interimTrials = new List<TrialModel>();
+            startTrial = new TrialModel();
             endTrial = new TrialModel();
         }
 
@@ -30,13 +41,13 @@ namespace HurPsyLib.Models
         /// </summary>
         public string ID
         {
-            get { return id; }
+            get { return blockID; }
             set
             {
                 // The given ID will be assigned only if verified to be unique
                 if (InstanceCounter.UniqueInstanceID(value))
                 {
-                    id = value;
+                    blockID = value;
                 }
             }
         }
