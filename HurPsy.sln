@@ -15,7 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyStrings", "HurPsyStri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyExp1", "HurPsyExp1\HurPsyExp1.csproj", "{DE179C29-1D21-4C99-8D5A-98E02C53D8EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurPsyWinForms", "HurPsyWinForms\HurPsyWinForms.csproj", "{A8DBC959-3B0C-4810-978A-5D5D87913AF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyWinForms", "HurPsyWinForms\HurPsyWinForms.csproj", "{A8DBC959-3B0C-4810-978A-5D5D87913AF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27BC09EF-6DF8-461B-8762-6B0B65DE1334}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
