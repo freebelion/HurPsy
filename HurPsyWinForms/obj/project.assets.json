@@ -51,9 +51,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyWinForms\\HurPsyWinForms.csproj",
+      "projectUniqueName": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyWinForms\\HurPsyWinForms.csproj",
       "projectName": "HurPsyWinForms",
-      "projectPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyWinForms\\HurPsyWinForms.csproj",
+      "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyWinForms\\HurPsyWinForms.csproj",
       "packagesPath": "C:\\Users\\freeb\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyWinForms\\obj\\",
       "projectStyle": "PackageReference",
@@ -77,8 +77,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj": {
-              "projectPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj"
+            "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj": {
+              "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj"
             }
           }
         }

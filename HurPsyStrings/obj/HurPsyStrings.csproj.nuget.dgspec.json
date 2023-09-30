@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj": {}
+    "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj": {}
   },
   "projects": {
-    "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj": {
+    "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj",
+        "projectUniqueName": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj",
         "projectName": "HurPsyStrings",
-        "projectPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj",
+        "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyStrings\\HurPsyStrings.csproj",
         "packagesPath": "C:\\Users\\freeb\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyStrings\\obj\\",
         "projectStyle": "PackageReference",

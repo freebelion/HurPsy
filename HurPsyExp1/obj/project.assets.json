@@ -51,9 +51,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyExp1\\HurPsyExp1.csproj",
+      "projectUniqueName": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExp1\\HurPsyExp1.csproj",
       "projectName": "HurPsyExp1",
-      "projectPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyExp1\\HurPsyExp1.csproj",
+      "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExp1\\HurPsyExp1.csproj",
       "packagesPath": "C:\\Users\\freeb\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyExp1\\obj\\",
       "projectStyle": "PackageReference",
@@ -77,8 +77,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj": {
-              "projectPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj"
+            "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj": {
+              "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj"
             }
           }
         }
