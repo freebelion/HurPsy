@@ -11,3 +11,4 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyStrings\obj\Debug\net6.0\HurPsyStrings.
 C:\Users\freeb\source\repos\HurPsy\HurPsyStrings\obj\Debug\net6.0\refint\HurPsyStrings.dll
 C:\Users\freeb\source\repos\HurPsy\HurPsyStrings\obj\Debug\net6.0\HurPsyStrings.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyStrings\obj\Debug\net6.0\ref\HurPsyStrings.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyStrings\obj\Debug\net6.0\HurPsyStrings.sourcelink.json

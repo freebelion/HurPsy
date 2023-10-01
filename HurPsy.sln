@@ -5,7 +5,6 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gunluk", "Gunluk", "{1CB43066-7525-4BDC-B55B-3F5260399E4D}"
 	ProjectSection(SolutionItems) = preProject
-		Gunluk.docx = Gunluk.docx
 		Gunluk.pdf = Gunluk.pdf
 	EndProjectSection
 EndProject

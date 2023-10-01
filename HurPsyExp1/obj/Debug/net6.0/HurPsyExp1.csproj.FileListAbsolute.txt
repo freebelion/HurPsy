@@ -18,3 +18,4 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyExp1\obj\Debug\net6.0\refint\HurPsyExp1
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp1\obj\Debug\net6.0\HurPsyExp1.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp1\obj\Debug\net6.0\HurPsyExp1.genruntimeconfig.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp1\obj\Debug\net6.0\ref\HurPsyExp1.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyExp1\obj\Debug\net6.0\HurPsyExp1.sourcelink.json

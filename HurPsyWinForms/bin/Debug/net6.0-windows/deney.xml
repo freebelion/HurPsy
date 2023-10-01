@@ -103,6 +103,7 @@
       <d2p1:Value i:type="PointLocator">
         <Id>merkez</Id>
         <LocatorPoint xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
           <d5p1:pointX>0</d5p1:pointX>
           <d5p1:pointY>0</d5p1:pointY>
         </LocatorPoint>
@@ -110,7 +111,6 @@
     </d2p1:KeyValueOfstringLocatorRYLaHDur>
   </LocatorDict>
   <Name></Name>
-  <OriginChoice>MiddleCenter</OriginChoice>
   <StimulusDict xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
     <d2p1:KeyValueOfstringStimulusRYLaHDur>
       <d2p1:Key>img1</d2p1:Key>
@@ -118,6 +118,7 @@
         <FileName>img1.png</FileName>
         <Id>img1</Id>
         <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
           <d5p1:sizeX>10</d5p1:sizeX>
           <d5p1:sizeY>10</d5p1:sizeY>
         </ImageSize>
@@ -129,6 +130,7 @@
         <FileName>img2.png</FileName>
         <Id>img2</Id>
         <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
           <d5p1:sizeX>10</d5p1:sizeX>
           <d5p1:sizeY>10</d5p1:sizeY>
         </ImageSize>
@@ -140,6 +142,7 @@
         <FileName>img3.png</FileName>
         <Id>img3</Id>
         <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
           <d5p1:sizeX>10</d5p1:sizeX>
           <d5p1:sizeY>10</d5p1:sizeY>
         </ImageSize>
@@ -151,6 +154,7 @@
         <FileName>img4.png</FileName>
         <Id>img4</Id>
         <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
           <d5p1:sizeX>10</d5p1:sizeX>
           <d5p1:sizeY>10</d5p1:sizeY>
         </ImageSize>
@@ -162,6 +166,7 @@
         <FileName>img5.png</FileName>
         <Id>img5</Id>
         <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
           <d5p1:sizeX>10</d5p1:sizeX>
           <d5p1:sizeY>10</d5p1:sizeY>
         </ImageSize>
@@ -173,6 +178,7 @@
         <FileName>img6.png</FileName>
         <Id>img6</Id>
         <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
           <d5p1:sizeX>10</d5p1:sizeX>
           <d5p1:sizeY>10</d5p1:sizeY>
         </ImageSize>

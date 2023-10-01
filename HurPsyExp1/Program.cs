@@ -37,8 +37,6 @@ namespace HurPsyExp1
             }
 
             exp.SaveToXml("deney.xml");
-
-            Experiment? exp2 = Experiment.LoadFromXml("deney.xml");
         }
     }
 }

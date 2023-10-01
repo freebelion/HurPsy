@@ -33,11 +33,9 @@ utilizing the library classes.
 That step will help perfect the visual interface
 which will eventually be used in a cross-platform
 design application based on .NET Maui.
-This final step will be the final step
-which may be developed as a properietary application,
+This final step may be developed as a properietary application,
 because it will require developer licenses for multiple platforms.
 
 After sufficient progress has been made on the projects,
 each one will have their own README files which should help
-other developers who may want to use them as bases
-for their own similar projects.
+describe the projects to the developers from international community.
