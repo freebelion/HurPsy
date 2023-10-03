@@ -16,11 +16,10 @@ namespace HurPsyWinForms
         {
             TestExperiment = exp;
             TrialViewControl = new TrialView();
-            TrialViewControl.Load += TrialViewControl_Load;
             TrialViewControl.TrialEnded += TrialViewControl_TrialEnded;
         }
 
-        private void TrialViewControl_Load(object? sender, EventArgs e)
+        public void StartExperiment()
         {
             MessageBox.Show("Click OK to start the experiment");
             DisplayCurrentStep();
@@ -35,6 +34,7 @@ namespace HurPsyWinForms
             else
             {
                 MessageBox.Show("Click OK to end the experiment");
+                Application.Exit();
             }
         }
 
@@ -45,7 +45,19 @@ namespace HurPsyWinForms
             TrialViewControl.StimulusCount = currentStep.StimulusCount;
             for(int i=0; i < currentStep.StimulusCount; i++)
             {
-
+                Stimulus stim = TestExperiment.GetStimulus(currentStep.GetStimulusId(i));
+                Locator loc = TestExperiment.GetLocator(currentStep.GetLocatorId(i));
+                if (stim is ImageStimulus)
+                {
+                    StimulusView stimView = TrialViewControl.GetStimulusView(i);
+                    ImageStimulus? imgstim = stim as ImageStimulus;
+                    if (imgstim != null)
+                    {
+                        stimView.SetSize(TrialViewControl, imgstim.ImageSize);
+                        stimView.SetLocation(TrialViewControl, loc.GetLocation());
+                        stimView.SetImage(imgstim.FileName);
+                    }
+                }              
             }
 
             HurPsyTimePeriod? period = currentStep.StepTime;

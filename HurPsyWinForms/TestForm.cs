@@ -22,6 +22,7 @@ namespace HurPsyWinForms
                     ExperimentViewModel expvm = new ExperimentViewModel(testExperiment);
                     this.Controls.Add(expvm.TrialViewControl);
                     expvm.TrialViewControl.Dock = DockStyle.Fill;
+                    expvm.StartExperiment();
                 }
             }
         }       

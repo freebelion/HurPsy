@@ -38,6 +38,7 @@ namespace HurPsyWinForms
                     StimulusView stimView = new StimulusView();
                     stimView.Visible = false;
                     this.Controls.Add(stimView);
+                    stimulusViews.Add(stimView);
                 }
             }
         }
@@ -63,12 +64,15 @@ namespace HurPsyWinForms
         }
 
         private void HideStimulusViews()
-        { foreach (StimulusView stimView in stimulusViews) { stimView.Hide(); } }
+        { 
+            foreach (StimulusView stimView in stimulusViews) { stimView.Hide(); }
+        }
 
         private void TrialTimer_Tick(object sender, EventArgs e)
         {
             TrialTimer.Stop();
             HideStimulusViews();
+            OnTrialEnded(new EventArgs());
         }
 
         public event EventHandler? TrialEnded;

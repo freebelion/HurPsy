@@ -36,7 +36,7 @@ namespace HurPsyExp1
                 stp.AddStimulusLocatorPair("img" + i.ToString(), "merkez");
             }
 
-            exp.SaveToXml("deney.xml");
+            exp.SaveToXml("deney1.xml");
         }
     }
 }

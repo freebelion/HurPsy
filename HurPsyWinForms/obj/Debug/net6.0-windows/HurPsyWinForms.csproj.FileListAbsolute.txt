@@ -22,3 +22,4 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyWinForms\obj\Debug\net6.0-windows\HurPs
 C:\Users\freeb\source\repos\HurPsy\HurPsyWinForms\obj\Debug\net6.0-windows\HurPsyWinForms.csproj.CopyComplete
 C:\Users\freeb\source\repos\HurPsy\HurPsyWinForms\obj\Debug\net6.0-windows\HurPsyWinForms.StimulusView.resources
 C:\Users\freeb\source\repos\HurPsy\HurPsyWinForms\obj\Debug\net6.0-windows\HurPsyWinForms.TrialView.resources
+C:\Users\freeb\source\repos\HurPsy\HurPsyWinForms\obj\Debug\net6.0-windows\HurPsyWinForms.sourcelink.json

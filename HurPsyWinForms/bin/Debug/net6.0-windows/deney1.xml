@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Experiment xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/HurPsyLib">
+  <Blocks>
+    <Experiment.Block>
+      <Name></Name>
+      <Trials>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT0.5S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>merkez</LocatorId>
+                  <StimulusId>img1</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT0.5S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>merkez</LocatorId>
+                  <StimulusId>img2</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT0.5S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>merkez</LocatorId>
+                  <StimulusId>img3</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT0.5S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>merkez</LocatorId>
+                  <StimulusId>img4</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT0.5S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>merkez</LocatorId>
+                  <StimulusId>img5</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT0.5S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>merkez</LocatorId>
+                  <StimulusId>img6</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+      </Trials>
+    </Experiment.Block>
+  </Blocks>
+  <LocatorDict xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>merkez</d2p1:Key>
+      <d2p1:Value i:type="PointLocator">
+        <Id>merkez</Id>
+        <LocatorPoint xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:pointX>0</d5p1:pointX>
+          <d5p1:pointY>0</d5p1:pointY>
+        </LocatorPoint>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+  </LocatorDict>
+  <Name></Name>
+  <StimulusDict xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>img1</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>img1.png</FileName>
+        <Id>img1</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:sizeX>100</d5p1:sizeX>
+          <d5p1:sizeY>100</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>img2</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>img2.png</FileName>
+        <Id>img2</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:sizeX>100</d5p1:sizeX>
+          <d5p1:sizeY>100</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>img3</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>img3.png</FileName>
+        <Id>img3</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:sizeX>100</d5p1:sizeX>
+          <d5p1:sizeY>100</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>img4</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>img4.png</FileName>
+        <Id>img4</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:sizeX>100</d5p1:sizeX>
+          <d5p1:sizeY>100</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>img5</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>img5.png</FileName>
+        <Id>img5</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:sizeX>100</d5p1:sizeX>
+          <d5p1:sizeY>100</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>img6</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>img6.png</FileName>
+        <Id>img6</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:sizeX>100</d5p1:sizeX>
+          <d5p1:sizeY>100</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+  </StimulusDict>
+</Experiment>
