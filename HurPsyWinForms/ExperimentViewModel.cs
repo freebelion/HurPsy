@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HurPsyLib;
+using Microsoft.VisualBasic.Logging;
 
 namespace HurPsyWinForms
 {
@@ -48,22 +49,25 @@ namespace HurPsyWinForms
                 Stimulus stim = TestExperiment.GetStimulus(currentStep.GetStimulusId(i));
                 Locator loc = TestExperiment.GetLocator(currentStep.GetLocatorId(i));
                 if (stim is ImageStimulus)
-                {
-                    StimulusView stimView = TrialViewControl.GetStimulusView(i);
-                    ImageStimulus? imgstim = stim as ImageStimulus;
-                    if (imgstim != null)
-                    {
-                        stimView.SetSize(TrialViewControl, imgstim.ImageSize);
-                        stimView.SetLocation(TrialViewControl, loc.GetLocation());
-                        stimView.SetImage(imgstim.FileName);
-                    }
-                }              
+                { DisplayImageStimulus(i, stim, loc); }              
             }
 
             HurPsyTimePeriod? period = currentStep.StepTime;
             if (period != null)
             {
                 TrialViewControl.StartTrial(period.Milliseconds);
+            }
+        }
+
+        private void DisplayImageStimulus(int index, Stimulus stim, Locator loc)
+        {
+            StimulusView stimView = TrialViewControl.GetStimulusView(index);
+            ImageStimulus? imgstim = stim as ImageStimulus;
+            if (imgstim != null)
+            {
+                stimView.SetSize(TrialViewControl, imgstim.ImageSize);
+                stimView.SetLocation(TrialViewControl, loc.GetLocation());
+                stimView.SetImage(imgstim.FileName);
             }
         }
     }

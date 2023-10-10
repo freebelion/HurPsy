@@ -29,6 +29,8 @@ public class HurPsyPoint
     private double pointY;
     [DataMember]
     public HurPsyOrigin OriginChoice { get; set; }
+    [DataMember]
+    public HurPsyUnit LengthUnit { get; set; }
 
     public HurPsyPoint()
     { pointX = 0; pointY = 0; } 
@@ -61,9 +63,7 @@ public class HurPsyPoint
             else { pointY = value; }
         }
     }
-
-    public HurPsyUnit LengthUnit { get; set; }
-
+  
     public HurPsyPoint ShallowCopy()
     {
         return new HurPsyPoint(pointX, pointY);
@@ -79,6 +79,8 @@ public class HurPsySize
     private double sizeY;
     [DataMember]
     public HurPsyOrigin OriginChoice { get; set; }
+    [DataMember]
+    public HurPsyUnit SizeUnit { get; set; }
 
     public HurPsySize()
     { sizeX = 0; sizeY = 0; }
@@ -111,8 +113,6 @@ public class HurPsySize
             else { sizeY = value; }
         }
     }
-
-    public HurPsyUnit SizeUnit { get; set; }
 
     public HurPsySize ShallowCopy()
     {
@@ -180,6 +180,7 @@ public class HurPsyException : Exception
 
 public static class HurPsyCommon
 {
+    public static Random Rnd = new Random((int) DateTime.Now.Ticks);
     public static string GetObjectGuid(object obj)
     { return obj.GetType().Name + "_" + Guid.NewGuid().ToString().Substring(0, 8); }
 }

@@ -18,6 +18,8 @@ namespace HurPsyWinForms
                 opf.Multiselect = false;
                 if (opf.ShowDialog() == DialogResult.OK)
                 {
+                    FileInfo expfile = new FileInfo(opf.FileName);
+                    Directory.SetCurrentDirectory(expfile.DirectoryName);
                     Experiment testExperiment = Experiment.LoadFromXml(opf.FileName);
                     ExperimentViewModel expvm = new ExperimentViewModel(testExperiment);
                     this.Controls.Add(expvm.TrialViewControl);

@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 namespace HurPsyLib
 {
     [DataContract]
+    [KnownType(typeof(RectangleLocator))]
     [KnownType(typeof(PointLocator))]
     public abstract class Locator
     {
@@ -17,6 +18,6 @@ namespace HurPsyLib
 
         public Locator() { Id = HurPsyCommon.GetObjectGuid(this); }
 
-        public abstract HurPsyPoint GetLocation();
+        public abstract HurPsyPoint GetLocation(Stimulus? stim = null);
     }
 }

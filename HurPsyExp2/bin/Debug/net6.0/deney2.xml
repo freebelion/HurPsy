@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Experiment xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/HurPsyLib">
+  <Blocks>
+    <Experiment.Block>
+      <Name></Name>
+      <Trials>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek1</LocatorId>
+                  <StimulusId>daire1</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek2</LocatorId>
+                  <StimulusId>daire1</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek3</LocatorId>
+                  <StimulusId>daire1</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek4</LocatorId>
+                  <StimulusId>daire1</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek1</LocatorId>
+                  <StimulusId>daire2</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek2</LocatorId>
+                  <StimulusId>daire2</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek3</LocatorId>
+                  <StimulusId>daire2</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek4</LocatorId>
+                  <StimulusId>daire2</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek1</LocatorId>
+                  <StimulusId>daire3</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek2</LocatorId>
+                  <StimulusId>daire3</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek3</LocatorId>
+                  <StimulusId>daire3</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek4</LocatorId>
+                  <StimulusId>daire3</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek1</LocatorId>
+                  <StimulusId>daire4</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek2</LocatorId>
+                  <StimulusId>daire4</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek3</LocatorId>
+                  <StimulusId>daire4</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek4</LocatorId>
+                  <StimulusId>daire4</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek1</LocatorId>
+                  <StimulusId>daire5</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek2</LocatorId>
+                  <StimulusId>daire5</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek3</LocatorId>
+                  <StimulusId>daire5</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek4</LocatorId>
+                  <StimulusId>daire5</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek1</LocatorId>
+                  <StimulusId>daire6</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek2</LocatorId>
+                  <StimulusId>daire6</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek3</LocatorId>
+                  <StimulusId>daire6</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+        <Experiment.Trial>
+          <Steps>
+            <Experiment.TrialStep>
+              <StepTime xmlns:d8p1="http://schemas.datacontract.org/2004/07/">
+                <d8p1:period>PT1S</d8p1:period>
+              </StepTime>
+              <StimulusLocators>
+                <StimulusLocatorPair>
+                  <LocatorId>ceyrek4</LocatorId>
+                  <StimulusId>daire6</StimulusId>
+                </StimulusLocatorPair>
+              </StimulusLocators>
+            </Experiment.TrialStep>
+          </Steps>
+        </Experiment.Trial>
+      </Trials>
+    </Experiment.Block>
+  </Blocks>
+  <LocatorDict xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>ceyrek1</d2p1:Key>
+      <d2p1:Value i:type="RectangleLocator">
+        <Id>ceyrek1</Id>
+        <RectangleLocation xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:LengthUnit>Fraction</d5p1:LengthUnit>
+          <d5p1:OriginChoice>TopLeft</d5p1:OriginChoice>
+          <d5p1:pointX>0</d5p1:pointX>
+          <d5p1:pointY>0</d5p1:pointY>
+        </RectangleLocation>
+        <RectangleSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>Fraction</d5p1:SizeUnit>
+          <d5p1:sizeX>0.5</d5p1:sizeX>
+          <d5p1:sizeY>0.5</d5p1:sizeY>
+        </RectangleSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>ceyrek2</d2p1:Key>
+      <d2p1:Value i:type="RectangleLocator">
+        <Id>ceyrek2</Id>
+        <RectangleLocation xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:LengthUnit>Fraction</d5p1:LengthUnit>
+          <d5p1:OriginChoice>TopLeft</d5p1:OriginChoice>
+          <d5p1:pointX>0.5</d5p1:pointX>
+          <d5p1:pointY>0</d5p1:pointY>
+        </RectangleLocation>
+        <RectangleSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>Fraction</d5p1:SizeUnit>
+          <d5p1:sizeX>0.5</d5p1:sizeX>
+          <d5p1:sizeY>0.5</d5p1:sizeY>
+        </RectangleSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>ceyrek3</d2p1:Key>
+      <d2p1:Value i:type="RectangleLocator">
+        <Id>ceyrek3</Id>
+        <RectangleLocation xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:LengthUnit>Fraction</d5p1:LengthUnit>
+          <d5p1:OriginChoice>TopLeft</d5p1:OriginChoice>
+          <d5p1:pointX>0</d5p1:pointX>
+          <d5p1:pointY>0.5</d5p1:pointY>
+        </RectangleLocation>
+        <RectangleSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>Fraction</d5p1:SizeUnit>
+          <d5p1:sizeX>0.5</d5p1:sizeX>
+          <d5p1:sizeY>0.5</d5p1:sizeY>
+        </RectangleSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>ceyrek4</d2p1:Key>
+      <d2p1:Value i:type="RectangleLocator">
+        <Id>ceyrek4</Id>
+        <RectangleLocation xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:LengthUnit>Fraction</d5p1:LengthUnit>
+          <d5p1:OriginChoice>TopLeft</d5p1:OriginChoice>
+          <d5p1:pointX>0.5</d5p1:pointX>
+          <d5p1:pointY>0.5</d5p1:pointY>
+        </RectangleLocation>
+        <RectangleSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>Fraction</d5p1:SizeUnit>
+          <d5p1:sizeX>0.5</d5p1:sizeX>
+          <d5p1:sizeY>0.5</d5p1:sizeY>
+        </RectangleSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+  </LocatorDict>
+  <Name></Name>
+  <StimulusDict xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire1</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>daire1.png</FileName>
+        <Id>daire1</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>MM</d5p1:SizeUnit>
+          <d5p1:sizeX>10</d5p1:sizeX>
+          <d5p1:sizeY>10</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire2</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>daire2.png</FileName>
+        <Id>daire2</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>MM</d5p1:SizeUnit>
+          <d5p1:sizeX>10</d5p1:sizeX>
+          <d5p1:sizeY>10</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire3</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>daire3.png</FileName>
+        <Id>daire3</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>MM</d5p1:SizeUnit>
+          <d5p1:sizeX>10</d5p1:sizeX>
+          <d5p1:sizeY>10</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire4</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>daire4.png</FileName>
+        <Id>daire4</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>MM</d5p1:SizeUnit>
+          <d5p1:sizeX>10</d5p1:sizeX>
+          <d5p1:sizeY>10</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire5</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>daire5.png</FileName>
+        <Id>daire5</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>MM</d5p1:SizeUnit>
+          <d5p1:sizeX>10</d5p1:sizeX>
+          <d5p1:sizeY>10</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire6</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>daire6.png</FileName>
+        <Id>daire6</Id>
+        <ImageSize xmlns:d5p1="http://schemas.datacontract.org/2004/07/">
+          <d5p1:OriginChoice>MiddleCenter</d5p1:OriginChoice>
+          <d5p1:SizeUnit>MM</d5p1:SizeUnit>
+          <d5p1:sizeX>10</d5p1:sizeX>
+          <d5p1:sizeY>10</d5p1:sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+  </StimulusDict>
+</Experiment>
