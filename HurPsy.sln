@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gunluk", "Gunluk", "{1CB43066-7525-4BDC-B55B-3F5260399E4D}"
-	ProjectSection(SolutionItems) = preProject
-		Gunluk.pdf = Gunluk.pdf
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyLib", "HurPsyLib\HurPsyLib.csproj", "{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyStrings", "HurPsyStrings\HurPsyStrings.csproj", "{57338033-3155-4A29-BD99-119BAB3DC23D}"
@@ -23,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurPsyExp2", "HurPsyExp2\HurPsyExp2.csproj", "{25B369D1-B9AC-4D1F-B236-E8A40114CD7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyExp2", "HurPsyExp2\HurPsyExp2.csproj", "{25B369D1-B9AC-4D1F-B236-E8A40114CD7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

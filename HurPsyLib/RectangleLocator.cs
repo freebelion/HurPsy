@@ -27,21 +27,34 @@ namespace HurPsyLib
             double height = RectangleSize.Height;
             double topleftx = RectangleLocation.X;
             double toplefty = RectangleLocation.Y;
+            HurPsySize stimSize = new HurPsySize();
 
             if (stim != null)
             {
                 if (stim is ImageStimulus)
                 {
                     ImageStimulus imgstim = (ImageStimulus)stim;
-                    width -= imgstim.ImageSize.Width;
-                    height -= imgstim.ImageSize.Height;
-                    topleftx += imgstim.ImageSize.Width / 2;
-                    toplefty += imgstim.ImageSize.Height / 2;
+                    stimSize = imgstim.ImageSize;
                 }
             }
 
-            switch(RectangleLocation.OriginChoice)
+            switch (RectangleSize.SizeUnit)
             {
+                case HurPsyUnit.MM:
+                    if(stimSize.SizeUnit == HurPsyUnit.Fraction)
+                    { }
+                    break;
+                case HurPsyUnit.Fraction:
+                    
+                    break;
+            }
+
+            switch (RectangleLocation.OriginChoice)
+            {
+                case HurPsyOrigin.TopLeft:
+                    width -= stimSize.Width;
+                    height -= stimSize.Height;
+                    break;
                 case HurPsyOrigin.MiddleCenter:
                     topleftx -= RectangleSize.Width / 2;
                     toplefty -= RectangleSize.Height / 2;

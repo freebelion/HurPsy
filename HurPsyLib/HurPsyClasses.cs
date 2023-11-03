@@ -41,27 +41,13 @@ public class HurPsyPoint
     public double X
     {
         get { return pointX; }
-        set
-        {
-            if (value < 0)
-            {
-                HurPsyException.Throw("Error_NegativePositionValue");
-            }
-            else { pointX = value; }
-        }
+        set { pointX = value; }
     }
 
     public double Y
     {
         get { return pointY; }
-        set
-        {
-            if (value < 0)
-            {
-                HurPsyException.Throw("Error_NegativePositionValue");
-            }
-            else { pointY = value; }
-        }
+        set { pointY = value; }
     }
   
     public HurPsyPoint ShallowCopy()
@@ -176,11 +162,4 @@ public class HurPsyException : Exception
     {
         throw new HurPsyException(LibStrings.GetString(strResourceName));
     }
-}
-
-public static class HurPsyCommon
-{
-    public static Random Rnd = new Random((int) DateTime.Now.Ticks);
-    public static string GetObjectGuid(object obj)
-    { return obj.GetType().Name + "_" + Guid.NewGuid().ToString().Substring(0, 8); }
 }
