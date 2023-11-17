@@ -7,18 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyLib", "HurPsyLib\HurP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyStrings", "HurPsyStrings\HurPsyStrings.csproj", "{57338033-3155-4A29-BD99-119BAB3DC23D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyExp1", "HurPsyExp1\HurPsyExp1.csproj", "{DE179C29-1D21-4C99-8D5A-98E02C53D8EC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyWinForms", "HurPsyWinForms\HurPsyWinForms.csproj", "{A8DBC959-3B0C-4810-978A-5D5D87913AF1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27BC09EF-6DF8-461B-8762-6B0B65DE1334}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Gunluk.docx = Gunluk.docx
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyExp2", "HurPsyExp2\HurPsyExp2.csproj", "{25B369D1-B9AC-4D1F-B236-E8A40114CD7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurPsyDesign", "HurPsyDesign\HurPsyDesign.csproj", "{52A0AF85-4654-461D-8D69-0E94EF663C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,18 +29,10 @@ Global
 		{57338033-3155-4A29-BD99-119BAB3DC23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57338033-3155-4A29-BD99-119BAB3DC23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57338033-3155-4A29-BD99-119BAB3DC23D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE179C29-1D21-4C99-8D5A-98E02C53D8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE179C29-1D21-4C99-8D5A-98E02C53D8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE179C29-1D21-4C99-8D5A-98E02C53D8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE179C29-1D21-4C99-8D5A-98E02C53D8EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8DBC959-3B0C-4810-978A-5D5D87913AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8DBC959-3B0C-4810-978A-5D5D87913AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8DBC959-3B0C-4810-978A-5D5D87913AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8DBC959-3B0C-4810-978A-5D5D87913AF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25B369D1-B9AC-4D1F-B236-E8A40114CD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25B369D1-B9AC-4D1F-B236-E8A40114CD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25B369D1-B9AC-4D1F-B236-E8A40114CD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25B369D1-B9AC-4D1F-B236-E8A40114CD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

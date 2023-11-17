@@ -1,0 +1,40 @@
+﻿<Window x:Class="HurPsyDesign.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HurPsyDesign"
+        mc:Ignorable="d"
+        Title="HurPsy Experiment Design App" Height="450" Width="800"
+        WindowState="Maximized">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Definitions.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <DockPanel x:Name="MainPanel" LastChildFill="True">
+        <Expander x:Name="ElementsPanel"
+                  ExpandDirection="Right"
+                  IsExpanded="True"
+                  Background="{StaticResource ElementsPanelBrush}">
+            <ItemsControl Background="AliceBlue" Width="300"/>
+        </Expander>
+
+        <Expander x:Name="ExperimentPanel"
+                  ExpandDirection="Right"
+                  IsExpanded="True"
+                  Background="{StaticResource ExperimentPanelBrush}">
+            <ItemsControl Background="LightSteelBlue" Width="300"/>
+        </Expander>
+
+        <Grid x:Name="PreviewPanel"
+              Background="{StaticResource PreviewPanelBrush}">
+            
+        </Grid>
+
+    </DockPanel>
+</Window>

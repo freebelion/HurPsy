@@ -13,4 +13,3 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyLib\bin\Debug\net6.0\HurPsyStrings.dll
 C:\Users\freeb\source\repos\HurPsy\HurPsyLib\bin\Debug\net6.0\HurPsyStrings.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyLib\obj\Debug\net6.0\HurPsyLib.csproj.AssemblyReference.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyLib\obj\Debug\net6.0\HurPsyLib.csproj.CopyComplete
-C:\Users\freeb\source\repos\HurPsy\HurPsyLib\obj\Debug\net6.0\HurPsyLib.sourcelink.json

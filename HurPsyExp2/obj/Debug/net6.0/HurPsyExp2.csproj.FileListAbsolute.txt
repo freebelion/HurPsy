@@ -18,7 +18,6 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\HurPsyExp2.Genera
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\HurPsyExp2.AssemblyInfoInputs.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\HurPsyExp2.AssemblyInfo.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\HurPsyExp2.csproj.CoreCompileInputs.cache
-C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\HurPsyExp2.sourcelink.json
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\HurPsyExp2.csproj.CopyComplete
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\HurPsyExp2.dll
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp2\obj\Debug\net6.0\refint\HurPsyExp2.dll

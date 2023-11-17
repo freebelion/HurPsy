@@ -20,7 +20,7 @@ namespace HurPsyLib
         public Stimulus()
         {
             Id = HurPsyCommon.GetObjectGuid(this);
-            FileName = "";
+            FileName = string.Empty;
         }
     }
 }

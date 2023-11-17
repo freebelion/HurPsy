@@ -3,57 +3,18 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 [DataContract]
-public enum HurPsyUnit
-{
-    [EnumMember]
-    MM,
-    [EnumMember]
-    Fraction
-}
-
-[DataContract]
-public enum HurPsyOrigin
-{
-    [EnumMember]
-    MiddleCenter,
-    [EnumMember]
-    TopLeft
-}
-
-[DataContract]
 public class HurPsyPoint
 {
     [DataMember]
-    private double pointX;
+    public double X { get; set; }
     [DataMember]
-    private double pointY;
-    [DataMember]
-    public HurPsyOrigin OriginChoice { get; set; }
-    [DataMember]
-    public HurPsyUnit LengthUnit { get; set; }
-
+    public double Y { get; set; }
+    
     public HurPsyPoint()
-    { pointX = 0; pointY = 0; } 
+    { X = 0; Y = 0; } 
 
     public HurPsyPoint(double pX, double pY)
-    { pointX = pX; pointY = pY; }   
-
-    public double X
-    {
-        get { return pointX; }
-        set { pointX = value; }
-    }
-
-    public double Y
-    {
-        get { return pointY; }
-        set { pointY = value; }
-    }
-  
-    public HurPsyPoint ShallowCopy()
-    {
-        return new HurPsyPoint(pointX, pointY);
-    }
+    { X = pX; Y = pY; }   
 }
 
 [DataContract]
@@ -63,11 +24,7 @@ public class HurPsySize
     private double sizeX;
     [DataMember]
     private double sizeY;
-    [DataMember]
-    public HurPsyOrigin OriginChoice { get; set; }
-    [DataMember]
-    public HurPsyUnit SizeUnit { get; set; }
-
+    
     public HurPsySize()
     { sizeX = 0; sizeY = 0; }
 
@@ -80,9 +37,7 @@ public class HurPsySize
         set
         {
             if (value < 0)
-            {
-                HurPsyException.Throw("Error_NegativeDimensionValue");
-            }
+            { HurPsyException.LibError("Error_NegativeDimensionValue"); }
             else { sizeX = value; }
         }
     }
@@ -93,16 +48,9 @@ public class HurPsySize
         set
         {
             if (value < 0)
-            {
-                HurPsyException.Throw("Error_NegativeDimensionValue");
-            }
+            { HurPsyException.LibError("Error_NegativeDimensionValue"); }
             else { sizeY = value; }
         }
-    }
-
-    public HurPsySize ShallowCopy()
-    {
-        return new HurPsySize(sizeX, sizeY);
     }
 }
 
@@ -123,7 +71,7 @@ public class HurPsyTimePeriod
         set
         {
             if (value < 0)
-            { HurPsyException.Throw("Error_NegativeTimeValue"); }
+            { HurPsyException.LibError("Error_NegativeTimeValue"); }
             else
             { period = TimeSpan.FromMilliseconds(value); }
         }
@@ -135,7 +83,7 @@ public class HurPsyTimePeriod
         set
         {
             if (value < 0)
-            { HurPsyException.Throw("Error_NegativeTimeValue"); }
+            { HurPsyException.LibError("Error_NegativeTimeValue"); }
             else
             { period = TimeSpan.FromSeconds(value); }
         }
@@ -158,7 +106,7 @@ public class HurPsyException : Exception
     /// </summary>
     /// <param name="strResourceName"></param>
     /// <exception cref="HurPsyException"></exception>
-    public static void Throw(string strResourceName)
+    public static void LibError(string strResourceName)
     {
         throw new HurPsyException(LibStrings.GetString(strResourceName));
     }

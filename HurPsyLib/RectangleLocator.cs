@@ -11,9 +11,9 @@ namespace HurPsyLib
     public class RectangleLocator : Locator
     {
         [DataMember]
-        public HurPsyPoint RectangleLocation { get; set; }
+        public HurPsyPoint RectangleLocation { get; private set; }
         [DataMember]
-        public HurPsySize RectangleSize { get; set; }
+        public HurPsySize RectangleSize { get; private set; }
 
         public RectangleLocator()
         {
@@ -27,6 +27,7 @@ namespace HurPsyLib
             double height = RectangleSize.Height;
             double topleftx = RectangleLocation.X;
             double toplefty = RectangleLocation.Y;
+            
             HurPsySize stimSize = new HurPsySize();
 
             if (stim != null)
@@ -38,35 +39,15 @@ namespace HurPsyLib
                 }
             }
 
-            switch (RectangleSize.SizeUnit)
-            {
-                case HurPsyUnit.MM:
-                    if(stimSize.SizeUnit == HurPsyUnit.Fraction)
-                    { }
-                    break;
-                case HurPsyUnit.Fraction:
-                    
-                    break;
-            }
-
-            switch (RectangleLocation.OriginChoice)
-            {
-                case HurPsyOrigin.TopLeft:
-                    width -= stimSize.Width;
-                    height -= stimSize.Height;
-                    break;
-                case HurPsyOrigin.MiddleCenter:
-                    topleftx -= RectangleSize.Width / 2;
-                    toplefty -= RectangleSize.Height / 2;
-                    break;
-            }
+            topleftx += stimSize.Width / 2;
+            toplefty += stimSize.Height / 2;
+            width -= stimSize.Width;
+            height -= stimSize.Height;
 
             double x = topleftx + width * HurPsyCommon.Rnd.NextDouble();
             double y = toplefty + height * HurPsyCommon.Rnd.NextDouble();
 
             HurPsyPoint loc = new HurPsyPoint(x, y);
-            loc.OriginChoice = RectangleLocation.OriginChoice;
-            loc.LengthUnit = RectangleSize.SizeUnit;
             return loc;
         }
     }

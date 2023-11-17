@@ -4,7 +4,7 @@
     {
         public static string GetString(string strName)
         {
-            string? str = StringResources.ResourceManager.GetString(strName);
+            string? str = LibStringResources.ResourceManager.GetString(strName);
             
             if(str != null) { return str; }
             else

@@ -11,7 +11,7 @@ namespace HurPsyLib
     public class ImageStimulus : Stimulus
     {
         [DataMember]
-        public HurPsySize ImageSize { get; set; }
+        public HurPsySize ImageSize { get; private set; }
 
         public ImageStimulus()
         {

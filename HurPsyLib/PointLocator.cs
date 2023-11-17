@@ -11,7 +11,7 @@ namespace HurPsyLib
     public class PointLocator : Locator
     {
         [DataMember]
-        public HurPsyPoint LocatorPoint { get; set;} 
+        public HurPsyPoint LocatorPoint { get; private set;} 
 
         public PointLocator()
         {
