@@ -1,0 +1,14 @@
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\bin\Debug\net6.0\HurPsyDesignStrings.deps.json
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\bin\Debug\net6.0\HurPsyDesignStrings.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\bin\Debug\net6.0\HurPsyDesignStrings.pdb
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.StringResources.resources
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.csproj.GenerateResource.cache
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.AssemblyInfoInputs.cache
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.AssemblyInfo.cs
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.csproj.CoreCompileInputs.cache
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.sourcelink.json
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\refint\HurPsyDesignStrings.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\HurPsyDesignStrings.pdb
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesignStrings\obj\Debug\net6.0\ref\HurPsyDesignStrings.dll

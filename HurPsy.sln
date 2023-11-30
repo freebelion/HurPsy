@@ -5,15 +5,17 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyLib", "HurPsyLib\HurPsyLib.csproj", "{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyStrings", "HurPsyStrings\HurPsyStrings.csproj", "{57338033-3155-4A29-BD99-119BAB3DC23D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27BC09EF-6DF8-461B-8762-6B0B65DE1334}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurPsyDesign", "HurPsyDesign\HurPsyDesign.csproj", "{52A0AF85-4654-461D-8D69-0E94EF663C1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurPsyDesign", "HurPsyDesign\HurPsyDesign.csproj", "{52A0AF85-4654-461D-8D69-0E94EF663C1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurPsyLibStrings", "HurPsyLibStrings\HurPsyLibStrings.csproj", "{13B41B09-9EBA-4107-A4E8-D99BC74CE8F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurPsyDesignStrings", "HurPsyDesignStrings\HurPsyDesignStrings.csproj", "{E8E641C2-8F96-4512-9FE3-FAE92FC206FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +27,18 @@ Global
 		{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57338033-3155-4A29-BD99-119BAB3DC23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57338033-3155-4A29-BD99-119BAB3DC23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57338033-3155-4A29-BD99-119BAB3DC23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57338033-3155-4A29-BD99-119BAB3DC23D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52A0AF85-4654-461D-8D69-0E94EF663C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13B41B09-9EBA-4107-A4E8-D99BC74CE8F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B41B09-9EBA-4107-A4E8-D99BC74CE8F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B41B09-9EBA-4107-A4E8-D99BC74CE8F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B41B09-9EBA-4107-A4E8-D99BC74CE8F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E641C2-8F96-4512-9FE3-FAE92FC206FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E641C2-8F96-4512-9FE3-FAE92FC206FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E641C2-8F96-4512-9FE3-FAE92FC206FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E641C2-8F96-4512-9FE3-FAE92FC206FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

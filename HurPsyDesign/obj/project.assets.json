@@ -2,11 +2,21 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "HurPsyDesignStrings/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/HurPsyDesignStrings.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HurPsyDesignStrings.dll": {}
+        }
+      },
       "HurPsyLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "HurPsyStrings": "1.0.0"
+          "HurPsyLibStrings": "1.0.0"
         },
         "compile": {
           "bin/placeholder/HurPsyLib.dll": {}
@@ -15,32 +25,38 @@
           "bin/placeholder/HurPsyLib.dll": {}
         }
       },
-      "HurPsyStrings/1.0.0": {
+      "HurPsyLibStrings/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/HurPsyStrings.dll": {}
+          "bin/placeholder/HurPsyLibStrings.dll": {}
         },
         "runtime": {
-          "bin/placeholder/HurPsyStrings.dll": {}
+          "bin/placeholder/HurPsyLibStrings.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "HurPsyDesignStrings/1.0.0": {
+      "type": "project",
+      "path": "../HurPsyDesignStrings/HurPsyDesignStrings.csproj",
+      "msbuildProject": "../HurPsyDesignStrings/HurPsyDesignStrings.csproj"
+    },
     "HurPsyLib/1.0.0": {
       "type": "project",
       "path": "../HurPsyLib/HurPsyLib.csproj",
       "msbuildProject": "../HurPsyLib/HurPsyLib.csproj"
     },
-    "HurPsyStrings/1.0.0": {
+    "HurPsyLibStrings/1.0.0": {
       "type": "project",
-      "path": "../HurPsyStrings/HurPsyStrings.csproj",
-      "msbuildProject": "../HurPsyStrings/HurPsyStrings.csproj"
+      "path": "../HurPsyLibStrings/HurPsyLibStrings.csproj",
+      "msbuildProject": "../HurPsyLibStrings/HurPsyLibStrings.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "HurPsyDesignStrings >= 1.0.0",
       "HurPsyLib >= 1.0.0"
     ]
   },
@@ -77,6 +93,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyDesignStrings\\HurPsyDesignStrings.csproj": {
+              "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyDesignStrings\\HurPsyDesignStrings.csproj"
+            },
             "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj": {
               "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj"
             }
@@ -111,7 +130,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

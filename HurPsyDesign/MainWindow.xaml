@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HurPsyDesign"
+        xmlns:stringres="clr-namespace:HurPsyDesignStrings;assembly=HurPsyDesignStrings"
         mc:Ignorable="d"
         Title="HurPsy Experiment Design App" Height="450" Width="800"
         WindowState="Maximized">
@@ -11,24 +12,106 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Definitions.xaml"/>
+                <ResourceDictionary Source="BrushDefinitions.xaml"/>
+                <ResourceDictionary Source="ControlTemplates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <local:AppSettings x:Key="appSettings"/>
+            
+            <Style TargetType="{x:Type Expander}">
+                <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
     
     <DockPanel x:Name="MainPanel" LastChildFill="True">
-        <Expander x:Name="ElementsPanel"
+        <Expander x:Name="ElementsPanel" DockPanel.Dock="Left"
                   ExpandDirection="Right"
                   IsExpanded="True"
                   Background="{StaticResource ElementsPanelBrush}">
-            <ItemsControl Background="AliceBlue" Width="300"/>
-        </Expander>
+            <Expander.Header>
+                <TextBlock Text="{x:Static stringres:StringResources.ElementsPanelHeader}" HorizontalAlignment="Center">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+            <ContentControl Template="{StaticResource HorizontallySizableControl}" 
+                         MinWidth="{Binding Source={StaticResource appSettings}, Path=MinPanelWidth}"
+                         MaxWidth="{Binding Source={StaticResource appSettings}, Path=MaxPanelWidth}"
+                         Width="{Binding Source={StaticResource appSettings}, Path=ElementsPanelWidth}">
+                <ContentControl.Content>
+                    <DockPanel LastChildFill="False">
+                        <Expander x:Name="StimuliPanel"
+                                  DockPanel.Dock="Top"
+                                  ExpandDirection="Down"
+                                  IsExpanded="True"
+                                  Background="{StaticResource StimuliPanelBrush}">
+                            <Expander.Header>
+                                <TextBlock Text="{x:Static stringres:StringResources.StimuliPanelHeader}"/>
+                            </Expander.Header>
+                            <DockPanel LastChildFill="True">
+                                <ToolBarTray Orientation="Horizontal" DockPanel.Dock="Top">
+                                    <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonSize}">
+                                        <Button>
+                                            <Image Source="Images\AddImageStimulus.png" Stretch="Fill"/>
+                                        </Button>
+                                    </ToolBar>
+                                </ToolBarTray>
+                                <ListBox Background="AliceBlue">
+                                    <ListBoxItem Content="1"/>
+                                    <ListBoxItem Content="2"/>
+                                    <ListBoxItem Content="3"/>
+                                </ListBox>
+                            </DockPanel>
+                        </Expander>
 
-        <Expander x:Name="ExperimentPanel"
+                        <Expander x:Name="LocatorsPanel"
+                                  DockPanel.Dock="Top"
+                                  ExpandDirection="Down"
+                                  IsExpanded="True"
+                                  Background="{StaticResource LocatorsPanelBrush}">
+                            <Expander.Header>
+                                <TextBlock Text="{x:Static stringres:StringResources.LocatorsPanelHeader}"/>
+                            </Expander.Header>
+                            <DockPanel LastChildFill="True">
+                                <ToolBarTray Orientation="Horizontal" DockPanel.Dock="Top">
+                                    <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonSize}">
+                                        <Button>
+                                            <Image Source="Images\AddPointLocator.png" Stretch="Fill"/>
+                                        </Button>
+                                    </ToolBar>
+                                </ToolBarTray>
+                                <ListBox Background="AliceBlue">
+                                    <ListBoxItem Content="1"/>
+                                    <ListBoxItem Content="2"/>
+                                    <ListBoxItem Content="3"/>
+                                </ListBox>
+                            </DockPanel>
+                        </Expander>
+                    </DockPanel>
+                </ContentControl.Content>
+            </ContentControl>
+        </Expander>
+        <!-- TODO: Construct an Expander template that incorporates this general appearance. -->
+        <Expander x:Name="ExperimentPanel" DockPanel.Dock="Left"
                   ExpandDirection="Right"
                   IsExpanded="True"
                   Background="{StaticResource ExperimentPanelBrush}">
-            <ItemsControl Background="LightSteelBlue" Width="300"/>
+            <Expander.Header>
+                <TextBlock Text="{x:Static stringres:StringResources.ExperimentPanelHeader}">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+            <!-- TODO: Design a user control which can be resized via a slider on it. -->
+            <ContentControl Template="{StaticResource HorizontallySizableControl}" 
+                MinWidth="{Binding Source={StaticResource appSettings}, Path=MinPanelWidth}"
+                MaxWidth="{Binding Source={StaticResource appSettings}, Path=MaxPanelWidth}"
+                Width="{Binding Source={StaticResource appSettings}, Path=ExperimentPanelWidth}">
+                
+            </ContentControl>
         </Expander>
 
         <Grid x:Name="PreviewPanel"

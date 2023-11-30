@@ -1,4 +1,4 @@
-﻿using HurPsyStrings;
+﻿using HurPsyLibStrings;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -108,6 +108,6 @@ public class HurPsyException : Exception
     /// <exception cref="HurPsyException"></exception>
     public static void LibError(string strResourceName)
     {
-        throw new HurPsyException(LibStrings.GetString(strResourceName));
+        throw new HurPsyException(StringFinder.GetString(strResourceName));
     }
 }
