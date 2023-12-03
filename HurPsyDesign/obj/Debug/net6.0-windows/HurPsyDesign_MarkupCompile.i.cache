@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\App.xaml
-3-1906133574
+4-901103386
 
-6747517510
-197729210061
-BrushDefinitions.xaml;ControlTemplates.xaml;MainWindow.xaml;
+8-1132252783
+198-1347568080
+MainWindow.xaml;XamlFiles\BrushDefinitions.xaml;XamlFiles\ControlTemplates.xaml;XamlFiles\DataTemplates.xaml;
 
-True
+False
 

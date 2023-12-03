@@ -11,8 +11,6 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\bin\Debug\net6.0-windows\HurPsyD
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\bin\Debug\net6.0-windows\HurPsyLib.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\bin\Debug\net6.0-windows\HurPsyLibStrings.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\HurPsyDesign.csproj.AssemblyReference.cache
-C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\BrushDefinitions.baml
-C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ControlTemplates.baml
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -31,3 +29,8 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\refint\
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\HurPsyDesign.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\HurPsyDesign.genruntimeconfig.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ref\HurPsyDesign.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\bin\Debug\net6.0-windows\CommunityToolkit.Mvvm.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\XamlFiles\BrushDefinitions.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\XamlFiles\ControlTemplates.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\XamlFiles\DataTemplates.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\App.baml

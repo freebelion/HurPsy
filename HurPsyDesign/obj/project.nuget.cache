@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5LhbFKPezFsfzMjP8oWIJ5wv2taVEQDu4C1XHxkqsuyepjXIf+GicX/O2BPg3ZTlkYoY3bOGtyFDzm8a30KuzA==",
+  "dgSpecHash": "F71iTIKyUjC7Cpa2gB8LbHvpS/9/tdeWM4pKTS3jg3mBvjAgfjV8UAxtfUzufBsieEhzb+YCN3r/BMAPs824sg==",
   "success": true,
   "projectFilePath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyDesign\\HurPsyDesign.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\freeb\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512"
+  ],
   "logs": []
 }

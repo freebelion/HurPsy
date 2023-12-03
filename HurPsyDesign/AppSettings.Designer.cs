@@ -80,12 +80,24 @@ namespace HurPsyDesign {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("36")]
-        public double ToolbarButtonSize {
+        public double ToolbarButtonHeight {
             get {
-                return ((double)(this["ToolbarButtonSize"]));
+                return ((double)(this["ToolbarButtonHeight"]));
             }
             set {
-                this["ToolbarButtonSize"] = value;
+                this["ToolbarButtonHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("36")]
+        public double ImagePreviewHeight {
+            get {
+                return ((double)(this["ImagePreviewHeight"]));
+            }
+            set {
+                this["ImagePreviewHeight"] = value;
             }
         }
     }

@@ -7,10 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="BrushDefinitions.xaml">
+    <Page Update="XamlFiles\BrushDefinitions.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="XamlFiles\DataTemplates.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

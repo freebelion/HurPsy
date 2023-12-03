@@ -70,6 +70,24 @@ namespace HurPsyDesignStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HurPsy Experiment Files (*.xml) |*.xml.
+        /// </summary>
+        public static string ExperimentFileFilter {
+            get {
+                return ResourceManager.GetString("ExperimentFileFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Experiment.
+        /// </summary>
+        public static string ExperimentMenuHeader {
+            get {
+                return ResourceManager.GetString("ExperimentMenuHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experiment Blocks.
         /// </summary>
         public static string ExperimentPanelHeader {
@@ -79,11 +97,47 @@ namespace HurPsyDesignStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg.
+        /// </summary>
+        public static string ImageFileFilter {
+            get {
+                return ResourceManager.GetString("ImageFileFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Load.
+        /// </summary>
+        public static string LoadExperimentMenuItem {
+            get {
+                return ResourceManager.GetString("LoadExperimentMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Locator Definitions.
         /// </summary>
         public static string LocatorsPanelHeader {
             get {
                 return ResourceManager.GetString("LocatorsPanelHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _New.
+        /// </summary>
+        public static string NewExperimentMenuItem {
+            get {
+                return ResourceManager.GetString("NewExperimentMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Save.
+        /// </summary>
+        public static string SaveExperimentMenuItem {
+            get {
+                return ResourceManager.GetString("SaveExperimentMenuItem", resourceCulture);
             }
         }
         

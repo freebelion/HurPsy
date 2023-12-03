@@ -121,13 +121,37 @@
     <value>Element Definitions</value>
     <comment>The header text for the ElementsPanel of HurPsyDesignApp</comment>
   </data>
+  <data name="ExperimentFileFilter" xml:space="preserve">
+    <value>HurPsy Experiment Files (*.xml) |*.xml</value>
+    <comment>The file name pattern used in the dialog that loads a previously recorded experiment</comment>
+  </data>
+  <data name="ExperimentMenuHeader" xml:space="preserve">
+    <value>_Experiment</value>
+    <comment>The header text for the Experiment menu of HurDesignApp</comment>
+  </data>
   <data name="ExperimentPanelHeader" xml:space="preserve">
     <value>Experiment Blocks</value>
     <comment>The header text for the ExperimentPanel of HurPsyDesignApp</comment>
   </data>
+  <data name="ImageFileFilter" xml:space="preserve">
+    <value>Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg</value>
+    <comment>The file name pattern used in the dialog that loads image files</comment>
+  </data>
+  <data name="LoadExperimentMenuItem" xml:space="preserve">
+    <value>_Load</value>
+    <comment>The label for the menu item that loads an experiment from file</comment>
+  </data>
   <data name="LocatorsPanelHeader" xml:space="preserve">
     <value>Locator Definitions</value>
     <comment>The header text for the LocatorPanel of HurPsyDesignApp</comment>
+  </data>
+  <data name="NewExperimentMenuItem" xml:space="preserve">
+    <value>_New</value>
+    <comment>The label for the menu item that creates a new experiment</comment>
+  </data>
+  <data name="SaveExperimentMenuItem" xml:space="preserve">
+    <value>_Save</value>
+    <comment>The label for the menu item that saves the experiment in a file</comment>
   </data>
   <data name="StimuliPanelHeader" xml:space="preserve">
     <value>Stimulus Definitions</value>

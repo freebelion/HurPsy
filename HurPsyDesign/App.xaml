@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:HurPsyDesign"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:AppSettings x:Key="appSettings"/>
     </Application.Resources>
 </Application>

@@ -9,28 +9,44 @@
         Title="HurPsy Experiment Design App" Height="450" Width="800"
         WindowState="Maximized">
 
+    <Window.DataContext>
+        <local:ExperimentViewModel />
+    </Window.DataContext>
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="BrushDefinitions.xaml"/>
-                <ResourceDictionary Source="ControlTemplates.xaml"/>
+                <ResourceDictionary Source="XamlFiles\BrushDefinitions.xaml"/>
+                <ResourceDictionary Source="XamlFiles\ControlTemplates.xaml"/>
+                <ResourceDictionary Source="XamlFiles\DataTemplates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <local:AppSettings x:Key="appSettings"/>
-            
             <Style TargetType="{x:Type Expander}">
+                <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
+            </Style>
+            <Style TargetType="{x:Type Menu}">
                 <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
             </Style>
         </ResourceDictionary>
     </Window.Resources>
     
     <DockPanel x:Name="MainPanel" LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="{x:Static stringres:StringResources.ExperimentMenuHeader}">
+                <MenuItem Header="{x:Static stringres:StringResources.NewExperimentMenuItem}"
+                          Command="{Binding NewExperimentCommand}"/>
+                <MenuItem Header="{x:Static stringres:StringResources.LoadExperimentMenuItem}" 
+                          Command="{Binding LoadExperimentCommand}"/>
+                <MenuItem Header="{x:Static stringres:StringResources.SaveExperimentMenuItem}" 
+                          Command="{Binding SaveExperimentCommand}"/>
+            </MenuItem>
+        </Menu>
         <Expander x:Name="ElementsPanel" DockPanel.Dock="Left"
                   ExpandDirection="Right"
                   IsExpanded="True"
                   Background="{StaticResource ElementsPanelBrush}">
             <Expander.Header>
-                <TextBlock Text="{x:Static stringres:StringResources.ElementsPanelHeader}" HorizontalAlignment="Center">
+                <TextBlock Text="{x:Static stringres:StringResources.ElementsPanelHeader}">
                     <TextBlock.LayoutTransform>
                         <RotateTransform Angle="90"/>
                     </TextBlock.LayoutTransform>
@@ -52,16 +68,14 @@
                             </Expander.Header>
                             <DockPanel LastChildFill="True">
                                 <ToolBarTray Orientation="Horizontal" DockPanel.Dock="Top">
-                                    <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonSize}">
-                                        <Button>
+                                    <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonHeight}">
+                                        <Button Command="{Binding LoadImageFileCommand}">
                                             <Image Source="Images\AddImageStimulus.png" Stretch="Fill"/>
                                         </Button>
                                     </ToolBar>
                                 </ToolBarTray>
-                                <ListBox Background="AliceBlue">
-                                    <ListBoxItem Content="1"/>
-                                    <ListBoxItem Content="2"/>
-                                    <ListBoxItem Content="3"/>
+                                <ListBox ItemsSource="{Binding StimulusObjects}"
+                                         ItemTemplate="{StaticResource ImageStimulusItem}">
                                 </ListBox>
                             </DockPanel>
                         </Expander>
