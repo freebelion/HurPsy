@@ -30,7 +30,12 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\HurPsyD
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\HurPsyDesign.genruntimeconfig.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ref\HurPsyDesign.dll
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\bin\Debug\net6.0-windows\CommunityToolkit.Mvvm.dll
-C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\XamlFiles\BrushDefinitions.baml
-C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\XamlFiles\ControlTemplates.baml
-C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\XamlFiles\DataTemplates.baml
 C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\App.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ResourceDictionaries\BrushDefinitions.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ResourceDictionaries\ControlTemplates.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ResourceDictionaries\DataTemplates.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ElementsPanel.g.cs
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ElementsPanel.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ExperimentPanel.g.cs
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ExperimentPanel.baml
+C:\Users\freeb\source\repos\HurPsy\HurPsyDesign\obj\Debug\net6.0-windows\ResourceDictionaries\AppResources.baml

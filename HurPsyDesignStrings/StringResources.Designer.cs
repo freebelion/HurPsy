@@ -61,6 +61,24 @@ namespace HurPsyDesignStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Image Stimulus.
+        /// </summary>
+        public static string AddImageStimulusTooltip {
+            get {
+                return ResourceManager.GetString("AddImageStimulusTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Point Locator.
+        /// </summary>
+        public static string AddPointLocatorTooltip {
+            get {
+                return ResourceManager.GetString("AddPointLocatorTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Element Definitions.
         /// </summary>
         public static string ElementsPanelHeader {
@@ -144,9 +162,9 @@ namespace HurPsyDesignStrings {
         /// <summary>
         ///   Looks up a localized string similar to Stimulus Definitions.
         /// </summary>
-        public static string StimuliPanelHeader {
+        public static string StimulusPanelHeader {
             get {
-                return ResourceManager.GetString("StimuliPanelHeader", resourceCulture);
+                return ResourceManager.GetString("StimulusPanelHeader", resourceCulture);
             }
         }
     }

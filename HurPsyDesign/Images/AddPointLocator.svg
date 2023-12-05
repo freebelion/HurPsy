@@ -36,7 +36,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="layer2">
     <inkscape:grid
        id="grid1"
        units="px"
@@ -77,8 +77,26 @@
        x2="60.605406"
        y2="39.226355"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.6833001,0,0,1.6833001,-22.267604,-13.362243)" />
+       gradientTransform="matrix(0.84165006,0,0,0.84165005,42.346256,32.81956)" />
   </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Slayer"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-size:148.458px;fill:#000000;fill-opacity:0.60268712;stroke:#000000;stroke-width:0.445372"
+       x="-4.7055297"
+       y="101.6341"
+       id="text5"
+       transform="scale(0.99529117,1.0047311)"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:148.458px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#000000;fill-opacity:0.60268712;stroke-width:0.445372"
+         x="-4.7055297"
+         y="101.6341">S</tspan></text>
+  </g>
   <g
      inkscape:label="Background"
      inkscape:groupmode="layer"
@@ -90,29 +108,11 @@
        cy="39.636528"
        r="0.024329711" />
     <ellipse
-       style="fill:#800000;stroke:#000000;stroke-width:0.264583"
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.264582"
        id="path1"
-       cx="79.375"
-       cy="79.374992"
+       cx="66.145836"
+       cy="66.145844"
        rx="26.458332"
        ry="26.45833" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Slayer"
-     style="display:inline">
-    <text
-       xml:space="preserve"
-       style="font-size:148.458px;fill:url(#linearGradient14);fill-opacity:1;stroke:#000000;stroke-width:0.445373"
-       x="-4.7055178"
-       y="102.14129"
-       id="text5"
-       transform="scale(0.99529117,1.0047311)"><tspan
-         sodipodi:role="line"
-         id="tspan5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:148.458px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:url(#linearGradient14);fill-opacity:1;stroke-width:0.445373"
-         x="-4.7055178"
-         y="102.14129">S</tspan></text>
   </g>
 </svg>

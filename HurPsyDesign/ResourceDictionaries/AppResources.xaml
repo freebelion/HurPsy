@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HurPsyDesign">
+    <!-- The resource definitions in these files may -one day- help developers customizable themes. -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="BrushDefinitions.xaml"/>
+        <ResourceDictionary Source="ControlTemplates.xaml"/>
+        <ResourceDictionary Source="DataTemplates.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <local:AppSettings x:Key="appSettings"/>
+
+    <Style TargetType="{x:Type Expander}">
+        <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
+    </Style>
+
+    <Style TargetType="{x:Type Menu}">
+        <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
+    </Style>
+
+    <Style x:Key="{x:Static ToolBar.ButtonStyleKey}" TargetType="Button">
+        <Setter Property="Background" Value="NavajoWhite"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+</ResourceDictionary>

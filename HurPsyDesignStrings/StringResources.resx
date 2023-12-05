@@ -117,6 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddImageStimulusTooltip" xml:space="preserve">
+    <value>Add Image Stimulus</value>
+    <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
+  </data>
+  <data name="AddPointLocatorTooltip" xml:space="preserve">
+    <value>Add Point Locator</value>
+    <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
+  </data>
   <data name="ElementsPanelHeader" xml:space="preserve">
     <value>Element Definitions</value>
     <comment>The header text for the ElementsPanel of HurPsyDesignApp</comment>
@@ -153,7 +161,7 @@
     <value>_Save</value>
     <comment>The label for the menu item that saves the experiment in a file</comment>
   </data>
-  <data name="StimuliPanelHeader" xml:space="preserve">
+  <data name="StimulusPanelHeader" xml:space="preserve">
     <value>Stimulus Definitions</value>
     <comment>The header text for the StimuliPanel of HurPsyDesignApp</comment>
   </data>

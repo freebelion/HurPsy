@@ -7,13 +7,30 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="XamlFiles\BrushDefinitions.xaml">
+    <Compile Update="ElementsPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ExperimentPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ElementsPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ExperimentPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionaries\AppResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionaries\BrushDefinitions.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="XamlFiles\DataTemplates.xaml">
+    <Page Update="ResourceDictionaries\DataTemplates.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

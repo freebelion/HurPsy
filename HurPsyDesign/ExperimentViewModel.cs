@@ -32,20 +32,30 @@ namespace HurPsyDesign
         [RelayCommand]
         private void LoadExperiment()
         {
-            string[]? selectedFiles = Common.OpenFiles(StringResources.ExperimentFileFilter, false);
+            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.ExperimentFileFilter, false);
 
             if (selectedFiles != null && selectedFiles.Length == 1)
             {
-                string xmlFileName = selectedFiles[0];
-                _experiment = Experiment.LoadFromXml(xmlFileName);
+                string expFileName = selectedFiles[0];
 
-                StimulusObjects.Clear();
-                foreach(KeyValuePair<string, Stimulus> dictItem in _experiment.StimulusDict)
+                string? expDirectoryPath = Path.GetDirectoryName(expFileName);
+                if (expDirectoryPath != null)
                 {
-                    Stimulus stim = dictItem.Value;
+                    // Load the experiment definition from the selected file
+                    _experiment = Experiment.LoadFromXml(expFileName);
+                    // Load the actual stimulus objects from files named in the experiment definition
+                    StimulusObjects.Clear();
+                    foreach (KeyValuePair<string, Stimulus> dictItem in _experiment.StimulusDict)
+                    {
+                        Stimulus stim = dictItem.Value;
 
-                    if (stim is ImageStimulus)
-                    { LoadImageStimulus((ImageStimulus)stim); }
+                        if (stim is ImageStimulus)
+                        { LoadImageStimulus((ImageStimulus)stim); }
+                    }
+
+                    // Change the working directory for the application
+                    // so that stimulus filenames will work without full paths.
+                    Directory.SetCurrentDirectory(expDirectoryPath);
                 }
             }
         }
@@ -53,17 +63,34 @@ namespace HurPsyDesign
         [RelayCommand]
         private void SaveExperiment()
         {
-            string? saveFileName = Common.FileSaveName(StringResources.ExperimentFileFilter);
-            if (saveFileName != null)
+            string? expFileName = UtilityClass.FileSaveName(StringResources.ExperimentFileFilter);
+            if (expFileName != null)
             {
-                _experiment.SaveToXml(saveFileName);
+                string? expDirectoryPath = Path.GetDirectoryName(expFileName);
+                if(expDirectoryPath != null)
+                {                   
+                    // save the experiment definition
+                    _experiment.SaveToXml(expFileName);
+                    // Copy the files containing the stimuli to the same target directory
+                    // so that stimulus filename will not need to contain the whole path.
+                    foreach (Stimulus stim in StimulusObjects)
+                    {
+                        string stimFileName = Path.GetFileName(stim.FileName);
+                        File.Copy(stim.FileName, Path.Combine(expDirectoryPath, stimFileName), overwrite:true);
+                        // Strip out the original directory path (if any) from the stimulus filename
+                        stim.FileName = stimFileName;
+                    }
+                    // Change the working directory for the application
+                    // so that stimulus filenames will work without full paths.
+                    Directory.SetCurrentDirectory(expDirectoryPath);
+                }
             }
         }
 
         [RelayCommand]
         private void LoadImageFile()
         {
-            string[]? selectedFiles = Common.OpenFiles(StringResources.ImageFileFilter, true);
+            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.ImageFileFilter, true);
             
             if(selectedFiles != null && selectedFiles.Length > 0)
             {
@@ -87,6 +114,12 @@ namespace HurPsyDesign
             imgstim.ImageSize.Width = stimImage.Width;
             imgstim.ImageSize.Height = stimImage.Height;
             StimulusObjects.Add(imgstim);
+        }
+
+        [RelayCommand]
+        private void AddPointLocator()
+        {
+
         }
     }
 }

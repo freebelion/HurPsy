@@ -15,18 +15,7 @@
 
     <Window.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="XamlFiles\BrushDefinitions.xaml"/>
-                <ResourceDictionary Source="XamlFiles\ControlTemplates.xaml"/>
-                <ResourceDictionary Source="XamlFiles\DataTemplates.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-
-            <Style TargetType="{x:Type Expander}">
-                <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
-            </Style>
-            <Style TargetType="{x:Type Menu}">
-                <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
-            </Style>
+            
         </ResourceDictionary>
     </Window.Resources>
     
@@ -52,60 +41,10 @@
                     </TextBlock.LayoutTransform>
                 </TextBlock>
             </Expander.Header>
-            <ContentControl Template="{StaticResource HorizontallySizableControl}" 
-                         MinWidth="{Binding Source={StaticResource appSettings}, Path=MinPanelWidth}"
-                         MaxWidth="{Binding Source={StaticResource appSettings}, Path=MaxPanelWidth}"
-                         Width="{Binding Source={StaticResource appSettings}, Path=ElementsPanelWidth}">
-                <ContentControl.Content>
-                    <DockPanel LastChildFill="False">
-                        <Expander x:Name="StimuliPanel"
-                                  DockPanel.Dock="Top"
-                                  ExpandDirection="Down"
-                                  IsExpanded="True"
-                                  Background="{StaticResource StimuliPanelBrush}">
-                            <Expander.Header>
-                                <TextBlock Text="{x:Static stringres:StringResources.StimuliPanelHeader}"/>
-                            </Expander.Header>
-                            <DockPanel LastChildFill="True">
-                                <ToolBarTray Orientation="Horizontal" DockPanel.Dock="Top">
-                                    <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonHeight}">
-                                        <Button Command="{Binding LoadImageFileCommand}">
-                                            <Image Source="Images\AddImageStimulus.png" Stretch="Fill"/>
-                                        </Button>
-                                    </ToolBar>
-                                </ToolBarTray>
-                                <ListBox ItemsSource="{Binding StimulusObjects}"
-                                         ItemTemplate="{StaticResource ImageStimulusItem}">
-                                </ListBox>
-                            </DockPanel>
-                        </Expander>
-
-                        <Expander x:Name="LocatorsPanel"
-                                  DockPanel.Dock="Top"
-                                  ExpandDirection="Down"
-                                  IsExpanded="True"
-                                  Background="{StaticResource LocatorsPanelBrush}">
-                            <Expander.Header>
-                                <TextBlock Text="{x:Static stringres:StringResources.LocatorsPanelHeader}"/>
-                            </Expander.Header>
-                            <DockPanel LastChildFill="True">
-                                <ToolBarTray Orientation="Horizontal" DockPanel.Dock="Top">
-                                    <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonSize}">
-                                        <Button>
-                                            <Image Source="Images\AddPointLocator.png" Stretch="Fill"/>
-                                        </Button>
-                                    </ToolBar>
-                                </ToolBarTray>
-                                <ListBox Background="AliceBlue">
-                                    <ListBoxItem Content="1"/>
-                                    <ListBoxItem Content="2"/>
-                                    <ListBoxItem Content="3"/>
-                                </ListBox>
-                            </DockPanel>
-                        </Expander>
-                    </DockPanel>
-                </ContentControl.Content>
-            </ContentControl>
+            <local:ElementsPanel
+                   MinWidth="{Binding Source={StaticResource appSettings}, Path=MinPanelWidth}"
+                   MaxWidth="{Binding Source={StaticResource appSettings}, Path=MaxPanelWidth}"
+                   Width="{Binding Source={StaticResource appSettings}, Path=ElementsPanelWidth}"/>
         </Expander>
         <!-- TODO: Construct an Expander template that incorporates this general appearance. -->
         <Expander x:Name="ExperimentPanel" DockPanel.Dock="Left"
@@ -119,15 +58,17 @@
                     </TextBlock.LayoutTransform>
                 </TextBlock>
             </Expander.Header>
-            <!-- TODO: Design a user control which can be resized via a slider on it. -->
-            <ContentControl Template="{StaticResource HorizontallySizableControl}" 
+            <local:ExperimentPanel
                 MinWidth="{Binding Source={StaticResource appSettings}, Path=MinPanelWidth}"
                 MaxWidth="{Binding Source={StaticResource appSettings}, Path=MaxPanelWidth}"
-                Width="{Binding Source={StaticResource appSettings}, Path=ExperimentPanelWidth}">
-                
-            </ContentControl>
+                Width="{Binding Source={StaticResource appSettings}, Path=ExperimentPanelWidth}"/>    
         </Expander>
 
+        <!-- TODO: Change the container of the preview panel to Canvas;
+             it should let a user preview the selected stimulus
+             or trial step, on a scaled-down representation
+             of various sizes of computer displays.
+        -->
         <Grid x:Name="PreviewPanel"
               Background="{StaticResource PreviewPanelBrush}">
             
