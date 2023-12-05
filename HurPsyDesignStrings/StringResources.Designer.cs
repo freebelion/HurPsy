@@ -61,20 +61,11 @@ namespace HurPsyDesignStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Image Stimulus.
+        ///   Looks up a localized string similar to Experiment Design Window.
         /// </summary>
-        public static string AddImageStimulusTooltip {
+        public static string DesignWindowTitle {
             get {
-                return ResourceManager.GetString("AddImageStimulusTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add Point Locator.
-        /// </summary>
-        public static string AddPointLocatorTooltip {
-            get {
-                return ResourceManager.GetString("AddPointLocatorTooltip", resourceCulture);
+                return ResourceManager.GetString("DesignWindowTitle", resourceCulture);
             }
         }
         
@@ -124,6 +115,15 @@ namespace HurPsyDesignStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Image Stimulus.
+        /// </summary>
+        public static string ImageStimulusTooltip {
+            get {
+                return ResourceManager.GetString("ImageStimulusTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Load.
         /// </summary>
         public static string LoadExperimentMenuItem {
@@ -151,11 +151,38 @@ namespace HurPsyDesignStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Point Locator.
+        /// </summary>
+        public static string PointLocatorTooltip {
+            get {
+                return ResourceManager.GetString("PointLocatorTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Experiment Run Window.
+        /// </summary>
+        public static string RunWindowTitle {
+            get {
+                return ResourceManager.GetString("RunWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Save.
         /// </summary>
         public static string SaveExperimentMenuItem {
             get {
                 return ResourceManager.GetString("SaveExperimentMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select the session type.
+        /// </summary>
+        public static string StartupDialogTitle {
+            get {
+                return ResourceManager.GetString("StartupDialogTitle", resourceCulture);
             }
         }
         

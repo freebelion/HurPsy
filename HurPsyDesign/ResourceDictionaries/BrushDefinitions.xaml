@@ -1,9 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ToolbarBrush" Color="SteelBlue"/>
-    <SolidColorBrush x:Key="ElementsPanelBrush" Color="LightGray"/>
-    <SolidColorBrush x:Key="StimulusPanelBrush" Color="Transparent"/>
-    <SolidColorBrush x:Key="LocatorsPanelBrush" Color="Transparent"/>
-    <SolidColorBrush x:Key="ExperimentPanelBrush" Color="LightGray"/>
-    <SolidColorBrush x:Key="PreviewPanelBrush" Color="AliceBlue"/>
-</ResourceDictionary>

@@ -117,13 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddImageStimulusTooltip" xml:space="preserve">
-    <value>Add Image Stimulus</value>
-    <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
-  </data>
-  <data name="AddPointLocatorTooltip" xml:space="preserve">
-    <value>Add Point Locator</value>
-    <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
+  <data name="DesignWindowTitle" xml:space="preserve">
+    <value>Experiment Design Window</value>
+    <comment>The title of the experiment design window</comment>
   </data>
   <data name="ElementsPanelHeader" xml:space="preserve">
     <value>Element Definitions</value>
@@ -145,6 +141,10 @@
     <value>Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg</value>
     <comment>The file name pattern used in the dialog that loads image files</comment>
   </data>
+  <data name="ImageStimulusTooltip" xml:space="preserve">
+    <value>Add Image Stimulus</value>
+    <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
+  </data>
   <data name="LoadExperimentMenuItem" xml:space="preserve">
     <value>_Load</value>
     <comment>The label for the menu item that loads an experiment from file</comment>
@@ -157,9 +157,21 @@
     <value>_New</value>
     <comment>The label for the menu item that creates a new experiment</comment>
   </data>
+  <data name="PointLocatorTooltip" xml:space="preserve">
+    <value>Add Point Locator</value>
+    <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
+  </data>
+  <data name="RunWindowTitle" xml:space="preserve">
+    <value>Experiment Run Window</value>
+    <comment>The title of the experiment run window</comment>
+  </data>
   <data name="SaveExperimentMenuItem" xml:space="preserve">
     <value>_Save</value>
     <comment>The label for the menu item that saves the experiment in a file</comment>
+  </data>
+  <data name="StartupDialogTitle" xml:space="preserve">
+    <value>Please select the session type</value>
+    <comment>The title of the startup dialog where the user chooses whether to design or run an experiment</comment>
   </data>
   <data name="StimulusPanelHeader" xml:space="preserve">
     <value>Stimulus Definitions</value>

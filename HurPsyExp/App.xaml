@@ -1,0 +1,11 @@
+﻿<Application x:Class="HurPsyExp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HurPsyExp"
+             Startup="Application_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <local:AppSettings x:Key="UserPreferences"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

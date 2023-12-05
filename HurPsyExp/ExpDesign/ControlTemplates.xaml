@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--When placed in a UserControl, a ContentControl with this template
+        will be able to change the width of the UserControl.-->
+    <ControlTemplate x:Key="HorizontallySizableControl" TargetType="ContentControl">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Slider Orientation="Horizontal" Grid.Row="0"
+                Minimum="{Binding Path=MinWidth, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                Maximum="{Binding Path=MaxWidth, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                Value="{Binding Path=Width, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+            <ContentPresenter Grid.Row="1"
+                Content="{TemplateBinding Content}"/>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

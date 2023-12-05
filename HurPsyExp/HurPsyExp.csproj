@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HurPsyDesignStrings\HurPsyDesignStrings.csproj" />
+    <ProjectReference Include="..\HurPsyLib\HurPsyLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ExpRun\" />
+    <Folder Include="ResourceDictionaries\" />
+  </ItemGroup>
+
+</Project>
