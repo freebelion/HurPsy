@@ -9,9 +9,8 @@
              d:DesignHeight="450" d:DesignWidth="250">
     <UserControl.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ResourceDictionaries\AppResources.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            <local:StimulusTemplateSelector x:Key="stimulusTemplateSelector"/>
+            <local:LocatorTemplateSelector x:Key="locatorTemplateSelector"/>
         </ResourceDictionary>
     </UserControl.Resources>
     
@@ -36,10 +35,10 @@
                     </Expander.Header>
                     <DockPanel LastChildFill="True">
                         <ToolBarTray Orientation="Horizontal" DockPanel.Dock="Top">
-                            <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonHeight}">
+                            <ToolBar Height="36">
                                 <Button Command="{Binding LoadImageFileCommand}"
                                         ToolTip="{x:Static stringres:StringResources.AddImageStimulusTooltip}">
-                                    <Image Source="Images\AddImageStimulus.png" Stretch="Fill"/>
+                                    <Image Source="Images\ImageStimulus.png" Stretch="Fill"/>
                                 </Button>
                             </ToolBar>
                         </ToolBarTray>
@@ -48,7 +47,7 @@
                             for Different types of Stimulus items-->
                         <Border>
                             <ListBox ItemsSource="{Binding StimulusObjects}"
-                                         ItemTemplate="{StaticResource ImageStimulusTemplate}">
+                                     ItemTemplateSelector="{StaticResource stimulusTemplateSelector}">
                             </ListBox>
                         </Border>
                 </DockPanel>
@@ -64,14 +63,15 @@
                 </Expander.Header>
                 <DockPanel LastChildFill="False">
                     <ToolBarTray Orientation="Horizontal" DockPanel.Dock="Top">
-                        <ToolBar Height="{Binding Source={StaticResource appSettings}, Path=ToolbarButtonHeight}">
+                        <ToolBar Height="36">
                             <Button Command="{Binding AddPointLocatorCommand}"
                                     ToolTip="{x:Static stringres:StringResources.AddPointLocatorTooltip}">
-                                <Image Source="Images\AddPointLocator.png" Stretch="Fill"/>
+                                <Image Source="Images\PointLocator.png" Stretch="Fill"/>
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <ListBox>
+                    <ListBox ItemsSource="{Binding LocatorObjects}"
+                             ItemTemplateSelector="{StaticResource locatorTemplateSelector}">
                     </ListBox>
                 </DockPanel>
             </Expander>

@@ -7,19 +7,4 @@
         <ResourceDictionary Source="ControlTemplates.xaml"/>
         <ResourceDictionary Source="DataTemplates.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-
-    <local:AppSettings x:Key="appSettings"/>
-
-    <Style TargetType="{x:Type Expander}">
-        <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
-    </Style>
-
-    <Style TargetType="{x:Type Menu}">
-        <Setter Property="FontSize" Value="{Binding Source={StaticResource appSettings}, Path=FontSize}" />
-    </Style>
-
-    <Style x:Key="{x:Static ToolBar.ButtonStyleKey}" TargetType="Button">
-        <Setter Property="Background" Value="NavajoWhite"/>
-        <Setter Property="Margin" Value="2"/>
-    </Style>
 </ResourceDictionary>

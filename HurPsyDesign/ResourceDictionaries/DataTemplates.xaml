@@ -14,7 +14,15 @@
             <TextBox Text="{Binding ImageSize.Width, StringFormat='0.0'}"/>
             <TextBox Text="{Binding ImageSize.Height, StringFormat='0.0'}"/>
             <Image Source="{Binding StimulusObject}" Stretch="Fill"
-        Height="{Binding Source={StaticResource appSettings}, Path=ImagePreviewHeight}"/>
+                   Height="24"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PointLocatorTemplate">
+        <StackPanel Orientation="Horizontal">
+            <TextBox Text="{Binding Id}"/>
+            <TextBox Text="{Binding LocatorPoint.X, StringFormat='0.0'}"/>
+            <TextBox Text="{Binding LocatorPoint.Y, StringFormat='0.0'}"/>
         </StackPanel>
     </DataTemplate>
 </ResourceDictionary>

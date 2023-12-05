@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\AddImageStimulus.png" />
-    <None Remove="Images\AddPointLocator.png" />
+    <None Remove="Images\ImageStimulus.png" />
+    <None Remove="Images\PointLocator.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,23 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AppSettings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AppSettings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="AppSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\AddImageStimulus.png" />
-    <Resource Include="Images\AddPointLocator.png" />
+    <Resource Include="Images\ImageStimulus.png" />
+    <Resource Include="Images\PointLocator.png" />
   </ItemGroup>
 
 </Project>

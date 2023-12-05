@@ -19,11 +19,13 @@ namespace HurPsyDesign
         private Experiment _experiment;
 
         public ObservableCollection<Stimulus> StimulusObjects { get; set; }
+        public ObservableCollection<Locator> LocatorObjects { get; set; }
 
         public ExperimentViewModel()
         {
             _experiment = new Experiment();
             StimulusObjects = new ObservableCollection<Stimulus>();
+            LocatorObjects = new ObservableCollection<Locator>();
         }
 
         [RelayCommand]
@@ -119,7 +121,9 @@ namespace HurPsyDesign
         [RelayCommand]
         private void AddPointLocator()
         {
-
+            PointLocator ploc = new PointLocator();
+            _experiment.AddLocator(ploc.Id, ploc);
+            LocatorObjects.Add(ploc);
         }
     }
 }

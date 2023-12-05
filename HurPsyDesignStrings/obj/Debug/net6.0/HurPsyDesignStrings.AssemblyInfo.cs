@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HurPsyDesignStrings")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44c74e2ac9e483b48a8356f70f8e332e3b7cdb71")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("HurPsyDesignStrings")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HurPsyDesignStrings")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,7 +11,7 @@
         "projectName": "HurPsyLibStrings",
         "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLibStrings\\HurPsyLibStrings.csproj",
         "packagesPath": "C:\\Users\\freeb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLibStrings\\obj\\",
+        "outputPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyLibStrings\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -71,7 +71,7 @@
         "projectName": "HurPsyLib",
         "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj",
         "packagesPath": "C:\\Users\\freeb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\obj\\",
+        "outputPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

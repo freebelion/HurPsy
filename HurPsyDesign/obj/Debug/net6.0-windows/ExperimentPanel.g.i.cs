@@ -54,7 +54,7 @@ namespace HurPsyDesign {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/HurPsyDesign;component/experimentpanel.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/HurPsyDesign;V1.0.0.0;component/experimentpanel.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ExperimentPanel.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -42,9 +42,9 @@
                 </TextBlock>
             </Expander.Header>
             <local:ElementsPanel
-                   MinWidth="{Binding Source={StaticResource appSettings}, Path=MinPanelWidth}"
-                   MaxWidth="{Binding Source={StaticResource appSettings}, Path=MaxPanelWidth}"
-                   Width="{Binding Source={StaticResource appSettings}, Path=ElementsPanelWidth}"/>
+                   MinWidth="100"
+                   MaxWidth="500"
+                   Width="250"/>
         </Expander>
         <!-- TODO: Construct an Expander template that incorporates this general appearance. -->
         <Expander x:Name="ExperimentPanel" DockPanel.Dock="Left"
@@ -59,9 +59,9 @@
                 </TextBlock>
             </Expander.Header>
             <local:ExperimentPanel
-                MinWidth="{Binding Source={StaticResource appSettings}, Path=MinPanelWidth}"
-                MaxWidth="{Binding Source={StaticResource appSettings}, Path=MaxPanelWidth}"
-                Width="{Binding Source={StaticResource appSettings}, Path=ExperimentPanelWidth}"/>    
+                MinWidth="100"
+                MaxWidth="500"
+                Width="250"/>    
         </Expander>
 
         <!-- TODO: Change the container of the preview panel to Canvas;
