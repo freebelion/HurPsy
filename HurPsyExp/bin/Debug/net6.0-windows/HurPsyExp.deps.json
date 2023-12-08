@@ -8,16 +8,16 @@
     ".NETCoreApp,Version=v6.0": {
       "HurPsyExp/1.0.0": {
         "dependencies": {
-          "HurPsyDesignStrings": "1.0.0",
+          "HurPsyExpStrings": "1.0.0",
           "HurPsyLib": "1.0.0"
         },
         "runtime": {
           "HurPsyExp.dll": {}
         }
       },
-      "HurPsyDesignStrings/1.0.0": {
+      "HurPsyExpStrings/1.0.0": {
         "runtime": {
-          "HurPsyDesignStrings.dll": {}
+          "HurPsyExpStrings.dll": {}
         }
       },
       "HurPsyLib/1.0.0": {
@@ -41,7 +41,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "HurPsyDesignStrings/1.0.0": {
+    "HurPsyExpStrings/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

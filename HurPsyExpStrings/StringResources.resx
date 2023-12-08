@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddBlock_ButtonTooltip" xml:space="preserve">
+    <value>Add new block</value>
+    <comment>The tooltip for the toolbar button which adds a new block of trials</comment>
+  </data>
+  <data name="AddImageStimulus_ButtonTooltip" xml:space="preserve">
+    <value>Add Image Stimulus</value>
+    <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
+  </data>
+  <data name="AddPointLocator_ButtonTooltip" xml:space="preserve">
+    <value>Add Point Locator</value>
+    <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
+  </data>
+  <data name="DesignWindowTitle" xml:space="preserve">
+    <value>Experiment Design Window</value>
+    <comment>The title of the experiment design window</comment>
+  </data>
+  <data name="ElementsPanelHeader" xml:space="preserve">
+    <value>Element Definitions</value>
+    <comment>The header text for the ElementsPanel of HurPsyDesignApp</comment>
+  </data>
+  <data name="ExperimentFileFilter" xml:space="preserve">
+    <value>HurPsy Experiment Files (*.xml) |*.xml</value>
+    <comment>The file name pattern used in the dialog that loads a previously recorded experiment</comment>
+  </data>
+  <data name="ExperimentMenuHeader" xml:space="preserve">
+    <value>_Experiment</value>
+    <comment>The header text for the Experiment menu of HurDesignApp</comment>
+  </data>
+  <data name="ExperimentPanelHeader" xml:space="preserve">
+    <value>Experiment Blocks</value>
+    <comment>The header text for the ExperimentPanel of HurPsyDesignApp</comment>
+  </data>
+  <data name="ImageFileFilter" xml:space="preserve">
+    <value>Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg</value>
+    <comment>The file name pattern used in the dialog that loads image files</comment>
+  </data>
+  <data name="ImageStimulusTemplate_HeightTooltip" xml:space="preserve">
+    <value>Stimulus image height</value>
+    <comment>The tooltip for the textbox that sets the height in ImageStimulusTemplate</comment>
+  </data>
+  <data name="ImageStimulusTemplate_IdTooltip" xml:space="preserve">
+    <value>Stimulus image Id</value>
+    <comment>The tooltip for the textbox that sets the Id in ImageStimulusTemplate</comment>
+  </data>
+  <data name="ImageStimulusTemplate_WidthTooltip" xml:space="preserve">
+    <value>Stimulus image width</value>
+    <comment>The tooltip for the textbox that sets the width in ImageStimulusTemplate</comment>
+  </data>
+  <data name="LoadExperimentMenuItem" xml:space="preserve">
+    <value>_Load</value>
+    <comment>The label for the menu item that loads an experiment from file</comment>
+  </data>
+  <data name="LocatorsPanelHeader" xml:space="preserve">
+    <value>Locator Definitions</value>
+    <comment>The header text for the LocatorPanel of HurPsyDesignApp</comment>
+  </data>
+  <data name="NewExperimentMenuItem" xml:space="preserve">
+    <value>_New</value>
+    <comment>The label for the menu item that creates a new experiment</comment>
+  </data>
+  <data name="ResizeSliderTooltip" xml:space="preserve">
+    <value>Change panel width</value>
+    <comment>The tooltip for the width changing slider in the "HorizontallyResizableControl" template</comment>
+  </data>
+  <data name="RunWindowTitle" xml:space="preserve">
+    <value>Experiment Run Window</value>
+    <comment>The title of the experiment run window</comment>
+  </data>
+  <data name="SaveExperimentMenuItem" xml:space="preserve">
+    <value>_Save</value>
+    <comment>The label for the menu item that saves the experiment in a file</comment>
+  </data>
+  <data name="StartupDialogTitle" xml:space="preserve">
+    <value>Please select the session type</value>
+    <comment>The title of the startup dialog where the user chooses whether to design or run an experiment</comment>
+  </data>
+  <data name="StimulusPanelHeader" xml:space="preserve">
+    <value>Stimulus Definitions</value>
+    <comment>The header text for the StimuliPanel of HurPsyDesignApp</comment>
+  </data>
+</root>

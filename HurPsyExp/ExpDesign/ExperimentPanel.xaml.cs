@@ -24,5 +24,12 @@ namespace HurPsyExp.ExpDesign
         {
             InitializeComponent();
         }
+
+        private void AddBlock_Click(object sender, RoutedEventArgs e)
+        {
+            DesignViewModel designVM = (DesignViewModel)this.DataContext;
+            designVM.AddBlock();
+            lbBlocks.Items.Refresh();
+        }
     }
 }

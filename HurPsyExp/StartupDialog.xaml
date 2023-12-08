@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HurPsyExp"
-        xmlns:stringlib="clr-namespace:HurPsyDesignStrings;assembly=HurPsyDesignStrings"
+        xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
         Title="{x:Static stringlib:StringResources.StartupDialogTitle}" Height="400" Width="450"
         FontSize="{Binding Source={StaticResource UserPreferences}, Path=UIFontSize}"

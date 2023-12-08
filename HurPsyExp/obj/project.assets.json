@@ -2,14 +2,14 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "HurPsyDesignStrings/1.0.0": {
+      "HurPsyExpStrings/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/HurPsyDesignStrings.dll": {}
+          "bin/placeholder/HurPsyExpStrings.dll": {}
         },
         "runtime": {
-          "bin/placeholder/HurPsyDesignStrings.dll": {}
+          "bin/placeholder/HurPsyExpStrings.dll": {}
         }
       },
       "HurPsyLib/1.0.0": {
@@ -38,10 +38,10 @@
     }
   },
   "libraries": {
-    "HurPsyDesignStrings/1.0.0": {
+    "HurPsyExpStrings/1.0.0": {
       "type": "project",
-      "path": "../HurPsyDesignStrings/HurPsyDesignStrings.csproj",
-      "msbuildProject": "../HurPsyDesignStrings/HurPsyDesignStrings.csproj"
+      "path": "../HurPsyExpStrings/HurPsyExpStrings.csproj",
+      "msbuildProject": "../HurPsyExpStrings/HurPsyExpStrings.csproj"
     },
     "HurPsyLib/1.0.0": {
       "type": "project",
@@ -56,7 +56,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "HurPsyDesignStrings >= 1.0.0",
+      "HurPsyExpStrings >= 1.0.0",
       "HurPsyLib >= 1.0.0"
     ]
   },
@@ -93,8 +93,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyDesignStrings\\HurPsyDesignStrings.csproj": {
-              "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyDesignStrings\\HurPsyDesignStrings.csproj"
+            "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExpStrings\\HurPsyExpStrings.csproj": {
+              "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExpStrings\\HurPsyExpStrings.csproj"
             },
             "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj": {
               "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\HurPsyLib.csproj"

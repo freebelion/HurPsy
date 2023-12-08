@@ -7,13 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ExpDesign\DesignWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ExpDesign\ElementsPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ExpDesign\ExperimentPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ExpRunWindow.xaml.cs">
+    <Compile Update="ExpRun\RunWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="StartupDialog.xaml.cs">
@@ -21,10 +24,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ExpDesignWindow.xaml">
+    <Page Update="ExpDesign\DesignResources.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ExpDesign\ControlTemplates.xaml">
+    <Page Update="ExpDesign\DesignWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExpDesign\ElementsPanel.xaml">
@@ -33,7 +36,7 @@
     <Page Update="ExpDesign\ExperimentPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ExpRunWindow.xaml">
+    <Page Update="ExpRun\RunWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="StartupDialog.xaml">

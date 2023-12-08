@@ -26,14 +26,14 @@ namespace HurPsyExp
 
         private void DesignExperiment(object sender, RoutedEventArgs e)
         {
-            ExpDesignWindow windsgn = new ExpDesignWindow();
+            ExpDesign.DesignWindow windsgn = new ExpDesign.DesignWindow();
             windsgn.Show();
             this.Close();
         }
 
         private void RunExperiment(object sender, RoutedEventArgs e)
         {
-            ExpRunWindow winrun = new ExpRunWindow();
+            ExpRun.RunWindow winrun = new ExpRun.RunWindow();
             winrun.Show();
             this.Close();
         }

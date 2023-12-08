@@ -4,24 +4,124 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HurPsyExp.ExpDesign"
+             xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="250">
 
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ControlTemplates.xaml"/>
+                <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
-            <SolidColorBrush x:Key="ElementsPanelBrush" Color="Azure"/>
+            <SolidColorBrush x:Key="ToolbarBrush" Color="SteelBlue"/>
+            <SolidColorBrush x:Key="StimulusPanelBrush" Color="Transparent"/>
+            <SolidColorBrush x:Key="LocatorsPanelBrush" Color="Transparent"/>
+            
+            <DataTemplate x:Key="ImageStimulusTemplate">
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             Text="{Binding Id, NotifyOnSourceUpdated=True}"
+                             ToolTip="{x:Static stringlib:StringResources.ImageStimulusTemplate_IdTooltip}"
+                             SourceUpdated="StimulusId_Updated"/>
+                    <TextBox Grid.Column="1"
+                             Text="{Binding ImageSize.Width, StringFormat='0.0'}"
+                             ToolTip="{x:Static stringlib:StringResources.ImageStimulusTemplate_WidthTooltip}"/>
+                    <TextBox Grid.Column="2"
+                             Text="{Binding ImageSize.Height, StringFormat='0.0'}"
+                             ToolTip="{x:Static stringlib:StringResources.ImageStimulusTemplate_HeightTooltip}"/>
+                    <Image Grid.Column="3"
+                           Source="{Binding StimulusObject}" Stretch="Uniform"
+                   Height="24"/>
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="PointLocatorTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             Text="{Binding Id, NotifyOnSourceUpdated=True}"
+                             SourceUpdated="LocatorId_Updated"/>
+                    <TextBox Grid.Column="1"
+                             Text="{Binding LocatorPoint.X, StringFormat='0.0'}"/>
+                    <TextBox Grid.Column="2"
+                             Text="{Binding LocatorPoint.Y, StringFormat='0.0'}"/>
+                </Grid>
+            </DataTemplate>
+
+            <local:StimulusTemplateSelector x:Key="stimulusTemplateSelector"/>
+            <local:LocatorTemplateSelector x:Key="locatorTemplateSelector"/>
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <ContentControl Template="{StaticResource HorizontallySizableControl}">
-        <ContentControl.Content>
-            <DockPanel Background="{StaticResource ElementsPanelBrush}">
-                
+    <DockPanel LastChildFill="False">
+        <Expander
+            DockPanel.Dock="Top"
+            ExpandDirection="Down"
+            IsExpanded="True"
+            Background="{StaticResource StimulusPanelBrush}">
+
+            <Expander.Header>
+                <TextBlock Text="{x:Static stringlib:StringResources.StimulusPanelHeader}"/>
+            </Expander.Header>
+
+            <DockPanel LastChildFill="True">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                            Style="{StaticResource CommandBar}"
+                            HorizontalAlignment="Stretch">
+                    <Button Style="{StaticResource CommandButton}"
+                            ToolTip="{x:Static stringlib:StringResources.AddImageStimulus_ButtonTooltip}"
+                            Click="ImageStimulusButton_Click">
+                        <Image Source="..\Images\ImageStimulus.png" Stretch="Fill"/>
+                    </Button>
+                </StackPanel>
+
+                <Border>
+                    <ListBox x:Name="StimulusList"
+                             ItemsSource="{Binding StimulusList}"
+                             ItemTemplateSelector="{StaticResource stimulusTemplateSelector}">
+                    </ListBox>
+                </Border>
             </DockPanel>
-        </ContentControl.Content>
-    </ContentControl>
+        </Expander>
+
+        <Expander
+            DockPanel.Dock="Top"
+            ExpandDirection="Down"
+            IsExpanded="True"
+            Background="{StaticResource StimulusPanelBrush}">
+
+            <Expander.Header>
+                <TextBlock Text="{x:Static stringlib:StringResources.LocatorsPanelHeader}"/>
+            </Expander.Header>
+
+            <DockPanel LastChildFill="True">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                            Style="{StaticResource CommandBar}"
+                            HorizontalAlignment="Stretch">
+                    <Button Style="{StaticResource CommandButton}"
+                            ToolTip="{x:Static stringlib:StringResources.AddPointLocator_ButtonTooltip}"
+                            Click="PointLocatorButton_Click">
+                        <Image Source="..\Images\PointLocator.png" Stretch="Fill"/>
+                    </Button>
+                </StackPanel>
+
+                <Border>
+                    <ListBox Name="LocatorList" ItemsSource="{Binding LocatorList}"
+                        ItemTemplateSelector="{StaticResource locatorTemplateSelector}">
+                    </ListBox>
+                </Border>
+            </DockPanel>
+        </Expander>
+    </DockPanel>
 </UserControl>

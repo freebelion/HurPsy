@@ -104,7 +104,7 @@ namespace HurPsyLib
 
         /// <summary>
         /// This static method provides a shortcut to throw an exception
-        /// referring to a named string resource in HurPsyStrings assembly.
+        /// referring to a named string resource in HurPsyLibStrings assembly.
         /// </summary>
         /// <param name="strResourceName"></param>
         /// <exception cref="HurPsyException"></exception>

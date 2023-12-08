@@ -13,27 +13,41 @@ namespace HurPsyLib
     public class Experiment
     {
         [DataMember]
-        public Dictionary<string, Stimulus> StimulusDict { get; private set; }
+        public List<Stimulus> StimulusList { get; private set; }
 
         [DataMember]
-        public Dictionary<string, Locator> LocatorDict { get; private set; }
+        public List<Locator> LocatorList { get; private set; }
+
+        [DataMember]
+        public List<Block> Blocks { get; private set; }
 
         public Experiment()
         {
-            StimulusDict = new Dictionary<string, Stimulus>();
-            LocatorDict = new Dictionary<string, Locator>();
+            StimulusList = new List<Stimulus>();
+            LocatorList = new List<Locator>();
+            Blocks = new List<Block>();
         }
 
-        public bool AddStimulus(string stimId, Stimulus stim)
+        public bool AddStimulus(Stimulus stim)
         {
-            try { StimulusDict.Add(stimId, stim); return true; }
-            catch { return false; }
+            // Do not accept Stimulus objects with previously used Ids
+            bool idExists = StimulusList.Any(s => s.Id == stim.Id);
+            if(!idExists) { StimulusList.Add(stim); }
+            return !idExists;
         }
 
-        public bool AddLocator(string locId, Locator loc)
+        public bool AddLocator(Locator loc)
         {
-            try { LocatorDict.Add(locId, loc); return true; }
-            catch { return false; }
+            // Do not accept Locator objects with previously used Ids
+            bool idExists = LocatorList.Any(s => s.Id == loc.Id);
+            if (!idExists) { LocatorList.Add(loc); }
+            return !idExists;
+        }
+
+        public void AddNewBlock()
+        {
+            Block newblock = new Block();
+            Blocks.Add(newblock);
         }
 
         public void SaveToXml(string fileName)
