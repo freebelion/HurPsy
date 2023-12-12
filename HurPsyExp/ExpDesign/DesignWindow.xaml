@@ -6,20 +6,30 @@
         xmlns:local="clr-namespace:HurPsyExp.ExpDesign"
         xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
-        Title="{x:Static stringlib:StringResources.DesignWindowTitle}"
+        Title="{x:Static stringlib:StringResources.Title_DesignWindow}"
         Height="800" Width="1400"
-        FontSize="{Binding Source={StaticResource UserPreferences}, Path=UIFontSize}"
-        WindowState="Maximized" WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded">
+        WindowState="Maximized" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:DesignViewModel />
+    </Window.DataContext>
 
     <Window.Resources>
         <ResourceDictionary>
-            <SolidColorBrush x:Key="ElementsPanelBrush" Color="Azure"/>
-            <SolidColorBrush x:Key="ExperimentPanelBrush" Color="LightCyan"/>
-            <SolidColorBrush x:Key="PreviewPanelBrush" Color="AliceBlue"/>
-            <SolidColorBrush x:Key="ExpanderBrush" Color="LightSkyBlue"/>
-            <SolidColorBrush x:Key="MenuBrush" Color="SkyBlue"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DesignResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <LinearGradientBrush x:Key="MenuBrush"
+                                 StartPoint="0.0,0.0" EndPoint="1.0,0.0">
+                <GradientStop Color="LightBlue" Offset="0"/>
+                <GradientStop Color="LightSteelBlue" Offset="0.25"/>
+                <GradientStop Color="LightSkyBlue" Offset="0.75"/>
+                <GradientStop Color="SkyBlue" Offset="1"/>
+            </LinearGradientBrush>
             <SolidColorBrush x:Key="MenuTextBrush" Color="Black"/>
+
+            <SolidColorBrush x:Key="PreviewPanelBrush" Color="AliceBlue"/>
 
             <!--When this template is applied to a UserControl,
                 the control's width can be changed by using the slider.-->
@@ -31,7 +41,7 @@
                     </Grid.RowDefinitions>
 
                     <Slider Orientation="Horizontal" Grid.Row="0"
-                            ToolTip="{x:Static stringlib:StringResources.ResizeSliderTooltip}"
+                            ToolTip="{x:Static stringlib:StringResources.Tooltip_ResizeSlider}"
                             Minimum="{Binding Path=MinWidth, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                             Maximum="{Binding Path=MaxWidth, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                             Value="{Binding Path=Width, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
@@ -40,34 +50,30 @@
                 </Grid>
             </ControlTemplate>
 
-            <Style TargetType="Border">
-                <Setter Property="BorderBrush" Value="{StaticResource ExpanderBrush}"/>
-                <Setter Property="BorderThickness" Value="1"/>
-            </Style>
         </ResourceDictionary>
     </Window.Resources>
     
     <DockPanel x:Name="MainPanel" LastChildFill="True">
         <Menu DockPanel.Dock="Top"
-                Background="{StaticResource MenuBrush}"
-              Foreground="{StaticResource MenuTextBrush}">
-            <MenuItem Header="{x:Static stringlib:StringResources.ExperimentMenuHeader}">
-                <MenuItem Header="{x:Static stringlib:StringResources.NewExperimentMenuItem}"
-                          Click="NewExperimentMenuItem_Click"/>
-                <MenuItem Header="{x:Static stringlib:StringResources.LoadExperimentMenuItem}"
-                          Click="LoadExperimentMenuItem_Click"/>
-                <MenuItem Header="{x:Static stringlib:StringResources.SaveExperimentMenuItem}"
-                          Click="SaveExperimentMenuItem_Click"/>
+              Background="{StaticResource MenuBrush}"
+              Foreground="{StaticResource MenuTextBrush}"
+              FontSize="{Binding Source={StaticResource DesignPreferences}, Path=MenuFontSize}">
+            <MenuItem Header="{x:Static stringlib:StringResources.Header_ExperimentMenu}" Margin="2">
+                <MenuItem Header="{x:Static stringlib:StringResources.Header_NewExperimentMenuItem}"
+                          Command="{Binding NewExperimentCommand}"/>
+                <MenuItem Header="{x:Static stringlib:StringResources.Header_LoadExperimentMenuItem}"
+                          Command="{Binding LoadExperimentCommand}"/>
+                <MenuItem Header="{x:Static stringlib:StringResources.Header_SaveExperimentMenuItem}"
+                          Command="{Binding SaveExperimentCommand}"/>
             </MenuItem>
         </Menu>
 
         <Expander DockPanel.Dock="Left"
                   ExpandDirection="Right"
-                  IsExpanded="True"
-                  Background="{StaticResource ExpanderBrush}">
+                  IsExpanded="True">
             <Expander.Header>
                 <TextBlock Margin="2"
-                        Text="{x:Static stringlib:StringResources.ElementsPanelHeader}">
+                        Text="{x:Static stringlib:StringResources.Header_ElementsPanel}">
                     <TextBlock.LayoutTransform>
                         <RotateTransform Angle="90"/>
                     </TextBlock.LayoutTransform>
@@ -76,19 +82,17 @@
 
             <Border>
                 <local:ElementsPanel Template="{StaticResource HorizontallySizableControl}"
-                                     Background="{StaticResource ElementsPanelBrush}"
-                    MinWidth="{Binding Source={StaticResource UserPreferences}, Path=MinPanelWidth}"
-                    MaxWidth="{Binding Source={StaticResource UserPreferences}, Path=MaxPanelWidth}"
-                    Width="{Binding Source={StaticResource UserPreferences}, Path=ElementsPanelWidth}"/>
+                    MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
+                    MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
+                    Width="{Binding Source={StaticResource DesignPreferences}, Path=ElementsPanelWidth}"/>
             </Border>
         </Expander>
 
         <Expander DockPanel.Dock="Left"
             ExpandDirection="Right"
-            IsExpanded="True"
-            Background="{StaticResource ExpanderBrush}">  
+            IsExpanded="True">  
             <Expander.Header>
-                <TextBlock Margin="2" Text="{x:Static stringlib:StringResources.ExperimentPanelHeader}">
+                <TextBlock Margin="2" Text="{x:Static stringlib:StringResources.Header_ExperimentPanel}">
                     <TextBlock.LayoutTransform>
                         <RotateTransform Angle="90"/>
                     </TextBlock.LayoutTransform>
@@ -97,10 +101,9 @@
 
             <Border>
                 <local:ExperimentPanel Template="{StaticResource HorizontallySizableControl}"
-                                       Background="{StaticResource ExperimentPanelBrush}"
-                    MinWidth="{Binding Source={StaticResource UserPreferences}, Path=MinPanelWidth}"
-                    MaxWidth="{Binding Source={StaticResource UserPreferences}, Path=MaxPanelWidth}"
-                    Width="{Binding Source={StaticResource UserPreferences}, Path=ExperimentPanelWidth}"/>
+                    MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
+                    MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
+                    Width="{Binding Source={StaticResource DesignPreferences}, Path=ExperimentPanelWidth}"/>
             </Border>
         </Expander>
 

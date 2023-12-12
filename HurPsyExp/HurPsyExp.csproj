@@ -19,6 +19,11 @@
     <None Remove="Images\AddBlock.png" />
     <None Remove="Images\ImageStimulus.png" />
     <None Remove="Images\PointLocator.png" />
+    <None Remove="Images\SelectObject.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +35,7 @@
     <Resource Include="Images\AddBlock.png" />
     <Resource Include="Images\ImageStimulus.png" />
     <Resource Include="Images\PointLocator.png" />
+    <Resource Include="Images\SelectObject.png" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HurPsyExp.ExpRun"
         xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
-        Title="{x:Static stringlib:StringResources.RunWindowTitle}" Height="450" Width="800"
+        Title="{x:Static stringlib:StringResources.Title_RunWindow}" Height="450" Width="800"
         WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterOwner">
     
     <Canvas>

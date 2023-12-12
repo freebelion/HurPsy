@@ -61,182 +61,200 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new block.
-        /// </summary>
-        public static string AddBlock_ButtonTooltip {
-            get {
-                return ResourceManager.GetString("AddBlock_ButtonTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add Image Stimulus.
-        /// </summary>
-        public static string AddImageStimulus_ButtonTooltip {
-            get {
-                return ResourceManager.GetString("AddImageStimulus_ButtonTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add Point Locator.
-        /// </summary>
-        public static string AddPointLocator_ButtonTooltip {
-            get {
-                return ResourceManager.GetString("AddPointLocator_ButtonTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Experiment Design Window.
-        /// </summary>
-        public static string DesignWindowTitle {
-            get {
-                return ResourceManager.GetString("DesignWindowTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Element Definitions.
-        /// </summary>
-        public static string ElementsPanelHeader {
-            get {
-                return ResourceManager.GetString("ElementsPanelHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to HurPsy Experiment Files (*.xml) |*.xml.
         /// </summary>
-        public static string ExperimentFileFilter {
+        public static string FileFilter_Experiment {
             get {
-                return ResourceManager.GetString("ExperimentFileFilter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to _Experiment.
-        /// </summary>
-        public static string ExperimentMenuHeader {
-            get {
-                return ResourceManager.GetString("ExperimentMenuHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Experiment Blocks.
-        /// </summary>
-        public static string ExperimentPanelHeader {
-            get {
-                return ResourceManager.GetString("ExperimentPanelHeader", resourceCulture);
+                return ResourceManager.GetString("FileFilter_Experiment", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg.
         /// </summary>
-        public static string ImageFileFilter {
+        public static string FileFilter_Image {
             get {
-                return ResourceManager.GetString("ImageFileFilter", resourceCulture);
+                return ResourceManager.GetString("FileFilter_Image", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stimulus image height.
+        ///   Looks up a localized string similar to Element Definitions.
         /// </summary>
-        public static string ImageStimulusTemplate_HeightTooltip {
+        public static string Header_ElementsPanel {
             get {
-                return ResourceManager.GetString("ImageStimulusTemplate_HeightTooltip", resourceCulture);
+                return ResourceManager.GetString("Header_ElementsPanel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stimulus image Id.
+        ///   Looks up a localized string similar to _Experiment.
         /// </summary>
-        public static string ImageStimulusTemplate_IdTooltip {
+        public static string Header_ExperimentMenu {
             get {
-                return ResourceManager.GetString("ImageStimulusTemplate_IdTooltip", resourceCulture);
+                return ResourceManager.GetString("Header_ExperimentMenu", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stimulus image width.
+        ///   Looks up a localized string similar to Experiment Blocks.
         /// </summary>
-        public static string ImageStimulusTemplate_WidthTooltip {
+        public static string Header_ExperimentPanel {
             get {
-                return ResourceManager.GetString("ImageStimulusTemplate_WidthTooltip", resourceCulture);
+                return ResourceManager.GetString("Header_ExperimentPanel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to _Load.
         /// </summary>
-        public static string LoadExperimentMenuItem {
+        public static string Header_LoadExperimentMenuItem {
             get {
-                return ResourceManager.GetString("LoadExperimentMenuItem", resourceCulture);
+                return ResourceManager.GetString("Header_LoadExperimentMenuItem", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Locator Definitions.
         /// </summary>
-        public static string LocatorsPanelHeader {
+        public static string Header_LocatorPanel {
             get {
-                return ResourceManager.GetString("LocatorsPanelHeader", resourceCulture);
+                return ResourceManager.GetString("Header_LocatorPanel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to _New.
         /// </summary>
-        public static string NewExperimentMenuItem {
+        public static string Header_NewExperimentMenuItem {
             get {
-                return ResourceManager.GetString("NewExperimentMenuItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Change panel width.
-        /// </summary>
-        public static string ResizeSliderTooltip {
-            get {
-                return ResourceManager.GetString("ResizeSliderTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Experiment Run Window.
-        /// </summary>
-        public static string RunWindowTitle {
-            get {
-                return ResourceManager.GetString("RunWindowTitle", resourceCulture);
+                return ResourceManager.GetString("Header_NewExperimentMenuItem", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to _Save.
         /// </summary>
-        public static string SaveExperimentMenuItem {
+        public static string Header_SaveExperimentMenuItem {
             get {
-                return ResourceManager.GetString("SaveExperimentMenuItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please select the session type.
-        /// </summary>
-        public static string StartupDialogTitle {
-            get {
-                return ResourceManager.GetString("StartupDialogTitle", resourceCulture);
+                return ResourceManager.GetString("Header_SaveExperimentMenuItem", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Stimulus Definitions.
         /// </summary>
-        public static string StimulusPanelHeader {
+        public static string Header_StimulusPanel {
             get {
-                return ResourceManager.GetString("StimulusPanelHeader", resourceCulture);
+                return ResourceManager.GetString("Header_StimulusPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Experiment Design Window.
+        /// </summary>
+        public static string Title_DesignWindow {
+            get {
+                return ResourceManager.GetString("Title_DesignWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Experiment Run Window.
+        /// </summary>
+        public static string Title_RunWindow {
+            get {
+                return ResourceManager.GetString("Title_RunWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select the session type.
+        /// </summary>
+        public static string Title_StartupDialog {
+            get {
+                return ResourceManager.GetString("Title_StartupDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Block.
+        /// </summary>
+        public static string Tooltip_AddBlock {
+            get {
+                return ResourceManager.GetString("Tooltip_AddBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Image Stimulus.
+        /// </summary>
+        public static string Tooltip_AddImageStimulus {
+            get {
+                return ResourceManager.GetString("Tooltip_AddImageStimulus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Point Locator.
+        /// </summary>
+        public static string Tooltip_AddPointLocator {
+            get {
+                return ResourceManager.GetString("Tooltip_AddPointLocator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Image Height.
+        /// </summary>
+        public static string Tooltip_ImageStimulusHeight {
+            get {
+                return ResourceManager.GetString("Tooltip_ImageStimulusHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Image Id.
+        /// </summary>
+        public static string Tooltip_ImageStimulusId {
+            get {
+                return ResourceManager.GetString("Tooltip_ImageStimulusId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Image Preview.
+        /// </summary>
+        public static string Tooltip_ImageStimulusPreview {
+            get {
+                return ResourceManager.GetString("Tooltip_ImageStimulusPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Image Width.
+        /// </summary>
+        public static string Tooltip_ImageStimulusWidth {
+            get {
+                return ResourceManager.GetString("Tooltip_ImageStimulusWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change panel width.
+        /// </summary>
+        public static string Tooltip_ResizeSlider {
+            get {
+                return ResourceManager.GetString("Tooltip_ResizeSlider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select object.
+        /// </summary>
+        public static string Tooltip_SelectObject {
+            get {
+                return ResourceManager.GetString("Tooltip_SelectObject", resourceCulture);
             }
         }
     }

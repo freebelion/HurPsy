@@ -19,37 +19,9 @@ namespace HurPsyExp.ExpDesign
     /// </summary>
     public partial class DesignWindow : Window
     {
-        public DesignViewModel DesignVM { get; set; }
-
         public DesignWindow()
         {
             InitializeComponent();
-            
-            DesignVM = new DesignViewModel();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // Although I started with a strict adherence to the MVVM architecture,
-            // I decided to go back to code-behind in order to keep the codes simple
-            // and make the application leaner.
-            this.DataContext = DesignVM;
-        }
-
-        private void NewExperimentMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            DesignVM.NewExperiment();
-        }
-
-        private void LoadExperimentMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            DesignVM.LoadExperiment();
-        }
-
-        private void SaveExperimentMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            DesignVM.SaveExperiment();
-        }
-
     }
 }

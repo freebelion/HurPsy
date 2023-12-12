@@ -117,84 +117,92 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddBlock_ButtonTooltip" xml:space="preserve">
-    <value>Add new block</value>
-    <comment>The tooltip for the toolbar button which adds a new block of trials</comment>
-  </data>
-  <data name="AddImageStimulus_ButtonTooltip" xml:space="preserve">
-    <value>Add Image Stimulus</value>
-    <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
-  </data>
-  <data name="AddPointLocator_ButtonTooltip" xml:space="preserve">
-    <value>Add Point Locator</value>
-    <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
-  </data>
-  <data name="DesignWindowTitle" xml:space="preserve">
-    <value>Experiment Design Window</value>
-    <comment>The title of the experiment design window</comment>
-  </data>
-  <data name="ElementsPanelHeader" xml:space="preserve">
-    <value>Element Definitions</value>
-    <comment>The header text for the ElementsPanel of HurPsyDesignApp</comment>
-  </data>
-  <data name="ExperimentFileFilter" xml:space="preserve">
+  <data name="FileFilter_Experiment" xml:space="preserve">
     <value>HurPsy Experiment Files (*.xml) |*.xml</value>
     <comment>The file name pattern used in the dialog that loads a previously recorded experiment</comment>
   </data>
-  <data name="ExperimentMenuHeader" xml:space="preserve">
-    <value>_Experiment</value>
-    <comment>The header text for the Experiment menu of HurDesignApp</comment>
-  </data>
-  <data name="ExperimentPanelHeader" xml:space="preserve">
-    <value>Experiment Blocks</value>
-    <comment>The header text for the ExperimentPanel of HurPsyDesignApp</comment>
-  </data>
-  <data name="ImageFileFilter" xml:space="preserve">
+  <data name="FileFilter_Image" xml:space="preserve">
     <value>Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg</value>
     <comment>The file name pattern used in the dialog that loads image files</comment>
   </data>
-  <data name="ImageStimulusTemplate_HeightTooltip" xml:space="preserve">
-    <value>Stimulus image height</value>
-    <comment>The tooltip for the textbox that sets the height in ImageStimulusTemplate</comment>
+  <data name="Header_ElementsPanel" xml:space="preserve">
+    <value>Element Definitions</value>
+    <comment>The header text for the ElementsPanel of HurPsyDesignApp</comment>
   </data>
-  <data name="ImageStimulusTemplate_IdTooltip" xml:space="preserve">
-    <value>Stimulus image Id</value>
-    <comment>The tooltip for the textbox that sets the Id in ImageStimulusTemplate</comment>
+  <data name="Header_ExperimentMenu" xml:space="preserve">
+    <value>_Experiment</value>
+    <comment>The header text for the Experiment menu of HurDesignApp</comment>
   </data>
-  <data name="ImageStimulusTemplate_WidthTooltip" xml:space="preserve">
-    <value>Stimulus image width</value>
-    <comment>The tooltip for the textbox that sets the width in ImageStimulusTemplate</comment>
+  <data name="Header_ExperimentPanel" xml:space="preserve">
+    <value>Experiment Blocks</value>
+    <comment>The header text for the ExperimentPanel of HurPsyDesignApp</comment>
   </data>
-  <data name="LoadExperimentMenuItem" xml:space="preserve">
+  <data name="Header_LoadExperimentMenuItem" xml:space="preserve">
     <value>_Load</value>
     <comment>The label for the menu item that loads an experiment from file</comment>
   </data>
-  <data name="LocatorsPanelHeader" xml:space="preserve">
+  <data name="Header_LocatorPanel" xml:space="preserve">
     <value>Locator Definitions</value>
     <comment>The header text for the LocatorPanel of HurPsyDesignApp</comment>
   </data>
-  <data name="NewExperimentMenuItem" xml:space="preserve">
+  <data name="Header_NewExperimentMenuItem" xml:space="preserve">
     <value>_New</value>
     <comment>The label for the menu item that creates a new experiment</comment>
   </data>
-  <data name="ResizeSliderTooltip" xml:space="preserve">
-    <value>Change panel width</value>
-    <comment>The tooltip for the width changing slider in the "HorizontallyResizableControl" template</comment>
-  </data>
-  <data name="RunWindowTitle" xml:space="preserve">
-    <value>Experiment Run Window</value>
-    <comment>The title of the experiment run window</comment>
-  </data>
-  <data name="SaveExperimentMenuItem" xml:space="preserve">
+  <data name="Header_SaveExperimentMenuItem" xml:space="preserve">
     <value>_Save</value>
     <comment>The label for the menu item that saves the experiment in a file</comment>
   </data>
-  <data name="StartupDialogTitle" xml:space="preserve">
+  <data name="Header_StimulusPanel" xml:space="preserve">
+    <value>Stimulus Definitions</value>
+    <comment>The header text for the StimuliPanel of HurPsyDesignApp</comment>
+  </data>
+  <data name="Title_DesignWindow" xml:space="preserve">
+    <value>Experiment Design Window</value>
+    <comment>The title of the experiment design window</comment>
+  </data>
+  <data name="Title_RunWindow" xml:space="preserve">
+    <value>Experiment Run Window</value>
+    <comment>The title of the experiment run window</comment>
+  </data>
+  <data name="Title_StartupDialog" xml:space="preserve">
     <value>Please select the session type</value>
     <comment>The title of the startup dialog where the user chooses whether to design or run an experiment</comment>
   </data>
-  <data name="StimulusPanelHeader" xml:space="preserve">
-    <value>Stimulus Definitions</value>
-    <comment>The header text for the StimuliPanel of HurPsyDesignApp</comment>
+  <data name="Tooltip_AddBlock" xml:space="preserve">
+    <value>Add New Block</value>
+    <comment>The tooltip for the toolbar button which adds a new block of trials</comment>
+  </data>
+  <data name="Tooltip_AddImageStimulus" xml:space="preserve">
+    <value>Add Image Stimulus</value>
+    <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
+  </data>
+  <data name="Tooltip_AddPointLocator" xml:space="preserve">
+    <value>Add Point Locator</value>
+    <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
+  </data>
+  <data name="Tooltip_ImageStimulusHeight" xml:space="preserve">
+    <value>Stimulus Image Height</value>
+    <comment>The tooltip for the textbox that sets the height in ImageStimulusTemplate</comment>
+  </data>
+  <data name="Tooltip_ImageStimulusId" xml:space="preserve">
+    <value>Stimulus Image Id</value>
+    <comment>The tooltip for the textbox that sets the Id in ImageStimulusTemplate</comment>
+  </data>
+  <data name="Tooltip_ImageStimulusPreview" xml:space="preserve">
+    <value>Stimulus Image Preview</value>
+    <comment>The tooltip for the preview image of an ImageStimulus</comment>
+  </data>
+  <data name="Tooltip_ImageStimulusWidth" xml:space="preserve">
+    <value>Stimulus Image Width</value>
+    <comment>The tooltip for the textbox that sets the width in ImageStimulusTemplate</comment>
+  </data>
+  <data name="Tooltip_ResizeSlider" xml:space="preserve">
+    <value>Change panel width</value>
+    <comment>The tooltip for the width changing slider in the "HorizontallyResizableControl" template</comment>
+  </data>
+  <data name="Tooltip_SelectObject" xml:space="preserve">
+    <value>Select object</value>
+    <comment>The tooltip for the button which selects an object in an ItemsControl</comment>
   </data>
 </root>

@@ -14,10 +14,6 @@
                 <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
-            <SolidColorBrush x:Key="ToolbarBrush" Color="SteelBlue"/>
-            <SolidColorBrush x:Key="StimulusPanelBrush" Color="Transparent"/>
-            <SolidColorBrush x:Key="LocatorsPanelBrush" Color="Transparent"/>
-            
             <DataTemplate x:Key="ImageStimulusTemplate">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -26,41 +22,39 @@
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0"
-                             Text="{Binding Id, NotifyOnSourceUpdated=True}"
-                             ToolTip="{x:Static stringlib:StringResources.ImageStimulusTemplate_IdTooltip}"
-                             SourceUpdated="StimulusId_Updated"/>
-                    <TextBox Grid.Column="1"
-                             Text="{Binding ImageSize.Width, StringFormat='0.0'}"
-                             ToolTip="{x:Static stringlib:StringResources.ImageStimulusTemplate_WidthTooltip}"/>
-                    <TextBox Grid.Column="2"
-                             Text="{Binding ImageSize.Height, StringFormat='0.0'}"
-                             ToolTip="{x:Static stringlib:StringResources.ImageStimulusTemplate_HeightTooltip}"/>
-                    <Image Grid.Column="3"
-                           Source="{Binding StimulusObject}" Stretch="Uniform"
-                   Height="24"/>
+                    <TextBox Grid.Column="0" Margin="2"
+                             Text="{Binding Id}"
+                             ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusId}"/>
+
+                    <TextBox Grid.Column="1" Margin="2"
+                             Text="{Binding ItemObject.ImageSize.Width, StringFormat='0.0'}"
+                             ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusWidth}"/>
+                    <TextBox Grid.Column="2" Margin="2"
+                             Text="{Binding ItemObject.ImageSize.Height, StringFormat='0.0'}"
+                             ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusHeight}"/>
+                    <Image Grid.Column="3" Margin="2"
+                           Source="{Binding ItemObject.StimulusObject}" Stretch="Uniform"
+                           Height="{Binding Source={StaticResource DesignPreferences}, Path=ImagePreviewHeight}"
+                           ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusPreview}"/>
+
                 </Grid>
             </DataTemplate>
 
             <DataTemplate x:Key="PointLocatorTemplate">
-                <Grid>
+                <Grid Name="LocatorTemplateGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0"
-                             Text="{Binding Id, NotifyOnSourceUpdated=True}"
-                             SourceUpdated="LocatorId_Updated"/>
-                    <TextBox Grid.Column="1"
-                             Text="{Binding LocatorPoint.X, StringFormat='0.0'}"/>
-                    <TextBox Grid.Column="2"
-                             Text="{Binding LocatorPoint.Y, StringFormat='0.0'}"/>
+                    <TextBox Grid.Column="0" Margin="2"
+                             Text="{Binding Id}"/>
+                    <TextBox Grid.Column="1" Margin="2"
+                             Text="{Binding ItemObject.LocatorPoint.X, StringFormat='0.0'}"/>
+                    <TextBox Grid.Column="2" Margin="2"
+                             Text="{Binding ItemObject.LocatorPoint.Y, StringFormat='0.0'}"/>
                 </Grid>
             </DataTemplate>
-
-            <local:StimulusTemplateSelector x:Key="stimulusTemplateSelector"/>
-            <local:LocatorTemplateSelector x:Key="locatorTemplateSelector"/>
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -68,11 +62,10 @@
         <Expander
             DockPanel.Dock="Top"
             ExpandDirection="Down"
-            IsExpanded="True"
-            Background="{StaticResource StimulusPanelBrush}">
+            IsExpanded="True">
 
             <Expander.Header>
-                <TextBlock Text="{x:Static stringlib:StringResources.StimulusPanelHeader}"/>
+                <TextBlock Text="{x:Static stringlib:StringResources.Header_StimulusPanel}"/>
             </Expander.Header>
 
             <DockPanel LastChildFill="True">
@@ -80,17 +73,16 @@
                             Style="{StaticResource CommandBar}"
                             HorizontalAlignment="Stretch">
                     <Button Style="{StaticResource CommandButton}"
-                            ToolTip="{x:Static stringlib:StringResources.AddImageStimulus_ButtonTooltip}"
-                            Click="ImageStimulusButton_Click">
+                            Command="{Binding SelectImagesCommand}"
+                            ToolTip="{x:Static stringlib:StringResources.Tooltip_AddImageStimulus}">
                         <Image Source="..\Images\ImageStimulus.png" Stretch="Fill"/>
                     </Button>
                 </StackPanel>
 
                 <Border>
-                    <ListBox x:Name="StimulusList"
-                             ItemsSource="{Binding StimulusList}"
-                             ItemTemplateSelector="{StaticResource stimulusTemplateSelector}">
-                    </ListBox>
+                    <ItemsControl ItemsSource="{Binding StimulusVMs}"
+                                  ItemTemplate="{StaticResource ItemViewTemplate}">
+                    </ItemsControl>
                 </Border>
             </DockPanel>
         </Expander>
@@ -98,11 +90,10 @@
         <Expander
             DockPanel.Dock="Top"
             ExpandDirection="Down"
-            IsExpanded="True"
-            Background="{StaticResource StimulusPanelBrush}">
+            IsExpanded="True">
 
             <Expander.Header>
-                <TextBlock Text="{x:Static stringlib:StringResources.LocatorsPanelHeader}"/>
+                <TextBlock Text="{x:Static stringlib:StringResources.Header_LocatorPanel}"/>
             </Expander.Header>
 
             <DockPanel LastChildFill="True">
@@ -110,16 +101,16 @@
                             Style="{StaticResource CommandBar}"
                             HorizontalAlignment="Stretch">
                     <Button Style="{StaticResource CommandButton}"
-                            ToolTip="{x:Static stringlib:StringResources.AddPointLocator_ButtonTooltip}"
-                            Click="PointLocatorButton_Click">
+                            Command="{Binding AddPointLocatorCommand}"
+                            ToolTip="{x:Static stringlib:StringResources.Tooltip_AddPointLocator}">
                         <Image Source="..\Images\PointLocator.png" Stretch="Fill"/>
                     </Button>
                 </StackPanel>
 
                 <Border>
-                    <ListBox Name="LocatorList" ItemsSource="{Binding LocatorList}"
-                        ItemTemplateSelector="{StaticResource locatorTemplateSelector}">
-                    </ListBox>
+                    <ItemsControl ItemsSource="{Binding LocatorVMs}"
+                                  ItemTemplate="{StaticResource ItemViewTemplate}">
+                    </ItemsControl>
                 </Border>
             </DockPanel>
         </Expander>

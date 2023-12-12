@@ -4,37 +4,27 @@ using HurPsyLib;
 
 namespace HurPsyExp.ExpDesign
 {
-    public class StimulusTemplateSelector : DataTemplateSelector
+    public class ItemViewTemplateSelector : DataTemplateSelector
     {
-        public override DataTemplate SelectTemplate(object stim, DependencyObject container)
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             FrameworkElement element = (FrameworkElement)container;
 
-            if (element != null && stim != null && stim is Stimulus)
+            if (element != null && item != null && item is ItemViewModel)
             {
-                switch (stim)
+                ItemViewModel itemvm = (ItemViewModel)item;
+
+                object? itemObject = itemvm.ItemObject;
+
+                if (itemObject != null)
                 {
-                    case ImageStimulus imgstim:
-                        return (DataTemplate)element.FindResource("ImageStimulusTemplate");
-                }
-            }
-
-            return null;
-        }
-    }
-
-    public class LocatorTemplateSelector : DataTemplateSelector
-    {
-        public override DataTemplate SelectTemplate(object loc, DependencyObject container)
-        {
-            FrameworkElement element = (FrameworkElement)container;
-
-            if (element != null && loc != null && loc is Locator)
-            {
-                switch (loc)
-                {
-                    case PointLocator ploc:
-                        return (DataTemplate)element.FindResource("PointLocatorTemplate");
+                    switch (itemObject)
+                    {
+                        case ImageStimulus imgstim:
+                            return (DataTemplate)element.FindResource("ImageStimulusTemplate");
+                        case PointLocator ploc:
+                            return (DataTemplate)element.FindResource("PointLocatorTemplate");
+                    }
                 }
             }
 

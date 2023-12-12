@@ -1,39 +1,136 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <Style TargetType="{x:Type Control}">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HurPsyExp.ExpDesign"
+                    xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
+    
+    <local:DesignSettings x:Key="DesignPreferences"/>
+    
+    <Style TargetType="{x:Type Window}">
         <Setter Property="FontSize"
-                        Value="{Binding Source={StaticResource UserPreferences}, Path=UIFontSize}"/>
+                Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
     </Style>
 
     <Style TargetType="TextBox">
-        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontSize"
+                Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="Silver" Offset="0.0"/>
+                    <GradientStop Color="White" Offset="0.5"/>
+                    <GradientStop Color="Silver" Offset="0.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <Style TargetType="Image">
-        <Setter Property="Margin" Value="2" />
-    </Style>
-
-    <Style TargetType="ListBox">
-        <Setter Property="Margin" Value="2" />
-    </Style>
-
-    <Style TargetType="ListBoxItem">
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-        <Setter Property="Margin" Value="0,0,0,2" />
+    <Style TargetType="Expander">
+        <Setter Property="FontSize"
+                Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
+        <Setter Property="Border.Margin" Value="2"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+                    <GradientStop Color="SteelBlue" Offset="0"/>
+                    <GradientStop Color="LightBlue" Offset="0.25"/>
+                    <GradientStop Color="LightBlue" Offset="0.75"/>
+                    <GradientStop Color="SteelBlue" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <SolidColorBrush Color="Silver"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="1"/>
     </Style>
 
     <Style x:Key="CommandButton" TargetType="{x:Type Button}">
-        <Setter Property="Margin" Value="2"/>
+        <Setter Property="FontSize"
+                Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
+        <Setter Property="Margin" Value="5"/>
         <Setter Property="Height"
-                        Value="{Binding Source={StaticResource UserPreferences}, Path=CommandButtonHeight}"/>
+                Value="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"/>
+        <Setter Property="Width"
+                Value="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="Silver" Offset="0.0"/>
+                    <GradientStop Color="White" Offset="0.5"/>
+                    <GradientStop Color="Silver" Offset="0.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Button.Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="DarkBlue" Direction="225" ShadowDepth="5" BlurRadius="5" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="CommandBar" TargetType="{x:Type StackPanel}">
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="SteelBlue"/>
+                <SolidColorBrush Color="Transparent"/>
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <local:ItemViewTemplateSelector x:Key="itemvmTemplateSelector"/>
+
+    <DataTemplate x:Key="ItemViewTemplate">
+        <Border Name="TemplateBorder" Margin="2" BorderThickness="2">
+            <Grid Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                        ToolTip="{x:Static stringlib:StringResources.Tooltip_SelectObject}"
+                        Command="{Binding ToggleSelectCommand}">
+                    <Image Source="..\Images\SelectObject.png" Stretch="Fill"/>
+                    <ToggleButton.Style>
+                        <Style TargetType="{x:Type ToggleButton}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                                Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center"                  
+                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Background" Value="DarkRed" />
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                </ToggleButton>
+                
+                <ContentControl Grid.Column="1" Content="{Binding}"
+                                ContentTemplateSelector="{StaticResource itemvmTemplateSelector}"/>
+            </Grid>
+        </Border>
+
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=Selected}" Value="True">
+                <Setter TargetName="TemplateBorder" Property="BorderBrush" Value="White"/>
+                <Setter TargetName="TemplateGrid" Property="Background" Value="#aaff0000"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Selected}" Value="False">
+                <Setter TargetName="TemplateBorder" Property="BorderBrush" Value="Transparent"/>
+                <Setter TargetName="TemplateGrid" Property="Background" Value="Transparent"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
 </ResourceDictionary>

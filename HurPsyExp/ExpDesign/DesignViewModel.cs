@@ -3,38 +3,42 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using HurPsyLib;
 using HurPsyExpStrings;
+using CommunityToolkit.Mvvm.Input;
 
 namespace HurPsyExp.ExpDesign
 {  
-    public class DesignViewModel
+    public partial class DesignViewModel
     {
         private Experiment _experiment;
 
-        public List<Stimulus> StimulusList
-        {
-            get { return _experiment.StimulusList; }
-        }
+        public ObservableCollection<StimulusViewModel> StimulusVMs { get; set; }
 
-        public List<Locator> LocatorList
-        {
-            get { return _experiment.LocatorList; }
-        }
-
-        public List<Block> Blocks
-        {
-            get { return _experiment.Blocks; }
-        }
+        public ObservableCollection<LocatorViewModel> LocatorVMs { get; set; }
 
         public DesignViewModel()
         {
             _experiment = new Experiment();
+            StimulusVMs = new ObservableCollection<StimulusViewModel>();
+            LocatorVMs = new ObservableCollection<LocatorViewModel>();
         }
 
-        public void NewExperiment() => _experiment = new Experiment();
+        private void ClearVMs()
+        {
+            StimulusVMs.Clear();
+            LocatorVMs.Clear();
+        }
 
+        [RelayCommand]
+        public void NewExperiment()
+        {
+            ClearVMs();
+            _experiment = new Experiment();
+        }
+
+        [RelayCommand]
         public void LoadExperiment()
         {
-            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.ExperimentFileFilter, false);
+            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.FileFilter_Experiment, false);
 
             if (selectedFiles != null && selectedFiles.Length == 1)
             {
@@ -43,6 +47,7 @@ namespace HurPsyExp.ExpDesign
                 string? expDirectoryPath = Path.GetDirectoryName(expFileName);
                 if (expDirectoryPath != null)
                 {
+                    ClearVMs() ;
                     // Load the experiment definition from the selected file
                     _experiment = Experiment.LoadFromXml(expFileName);
                     // Load the actual stimulus objects from files named in the experiment definition
@@ -50,6 +55,7 @@ namespace HurPsyExp.ExpDesign
                     {
                         if (stim is ImageStimulus)
                         { LoadImageStimulus((ImageStimulus)stim); }
+                        StimulusVMs.Add(new StimulusViewModel(stim));
                     }
 
                     // Change the working directory for the application
@@ -59,9 +65,10 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        [RelayCommand]
         public void SaveExperiment()
         {
-            string? expFileName = UtilityClass.FileSaveName(StringResources.ExperimentFileFilter);
+            string? expFileName = UtilityClass.FileSaveName(StringResources.FileFilter_Experiment);
             if (expFileName != null)
             {
                 string? expDirectoryPath = Path.GetDirectoryName(expFileName);
@@ -71,7 +78,7 @@ namespace HurPsyExp.ExpDesign
                     _experiment.SaveToXml(expFileName);
                     // Copy the files containing the stimuli to the same target directory
                     // so that stimulus filename will not need to contain the whole path.
-                    foreach (Stimulus stim in StimulusList)
+                    foreach (Stimulus stim in _experiment.StimulusList)
                     {
                         string stimFileName = Path.GetFileName(stim.FileName);
                         File.Copy(stim.FileName, Path.Combine(expDirectoryPath, stimFileName), overwrite: true);
@@ -85,9 +92,10 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
-        public void SelectImageStimulus()
+        [RelayCommand]
+        public void SelectImages()
         {
-            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.ImageFileFilter, true);
+            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.FileFilter_Image, true);
 
             if (selectedFiles != null && selectedFiles.Length > 0)
             {
@@ -100,6 +108,10 @@ namespace HurPsyExp.ExpDesign
                     _experiment.AddStimulus(imgstim);
 
                     LoadImageStimulus(imgstim);
+
+                    StimulusViewModel stimvm = new StimulusViewModel(imgstim);
+                    // TODO: Add an event handler that will respond to IdChanged event of stimvm
+                    StimulusVMs.Add(stimvm);
                 }
             }
         }
@@ -112,13 +124,21 @@ namespace HurPsyExp.ExpDesign
             imgstim.ImageSize.Height = stimImage.Height;
         }
 
+        [RelayCommand]
         public void AddPointLocator()
         {
             PointLocator ploc = new PointLocator();
             _experiment.AddLocator(ploc);
+
+            LocatorViewModel locvm = new LocatorViewModel(ploc);
+            // TODO: Add an event handler that will respond to IdChanged event of locvm
+            LocatorVMs.Add(locvm);
         }
 
-        public void AddBlock() => _experiment.AddNewBlock();
-    
+        [RelayCommand]
+        public void AddBlock()
+        {
+            _experiment.AddNewBlock();
+        }   
     }
 }

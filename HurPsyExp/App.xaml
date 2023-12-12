@@ -5,7 +5,7 @@
              Startup="Application_Startup">
     <Application.Resources>
         <ResourceDictionary>
-            <local:AppSettings x:Key="UserPreferences"/>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

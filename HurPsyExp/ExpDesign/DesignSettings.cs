@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace HurPsyExp
+namespace HurPsyExp.ExpDesign
 {
-    public class AppSettings
+    public class DesignSettings
     {
         public double MinFontSize {  get; private set; }
         public double MaxFontSize { get; private set; }
@@ -15,18 +15,22 @@ namespace HurPsyExp
         public double MaxPanelWidth { get; private set; }
 
         public double UIFontSize { get; set; }
+        public double MenuFontSize { get; set; }
         public double ElementsPanelWidth { get; set; }
         public double ExperimentPanelWidth { get; set; }
 
         public double CommandButtonHeight { get; set; }
+        public double ImagePreviewHeight { get; set; }
 
-        public AppSettings()
+        public DesignSettings()
         {
             MinFontSize = 6;
             MaxFontSize = 60;
             UIFontSize = 20;
+            MenuFontSize = 16;
 
             CommandButtonHeight = 26;
+            ImagePreviewHeight = 32;
             
             MinPanelWidth = 100;
             MaxPanelWidth = 500;

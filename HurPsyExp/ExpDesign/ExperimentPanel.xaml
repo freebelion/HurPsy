@@ -48,33 +48,22 @@
             </DataTemplate>
 
             <DataTemplate x:Key="BlockTemplate">
-                <Border BorderBrush="Blue" BorderThickness="2" CornerRadius="5">
-                    <StackPanel>
-                        <TextBox Text="{Binding Name}"/>
-                        <ListBox ItemsSource="{Binding Trials}"
-                                 ItemTemplate="{StaticResource TrialTemplate}"
-                                 SelectedItem="{Binding SelectedBlock}">
-
-                        </ListBox>
-                    </StackPanel>
-                </Border>
+                <local:BlockView/>
             </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <DockPanel LastChildFill="True">
-        <ToolBarTray DockPanel.Dock="Top" Orientation="Horizontal">
-            <ToolBar Height="36">
-                <Button Click="AddBlock_Click"
-                    ToolTip="{x:Static stringlib:StringResources.AddBlock_ButtonTooltip}">
-                    <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
-                </Button>
-            </ToolBar>
-        </ToolBarTray>
-        <ListBox Name="lbBlocks"
-                 ItemsSource="{Binding Blocks}"
-                 ItemTemplate="{StaticResource BlockTemplate}">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+            Style="{StaticResource CommandBar}"
+            HorizontalAlignment="Stretch">
+            <Button Style="{StaticResource CommandButton}"
+                    ToolTip="{x:Static stringlib:StringResources.Tooltip_AddBlock}">
+                <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
+            </Button>
+        </StackPanel>
+        <Grid>
             
-        </ListBox>
+        </Grid>
     </DockPanel>
 </UserControl>
