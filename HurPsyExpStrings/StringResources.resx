@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Content_AddButton" xml:space="preserve">
+    <value>ADD</value>
+    <comment>The text on the button which adds a trial with steps containing the selected stimulus and locator objects.</comment>
+  </data>
+  <data name="Content_AddStep" xml:space="preserve">
+    <value>Add Step(s)</value>
+    <comment>The text content for the button which adds a step in AddTrialView</comment>
+  </data>
+  <data name="Content_AddTrial" xml:space="preserve">
+    <value>Add Trial(s)</value>
+    <comment>The text content for the button which adds a trial in AddTrialView</comment>
+  </data>
   <data name="FileFilter_Experiment" xml:space="preserve">
     <value>HurPsy Experiment Files (*.xml) |*.xml</value>
     <comment>The file name pattern used in the dialog that loads a previously recorded experiment</comment>
@@ -157,6 +169,10 @@
     <value>Stimulus Definitions</value>
     <comment>The header text for the StimuliPanel of HurPsyDesignApp</comment>
   </data>
+  <data name="Title_AddTrialDialog" xml:space="preserve">
+    <value>Add Trial(s)</value>
+    <comment>The title of the dialog window where Stimulus and Locator Ids are selected to form trials</comment>
+  </data>
   <data name="Title_DesignWindow" xml:space="preserve">
     <value>Experiment Design Window</value>
     <comment>The title of the experiment design window</comment>
@@ -180,6 +196,18 @@
   <data name="Tooltip_AddPointLocator" xml:space="preserve">
     <value>Add Point Locator</value>
     <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
+  </data>
+  <data name="Tooltip_AddTrial" xml:space="preserve">
+    <value>Add new trial</value>
+    <comment>The tooltip for the toolbar button which adds a new trial in a BlockView</comment>
+  </data>
+  <data name="Tooltip_DeleteObject" xml:space="preserve">
+    <value>Delete selected items</value>
+    <comment> tooltip for the button which issues a Delete command for the object</comment>
+  </data>
+  <data name="Tooltip_EditObject" xml:space="preserve">
+    <value>Edit Object</value>
+    <comment>The tooltip for the button that makes the object properties editable</comment>
   </data>
   <data name="Tooltip_ImageStimulusHeight" xml:space="preserve">
     <value>Stimulus Image Height</value>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\App.xaml
-71437452551
+8-1876995128
 
-16-1354057973
+18-665786665
 198444745089
-ExpDesign\BlockView.xaml;ExpDesign\DesignResources.xaml;ExpDesign\DesignWindow.xaml;ExpDesign\ElementsPanel.xaml;ExpDesign\ExperimentPanel.xaml;ExpRun\RunWindow.xaml;StartupDialog.xaml;
+ExpDesign\AddTrialView.xaml;ExpDesign\BlockView.xaml;ExpDesign\DesignResources.xaml;ExpDesign\DesignWindow.xaml;ExpDesign\ElementsPanel.xaml;ExpDesign\ExperimentPanel.xaml;ExpRun\RunWindow.xaml;StartupDialog.xaml;
 
 True
 

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:HurPsyExp.ExpDesign"
+             xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
+             xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="250">
 
@@ -12,26 +13,37 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate x:Key="TrialTemplate"/>
+
+            <BooleanToVisibilityConverter x:Key="boolvis"/>
         </ResourceDictionary>
     </UserControl.Resources>
     
     <Grid>
-        <Expander ExpandDirection="Down" IsExpanded="False">
-            <Expander.Header>
-                <TextBox Text="{Binding Name}"/>
-            </Expander.Header>
-            
-            <DockPanel>
+        <Expander ExpandDirection="Down" IsExpanded="False"
+                  Header="{Binding ItemObject.Name}">
+            <DockPanel HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
                             Style="{StaticResource CommandBar}"
                             HorizontalAlignment="Stretch">
-                    <Button Style="{StaticResource CommandButton}">
-
+                    <Button Style="{StaticResource CommandButton}"
+                            Command="{Binding AddingTrialCommand}"
+                            ToolTip="{x:Static stringlib:StringResources.Tooltip_AddTrial}">
+                        <Image Source="..\Images\AddTrial.png" Stretch="Fill"/>
                     </Button>
                 </StackPanel>
-                <ListBox ItemsSource="{Binding Trials}">
 
-                </ListBox>
+                <expdesign:AddTrialView DockPanel.Dock="Top"
+                           FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"
+                           Visibility="{Binding ShowAddTrial, Converter={StaticResource boolvis}}">
+                    
+                </expdesign:AddTrialView>
+
+                <ItemsControl ItemsSource="{Binding ItemObject.Trials}"
+                              ItemTemplate="{StaticResource TrialTemplate}">
+
+                </ItemsControl>
             </DockPanel>
         </Expander>   
     </Grid>

@@ -9,12 +9,15 @@ namespace HurPsyExp.ExpDesign
 {
     public class DesignSettings
     {
+        // These min/max settings will serve as limit values
+        // for the sliders that will let a user change the relevant UI settings.
         public double MinFontSize {  get; private set; }
         public double MaxFontSize { get; private set; }
         public double MinPanelWidth { get; private set; }
         public double MaxPanelWidth { get; private set; }
 
         public double UIFontSize { get; set; }
+        public double SmallFontSize { get; set; }
         public double MenuFontSize { get; set; }
         public double ElementsPanelWidth { get; set; }
         public double ExperimentPanelWidth { get; set; }
@@ -28,9 +31,10 @@ namespace HurPsyExp.ExpDesign
             MaxFontSize = 60;
             UIFontSize = 20;
             MenuFontSize = 16;
+            SmallFontSize = 12;
 
-            CommandButtonHeight = 26;
-            ImagePreviewHeight = 32;
+            CommandButtonHeight = 24;
+            ImagePreviewHeight = 24;
             
             MinPanelWidth = 100;
             MaxPanelWidth = 500;

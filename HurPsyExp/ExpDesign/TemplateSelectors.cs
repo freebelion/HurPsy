@@ -24,6 +24,8 @@ namespace HurPsyExp.ExpDesign
                             return (DataTemplate)element.FindResource("ImageStimulusTemplate");
                         case PointLocator ploc:
                             return (DataTemplate)element.FindResource("PointLocatorTemplate");
+                        case Block blck:
+                            return (DataTemplate)element.FindResource("BlockTemplate");
                     }
                 }
             }

@@ -61,6 +61,33 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADD.
+        /// </summary>
+        public static string Content_AddButton {
+            get {
+                return ResourceManager.GetString("Content_AddButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Step(s).
+        /// </summary>
+        public static string Content_AddStep {
+            get {
+                return ResourceManager.GetString("Content_AddStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Trial(s).
+        /// </summary>
+        public static string Content_AddTrial {
+            get {
+                return ResourceManager.GetString("Content_AddTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HurPsy Experiment Files (*.xml) |*.xml.
         /// </summary>
         public static string FileFilter_Experiment {
@@ -151,6 +178,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Trial(s).
+        /// </summary>
+        public static string Title_AddTrialDialog {
+            get {
+                return ResourceManager.GetString("Title_AddTrialDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experiment Design Window.
         /// </summary>
         public static string Title_DesignWindow {
@@ -201,6 +237,33 @@ namespace HurPsyExpStrings {
         public static string Tooltip_AddPointLocator {
             get {
                 return ResourceManager.GetString("Tooltip_AddPointLocator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new trial.
+        /// </summary>
+        public static string Tooltip_AddTrial {
+            get {
+                return ResourceManager.GetString("Tooltip_AddTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete selected items.
+        /// </summary>
+        public static string Tooltip_DeleteObject {
+            get {
+                return ResourceManager.GetString("Tooltip_DeleteObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Object.
+        /// </summary>
+        public static string Tooltip_EditObject {
+            get {
+                return ResourceManager.GetString("Tooltip_EditObject", resourceCulture);
             }
         }
         

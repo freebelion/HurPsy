@@ -20,8 +20,8 @@ namespace HurPsyLib
 
         public StimulusLocatorPair()
         {
-            StimulusId = "Stimulus"; // string.Empty;
-            LocatorId = "Locator"; // string.Empty;
+            StimulusId = string.Empty;
+            LocatorId = string.Empty;
         }
 
         public StimulusLocatorPair(string stimId, string locId)

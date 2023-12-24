@@ -13,39 +13,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
-            <DataTemplate x:Key="StepTemplate">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <ItemsControl ItemsSource="{Binding StimulusLocators}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Vertical">
-                                    <TextBox Text="{Binding StimulusId}"/>
-                                    <TextBox Text="{Binding LocatorId}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                    </ItemsControl>
-                    <TextBox Grid.Column="1"
-                         Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"/>
-                </Grid>
-            </DataTemplate>
-            
-            <DataTemplate x:Key="TrialTemplate">
-                <ListBox ItemsSource="{Binding Steps}"
-                         ItemTemplate="{StaticResource StepTemplate}">
-
-                </ListBox>
-            </DataTemplate>
 
             <DataTemplate x:Key="BlockTemplate">
                 <local:BlockView/>
@@ -58,12 +25,14 @@
             Style="{StaticResource CommandBar}"
             HorizontalAlignment="Stretch">
             <Button Style="{StaticResource CommandButton}"
+                    Command="{Binding AddBlockCommand}"
                     ToolTip="{x:Static stringlib:StringResources.Tooltip_AddBlock}">
                 <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
             </Button>
         </StackPanel>
-        <Grid>
+        <ItemsControl ItemsSource="{Binding BlockVMs}"
+                      ItemTemplate="{StaticResource ItemViewTemplate}">
             
-        </Grid>
+        </ItemsControl>
     </DockPanel>
 </UserControl>

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="HurPsyExp.ExpDesign.AddTrialView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
+             xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="250">
+    
+<!--This user control will display the lists of individual stimulus objects or stimulus sets,
+    when a user wants to add one or more trials by pressing a button on a BlockView control.
+    It will help the user select and match the stimulus and locator objects that will be paired
+    to form steps and trials, depending on what kind of combinations the user wanted to form.
+    It is designed separately, because it is the heart of the experiment design application
+    and it will probably be modified frequently.-->
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DesignResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="IdSelectionTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsChecked="{Binding Selected}"/>
+                    <TextBlock Text="{Binding Id}"/>
+                </StackPanel>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ItemsControl Grid.Row="0" Grid.Column="0"
+                      ItemsSource="{Binding Source={x:Static expdesign:BlockViewModel.StimulusSelections}}"
+                      ItemTemplate="{StaticResource IdSelectionTemplate}"/>
+        <ItemsControl Grid.Row="0" Grid.Column="1"
+                      ItemsSource="{Binding Source={x:Static expdesign:BlockViewModel.LocatorSelections}}"
+                      ItemTemplate="{StaticResource IdSelectionTemplate}"/>
+        <Button Grid.Row="1" Grid.Column="0"
+                Content="{x:Static stringlib:StringResources.Content_AddStep}"/>
+        <Button Grid.Row="1" Grid.Column="1"
+                Content="{x:Static stringlib:StringResources.Content_AddTrial}"/>
+    </Grid>
+</UserControl>

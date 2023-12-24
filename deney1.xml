@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Experiment xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/HurPsyLib">
+  <Blocks>
+    <Block>
+      <Name>Block_1</Name>
+      <ShuffleTrials>true</ShuffleTrials>
+      <Trials />
+    </Block>
+  </Blocks>
+  <LocatorDict xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>PointLocator_c0bca844</d2p1:Key>
+      <d2p1:Value i:type="PointLocator">
+        <Id>PointLocator_c0bca844</Id>
+        <LocatorPoint>
+          <X>0</X>
+          <Y>-10</Y>
+        </LocatorPoint>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>PointLocator_4c1f3a54</d2p1:Key>
+      <d2p1:Value i:type="PointLocator">
+        <Id>PointLocator_4c1f3a54</Id>
+        <LocatorPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </LocatorPoint>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+    <d2p1:KeyValueOfstringLocatorRYLaHDur>
+      <d2p1:Key>PointLocator_acfb09bb</d2p1:Key>
+      <d2p1:Value i:type="PointLocator">
+        <Id>PointLocator_acfb09bb</Id>
+        <LocatorPoint>
+          <X>0</X>
+          <Y>10</Y>
+        </LocatorPoint>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringLocatorRYLaHDur>
+  </LocatorDict>
+  <StimulusDict xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire1</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>C:\Users\freeb\Pictures\daire1.png</FileName>
+        <Id>daire1</Id>
+        <ImageSize>
+          <sizeX>38.005306243896484</sizeX>
+          <sizeY>38.005306243896484</sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire2</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>C:\Users\freeb\Pictures\daire2.png</FileName>
+        <Id>daire2</Id>
+        <ImageSize>
+          <sizeX>38.005306243896484</sizeX>
+          <sizeY>38.005306243896484</sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire3</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>C:\Users\freeb\Pictures\daire3.png</FileName>
+        <Id>daire3</Id>
+        <ImageSize>
+          <sizeX>38.005306243896484</sizeX>
+          <sizeY>38.005306243896484</sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire4</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>C:\Users\freeb\Pictures\daire4.png</FileName>
+        <Id>daire4</Id>
+        <ImageSize>
+          <sizeX>38.005306243896484</sizeX>
+          <sizeY>38.005306243896484</sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire5</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>C:\Users\freeb\Pictures\daire5.png</FileName>
+        <Id>daire5</Id>
+        <ImageSize>
+          <sizeX>38.005306243896484</sizeX>
+          <sizeY>38.005306243896484</sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+    <d2p1:KeyValueOfstringStimulusRYLaHDur>
+      <d2p1:Key>daire6</d2p1:Key>
+      <d2p1:Value i:type="ImageStimulus">
+        <FileName>C:\Users\freeb\Pictures\daire6.png</FileName>
+        <Id>daire6</Id>
+        <ImageSize>
+          <sizeX>39.00544357299805</sizeX>
+          <sizeY>39.00544357299805</sizeY>
+        </ImageSize>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringStimulusRYLaHDur>
+  </StimulusDict>
+</Experiment>

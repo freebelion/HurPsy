@@ -13,41 +13,50 @@ namespace HurPsyLib
     public class Experiment
     {
         [DataMember]
-        public List<Stimulus> StimulusList { get; private set; }
+        public Dictionary<string, Stimulus> StimulusDict { get; private set; }
 
         [DataMember]
-        public List<Locator> LocatorList { get; private set; }
+        public Dictionary<string, Locator> LocatorDict { get; private set; }
 
         [DataMember]
         public List<Block> Blocks { get; private set; }
 
         public Experiment()
         {
-            StimulusList = new List<Stimulus>();
-            LocatorList = new List<Locator>();
+            StimulusDict = new Dictionary<string, Stimulus>();
+            LocatorDict = new Dictionary<string, Locator>();
             Blocks = new List<Block>();
         }
 
         public bool AddStimulus(Stimulus stim)
         {
-            // Do not accept Stimulus objects with previously used Ids
-            bool idExists = StimulusList.Any(s => s.Id == stim.Id);
-            if(!idExists) { StimulusList.Add(stim); }
-            return !idExists;
+            // The underlying Dictionary collection will not accept
+            // Stimulus objects with previously used Ids
+            try
+            {
+                StimulusDict.Add(stim.Id, stim);
+                return false;
+            }
+            catch { return false; }
         }
 
         public bool AddLocator(Locator loc)
         {
-            // Do not accept Locator objects with previously used Ids
-            bool idExists = LocatorList.Any(s => s.Id == loc.Id);
-            if (!idExists) { LocatorList.Add(loc); }
-            return !idExists;
+            // The underlying Dictionary collection will not accept
+            // Locator objects with previously used Ids
+            try
+            {
+                LocatorDict.Add(loc.Id, loc);
+                return false;
+            }
+            catch { return false; }
         }
 
-        public void AddNewBlock()
+        public Block AddNewBlock()
         {
             Block newblock = new Block();
             Blocks.Add(newblock);
+            return newblock;
         }
 
         public void SaveToXml(string fileName)

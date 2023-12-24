@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HurPsyExp.ExpDesign"
+        xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
         xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
         Title="{x:Static stringlib:StringResources.Title_DesignWindow}"
@@ -11,7 +11,7 @@
         WindowState="Maximized" WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
-        <local:DesignViewModel />
+        <expdesign:DesignViewModel />
     </Window.DataContext>
 
     <Window.Resources>
@@ -81,7 +81,7 @@
             </Expander.Header>
 
             <Border>
-                <local:ElementsPanel Template="{StaticResource HorizontallySizableControl}"
+                <expdesign:ElementsPanel Template="{StaticResource HorizontallySizableControl}"
                     MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
                     MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
                     Width="{Binding Source={StaticResource DesignPreferences}, Path=ElementsPanelWidth}"/>
@@ -100,7 +100,7 @@
             </Expander.Header>
 
             <Border>
-                <local:ExperimentPanel Template="{StaticResource HorizontallySizableControl}"
+                <expdesign:ExperimentPanel Template="{StaticResource HorizontallySizableControl}"
                     MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
                     MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
                     Width="{Binding Source={StaticResource DesignPreferences}, Path=ExperimentPanelWidth}"/>

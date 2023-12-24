@@ -17,6 +17,9 @@
 
   <ItemGroup>
     <None Remove="Images\AddBlock.png" />
+    <None Remove="Images\AddTrial.png" />
+    <None Remove="Images\DeleteItem.png" />
+    <None Remove="Images\EditItem.png" />
     <None Remove="Images\ImageStimulus.png" />
     <None Remove="Images\PointLocator.png" />
     <None Remove="Images\SelectObject.png" />
@@ -33,9 +36,11 @@
 
   <ItemGroup>
     <Resource Include="Images\AddBlock.png" />
+    <Resource Include="Images\AddTrial.png" />
+    <Resource Include="Images\DeleteItem.png" />
+    <Resource Include="Images\EditItem.png" />
     <Resource Include="Images\ImageStimulus.png" />
     <Resource Include="Images\PointLocator.png" />
-    <Resource Include="Images\SelectObject.png" />
   </ItemGroup>
 
 </Project>

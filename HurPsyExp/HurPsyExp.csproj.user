@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ExpDesign\AddTrialView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ExpDesign\BlockView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +30,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ExpDesign\AddTrialView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ExpDesign\BlockView.xaml">
       <SubType>Designer</SubType>
     </Page>
