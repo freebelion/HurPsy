@@ -17,47 +17,53 @@
             <DataTemplate x:Key="ImageStimulusTemplate">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="60"/>
-                        <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Margin="2"
+                    
+                    <Image Grid.Column="0" Margin="2"
+                           Source="..\Images\ImageStimulus.png" Stretch="Uniform"
+                           Height="{Binding Source={StaticResource DesignPreferences}, Path=ImagePreviewHeight}"/>
+                    
+                    <TextBox Grid.Column="1" Margin="2"
                              IsEnabled="{Binding Editable}"
                              Text="{Binding TempId}"
                              ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusId}"/>
 
-                    <TextBox Grid.Column="1" Margin="2"
+                    <TextBox Grid.Column="2" Margin="2"
                              IsEnabled="{Binding Editable}"
                              TextAlignment="Right"
                              Text="{Binding ItemObject.ImageSize.Width, StringFormat='0.0'}"
                              ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusWidth}"/>
-                    <TextBox Grid.Column="2" Margin="2"
+                    <TextBox Grid.Column="3" Margin="2"
                              IsEnabled="{Binding Editable}"
                              TextAlignment="Right"
                              Text="{Binding ItemObject.ImageSize.Height, StringFormat='0.0'}"
                              ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusHeight}"/>
-                    <Image Grid.Column="3" Margin="2"
-                           Source="{Binding ItemObject.StimulusObject}" Stretch="Uniform"
-                           Height="{Binding Source={StaticResource DesignPreferences}, Path=ImagePreviewHeight}"
-                           ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusPreview}"/>
-
                 </Grid>
             </DataTemplate>
 
             <DataTemplate x:Key="PointLocatorTemplate">
                 <Grid Name="LocatorTemplateGrid">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="60"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Margin="2"
-                             Text="{Binding TempId}"/>
+
+                    <Image Grid.Column="0" Margin="2"
+                           Source="..\Images\PointLocator.png" Stretch="Uniform"
+                           Height="{Binding Source={StaticResource DesignPreferences}, Path=ImagePreviewHeight}"/>
+
                     <TextBox Grid.Column="1" Margin="2"
+                             Text="{Binding TempId}"/>
+                    <TextBox Grid.Column="2" Margin="2"
                              TextAlignment="Right"
                              Text="{Binding ItemObject.LocatorPoint.X, StringFormat='0.0'}"/>
-                    <TextBox Grid.Column="2" Margin="2"
+                    <TextBox Grid.Column="3" Margin="2"
                              TextAlignment="Right"
                              Text="{Binding ItemObject.LocatorPoint.Y, StringFormat='0.0'}"/>
                 </Grid>

@@ -13,34 +13,30 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
-            <DataTemplate x:Key="TrialTemplate"/>
 
-            <BooleanToVisibilityConverter x:Key="boolvis"/>
+            <DataTemplate x:Key="TrialTemplate"/>
         </ResourceDictionary>
     </UserControl.Resources>
     
     <Grid>
-        <Expander ExpandDirection="Down" IsExpanded="False"
-                  Header="{Binding ItemObject.Name}">
+        <Expander ExpandDirection="Down" IsExpanded="False">
+            <Expander.Header>
+                <TextBox Text="{Binding ItemObject.Name}"/>
+            </Expander.Header>
             <DockPanel HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
                             Style="{StaticResource CommandBar}"
                             HorizontalAlignment="Stretch">
                     <Button Style="{StaticResource CommandButton}"
                             Command="{Binding AddingTrialCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Expander}}}"
                             ToolTip="{x:Static stringlib:StringResources.Tooltip_AddTrial}">
                         <Image Source="..\Images\AddTrial.png" Stretch="Fill"/>
                     </Button>
                 </StackPanel>
 
-                <expdesign:AddTrialView DockPanel.Dock="Top"
-                           FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"
-                           Visibility="{Binding ShowAddTrial, Converter={StaticResource boolvis}}">
-                    
-                </expdesign:AddTrialView>
-
-                <ItemsControl ItemsSource="{Binding ItemObject.Trials}"
+                <ItemsControl Name="TrialsControl"
+                              ItemsSource="{Binding ItemObject.Trials}"
                               ItemTemplate="{StaticResource TrialTemplate}">
 
                 </ItemsControl>

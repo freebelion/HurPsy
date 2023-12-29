@@ -4,6 +4,7 @@ using System.Windows.Media.Imaging;
 using HurPsyLib;
 using HurPsyExpStrings;
 using CommunityToolkit.Mvvm.Input;
+using System.Security.Cryptography;
 
 namespace HurPsyExp.ExpDesign
 {  
@@ -113,6 +114,7 @@ namespace HurPsyExp.ExpDesign
                     ImageStimulus imgstim = new ImageStimulus();
                     if (basename != null) { imgstim.Id = basename; }
                     imgstim.FileName = strFile;
+                
                     _experiment.AddStimulus(imgstim);
 
                     LoadImageStimulus(imgstim);
@@ -129,7 +131,7 @@ namespace HurPsyExp.ExpDesign
             StimulusVMs.Add(stimvm);
             // Add the Id to the list of Ids shared by BlockViewModel objects,
             // so that they can be displayed in AddTrialView
-            BlockViewModel.AddStimulusSelection(stim.Id);
+            BlockViewModel.AddStimulusId(stim.Id);
         }
 
         private void Stimvm_IdChanged(object? sender, IdChangeEventArgs e)
@@ -145,7 +147,9 @@ namespace HurPsyExp.ExpDesign
                     if (_experiment.StimulusDict.ContainsKey(e.NewId) == false)
                     {
                         stim.Id = e.NewId;
-                        // TODO: Go through the trial steps where the old Id was used and change them, too
+                        // TODO: Go through stimulus selections and the trial steps
+                        // where the old Id was used and change them, too
+                        BlockViewModel.ReplaceStimulusId(oldId, stim.Id);
                     }
                     else
                     {
@@ -183,7 +187,7 @@ namespace HurPsyExp.ExpDesign
             LocatorVMs.Add(locvm);
             // Add the Id to the list of Ids shared by BlockViewModel objects,
             // so that they can be displayed in AddTrialView
-            BlockViewModel.AddLocatorSelection(loc.Id);
+            BlockViewModel.AddLocatorId(loc.Id);
         }
 
         /// <summary>
@@ -208,7 +212,9 @@ namespace HurPsyExp.ExpDesign
                     if (_experiment.LocatorDict.ContainsKey(e.NewId) == false)
                     {
                         loc.Id = e.NewId;
-                        // TODO: Go through the trial steps where the old Id was used and change them, too
+                        // TODO: Go through Locator selections and the trial steps
+                        // where the old Id was used and change them, too
+                        BlockViewModel.ReplaceLocatorId(oldId, loc.Id);
                     }
                     else
                     {
@@ -233,8 +239,12 @@ namespace HurPsyExp.ExpDesign
                 if(stimvm.Selected)
                 {
                     Stimulus? stim = stimvm.ItemObject as Stimulus;
-                    if(stim != null)
-                    { _experiment.StimulusDict.Remove(stim.Id); }
+                    
+                    if (stim != null)
+                    {
+                        BlockViewModel.DeleteStimulusId(stim.Id);
+                        _experiment.RemoveStimulus(stim);
+                    }
                     deleteList.Add(stimvm);
                 }              
             }
@@ -258,7 +268,10 @@ namespace HurPsyExp.ExpDesign
                 {
                     Locator? loc = locvm.ItemObject as Locator;
                     if (loc != null)
-                    { _experiment.LocatorDict.Remove(loc.Id); }
+                    {
+                        BlockViewModel.DeleteLocatorId(loc.Id);
+                        _experiment.RemoveLocator(loc);
+                    }
                     deleteList.Add(locvm);
                 }
             }

@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ExpDesign\AddTrialView.xaml.cs">
+    <Compile Update="ExpDesign\AddTrialDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ExpDesign\BlockView.xaml.cs">
@@ -30,7 +30,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ExpDesign\AddTrialView.xaml">
+    <Page Update="ExpDesign\AddTrialDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExpDesign\BlockView.xaml">

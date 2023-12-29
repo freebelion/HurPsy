@@ -50,11 +50,12 @@ namespace HurPsyLib
             StepTime.Milliseconds = 1000 * HurPsyCommon.Rnd.NextDouble();
         }
 
-        public void AddStimulusLocatorPair(StimulusLocatorPair? newpair = null)
+        public StimulusLocatorPair AddStimulusLocatorPair(StimulusLocatorPair? newpair = null)
         {
             if (newpair == null)
             { newpair = new StimulusLocatorPair(); }
             StimulusLocators.Add(newpair);
+            return newpair;
         }
     }
 
@@ -69,10 +70,11 @@ namespace HurPsyLib
             Steps = new List<Step>();
         }
 
-        public void AddStep()
+        public Step AddStep(Step? newstep = null)
         {
-            Step newstep = new Step();
+            if (newstep == null) { newstep = new Step(); }
             Steps.Add(newstep);
+            return newstep;
         }
     }
 
@@ -95,10 +97,11 @@ namespace HurPsyLib
             ShuffleTrials = true;
         }
 
-        public void AddNewTrial()
+        public Trial AddTrial(Trial? newtrial = null)
         {
-            Trial newtrial = new Trial();
+            if (newtrial == null) { newtrial = new Trial(); }
             Trials.Add(newtrial);
+            return newtrial;
         }
     }
 }

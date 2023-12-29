@@ -31,7 +31,7 @@ namespace HurPsyExp.ExpDesign
             MaxFontSize = 60;
             UIFontSize = 20;
             MenuFontSize = 16;
-            SmallFontSize = 12;
+            SmallFontSize = 14;
 
             CommandButtonHeight = 24;
             ImagePreviewHeight = 24;

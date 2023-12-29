@@ -40,6 +40,11 @@ namespace HurPsyLib
             catch { return false; }
         }
 
+        public void RemoveStimulus(Stimulus stim)
+        {
+            StimulusDict.Remove(stim.Id);
+        }
+
         public bool AddLocator(Locator loc)
         {
             // The underlying Dictionary collection will not accept
@@ -50,6 +55,11 @@ namespace HurPsyLib
                 return false;
             }
             catch { return false; }
+        }
+
+        public void RemoveLocator(Locator loc)
+        {
+            LocatorDict.Remove(loc.Id);
         }
 
         public Block AddNewBlock()

@@ -4,7 +4,40 @@
                     xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
     
     <expdesign:DesignSettings x:Key="DesignPreferences"/>
+
+    <BooleanToVisibilityConverter x:Key="boolvis"/>
     
+    <LinearGradientBrush x:Key="ExpanderBackground"
+                         StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+        <GradientStop Color="SteelBlue" Offset="0"/>
+        <GradientStop Color="LightBlue" Offset="0.25"/>
+        <GradientStop Color="LightBlue" Offset="0.75"/>
+        <GradientStop Color="SteelBlue" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ControlBackground"
+                         StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="Silver" Offset="0.0"/>
+        <GradientStop Color="LightGray" Offset="0.5"/>
+        <GradientStop Color="Silver" Offset="0.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ItemBrush"
+                         StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+        <GradientStop Color="Cornsilk" Offset="0.0"/>
+        <GradientStop Color="CornflowerBlue" Offset="0.25"/>
+        <GradientStop Color="CornflowerBlue" Offset="0.75"/>
+        <GradientStop Color="Cornsilk" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="SelectionBrush"
+                         StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+        <GradientStop Color="OrangeRed" Offset="0.0"/>
+        <GradientStop Color="Orange" Offset="0.25"/>
+        <GradientStop Color="Orange" Offset="0.75"/>
+        <GradientStop Color="OrangeRed" Offset="1.0"/>
+    </LinearGradientBrush>
+
     <Style TargetType="{x:Type Window}">
         <Setter Property="FontSize"
                 Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
@@ -13,37 +46,13 @@
     <Style TargetType="TextBox">
         <Setter Property="FontSize"
                 Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="Silver" Offset="0.0"/>
-                    <GradientStop Color="White" Offset="0.5"/>
-                    <GradientStop Color="Silver" Offset="0.0"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="{StaticResource ControlBackground}"/>
     </Style>
 
     <Style TargetType="Expander">
         <Setter Property="FontSize"
                 Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
-        <Setter Property="Border.Margin" Value="2"/>
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0.0,0.5" EndPoint="1.0,0.5">
-                    <GradientStop Color="SteelBlue" Offset="0"/>
-                    <GradientStop Color="LightBlue" Offset="0.25"/>
-                    <GradientStop Color="LightBlue" Offset="0.75"/>
-                    <GradientStop Color="SteelBlue" Offset="1"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="BorderBrush">
-            <Setter.Value>
-                <SolidColorBrush Color="Silver"/>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="{StaticResource ExpanderBackground}"/>
     </Style>
 
     <Style x:Key="CommandButton" TargetType="{x:Type Button}">
@@ -54,15 +63,8 @@
                 Value="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"/>
         <Setter Property="Width"
                 Value="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"/>
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="Silver" Offset="0.0"/>
-                    <GradientStop Color="White" Offset="0.5"/>
-                    <GradientStop Color="Silver" Offset="0.0"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="{StaticResource ControlBackground}"/>
+        
         <Setter Property="Button.Effect">
             <Setter.Value>
                 <DropShadowEffect Color="DarkBlue" Direction="225" ShadowDepth="5" BlurRadius="5" Opacity="0.5"/>
@@ -82,7 +84,7 @@
     <expdesign:ItemViewTemplateSelector x:Key="itemvmTemplateSelector"/>
 
     <DataTemplate x:Key="ItemViewTemplate">
-        <Border Name="TemplateBorder" BorderThickness="2">
+        <Border Name="TemplateBorder" BorderThickness="1">
             <Grid Name="TemplateGrid">
 
                 <Grid.InputBindings>
@@ -105,29 +107,12 @@
             <!--TODO: Rethink and hopefully improve color and brush definitions.-->
             <DataTrigger Binding="{Binding Path=Selected}" Value="True">
                 <Setter TargetName="TemplateBorder" Property="BorderBrush" Value="Red"/>
-                <Setter TargetName="TemplateGrid" Property="Background">
-                    <Setter.Value>
-                        <LinearGradientBrush StartPoint="0.0,0.5" EndPoint="1.0,0.5">
-                            <GradientStop Color="OrangeRed" Offset="0.0"/>
-                            <GradientStop Color="Orange" Offset="0.25"/>
-                            <GradientStop Color="Orange" Offset="0.75"/>
-                            <GradientStop Color="OrangeRed" Offset="1.0"/>
-                        </LinearGradientBrush>
-                    </Setter.Value>
-                </Setter>
+                <Setter TargetName="TemplateGrid" Property="Background" Value="{StaticResource SelectionBrush}"/>
             </DataTrigger>
+            
             <DataTrigger Binding="{Binding Path=Selected}" Value="False">
                 <Setter TargetName="TemplateBorder" Property="BorderBrush" Value="Transparent"/>
-                <Setter TargetName="TemplateGrid" Property="Background">
-                    <Setter.Value>
-                        <LinearGradientBrush StartPoint="0.0,0.5" EndPoint="1.0,0.5">
-                            <GradientStop Color="Teal" Offset="0.0"/>
-                            <GradientStop Color="LightSeaGreen" Offset="0.25"/>
-                            <GradientStop Color="LightSeaGreen" Offset="0.75"/>
-                            <GradientStop Color="Teal" Offset="1.0"/>
-                        </LinearGradientBrush>
-                    </Setter.Value>
-                </Setter>
+                <Setter TargetName="TemplateGrid" Property="Background" Value="{StaticResource ItemBrush}"/>
             </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>

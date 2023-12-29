@@ -1,0 +1,14 @@
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\bin\Release\net6.0\HurPsyExpStrings.deps.json
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\bin\Release\net6.0\HurPsyExpStrings.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\bin\Release\net6.0\HurPsyExpStrings.pdb
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.StringResources.resources
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.csproj.GenerateResource.cache
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.AssemblyInfoInputs.cache
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.AssemblyInfo.cs
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.csproj.CoreCompileInputs.cache
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.sourcelink.json
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\refint\HurPsyExpStrings.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\HurPsyExpStrings.pdb
+C:\Users\freeb\source\repos\HurPsy\HurPsyExpStrings\obj\Release\net6.0\ref\HurPsyExpStrings.dll

@@ -1,9 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HurPsyLib;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace HurPsyExp.ExpDesign
 {
@@ -86,35 +89,44 @@ namespace HurPsyExp.ExpDesign
         }
     }
 
-    public class IdSelection
-    {
-        public bool Selected { get; set; }
-        public string Id { get; set; }
-
-        public IdSelection()
-        { Selected = false; Id = string.Empty; }
-
-        public IdSelection(string id, bool idsel = false)
-        { Selected = idsel; Id = id; }
-    }
-
     public partial class BlockViewModel : ItemViewModel
     {
-        public static List<IdSelection> StimulusSelections = new List<IdSelection>();
-        public static List<IdSelection> LocatorSelections = new List<IdSelection>();
-
-        public static void AddStimulusSelection(string stimId)
+        public static List<string> StimulusIds = new List<string>();
+        public static List<string> LocatorIds = new List<string>();
+        
+        public static void AddStimulusId(string stimId)
         {
-            StimulusSelections.Add(new IdSelection(stimId));
+            StimulusIds.Add(stimId);
         }
 
-        public static void AddLocatorSelection(string locId)
+        public TempTrial TrialPattern { get; set; } = new TempTrial();
+
+        public static void ReplaceStimulusId(string oldId, string newId)
         {
-            LocatorSelections.Add(new IdSelection(locId));
+            string? idstr = StimulusIds.Find(id => id==oldId);
+            if(idstr != null) { idstr = newId; return; }
         }
 
-        [ObservableProperty]
-        private bool showAddTrial;
+        public static void DeleteStimulusId(string stimId)
+        {
+            StimulusIds.Remove(stimId);
+        }
+
+        public static void AddLocatorId(string locId)
+        {
+            LocatorIds.Add(locId);
+        }
+
+        public static void ReplaceLocatorId(string oldId, string newId)
+        {
+            string? idstr = LocatorIds.Find(id => id == oldId);
+            if (idstr != null) { idstr = newId; return; }
+        }
+
+        public static void DeleteLocatorId(string locId)
+        {
+            LocatorIds.Remove(locId);
+        }
 
         public ObservableCollection<TrialViewModel> TrialVMs { get; set; }
 
@@ -124,21 +136,46 @@ namespace HurPsyExp.ExpDesign
         }
 
         [RelayCommand]
-        public void AddingTrial()
+        public void AddingTrial(Expander blckexp)
         {
-            ShowAddTrial = true;
+            foreach(string stimId in StimulusIds)
+            { TrialPattern.AddStimulusId(stimId); }
+
+            foreach (string locId in LocatorIds)
+            { TrialPattern.AddLocatorId(locId); }
+
+            AddTrialDialog dlgAddTrial = new AddTrialDialog();
+            dlgAddTrial.DataContext = this;
+            // TODO: If it wil make sense, display the temporary dialog
+            // right on the BlockView instance associated with this view model.
+            dlgAddTrial.WindowStartupLocation = WindowStartupLocation.Manual;
+            Point dlgloc = blckexp.PointToScreen(new Point(0,0));
+            dlgAddTrial.Left = dlgloc.X;
+            dlgAddTrial.Top = dlgloc.Y;
+            dlgAddTrial.Width = blckexp.ActualWidth;
+
+            if(dlgAddTrial.ShowDialog() == true)
+            { AddedTrial(); }
         }
 
         [RelayCommand]
         public void AddStep()
         {
-
+            // not tied to anything yet
         }
 
-        [RelayCommand]
-        public void AddTrial()
+        private void AddedTrial()
         {
-            ShowAddTrial = false;
+            // TODO: Add the instructions to produce trials with steps,
+            // according to the combinations of Stimulus and Locator choices
+            // in the TrialPattern object
+            foreach (TempStep tmpstp in TrialPattern.TempSteps)
+            {
+                tmpstp.ConstructExperimentSteps(TrialPattern.LocatorIds);
+            }
+
+            // clear out the temporary trial object
+            TrialPattern.Clear();
         }
     }
 }
