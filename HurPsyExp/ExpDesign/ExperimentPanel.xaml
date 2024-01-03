@@ -20,19 +20,26 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <DockPanel LastChildFill="True">
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
-            Style="{StaticResource CommandBar}"
-            HorizontalAlignment="Stretch">
-            <Button Style="{StaticResource CommandButton}"
-                    Command="{Binding AddBlockCommand}"
-                    ToolTip="{x:Static stringlib:StringResources.Tooltip_AddBlock}">
-                <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
-            </Button>
-        </StackPanel>
-        <ItemsControl ItemsSource="{Binding BlockVMs}"
-                      ItemTemplate="{StaticResource ItemViewTemplate}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <DockPanel LastChildFill="True">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                Style="{StaticResource CommandBar}"
+                HorizontalAlignment="Stretch">
+                <Button Style="{StaticResource CommandButton}"
+                        Command="{Binding AddBlockCommand}"
+                        ToolTip="{x:Static stringlib:StringResources.Tooltip_AddBlock}">
+                    <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
+                </Button>
+                <Button Style="{StaticResource CommandButton}"
+                        Command="{Binding DeleteBlockCommand}"
+                        ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                    <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                </Button>
+            </StackPanel>
+            <ItemsControl ItemsSource="{Binding BlockVMs}"
+                          ItemTemplate="{StaticResource ItemViewTemplate}">
             
-        </ItemsControl>
-    </DockPanel>
+            </ItemsControl>
+        </DockPanel>
+    </ScrollViewer>
 </UserControl>

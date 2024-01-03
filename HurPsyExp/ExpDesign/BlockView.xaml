@@ -14,7 +14,43 @@
                 <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate x:Key="TrialTemplate"/>
+            <DataTemplate x:Key="StepTemplate">
+                <StackPanel Orientation="Horizontal"
+                            Background="{StaticResource ItemBrush}">
+                    <ItemsControl ItemsSource="{Binding StimulusLocators}"
+                                  FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="2"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding LocatorId}" Margin="2" Padding="2"
+                                               Background="{StaticResource ControlBackground}"/>
+                                    <TextBlock Text="{Binding StimulusId}" Margin="2" Padding="2"
+                                               Background="{StaticResource ControlBackground}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <TextBox Margin="2" Height="Auto" VerticalAlignment="Center"
+                             Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"
+                             FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"/>
+                    <TextBlock Margin="2" Height="Auto" VerticalAlignment="Center"
+                               Text="ms"
+                               FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="TrialTemplate">
+                <Grid DataContext="{Binding ItemObject}">
+                    <ItemsControl ItemsSource="{Binding Steps}"
+                                  ItemTemplate="{StaticResource StepTemplate}"/>
+                </Grid>
+            </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
     
@@ -36,8 +72,8 @@
                 </StackPanel>
 
                 <ItemsControl Name="TrialsControl"
-                              ItemsSource="{Binding ItemObject.Trials}"
-                              ItemTemplate="{StaticResource TrialTemplate}">
+                              ItemsSource="{Binding TrialVMs}"
+                              ItemTemplate="{StaticResource ItemViewTemplate}">
 
                 </ItemsControl>
             </DockPanel>

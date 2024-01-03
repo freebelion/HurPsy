@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HurPsyExp;
 using HurPsyLib;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -103,8 +104,12 @@ namespace HurPsyExp.ExpDesign
 
         public static void ReplaceStimulusId(string oldId, string newId)
         {
-            string? idstr = StimulusIds.Find(id => id==oldId);
-            if(idstr != null) { idstr = newId; return; }
+            int index = StimulusIds.FindIndex(s => s == oldId);
+            if (index != -1)
+            {
+                StimulusIds[index] = newId;
+                return;
+            }
         }
 
         public static void DeleteStimulusId(string stimId)
@@ -119,8 +124,12 @@ namespace HurPsyExp.ExpDesign
 
         public static void ReplaceLocatorId(string oldId, string newId)
         {
-            string? idstr = LocatorIds.Find(id => id == oldId);
-            if (idstr != null) { idstr = newId; return; }
+            int index = LocatorIds.FindIndex(s => s==oldId);
+            if (index != -1)
+            {
+                LocatorIds[index] = newId;
+                return;
+            }
         }
 
         public static void DeleteLocatorId(string locId)
@@ -145,9 +154,9 @@ namespace HurPsyExp.ExpDesign
             { TrialPattern.AddLocatorId(locId); }
 
             AddTrialDialog dlgAddTrial = new AddTrialDialog();
-            dlgAddTrial.DataContext = this;
-            // TODO: If it wil make sense, display the temporary dialog
-            // right on the BlockView instance associated with this view model.
+            dlgAddTrial.DataContext = TrialPattern;
+            // TODO: Think of the best way to keep the dialog window
+            // wholly visible on the screen.
             dlgAddTrial.WindowStartupLocation = WindowStartupLocation.Manual;
             Point dlgloc = blckexp.PointToScreen(new Point(0,0));
             dlgAddTrial.Left = dlgloc.X;
@@ -169,13 +178,70 @@ namespace HurPsyExp.ExpDesign
             // TODO: Add the instructions to produce trials with steps,
             // according to the combinations of Stimulus and Locator choices
             // in the TrialPattern object
-            foreach (TempStep tmpstp in TrialPattern.TempSteps)
+            List<Step> steplist = TrialPattern.SingleStep.ConstructExperimentSteps(TrialPattern.LocatorIds);
+            
+            Block? blck = this.ItemObject as Block;
+
+            if(blck != null)
             {
-                tmpstp.ConstructExperimentSteps(TrialPattern.LocatorIds);
+                // Construct single-step experiment trials by permuting the combinations in steplist
+                foreach (Step stp in steplist)
+                {
+                    Trial trl = new Trial();
+                    trl.AddStep(stp);
+                    trl.CanShuffle = TrialPattern.CanShuffle;
+                    blck.AddTrial(trl);
+                    this.TrialVMs.Add(new TrialViewModel(trl));
+                }
             }
 
             // clear out the temporary trial object
             TrialPattern.Clear();
+        }
+
+        public void ChangeStimulusId(string oldId, string newId)
+        {
+            foreach(TrialViewModel trivm in this.TrialVMs)
+            {
+                Trial? trl = trivm.ItemObject as Trial;
+                if(trl != null)
+                {
+                    trl.ChangeStimulusId(oldId, newId);
+                }
+            }
+            // Since we weren't using viewmodels for Step objects,
+            // we now need to refresh the list of TrialViewModel objects.
+            RefreshTrialVMs();
+        }
+
+        public void ChangeLocatorId(string oldId, string newId)
+        {
+            foreach (TrialViewModel trivm in this.TrialVMs)
+            {
+                Trial? trl = trivm.ItemObject as Trial;
+                if (trl != null)
+                {
+                    trl.ChangeLocatorId(oldId, newId);
+                }
+            }
+            // Since we weren't using viewmodels for Step objects,
+            // we now need to refresh the list of TrialViewModel objects.
+            RefreshTrialVMs();
+        }
+
+        private void RefreshTrialVMs()
+        {
+            TrialVMs.Clear();
+
+            Block? blck = this.ItemObject as Block;
+
+            if (blck != null)
+            {
+                foreach(Trial trl in blck.Trials)
+                {
+                    this.TrialVMs.Add(new TrialViewModel(trl));
+                }
+            }
         }
     }
 }

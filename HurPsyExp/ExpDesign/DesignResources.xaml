@@ -7,7 +7,7 @@
 
     <BooleanToVisibilityConverter x:Key="boolvis"/>
     
-    <LinearGradientBrush x:Key="ExpanderBackground"
+    <LinearGradientBrush x:Key="PanelBackground"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">
         <GradientStop Color="SteelBlue" Offset="0"/>
         <GradientStop Color="LightBlue" Offset="0.25"/>
@@ -18,16 +18,17 @@
     <LinearGradientBrush x:Key="ControlBackground"
                          StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="Silver" Offset="0.0"/>
-        <GradientStop Color="LightGray" Offset="0.5"/>
+        <GradientStop Color="LightGray" Offset="0.25"/>
+        <GradientStop Color="LightGray" Offset="0.75"/>
         <GradientStop Color="Silver" Offset="0.0"/>
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="ItemBrush"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">
-        <GradientStop Color="Cornsilk" Offset="0.0"/>
-        <GradientStop Color="CornflowerBlue" Offset="0.25"/>
-        <GradientStop Color="CornflowerBlue" Offset="0.75"/>
-        <GradientStop Color="Cornsilk" Offset="1.0"/>
+        <GradientStop Color="Cyan" Offset="0.0"/>
+        <GradientStop Color="DarkCyan" Offset="0.25"/>
+        <GradientStop Color="DarkCyan" Offset="0.75"/>
+        <GradientStop Color="Cyan" Offset="1.0"/>
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="SelectionBrush"
@@ -52,7 +53,6 @@
     <Style TargetType="Expander">
         <Setter Property="FontSize"
                 Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
-        <Setter Property="Background" Value="{StaticResource ExpanderBackground}"/>
     </Style>
 
     <Style x:Key="CommandButton" TargetType="{x:Type Button}">
@@ -105,6 +105,7 @@
 
         <DataTemplate.Triggers>
             <!--TODO: Rethink and hopefully improve color and brush definitions.-->
+            <!--TODO: Consider using different item and selection brushes for different types of items.-->
             <DataTrigger Binding="{Binding Path=Selected}" Value="True">
                 <Setter TargetName="TemplateBorder" Property="BorderBrush" Value="Red"/>
                 <Setter TargetName="TemplateGrid" Property="Background" Value="{StaticResource SelectionBrush}"/>

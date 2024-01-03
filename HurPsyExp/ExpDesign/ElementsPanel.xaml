@@ -71,71 +71,73 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <DockPanel LastChildFill="False">
-        <Expander
-            DockPanel.Dock="Top"
-            ExpandDirection="Down"
-            IsExpanded="True">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <DockPanel LastChildFill="False">
+            <Expander DockPanel.Dock="Top"
+                      ExpandDirection="Down"
+                      IsExpanded="True"
+                      Background="{StaticResource PanelBackground}">
 
-            <Expander.Header>
-                <TextBlock Text="{x:Static stringlib:StringResources.Header_StimulusPanel}"/>
-            </Expander.Header>
+                <Expander.Header>
+                    <TextBlock Text="{x:Static stringlib:StringResources.Header_StimulusPanel}"/>
+                </Expander.Header>
 
-            <DockPanel LastChildFill="True">
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
-                            Style="{StaticResource CommandBar}"
-                            HorizontalAlignment="Stretch">
-                    <Button Style="{StaticResource CommandButton}"
-                            Command="{Binding SelectImagesCommand}"
-                            ToolTip="{x:Static stringlib:StringResources.Tooltip_AddImageStimulus}">
-                        <Image Source="..\Images\ImageStimulus.png" Stretch="Fill"/>
-                    </Button>
-                    <Button Style="{StaticResource CommandButton}"
-                            Command="{Binding DeleteStimulusCommand}"
-                            ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
-                        <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
-                    </Button>
-                </StackPanel>
+                <DockPanel LastChildFill="True">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                Style="{StaticResource CommandBar}"
+                                HorizontalAlignment="Stretch">
+                        <Button Style="{StaticResource CommandButton}"
+                                Command="{Binding SelectImagesCommand}"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddImageStimulus}">
+                            <Image Source="..\Images\ImageStimulus.png" Stretch="Fill"/>
+                        </Button>
+                        <Button Style="{StaticResource CommandButton}"
+                                Command="{Binding DeleteStimulusCommand}"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                            <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                        </Button>
+                    </StackPanel>
 
-                <Border>
-                    <ItemsControl ItemsSource="{Binding StimulusVMs}"
-                                  ItemTemplate="{StaticResource ItemViewTemplate}">
-                    </ItemsControl>
-                </Border>
-            </DockPanel>
-        </Expander>
+                    <Border>
+                        <ItemsControl ItemsSource="{Binding StimulusVMs}"
+                                      ItemTemplate="{StaticResource ItemViewTemplate}">
+                        </ItemsControl>
+                    </Border>
+                </DockPanel>
+            </Expander>
 
-        <Expander
-            DockPanel.Dock="Top"
-            ExpandDirection="Down"
-            IsExpanded="True">
+            <Expander DockPanel.Dock="Top"
+                      ExpandDirection="Down"
+                      IsExpanded="True"
+                      Background="{StaticResource PanelBackground}">
 
-            <Expander.Header>
-                <TextBlock Text="{x:Static stringlib:StringResources.Header_LocatorPanel}"/>
-            </Expander.Header>
+                <Expander.Header>
+                    <TextBlock Text="{x:Static stringlib:StringResources.Header_LocatorPanel}"/>
+                </Expander.Header>
 
-            <DockPanel LastChildFill="True">
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
-                            Style="{StaticResource CommandBar}"
-                            HorizontalAlignment="Stretch">
-                    <Button Style="{StaticResource CommandButton}"
-                            Command="{Binding AddPointLocatorCommand}"
-                            ToolTip="{x:Static stringlib:StringResources.Tooltip_AddPointLocator}">
-                        <Image Source="..\Images\PointLocator.png" Stretch="Fill"/>
-                    </Button>
-                    <Button Style="{StaticResource CommandButton}"
-                            Command="{Binding DeleteLocatorCommand}"
-                            ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
-                        <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
-                    </Button>
-                </StackPanel>
+                <DockPanel LastChildFill="True">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                Style="{StaticResource CommandBar}"
+                                HorizontalAlignment="Stretch">
+                        <Button Style="{StaticResource CommandButton}"
+                                Command="{Binding AddPointLocatorCommand}"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddPointLocator}">
+                            <Image Source="..\Images\PointLocator.png" Stretch="Fill"/>
+                        </Button>
+                        <Button Style="{StaticResource CommandButton}"
+                                Command="{Binding DeleteLocatorCommand}"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                            <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                        </Button>
+                    </StackPanel>
 
-                <Border>
-                    <ItemsControl ItemsSource="{Binding LocatorVMs}"
-                                  ItemTemplate="{StaticResource ItemViewTemplate}">
-                    </ItemsControl>
-                </Border>
-            </DockPanel>
-        </Expander>
-    </DockPanel>
+                    <Border>
+                        <ItemsControl ItemsSource="{Binding LocatorVMs}"
+                                      ItemTemplate="{StaticResource ItemViewTemplate}">
+                        </ItemsControl>
+                    </Border>
+                </DockPanel>
+            </Expander>
+        </DockPanel>
+    </ScrollViewer>
 </UserControl>

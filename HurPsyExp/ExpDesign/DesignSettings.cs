@@ -22,6 +22,10 @@ namespace HurPsyExp.ExpDesign
         public double ElementsPanelWidth { get; set; }
         public double ExperimentPanelWidth { get; set; }
 
+        public double MinStepTime { get; set; }
+        public double MaxStepTime { get; set; }
+        public double TypicalStepTime { get; set; }
+
         public double CommandButtonHeight { get; set; }
         public double ImagePreviewHeight { get; set; }
 
@@ -32,6 +36,10 @@ namespace HurPsyExp.ExpDesign
             UIFontSize = 20;
             MenuFontSize = 16;
             SmallFontSize = 14;
+
+            MinStepTime = 0;
+            MaxStepTime = 5000;
+            TypicalStepTime = 500;
 
             CommandButtonHeight = 24;
             ImagePreviewHeight = 24;

@@ -36,5 +36,100 @@ namespace HurPsyExp
             }
             else { return null; }
         }
+
+        private class PermList<T>
+        {
+            private int _curindex;
+            private int _maxindex;
+            private List<T> _inlist;
+
+            public PermList()
+            {
+                _inlist = new List<T>();
+                _curindex = 0;
+                _maxindex = 0;
+            }
+
+            public PermList(IEnumerable<T> startlist) : this()
+            {
+                _inlist.AddRange(startlist);
+                _maxindex = startlist.Count();
+            }
+
+            public void Add(T element)
+            {
+                _inlist.Add(element);
+                _maxindex++;
+            }
+
+            public void ResetIndex()
+            { _curindex = 0; }
+
+            public T GetCurrent()
+            { return _inlist[_curindex]; }
+
+            public bool Next()
+            {
+                if (_curindex < _maxindex - 1)
+                { _curindex++; return true; }
+                else return false;
+            }
+        }
+
+        public static List<T[]> GetPermutations<T>(params List<T>[] arrays)
+        {
+            List<List<T>> lists = new List<List<T>>();
+            lists.AddRange(arrays.ToList());
+            return GetPermutations(lists);
+        }
+
+        public static List<T[]> GetPermutations<T>(List<List<T>> lists)
+        {
+            int listCount = lists.Count;
+            List<PermList<T>> permlists = new List<PermList<T>>();
+            for (int i = 0; i < listCount; i++)
+            {
+                if (lists[i].Count > 0)
+                { permlists.Add(new PermList<T>(lists[i])); }
+            }
+
+            List<T[]> permarrays = new List<T[]>();
+
+            int listindex = 0;
+            while (true)
+            {
+            permloopstart:
+                T[] perm = new T[listCount];
+
+                for (int i = 0; i < listCount; i++)
+                {
+                    perm[i] = permlists[i].GetCurrent();
+                }
+
+                permarrays.Add(perm);
+
+                if (permlists[listindex].Next())
+                { continue; }
+                else
+                {
+                    while (listindex < listCount - 1)
+                    {
+                        listindex++;
+
+                        if (permlists[listindex].Next())
+                        {
+                            for (int j = 0; j < listindex; j++)
+                            { permlists[j].ResetIndex(); }
+                            listindex = 0;
+                            goto permloopstart;
+                        }
+                    }
+                }
+
+                break;
+            }
+
+            return permarrays;
+        }
     }   
 }

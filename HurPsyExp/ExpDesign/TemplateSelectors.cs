@@ -26,6 +26,8 @@ namespace HurPsyExp.ExpDesign
                             return (DataTemplate)element.FindResource("PointLocatorTemplate");
                         case Block blck:
                             return (DataTemplate)element.FindResource("BlockTemplate");
+                        case Trial tri:
+                            return (DataTemplate)element.FindResource("TrialTemplate");
                     }
                 }
             }

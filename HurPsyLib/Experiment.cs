@@ -69,6 +69,11 @@ namespace HurPsyLib
             return newblock;
         }
 
+        public void RemoveBlock(Block blck)
+        {
+            Blocks.Remove(blck);
+        }
+
         public void SaveToXml(string fileName)
         {
             DataContractSerializer expser = new DataContractSerializer(this.GetType());

@@ -44,10 +44,6 @@ namespace HurPsyLib
         {
             StimulusLocators = new List<StimulusLocatorPair>();
             StepTime = new HurPsyTimePeriod();
-
-            for (int i = 0; i < 3; i++)
-            { AddStimulusLocatorPair(); }
-            StepTime.Milliseconds = 1000 * HurPsyCommon.Rnd.NextDouble();
         }
 
         public StimulusLocatorPair AddStimulusLocatorPair(StimulusLocatorPair? newpair = null)
@@ -57,6 +53,32 @@ namespace HurPsyLib
             StimulusLocators.Add(newpair);
             return newpair;
         }
+
+        public void AddStimulusLocatorPairs(StimulusLocatorPair[] newpairs)
+        {
+            for(int i=0; i<newpairs.Length; i++)
+            {
+                StimulusLocators.Add(newpairs[i]);
+            }
+        }
+
+        public void ChangeStimulusId(string oldId, string newId)
+        {
+            foreach (StimulusLocatorPair pair in StimulusLocators)
+            {
+                if (pair.StimulusId == oldId)
+                { pair.StimulusId = newId; }
+            }
+        }
+
+        public void ChangeLocatorId(string oldId, string newId)
+        {
+            foreach (StimulusLocatorPair pair in StimulusLocators)
+            {
+                if (pair.LocatorId == oldId)
+                { pair.LocatorId = newId; }
+            }
+        }
     }
 
     [DataContract]
@@ -64,6 +86,9 @@ namespace HurPsyLib
     {
         [DataMember]
         public List<Step> Steps { get; set; }
+
+        [DataMember]
+        public bool CanShuffle { get; set; }
 
         public Trial()
         {
@@ -75,6 +100,22 @@ namespace HurPsyLib
             if (newstep == null) { newstep = new Step(); }
             Steps.Add(newstep);
             return newstep;
+        }
+
+        public void ChangeStimulusId(string oldId, string newId)
+        {
+            foreach (Step stp in Steps)
+            {
+                stp.ChangeStimulusId(oldId, newId);
+            }
+        }
+
+        public void ChangeLocatorId(string oldId, string newId)
+        {
+            foreach (Step stp in Steps)
+            {
+                stp.ChangeLocatorId(oldId, newId);
+            }
         }
     }
 
@@ -92,7 +133,7 @@ namespace HurPsyLib
         public Block()
         {
             blockCount++;
-            Name = "Block_" + blockCount.ToString();
+            Name = HurPsyCommon.GetObjectGuid(this);
             Trials = new List<Trial>();
             ShuffleTrials = true;
         }

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using HurPsyLib;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -21,21 +22,6 @@ namespace HurPsyExp.ExpDesign
 
         public IdSelection(string id, bool idsel = false)
         { Selected = idsel; Id = id; }
-    }
-
-    public partial class PairSet
-    {
-        public List<StimulusLocatorPair> StimLocPairs { get; set; }
-
-        public PairSet()
-        {
-            StimLocPairs = new List<StimulusLocatorPair>();
-        }
-
-        public void AddStimLocPair(string stimId, string locId)
-        {
-            StimLocPairs.Add(new StimulusLocatorPair(stimId, locId));
-        }
     }
 
     public partial class ChoiceSet
@@ -65,10 +51,16 @@ namespace HurPsyExp.ExpDesign
         // which contains this TempStap object.
         public List<ChoiceSet> StimulusChoiceSets { get; set; }
 
+        public double StepTime { get; set; }
+
         public TempStep()
         {
             StimulusChoiceSets = new List<ChoiceSet>();
+            StepTime = 500;
         }
+
+        public void Clear()
+        { StimulusChoiceSets.Clear(); }
 
         public void AddStimulusChoiceSet(List<string> stimulusIds)
         {
@@ -83,32 +75,39 @@ namespace HurPsyExp.ExpDesign
 
         public List<Step> ConstructExperimentSteps(List<string> locatorIds)
         {
-            List<Step> expSteps = new List<Step>();
-
             int locCount = locatorIds.Count;
 
-            PairSet[] pairSets = new PairSet[locCount];
+            List<List<StimulusLocatorPair>> pairLists = new List<List<StimulusLocatorPair>>();
 
             // Make up stimulus-locator pairs with stimulus choices associated with locator Ids
-            for(int i=0; i < locCount; i++)
+            for (int i=0; i < locCount; i++)
             {
-                pairSets[i] = new PairSet();
+                List<StimulusLocatorPair> pairList = new List<StimulusLocatorPair>();
                 ChoiceSet chset = StimulusChoiceSets[i];
 
                 foreach (IdSelection stimChoice in chset.IdChoices)
                 {
                     if (stimChoice.Selected)
-                    { pairSets[i].AddStimLocPair(stimChoice.Id, locatorIds[i]); }
+                    { pairList.Add(new StimulusLocatorPair(stimChoice.Id, locatorIds[i])); }
                 }
+
+                if (pairList.Count > 0)
+                { pairLists.Add(pairList); }
             }
+
+            List<Step> expSteps = new List<Step>();
+            if (pairLists.Count == 0) { return expSteps; }
 
             // Construct experiment steps with permutations of those stimulus-locator pairs
-            int[] index = new int[locCount];
-            for (int i = 0; i < locCount; i++)
-            {
-                index[i] = pairSets[i].StimLocPairs.Count-1;
-            }
+            List<StimulusLocatorPair[]> pairPerms = UtilityClass.GetPermutations(pairLists);
 
+            foreach (StimulusLocatorPair[] pairSet in pairPerms)
+            {
+                Step stp = new Step();
+                stp.AddStimulusLocatorPairs(pairSet);
+                stp.StepTime.Milliseconds = this.StepTime;
+                expSteps.Add(stp);
+            }
             return expSteps;
         }
     }
@@ -120,19 +119,21 @@ namespace HurPsyExp.ExpDesign
     /// trials with the steps formed by combinations of desired pairs
     /// will be added to the active block.
     /// </summary>
-    public class TempTrial
+    public partial class TempTrial
     {
         private List<string> stimulusIds;
         public List<string> LocatorIds { get; set; }
-        public ObservableCollection<TempStep> TempSteps { get; set; }
+        
+        public TempStep SingleStep { get; set; }
+
+        public bool CanShuffle { get; set; }
 
         public TempTrial()
         {
             stimulusIds = new List<string>();
             LocatorIds = new List<string>();
-            TempSteps = new ObservableCollection<TempStep>();
-            // Add at least one TempStep
-            TempSteps.Add(new TempStep());
+            SingleStep = new TempStep();
+            CanShuffle = true;
         }
 
         public void AddStimulusId(string stimId)
@@ -141,20 +142,14 @@ namespace HurPsyExp.ExpDesign
         public void AddLocatorId(string locId)
         {
             LocatorIds.Add(locId);
-
-            foreach(TempStep tmpstp in TempSteps)
-            {
-                tmpstp.AddStimulusChoiceSet(stimulusIds);
-            }
+            SingleStep.AddStimulusChoiceSet(stimulusIds);
         }
 
         public void Clear()
         {
             LocatorIds.Clear();
-            TempSteps.Clear();
+            SingleStep.Clear();
             stimulusIds.Clear();
-            // Add at least one TempStep
-            TempSteps.Add(new TempStep());
         }
     }
 }

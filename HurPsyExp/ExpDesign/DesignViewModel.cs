@@ -61,10 +61,23 @@ namespace HurPsyExp.ExpDesign
                         { LoadImageStimulus((ImageStimulus)stim); }
                         AddStimulusVM(stim);
                     }
-                    // Load the Locator objects and associate them with LocatorVM objects
+                    // Load the Locator objects and associate them with LocatorViewModel objects
                     foreach (Locator loc in _experiment.LocatorDict.Values)
                     {
                         AddLocatorVM(loc);
+                    }
+
+                    //Load experiment blocks and associate them with BlockViewModel objects
+                    foreach(Block blck in _experiment.Blocks)
+                    {
+                        BlockViewModel blockvm = new BlockViewModel(blck);
+                        BlockVMs.Add(blockvm);
+
+                        foreach(Trial trl in blck.Trials)
+                        {
+                            TrialViewModel trvm = new TrialViewModel(trl);
+                            blockvm.TrialVMs.Add(trvm);
+                        }
                     }
 
                     // Change the working directory for the application
@@ -150,12 +163,18 @@ namespace HurPsyExp.ExpDesign
                         // TODO: Go through stimulus selections and the trial steps
                         // where the old Id was used and change them, too
                         BlockViewModel.ReplaceStimulusId(oldId, stim.Id);
+
+                        foreach(BlockViewModel blckvm in this.BlockVMs)
+                        {
+                            blckvm.ChangeStimulusId(oldId, e.NewId);
+                        }
                     }
                     else
                     {
                         // If the new id is not acceptible, StimulusViewModel object
                         // here reverts to the old id, but this results in
                         // this event handler being called once again.
+                        // TODO: Find a way to revert the change without invoking this same method.
                         stimvm.TempId = oldId;
                     }
                 }             
@@ -164,7 +183,12 @@ namespace HurPsyExp.ExpDesign
 
         private void LoadImageStimulus(ImageStimulus imgstim)
         {
-            BitmapImage stimImage = new BitmapImage(new Uri(imgstim.FileName, UriKind.Absolute));
+            BitmapImage stimImage = new BitmapImage();
+            stimImage.BeginInit();
+            stimImage.UriSource = new Uri(imgstim.FileName, UriKind.Absolute);
+            stimImage.CacheOption = BitmapCacheOption.OnLoad;
+            stimImage.EndInit();
+            
             imgstim.StimulusObject = stimImage;
             imgstim.ImageSize.Width = stimImage.Width;
             imgstim.ImageSize.Height = stimImage.Height;
@@ -215,12 +239,18 @@ namespace HurPsyExp.ExpDesign
                         // TODO: Go through Locator selections and the trial steps
                         // where the old Id was used and change them, too
                         BlockViewModel.ReplaceLocatorId(oldId, loc.Id);
+
+                        foreach (BlockViewModel blckvm in this.BlockVMs)
+                        {
+                            blckvm.ChangeLocatorId(oldId, e.NewId);
+                        }
                     }
                     else
                     {
                         // If the new id is not acceptible, LocatorViewModel object
                         // here reverts to the old id, but this results in
                         // this event handler being called once again.
+                        // TODO: Find a way to revert the change without invoking this same method.
                         locvm.TempId = oldId;
                     }
                 }
@@ -289,6 +319,32 @@ namespace HurPsyExp.ExpDesign
             Block newblock = _experiment.AddNewBlock();
             BlockViewModel blockvm = new BlockViewModel(newblock);
             BlockVMs.Add(blockvm);
-        }   
+        }
+
+        [RelayCommand]
+        public void DeleteBlock()
+        {
+            List<BlockViewModel> deleteList = new List<BlockViewModel>();
+            // Delete all the locator objects associated with
+            // the selected members of the LocatorVms list
+            foreach (BlockViewModel blckvm in BlockVMs)
+            {
+                if (blckvm.Selected)
+                {
+                    Block? blck = blckvm.ItemObject as Block;
+                    if (blck != null)
+                    {
+                        _experiment.RemoveBlock(blck);
+                    }
+                    deleteList.Add(blckvm);
+                }
+            }
+
+            // Then remove the selected LocatorVm objects
+            foreach (BlockViewModel blckvm in deleteList)
+            {
+                BlockVMs.Remove(blckvm);
+            }
+        }
     }
 }

@@ -70,7 +70,8 @@
 
         <Expander DockPanel.Dock="Left"
                   ExpandDirection="Right"
-                  IsExpanded="True">
+                  IsExpanded="True"
+                  Background="{StaticResource PanelBackground}">
             <Expander.Header>
                 <TextBlock Margin="2"
                         Text="{x:Static stringlib:StringResources.Header_ElementsPanel}">
@@ -89,8 +90,10 @@
         </Expander>
 
         <Expander DockPanel.Dock="Left"
-            ExpandDirection="Right"
-            IsExpanded="True">  
+                  ExpandDirection="Right"
+                  IsExpanded="True"
+                  Background="{StaticResource PanelBackground}">  
+            
             <Expander.Header>
                 <TextBlock Margin="2" Text="{x:Static stringlib:StringResources.Header_ExperimentPanel}">
                     <TextBlock.LayoutTransform>

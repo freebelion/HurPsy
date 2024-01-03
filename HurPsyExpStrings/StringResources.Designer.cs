@@ -178,6 +178,24 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trial can shuffle.
+        /// </summary>
+        public static string Label_CanShuffle {
+            get {
+                return ResourceManager.GetString("Label_CanShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step time (in ms).
+        /// </summary>
+        public static string Label_StepTime {
+            get {
+                return ResourceManager.GetString("Label_StepTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Trial(s).
         /// </summary>
         public static string Title_AddTrialDialog {
