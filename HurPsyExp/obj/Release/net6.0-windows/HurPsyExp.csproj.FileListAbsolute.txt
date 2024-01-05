@@ -43,3 +43,5 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Release\net6.0-windows\HurPsyEx
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Release\net6.0-windows\ref\HurPsyExp.dll
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Release\net6.0-windows\ExpDesign\AddTrialDialog.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Release\net6.0-windows\ExpDesign\AddTrialDialog.baml
+C:\Users\freeb\Source\Repos\HurPsy\HurPsyExp\obj\Release\net6.0-windows\ExpRun\RunView.g.cs
+C:\Users\freeb\Source\Repos\HurPsy\HurPsyExp\obj\Release\net6.0-windows\ExpRun\RunView.baml

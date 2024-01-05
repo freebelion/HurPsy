@@ -3,11 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HurPsyExp.ExpRun"
+        xmlns:exprun="clr-namespace:HurPsyExp.ExpRun"
         xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
         Title="{x:Static stringlib:StringResources.Title_RunWindow}" Height="450" Width="800"
-        WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterOwner">
+        WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <exprun:RunViewModel x:Name="RunVM"/>
+    </Window.DataContext>
     
     <Canvas>
         

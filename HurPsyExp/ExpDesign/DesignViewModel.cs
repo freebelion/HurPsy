@@ -42,47 +42,39 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         public void LoadExperiment()
         {
-            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.FileFilter_Experiment, false);
+            Experiment? exp = UtilityClass.LoadExperiment();
 
-            if (selectedFiles != null && selectedFiles.Length == 1)
-            {
-                string expFileName = selectedFiles[0];
+            if (exp != null)
+            {// If an experiment definition was successfully loaded,
+                _experiment = exp;
 
-                string? expDirectoryPath = Path.GetDirectoryName(expFileName);
-                if (expDirectoryPath != null)
+
+                ClearVMs(); // clear all the viewmodel objects
+
+                // Load the actual Stimulus objects from files named in the experiment definition
+                foreach (Stimulus stim in _experiment.StimulusDict.Values)
                 {
-                    ClearVMs() ;
-                    // Load the experiment definition from the selected file
-                    _experiment = Experiment.LoadFromXml(expFileName);
-                    // Load the actual Stimulus objects from files named in the experiment definition
-                    foreach (Stimulus stim in _experiment.StimulusDict.Values)
-                    {
-                        if (stim is ImageStimulus)
-                        { LoadImageStimulus((ImageStimulus)stim); }
-                        AddStimulusVM(stim);
-                    }
-                    // Load the Locator objects and associate them with LocatorViewModel objects
-                    foreach (Locator loc in _experiment.LocatorDict.Values)
-                    {
-                        AddLocatorVM(loc);
-                    }
+                    if (stim is ImageStimulus)
+                    { LoadImageStimulus((ImageStimulus)stim); }
+                    AddStimulusVM(stim);
+                }
+                // Load the Locator objects and associate them with LocatorViewModel objects
+                foreach (Locator loc in _experiment.LocatorDict.Values)
+                {
+                    AddLocatorVM(loc);
+                }
 
-                    //Load experiment blocks and associate them with BlockViewModel objects
-                    foreach(Block blck in _experiment.Blocks)
+                //Load experiment blocks and associate them with BlockViewModel objects
+                foreach (Block blck in _experiment.Blocks)
+                {
+                    BlockViewModel blockvm = new BlockViewModel(blck);
+                    BlockVMs.Add(blockvm);
+
+                    foreach (Trial trl in blck.Trials)
                     {
-                        BlockViewModel blockvm = new BlockViewModel(blck);
-                        BlockVMs.Add(blockvm);
-
-                        foreach(Trial trl in blck.Trials)
-                        {
-                            TrialViewModel trvm = new TrialViewModel(trl);
-                            blockvm.TrialVMs.Add(trvm);
-                        }
+                        TrialViewModel trvm = new TrialViewModel(trl);
+                        blockvm.TrialVMs.Add(trvm);
                     }
-
-                    // Change the working directory for the application
-                    // so that stimulus filenames will work without full paths.
-                    Directory.SetCurrentDirectory(expDirectoryPath);
                 }
             }
         }

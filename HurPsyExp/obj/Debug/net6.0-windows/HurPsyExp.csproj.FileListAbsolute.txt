@@ -43,3 +43,5 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\refint\Hur
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.genruntimeconfig.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ref\HurPsyExp.dll
+C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpRun\RunView.g.cs
+C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpRun\RunView.baml

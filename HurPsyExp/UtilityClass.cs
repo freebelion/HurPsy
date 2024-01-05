@@ -5,9 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HurPsyLib;
+using HurPsyExpStrings;
 using System.Windows.Controls;
 using System.Windows;
 using Microsoft.Win32;
+using System.Runtime.Serialization;
+using System.Xml;
 
 namespace HurPsyExp
 {
@@ -130,6 +133,42 @@ namespace HurPsyExp
             }
 
             return permarrays;
+        }
+
+        public static Experiment? LoadExperiment()
+        {
+            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.FileFilter_Experiment, false);
+
+            if (selectedFiles != null && selectedFiles.Length == 1)
+            {
+                string expFileName = selectedFiles[0];
+
+                string? expDirectoryPath = Path.GetDirectoryName(expFileName);
+                if (expDirectoryPath != null)
+                {
+                    Experiment exp;
+                    // Load the experiment definition from the selected file
+                    exp = Experiment.LoadFromXml(expFileName);
+
+                    // Change the working directory for the application
+                    // so that stimulus filenames will work without full paths.
+                    Directory.SetCurrentDirectory(expDirectoryPath);
+                    return exp;
+                }
+            }
+            return null;
+        }
+
+        public static T? LoadObjectFromXml<T>(string fileName) where T : class
+        {
+            DataContractSerializer ser =
+                    new DataContractSerializer(typeof(T));
+            FileStream fs = new FileStream(fileName, FileMode.Open);
+            XmlDictionaryReader reader =
+                    XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+
+            T? obj = (T?)ser.ReadObject(reader);
+            return obj;
         }
     }   
 }
