@@ -54,8 +54,6 @@ namespace HurPsyExp.ExpDesign
                 // Load the actual Stimulus objects from files named in the experiment definition
                 foreach (Stimulus stim in _experiment.StimulusDict.Values)
                 {
-                    if (stim is ImageStimulus)
-                    { LoadImageStimulus((ImageStimulus)stim); }
                     AddStimulusVM(stim);
                 }
                 // Load the Locator objects and associate them with LocatorViewModel objects
@@ -119,10 +117,8 @@ namespace HurPsyExp.ExpDesign
                     ImageStimulus imgstim = new ImageStimulus();
                     if (basename != null) { imgstim.Id = basename; }
                     imgstim.FileName = strFile;
-                
+                    UtilityClass.LoadImageStimulus(imgstim);
                     _experiment.AddStimulus(imgstim);
-
-                    LoadImageStimulus(imgstim);
                     AddStimulusVM(imgstim);
                 }
             }
@@ -171,19 +167,6 @@ namespace HurPsyExp.ExpDesign
                     }
                 }             
             }
-        }
-
-        private void LoadImageStimulus(ImageStimulus imgstim)
-        {
-            BitmapImage stimImage = new BitmapImage();
-            stimImage.BeginInit();
-            stimImage.UriSource = new Uri(imgstim.FileName, UriKind.Absolute);
-            stimImage.CacheOption = BitmapCacheOption.OnLoad;
-            stimImage.EndInit();
-            
-            imgstim.StimulusObject = stimImage;
-            imgstim.ImageSize.Width = stimImage.Width;
-            imgstim.ImageSize.Height = stimImage.Height;
         }
 
         [RelayCommand]

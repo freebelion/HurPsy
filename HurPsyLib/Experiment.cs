@@ -20,7 +20,7 @@ namespace HurPsyLib
 
         [DataMember]
         public List<Block> Blocks { get; private set; }
-
+       
         public Experiment()
         {
             StimulusDict = new Dictionary<string, Stimulus>();
@@ -40,6 +40,9 @@ namespace HurPsyLib
             catch { return false; }
         }
 
+        public Stimulus GetStimulus(string stimId)
+        { return StimulusDict[stimId]; }
+
         public void RemoveStimulus(Stimulus stim)
         {
             StimulusDict.Remove(stim.Id);
@@ -56,6 +59,9 @@ namespace HurPsyLib
             }
             catch { return false; }
         }
+
+        public Locator GetLocator(string locId)
+        { return LocatorDict[locId]; }
 
         public void RemoveLocator(Locator loc)
         {

@@ -11,6 +11,7 @@ using System.Windows;
 using Microsoft.Win32;
 using System.Runtime.Serialization;
 using System.Xml;
+using System.Windows.Media.Imaging;
 
 namespace HurPsyExp
 {
@@ -149,7 +150,8 @@ namespace HurPsyExp
                     Experiment exp;
                     // Load the experiment definition from the selected file
                     exp = Experiment.LoadFromXml(expFileName);
-
+                    // Load the stimulus objects to make the experiment object usable
+                    LoadStimulusObjects(exp);
                     // Change the working directory for the application
                     // so that stimulus filenames will work without full paths.
                     Directory.SetCurrentDirectory(expDirectoryPath);
@@ -157,6 +159,39 @@ namespace HurPsyExp
                 }
             }
             return null;
+        }
+
+        public static void LoadStimulusObjects(Experiment exp)
+        {
+            // Load the actual Stimulus objects from files named in the experiment definition
+            foreach (Stimulus stim in exp.StimulusDict.Values)
+            {
+                switch(stim)
+                {
+                    case ImageStimulus imgstim:
+                        LoadImageStimulus(imgstim);
+                        break;
+                }
+            }
+        }
+
+        public static void LoadImageStimulus(ImageStimulus imgstim)
+        {
+            BitmapImage stimImage = LoadImageObject(imgstim.FileName);
+            imgstim.StimulusObject = stimImage;
+            imgstim.ImageSize.Width = stimImage.Width;
+            imgstim.ImageSize.Height = stimImage.Height;
+        }
+
+        public static BitmapImage LoadImageObject(string filename)
+        {
+            BitmapImage bmpImage = new BitmapImage();
+            bmpImage.BeginInit();
+            bmpImage.UriSource = new Uri(filename, UriKind.Absolute);
+            bmpImage.CacheOption = BitmapCacheOption.OnLoad;
+            bmpImage.EndInit();
+
+            return bmpImage;
         }
 
         public static T? LoadObjectFromXml<T>(string fileName) where T : class

@@ -7,13 +7,18 @@
         xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
         Title="{x:Static stringlib:StringResources.Title_RunWindow}" Height="450" Width="800"
-        WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+        WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
 
     <Window.DataContext>
         <exprun:RunViewModel x:Name="RunVM"/>
     </Window.DataContext>
-    
-    <Canvas>
+
+    <Window.Resources>
         
-    </Canvas>
+    </Window.Resources>
+    
+    <Grid>
+        <exprun:RunView/>
+    </Grid>
 </Window>
