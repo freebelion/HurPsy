@@ -27,6 +27,7 @@ namespace HurPsyExp.ExpRun
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             RunVM.LoadExperiment();
+            RunVM.StartExperiment();
         }
     }
 }

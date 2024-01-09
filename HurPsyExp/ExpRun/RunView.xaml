@@ -7,7 +7,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid>
+    <UserControl.Resources>
+        <ItemsPanelTemplate x:Key="CanvasTemplate">
+            <!--source: https://stackoverflow.com/questions/1871358/wpf-how-to-make-the-0-0-in-center-inside-a-canvas-->
+            <Canvas HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="0" Height="0"
+                    RenderTransform="1 0 0 -1 0 0"/>
+        </ItemsPanelTemplate>
+
+        <!--source: https://stackoverflow.com/questions/1265364/setting-canvas-properties-in-an-itemscontrol-datatemplate-->
+        <Style x:Key="CanvasChildStyle" TargetType="ContentPresenter">
+            <Setter Property="Canvas.Left" Value="{Binding StimulusLocation.X}" />
+            <Setter Property="Canvas.Top" Value="{Binding StimulusLocation.Y}" />
+        </Style>
+        
+        <DataTemplate x:Key="StimulusTemplate">
+            <Image Source="{Binding StimulusObject}"
+                   Width="{Binding StimulusWidth}"
+                   Height="{Binding StimulusHeight}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Border>
+        <ItemsControl ItemsSource="{Binding CurrentStepVM.StimulusVMs}"
+                      ItemsPanel="{StaticResource CanvasTemplate}"
+                      ItemContainerStyle="{StaticResource CanvasChildStyle}"
+                      ItemTemplate="{StaticResource StimulusTemplate}">
             
-    </Grid>
+        </ItemsControl>
+    </Border>
 </UserControl>

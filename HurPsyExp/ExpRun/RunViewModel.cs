@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HurPsyExp.ExpRun
 {
@@ -51,19 +52,42 @@ namespace HurPsyExp.ExpRun
 
             if (stp != null)
             {
-                List<object> stimuli = GetStepStimuli(stp);
+                List<Stimulus> stimuli = GetStepStimuli(stp);
                 List<Locator> locators = GetStepLocators(stp);
+
+                CurrentStepVM.ClearStimulusVMs();
+
+                // ATTENTION! In case location-less stimuli
+                // such as audio stimuli are implemented,
+                // there should be some extra control statements.
+                for(int i=0, n = stimuli.Count; i < n; i++)
+                {
+                    Stimulus stim = stimuli[i];
+                    Locator loc = locators[i];
+                    Point pnt = UtilityClass.GetDIULocation(stim, loc);
+
+                    StimulusViewModel stimvm = new StimulusViewModel();
+                    stimvm.StimulusObject = stim.StimulusObject;
+                    stimvm.StimulusLocation = pnt;
+                    if(stim is IVisualStimulus vistim)
+                    {
+                        stimvm.StimulusWidth = UtilityClass.GetDIUValue(vistim.VisualSize.Width);
+                        stimvm.StimulusHeight = UtilityClass.GetDIUValue(vistim.VisualSize.Height);
+                    }
+                    
+                    CurrentStepVM.StimulusVMs.Add(stimvm);
+                }
             }
         }
 
-        public List<object> GetStepStimuli(Step stp)
+        public List<Stimulus> GetStepStimuli(Step stp)
         {
-            List<object> stimuli = new List<object>();
+            List<Stimulus> stimuli = new List<Stimulus>();
 
             foreach(StimulusLocatorPair stimlocpair in stp.StimulusLocators)
             {
-                object? stimobject = _experiment.GetStimulus(stimlocpair.StimulusId).StimulusObject;
-                if(stimobject != null) { stimuli.Add(stimobject); }
+                Stimulus? stim = _experiment.GetStimulus(stimlocpair.StimulusId);
+                if(stim != null) { stimuli.Add(stim); }
             }
 
             return stimuli;

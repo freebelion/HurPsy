@@ -1,8 +1,9 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
 using HurPsyLib;
+using HurPsyExp.ExpDesign;
 
-namespace HurPsyExp.ExpDesign
+namespace HurPsyExp
 {
     public class ItemViewTemplateSelector : DataTemplateSelector
     {

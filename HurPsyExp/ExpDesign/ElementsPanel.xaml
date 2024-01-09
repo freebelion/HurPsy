@@ -35,12 +35,12 @@
                     <TextBox Grid.Column="2" Margin="2"
                              IsEnabled="{Binding Editable}"
                              TextAlignment="Right"
-                             Text="{Binding ItemObject.ImageSize.Width, StringFormat='0.0'}"
+                             Text="{Binding ItemObject.VisualSize.Width, StringFormat='0.0'}"
                              ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusWidth}"/>
                     <TextBox Grid.Column="3" Margin="2"
                              IsEnabled="{Binding Editable}"
                              TextAlignment="Right"
-                             Text="{Binding ItemObject.ImageSize.Height, StringFormat='0.0'}"
+                             Text="{Binding ItemObject.VisualSize.Height, StringFormat='0.0'}"
                              ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusHeight}"/>
                 </Grid>
             </DataTemplate>

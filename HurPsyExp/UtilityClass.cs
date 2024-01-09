@@ -17,6 +17,8 @@ namespace HurPsyExp
 {
     public static class UtilityClass
     {
+        const double MM2DIU = 3.77952755;
+
         public static string[]? OpenFiles(string filenameFilter, bool openMultiple)
         {
             OpenFileDialog opf = new OpenFileDialog();
@@ -179,8 +181,6 @@ namespace HurPsyExp
         {
             BitmapImage stimImage = LoadImageObject(imgstim.FileName);
             imgstim.StimulusObject = stimImage;
-            imgstim.ImageSize.Width = stimImage.Width;
-            imgstim.ImageSize.Height = stimImage.Height;
         }
 
         public static BitmapImage LoadImageObject(string filename)
@@ -204,6 +204,32 @@ namespace HurPsyExp
 
             T? obj = (T?)ser.ReadObject(reader);
             return obj;
+        }
+
+        public static double GetDIUValue(double mmValue)
+        {  return MM2DIU * mmValue; }
+
+        public static double GetMMValue(double diuValue)
+        { return diuValue / MM2DIU; }
+
+        public static Point GetDIULocation(Stimulus stim, Locator loc)
+        {
+            Point pnt = new Point();
+            // Ask the Locator to produce a center position in millimeters
+            HurPsyPoint psypnt = loc.GetLocation(stim);
+            // Locator will give a center position
+            // in millimeters (or some other unit);
+            // get the top-left location in DIU.
+            if(stim is IVisualStimulus visualstim)
+            {
+                psypnt.X -= visualstim.VisualSize.Width / 2;
+                psypnt.Y -= visualstim.VisualSize.Height / 2;
+            }
+
+            pnt.X = GetDIUValue(psypnt.X);
+            pnt.Y = GetDIUValue(psypnt.Y);
+
+            return pnt;
         }
     }   
 }

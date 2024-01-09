@@ -12,6 +12,12 @@ namespace HurPsyLib
     [DataContract]
     public class Experiment
     {
+        // Even when there are more choices of origin,
+        // we are assuminge there will be a single choice
+        // that will be applied theroughout the experiment.
+        [DataMember]
+        public HurPsyOrigin Origin { get; set; }
+
         [DataMember]
         public Dictionary<string, Stimulus> StimulusDict { get; private set; }
 
@@ -40,6 +46,19 @@ namespace HurPsyLib
             catch { return false; }
         }
 
+        public bool StimulusIdExists(string stimId)
+        { return StimulusDict.ContainsKey(stimId); }
+
+        public void ReplaceStimulusId(string oldId, string newId)
+        {
+            // We need to remove the dictionary pair with the old id
+            // and create a new one with the new id.
+            Stimulus stim = GetStimulus(oldId);
+            StimulusDict.Remove(oldId);
+            stim.Id = newId;
+            StimulusDict.Add(newId, stim);
+        }
+
         public Stimulus GetStimulus(string stimId)
         { return StimulusDict[stimId]; }
 
@@ -66,6 +85,19 @@ namespace HurPsyLib
         public void RemoveLocator(Locator loc)
         {
             LocatorDict.Remove(loc.Id);
+        }
+
+        public bool LocatorIdExists(string locId)
+        { return LocatorDict.ContainsKey(locId); }
+
+        public void ReplaceLocatorId(string oldId, string newId)
+        {
+            // We need to remove the dictionary pair with the old id
+            // and create a new one with the new id.
+            Locator loc = GetLocator(oldId);
+            LocatorDict.Remove(oldId);
+            loc.Id = newId;
+            LocatorDict.Add(newId, loc);
         }
 
         public Block AddNewBlock()

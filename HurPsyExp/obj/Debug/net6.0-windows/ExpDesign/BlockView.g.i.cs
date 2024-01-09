@@ -62,7 +62,7 @@ namespace HurPsyExp.ExpDesign {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/HurPsyExp;V1.0.0.0;component/expdesign/blockview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/HurPsyExp;component/expdesign/blockview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ExpDesign\BlockView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

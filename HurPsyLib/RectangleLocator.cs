@@ -35,7 +35,7 @@ namespace HurPsyLib
                 if (stim is ImageStimulus)
                 {
                     ImageStimulus imgstim = (ImageStimulus)stim;
-                    stimSize = imgstim.ImageSize;
+                    stimSize = imgstim.VisualSize;
                 }
             }
 

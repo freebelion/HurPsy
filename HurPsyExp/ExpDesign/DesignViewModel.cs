@@ -93,7 +93,9 @@ namespace HurPsyExp.ExpDesign
                     foreach (Stimulus stim in _experiment.StimulusDict.Values)
                     {
                         string stimFileName = Path.GetFileName(stim.FileName);
-                        File.Copy(stim.FileName, Path.Combine(expDirectoryPath, stimFileName), overwrite: true);
+                        string stimFilePath = Path.Combine(expDirectoryPath, stimFileName);
+                        if (!File.Exists(stimFilePath))
+                        { File.Copy(stim.FileName, stimFilePath); }
                         // Strip out the original directory path (if any) from the stimulus filename
                         stim.FileName = stimFileName;
                     }
@@ -117,7 +119,9 @@ namespace HurPsyExp.ExpDesign
                     ImageStimulus imgstim = new ImageStimulus();
                     if (basename != null) { imgstim.Id = basename; }
                     imgstim.FileName = strFile;
-                    UtilityClass.LoadImageStimulus(imgstim);
+                    BitmapImage bmp = UtilityClass.LoadImageObject(imgstim.FileName);
+                    imgstim.VisualSize.Width = UtilityClass.GetMMValue(bmp.Width);
+                    imgstim.VisualSize.Height = UtilityClass.GetMMValue(bmp.Height);
                     _experiment.AddStimulus(imgstim);
                     AddStimulusVM(imgstim);
                 }
@@ -145,9 +149,10 @@ namespace HurPsyExp.ExpDesign
                 {
                     string oldId = stim.Id;
                     // Ensure that the new Id is not a duplicate of an existing one
-                    if (_experiment.StimulusDict.ContainsKey(e.NewId) == false)
+                    if (_experiment.StimulusIdExists(e.NewId) == false)
                     {
-                        stim.Id = e.NewId;
+                        _experiment.ReplaceStimulusId(oldId, e.NewId);
+                        // stim.Id = e.NewId; already been done in the above call
                         // TODO: Go through stimulus selections and the trial steps
                         // where the old Id was used and change them, too
                         BlockViewModel.ReplaceStimulusId(oldId, stim.Id);
@@ -208,9 +213,9 @@ namespace HurPsyExp.ExpDesign
                 {
                     string oldId = loc.Id;
                     // Ensure that the new Id is not a duplicate of an existing one
-                    if (_experiment.LocatorDict.ContainsKey(e.NewId) == false)
+                    if (_experiment.LocatorIdExists(e.NewId) == false)
                     {
-                        loc.Id = e.NewId;
+                        _experiment.ReplaceLocatorId(oldId, e.NewId);
                         // TODO: Go through Locator selections and the trial steps
                         // where the old Id was used and change them, too
                         BlockViewModel.ReplaceLocatorId(oldId, loc.Id);

@@ -4,11 +4,31 @@ using System.Runtime.Serialization;
 
 namespace HurPsyLib
 {
+    public interface IVisualStimulus
+    {
+        HurPsySize VisualSize { get; }
+    }
+
+    [DataContract]
+    public enum HurPsyUnit
+    {// This preliminary definition may extend to include other unit choices
+        [EnumMember]
+        MM // default unit is milimeters
+    }
+
+    [DataContract]
+    public enum HurPsyOrigin
+    {// This preliminary definition may extend to include other origin choices
+        [EnumMember]
+        MiddleCenter // default origin is screen center
+    }
+
     [DataContract]
     public class HurPsyPoint
     {
         [DataMember]
         public double X { get; set; }
+
         [DataMember]
         public double Y { get; set; }
 
@@ -26,6 +46,9 @@ namespace HurPsyLib
         private double sizeX;
         [DataMember]
         private double sizeY;
+
+        [DataMember]
+        public HurPsyUnit Unit { get; set; }
 
         public HurPsySize()
         { sizeX = 0; sizeY = 0; }

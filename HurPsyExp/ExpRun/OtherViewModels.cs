@@ -19,6 +19,9 @@ namespace HurPsyExp.ExpRun
         {
             StimulusVMs = new ObservableCollection<StimulusViewModel>();
         }
+
+        public void ClearStimulusVMs()
+        { StimulusVMs.Clear(); }
     }
 
     public partial class StimulusViewModel : ObservableObject
@@ -28,6 +31,12 @@ namespace HurPsyExp.ExpRun
 
         [ObservableProperty]
         private Point? stimulusLocation;
+
+        [ObservableProperty]
+        private double stimulusWidth;
+
+        [ObservableProperty]
+        private double stimulusHeight;
 
         [ObservableProperty]
         private bool hidden;
