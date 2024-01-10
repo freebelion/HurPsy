@@ -33,10 +33,7 @@ namespace HurPsyExp.ExpRun
         private Point? stimulusLocation;
 
         [ObservableProperty]
-        private double stimulusWidth;
-
-        [ObservableProperty]
-        private double stimulusHeight;
+        private Size stimulusSize;
 
         [ObservableProperty]
         private bool hidden;

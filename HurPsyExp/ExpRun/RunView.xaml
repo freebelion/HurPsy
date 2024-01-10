@@ -12,8 +12,7 @@
             <!--source: https://stackoverflow.com/questions/1871358/wpf-how-to-make-the-0-0-in-center-inside-a-canvas-->
             <Canvas HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Width="0" Height="0"
-                    RenderTransform="1 0 0 -1 0 0"/>
+                    Width="0" Height="0"/>
         </ItemsPanelTemplate>
 
         <!--source: https://stackoverflow.com/questions/1265364/setting-canvas-properties-in-an-itemscontrol-datatemplate-->
@@ -22,10 +21,10 @@
             <Setter Property="Canvas.Top" Value="{Binding StimulusLocation.Y}" />
         </Style>
         
-        <DataTemplate x:Key="StimulusTemplate">
+        <DataTemplate x:Key="ImageStimulusTemplate">
             <Image Source="{Binding StimulusObject}"
-                   Width="{Binding StimulusWidth}"
-                   Height="{Binding StimulusHeight}"/>
+                   Width="{Binding StimulusSize.Width}"
+                   Height="{Binding StimulusSize.Height}"/>
         </DataTemplate>
     </UserControl.Resources>
 
@@ -33,7 +32,7 @@
         <ItemsControl ItemsSource="{Binding CurrentStepVM.StimulusVMs}"
                       ItemsPanel="{StaticResource CanvasTemplate}"
                       ItemContainerStyle="{StaticResource CanvasChildStyle}"
-                      ItemTemplate="{StaticResource StimulusTemplate}">
+                      ItemTemplate="{StaticResource ImageStimulusTemplate}">
             
         </ItemsControl>
     </Border>

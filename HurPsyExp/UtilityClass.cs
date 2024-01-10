@@ -227,9 +227,22 @@ namespace HurPsyExp
             }
 
             pnt.X = GetDIUValue(psypnt.X);
-            pnt.Y = GetDIUValue(psypnt.Y);
+            // We need to flip the sign for Y due to windows coordinate system.
+            pnt.Y = -GetDIUValue(psypnt.Y);
 
             return pnt;
+        }
+
+        public static Size GetDIUSize(Stimulus stimulus)
+        {
+            Size sz = new Size();
+
+            if(stimulus is IVisualStimulus vistim)
+            {
+                sz.Width = GetDIUValue(vistim.VisualSize.Width);
+                sz.Height = GetDIUValue(vistim.VisualSize.Height);
+            }
+            return sz;
         }
     }   
 }

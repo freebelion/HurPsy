@@ -62,7 +62,7 @@ namespace HurPsyExp.ExpRun {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/HurPsyExp;component/exprun/runwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/HurPsyExp;V1.0.0.0;component/exprun/runwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ExpRun\RunWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

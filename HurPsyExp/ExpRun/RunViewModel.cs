@@ -69,12 +69,7 @@ namespace HurPsyExp.ExpRun
                     StimulusViewModel stimvm = new StimulusViewModel();
                     stimvm.StimulusObject = stim.StimulusObject;
                     stimvm.StimulusLocation = pnt;
-                    if(stim is IVisualStimulus vistim)
-                    {
-                        stimvm.StimulusWidth = UtilityClass.GetDIUValue(vistim.VisualSize.Width);
-                        stimvm.StimulusHeight = UtilityClass.GetDIUValue(vistim.VisualSize.Height);
-                    }
-                    
+                    stimvm.StimulusSize = UtilityClass.GetDIUSize(stim);
                     CurrentStepVM.StimulusVMs.Add(stimvm);
                 }
             }
