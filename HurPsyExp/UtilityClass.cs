@@ -212,20 +212,18 @@ namespace HurPsyExp
         public static double GetMMValue(double diuValue)
         { return diuValue / MM2DIU; }
 
-        public static Point GetDIULocation(Stimulus stim, Locator loc)
+        public static Point GetDIULocation(IVisualStimulus vistim, Locator loc)
         {
             Point pnt = new Point();
-            // Ask the Locator to produce a center position in millimeters
-            HurPsyPoint psypnt = loc.GetLocation(stim);
+            // Ask the Locator to produce a position in millimeters
+            HurPsyPoint psypnt = loc.GetLocation(vistim);
             // Locator will give a center position
             // in millimeters (or some other unit);
-            // get the top-left location in DIU.
-            if(stim is IVisualStimulus visualstim)
-            {
-                psypnt.X -= visualstim.VisualSize.Width / 2;
-                psypnt.Y -= visualstim.VisualSize.Height / 2;
-            }
+            // first, get the position of the top-left corner of stimulus
+            psypnt.X += vistim.VisualSize.Width / 2;
+            psypnt.Y += vistim.VisualSize.Height / 2;
 
+            // then convert the values to DIU
             pnt.X = GetDIUValue(psypnt.X);
             // We need to flip the sign for Y due to windows coordinate system.
             pnt.Y = -GetDIUValue(psypnt.Y);
@@ -233,15 +231,11 @@ namespace HurPsyExp
             return pnt;
         }
 
-        public static Size GetDIUSize(Stimulus stimulus)
+        public static Size GetDIUSize(IVisualStimulus vistim)
         {
             Size sz = new Size();
-
-            if(stimulus is IVisualStimulus vistim)
-            {
-                sz.Width = GetDIUValue(vistim.VisualSize.Width);
-                sz.Height = GetDIUValue(vistim.VisualSize.Height);
-            }
+            sz.Width = GetDIUValue(vistim.VisualSize.Width);
+            sz.Height = GetDIUValue(vistim.VisualSize.Height);
             return sz;
         }
     }   

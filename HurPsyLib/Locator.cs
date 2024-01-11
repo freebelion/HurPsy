@@ -18,6 +18,6 @@ namespace HurPsyLib
 
         public Locator() { Id = HurPsyCommon.GetObjectGuid(this); }
 
-        public abstract HurPsyPoint GetLocation(Stimulus? stim = null);
+        public abstract HurPsyPoint GetLocation(IVisualStimulus? vistim = null);
     }
 }

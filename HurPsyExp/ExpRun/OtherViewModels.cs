@@ -11,19 +11,6 @@ using System.Windows.Controls;
 
 namespace HurPsyExp.ExpRun
 {
-    public partial class StepViewModel : ObservableObject
-    {
-        public ObservableCollection<StimulusViewModel> StimulusVMs { get; set; }
-
-        public StepViewModel()
-        {
-            StimulusVMs = new ObservableCollection<StimulusViewModel>();
-        }
-
-        public void ClearStimulusVMs()
-        { StimulusVMs.Clear(); }
-    }
-
     public partial class StimulusViewModel : ObservableObject
     {
         [ObservableProperty]

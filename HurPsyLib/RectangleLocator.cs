@@ -21,7 +21,7 @@ namespace HurPsyLib
             RectangleSize = new HurPsySize();
         }
 
-        public override HurPsyPoint GetLocation(Stimulus? stim = null)
+        public override HurPsyPoint GetLocation(IVisualStimulus? vistim = null)
         {
             double width = RectangleSize.Width;
             double height = RectangleSize.Height;
@@ -30,14 +30,8 @@ namespace HurPsyLib
             
             HurPsySize stimSize = new HurPsySize();
 
-            if (stim != null)
-            {
-                if (stim is ImageStimulus)
-                {
-                    ImageStimulus imgstim = (ImageStimulus)stim;
-                    stimSize = imgstim.VisualSize;
-                }
-            }
+            if (vistim != null)
+            { stimSize = vistim.VisualSize; }
 
             topleftx += stimSize.Width / 2;
             toplefty += stimSize.Height / 2;

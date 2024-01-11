@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace HurPsyExp.ExpRun
 {
@@ -19,6 +20,8 @@ namespace HurPsyExp.ExpRun
     /// </summary>
     public partial class RunWindow : Window
     {
+        private DispatcherTimer _stepTimer = new();
+
         public RunWindow()
         {
             InitializeComponent();

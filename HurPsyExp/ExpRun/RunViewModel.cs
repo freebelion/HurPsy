@@ -3,6 +3,7 @@ using HurPsyExp.ExpDesign;
 using HurPsyLib;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +15,16 @@ namespace HurPsyExp.ExpRun
     {
         private Experiment _experiment;
 
-        [ObservableProperty]
-        private StepViewModel currentStepVM;
-
         private int blockNo;
         private int trialNo;
         private int stepNo;
 
+        public ObservableCollection<StimulusViewModel> StimulusVMs { get; set; }
+
         public RunViewModel()
         {
             _experiment = new Experiment();
-            CurrentStepVM = new StepViewModel();
+            StimulusVMs = new ObservableCollection<StimulusViewModel>();
         }
 
         public void LoadExperiment()
@@ -55,7 +55,7 @@ namespace HurPsyExp.ExpRun
                 List<Stimulus> stimuli = GetStepStimuli(stp);
                 List<Locator> locators = GetStepLocators(stp);
 
-                CurrentStepVM.ClearStimulusVMs();
+                StimulusVMs.Clear();
 
                 // ATTENTION! In case location-less stimuli
                 // such as audio stimuli are implemented,
@@ -63,14 +63,15 @@ namespace HurPsyExp.ExpRun
                 for(int i=0, n = stimuli.Count; i < n; i++)
                 {
                     Stimulus stim = stimuli[i];
+                    if (stim is not IVisualStimulus) continue;
                     Locator loc = locators[i];
-                    Point pnt = UtilityClass.GetDIULocation(stim, loc);
+                    Point pnt = UtilityClass.GetDIULocation((IVisualStimulus)stim, loc);
 
                     StimulusViewModel stimvm = new StimulusViewModel();
                     stimvm.StimulusObject = stim.StimulusObject;
                     stimvm.StimulusLocation = pnt;
-                    stimvm.StimulusSize = UtilityClass.GetDIUSize(stim);
-                    CurrentStepVM.StimulusVMs.Add(stimvm);
+                    stimvm.StimulusSize = UtilityClass.GetDIUSize((IVisualStimulus)stim);
+                    StimulusVMs.Add(stimvm);
                 }
             }
         }

@@ -26,14 +26,25 @@
                    Width="{Binding StimulusSize.Width}"
                    Height="{Binding StimulusSize.Height}"/>
         </DataTemplate>
+
+        <DataTemplate x:Key="RunViewTemplate">
+            <Border>
+                <ItemsControl ItemsSource="{Binding StimulusVMs}"
+                  ItemsPanel="{StaticResource CanvasTemplate}"
+                  ItemContainerStyle="{StaticResource CanvasChildStyle}"
+                  ItemTemplate="{StaticResource ImageStimulusTemplate}">
+
+                </ItemsControl>
+            </Border>
+        </DataTemplate>
     </UserControl.Resources>
 
     <Border>
-        <ItemsControl ItemsSource="{Binding CurrentStepVM.StimulusVMs}"
+        <ItemsControl ItemsSource="{Binding StimulusVMs}"
                       ItemsPanel="{StaticResource CanvasTemplate}"
                       ItemContainerStyle="{StaticResource CanvasChildStyle}"
                       ItemTemplate="{StaticResource ImageStimulusTemplate}">
-            
+
         </ItemsControl>
     </Border>
 </UserControl>

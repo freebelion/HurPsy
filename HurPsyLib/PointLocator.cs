@@ -23,7 +23,7 @@ namespace HurPsyLib
             LocatorPoint = new HurPsyPoint(locX, locY);
         }
 
-        public override HurPsyPoint GetLocation(Stimulus? stim = null)
+        public override HurPsyPoint GetLocation(IVisualStimulus? vistim = null)
         {
             return LocatorPoint;
         }

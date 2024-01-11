@@ -15,10 +15,14 @@
     </Window.DataContext>
 
     <Window.Resources>
-        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     
     <Grid>
-        <exprun:RunView/>
+        <exprun:RunView />
     </Grid>
 </Window>
