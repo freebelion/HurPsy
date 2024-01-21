@@ -4,7 +4,6 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\DesignWindow.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\ElementsPanel.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\ExperimentPanel.g.cs
-C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpRun\RunView.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpRun\RunWindow.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\StartupDialog.g.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\App.g.cs
@@ -30,7 +29,6 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\DesignWindow.baml
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\ElementsPanel.baml
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpDesign\ExperimentPanel.baml
-C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpRun\RunView.baml
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ExpRun\RunWindow.baml
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\StartupDialog.baml
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.g.resources

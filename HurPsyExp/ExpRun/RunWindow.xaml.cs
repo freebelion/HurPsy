@@ -20,17 +20,38 @@ namespace HurPsyExp.ExpRun
     /// </summary>
     public partial class RunWindow : Window
     {
-        private DispatcherTimer _stepTimer = new();
+        private DispatcherTimer stepTimer = new();
+
+        public RunViewModel RunVM { get; set; }
 
         public RunWindow()
         {
             InitializeComponent();
+            RunVM = new RunViewModel(this);
+            stepTimer.Tick += StepTimer_Tick;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.DataContext = RunVM;
             RunVM.LoadExperiment();
             RunVM.StartExperiment();
+        }
+
+        public void DisplayCurrentStep()
+        {
+            stepTimer.Interval = RunVM.StepTime;
+            StimulusItemsControl.Visibility = Visibility.Visible;
+            stepTimer.Start();
+        }
+
+        private void StepTimer_Tick(object? sender, EventArgs e)
+        {
+            stepTimer.Stop();
+            StimulusItemsControl.Visibility = Visibility.Hidden;
+            if(RunVM.NextStep())
+            { RunVM.LoadCurrentStep(); }
+            else { this.Close(); }
         }
     }
 }

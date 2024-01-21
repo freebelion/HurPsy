@@ -37,6 +37,9 @@ namespace HurPsyLib
 
         public HurPsyPoint(double pX, double pY)
         { X = pX; Y = pY; }
+
+        public HurPsyPoint ShallowCopy()
+        { return (HurPsyPoint)this.MemberwiseClone(); }
     }
 
     [DataContract]
@@ -112,6 +115,12 @@ namespace HurPsyLib
                 else
                 { period = TimeSpan.FromSeconds(value); }
             }
+        }
+
+        public TimeSpan Span
+        {
+            get { return period; }
+            set { period = value; }
         }
     }
 

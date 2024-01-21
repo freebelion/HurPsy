@@ -10,19 +10,41 @@
         WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
 
-    <Window.DataContext>
-        <exprun:RunViewModel x:Name="RunVM"/>
-    </Window.DataContext>
-
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 
             </ResourceDictionary.MergedDictionaries>
+
+            <ItemsPanelTemplate x:Key="CanvasTemplate">
+                <!--source: https://stackoverflow.com/questions/1871358/wpf-how-to-make-the-0-0-in-center-inside-a-canvas-->
+                <Canvas HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Width="0" Height="0"/>
+            </ItemsPanelTemplate>
+
+            <!--source: https://stackoverflow.com/questions/1265364/setting-canvas-properties-in-an-itemscontrol-datatemplate-->
+            <Style x:Key="CanvasChildStyle" TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding StimulusLocation.X}" />
+                    <Setter Property="Canvas.Top" Value="{Binding StimulusLocation.Y}" />
+            </Style>
+
+            <DataTemplate x:Key="ImageStimulusTemplate">
+                <Image Source="{Binding StimulusObject}"
+                       Width="{Binding StimulusSize.Width}"
+                       Height="{Binding StimulusSize.Height}"/>
+            </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
-    
-    <Grid>
-        <exprun:RunView />
-    </Grid>
+
+    <Border>
+        <ItemsControl x:Name="StimulusItemsControl"
+                  ItemsSource="{Binding StimulusVMs}"
+                  ItemsPanel="{StaticResource CanvasTemplate}"
+                  ItemContainerStyle="{StaticResource CanvasChildStyle}"
+                  ItemTemplate="{StaticResource ImageStimulusTemplate}"
+                  Visibility="Hidden">
+
+        </ItemsControl>
+    </Border>
 </Window>

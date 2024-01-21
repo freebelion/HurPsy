@@ -24,8 +24,8 @@ namespace HurPsyLib
         }
 
         public override HurPsyPoint GetLocation(IVisualStimulus? vistim = null)
-        {
-            return LocatorPoint;
+        {// must send a temporary copy so that subsequent operations will not modify LocatorPoint.
+            return LocatorPoint.ShallowCopy();
         }
     }
 }
