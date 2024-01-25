@@ -66,31 +66,31 @@ namespace HurPsyExp.ExpDesign
         }
     }
 
-    public class StimulusViewModel : ItemViewModel
+    public class StimulusItemViewModel : ItemViewModel
     {      
-        public StimulusViewModel(Stimulus stim) : base(stim)
+        public StimulusItemViewModel(Stimulus stim) : base(stim)
         {
             tempId = stim.Id;
         }      
     }
 
-    public class LocatorViewModel : ItemViewModel
+    public class LocatorItemViewModel : ItemViewModel
     {
-        public LocatorViewModel(Locator loc) : base(loc)
+        public LocatorItemViewModel(Locator loc) : base(loc)
         {
             tempId = loc.Id;
         }
     }
 
-    public class TrialViewModel : ItemViewModel
+    public class TrialItemViewModel : ItemViewModel
     {
-        public TrialViewModel(Trial tri) : base(tri)
+        public TrialItemViewModel(Trial tri) : base(tri)
         {
             
         }
     }
 
-    public partial class BlockViewModel : ItemViewModel
+    public partial class BlockItemViewModel : ItemViewModel
     {
         public static List<string> StimulusIds = new List<string>();
         public static List<string> LocatorIds = new List<string>();
@@ -137,11 +137,11 @@ namespace HurPsyExp.ExpDesign
             LocatorIds.Remove(locId);
         }
 
-        public ObservableCollection<TrialViewModel> TrialVMs { get; set; }
+        public ObservableCollection<TrialItemViewModel> TrialVMs { get; set; }
 
-        public BlockViewModel(Block blck) : base(blck)
+        public BlockItemViewModel(Block blck) : base(blck)
         {
-            TrialVMs = new ObservableCollection<TrialViewModel>();
+            TrialVMs = new ObservableCollection<TrialItemViewModel>();
         }
 
         [RelayCommand]
@@ -191,7 +191,7 @@ namespace HurPsyExp.ExpDesign
                     trl.AddStep(stp);
                     trl.CanShuffle = TrialPattern.CanShuffle;
                     blck.AddTrial(trl);
-                    this.TrialVMs.Add(new TrialViewModel(trl));
+                    this.TrialVMs.Add(new TrialItemViewModel(trl));
                 }
             }
 
@@ -201,7 +201,7 @@ namespace HurPsyExp.ExpDesign
 
         public void ChangeStimulusId(string oldId, string newId)
         {
-            foreach(TrialViewModel trivm in this.TrialVMs)
+            foreach(TrialItemViewModel trivm in this.TrialVMs)
             {
                 Trial? trl = trivm.ItemObject as Trial;
                 if(trl != null)
@@ -216,7 +216,7 @@ namespace HurPsyExp.ExpDesign
 
         public void ChangeLocatorId(string oldId, string newId)
         {
-            foreach (TrialViewModel trivm in this.TrialVMs)
+            foreach (TrialItemViewModel trivm in this.TrialVMs)
             {
                 Trial? trl = trivm.ItemObject as Trial;
                 if (trl != null)
@@ -239,7 +239,7 @@ namespace HurPsyExp.ExpDesign
             {
                 foreach(Trial trl in blck.Trials)
                 {
-                    this.TrialVMs.Add(new TrialViewModel(trl));
+                    this.TrialVMs.Add(new TrialItemViewModel(trl));
                 }
             }
         }

@@ -2,6 +2,7 @@
 using System.Windows;
 using HurPsyLib;
 using HurPsyExp.ExpDesign;
+using HurPsyExp.ExpRun;
 
 namespace HurPsyExp
 {
@@ -29,6 +30,32 @@ namespace HurPsyExp
                             return (DataTemplate)element.FindResource("BlockTemplate");
                         case Trial tri:
                             return (DataTemplate)element.FindResource("TrialTemplate");
+                    }
+                }
+            }
+
+            return null;
+        }
+    }
+
+    public class StimulusViewTemplateSelector : DataTemplateSelector
+    {
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        {
+            FrameworkElement element = (FrameworkElement)container;
+
+            if (element != null && item != null && item is StimulusViewModel)
+            {
+                StimulusViewModel stimvm = (StimulusViewModel)item;
+
+                Stimulus? stimObject = stimvm.InnerStimulus;
+
+                if (stimObject != null)
+                {
+                    switch (stimObject)
+                    {
+                        case ImageStimulus imgstim:
+                            return (DataTemplate)element.FindResource("ImageStimulusTemplate");
                     }
                 }
             }

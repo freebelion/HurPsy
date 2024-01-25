@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HurPsyLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43defcb4f47e942c81a7a45e378a7c0cc79733f1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("HurPsyLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HurPsyLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

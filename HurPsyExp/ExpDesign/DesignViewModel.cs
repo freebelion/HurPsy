@@ -12,18 +12,18 @@ namespace HurPsyExp.ExpDesign
     {
         private Experiment _experiment;
 
-        public ObservableCollection<StimulusViewModel> StimulusVMs { get; set; }
+        public ObservableCollection<StimulusItemViewModel> StimulusVMs { get; set; }
 
-        public ObservableCollection<LocatorViewModel> LocatorVMs { get; set; }
+        public ObservableCollection<LocatorItemViewModel> LocatorVMs { get; set; }
 
-        public ObservableCollection<BlockViewModel> BlockVMs { get; set; }
+        public ObservableCollection<BlockItemViewModel> BlockVMs { get; set; }
 
         public DesignViewModel()
         {
             _experiment = new Experiment();
-            StimulusVMs = new ObservableCollection<StimulusViewModel>();
-            LocatorVMs = new ObservableCollection<LocatorViewModel>();
-            BlockVMs = new ObservableCollection<BlockViewModel>();
+            StimulusVMs = new ObservableCollection<StimulusItemViewModel>();
+            LocatorVMs = new ObservableCollection<LocatorItemViewModel>();
+            BlockVMs = new ObservableCollection<BlockItemViewModel>();
         }
 
         private void ClearVMs()
@@ -65,12 +65,12 @@ namespace HurPsyExp.ExpDesign
                 //Load experiment blocks and associate them with BlockViewModel objects
                 foreach (Block blck in _experiment.Blocks)
                 {
-                    BlockViewModel blockvm = new BlockViewModel(blck);
+                    BlockItemViewModel blockvm = new BlockItemViewModel(blck);
                     BlockVMs.Add(blockvm);
 
                     foreach (Trial trl in blck.Trials)
                     {
-                        TrialViewModel trvm = new TrialViewModel(trl);
+                        TrialItemViewModel trvm = new TrialItemViewModel(trl);
                         blockvm.TrialVMs.Add(trvm);
                     }
                 }
@@ -130,18 +130,18 @@ namespace HurPsyExp.ExpDesign
 
         private void AddStimulusVM(Stimulus stim)
         {
-            StimulusViewModel stimvm = new StimulusViewModel(stim);
+            StimulusItemViewModel stimvm = new StimulusItemViewModel(stim);
             // TODO: Add an event handler that will respond to IdChanged event of stimvm
             stimvm.IdChanged += Stimvm_IdChanged;
             StimulusVMs.Add(stimvm);
             // Add the Id to the list of Ids shared by BlockViewModel objects,
             // so that they can be displayed in AddTrialView
-            BlockViewModel.AddStimulusId(stim.Id);
+            BlockItemViewModel.AddStimulusId(stim.Id);
         }
 
         private void Stimvm_IdChanged(object? sender, IdChangeEventArgs e)
         {
-            StimulusViewModel? stimvm = sender as StimulusViewModel;
+            StimulusItemViewModel? stimvm = sender as StimulusItemViewModel;
             if (stimvm != null && e.NewId != null)
             {
                 Stimulus? stim = stimvm.ItemObject as Stimulus;
@@ -155,9 +155,9 @@ namespace HurPsyExp.ExpDesign
                         // stim.Id = e.NewId; already been done in the above call
                         // TODO: Go through stimulus selections and the trial steps
                         // where the old Id was used and change them, too
-                        BlockViewModel.ReplaceStimulusId(oldId, stim.Id);
+                        BlockItemViewModel.ReplaceStimulusId(oldId, stim.Id);
 
-                        foreach(BlockViewModel blckvm in this.BlockVMs)
+                        foreach(BlockItemViewModel blckvm in this.BlockVMs)
                         {
                             blckvm.ChangeStimulusId(oldId, e.NewId);
                         }
@@ -185,13 +185,13 @@ namespace HurPsyExp.ExpDesign
 
         private void AddLocatorVM(Locator loc)
         {
-            LocatorViewModel locvm = new LocatorViewModel(loc);
+            LocatorItemViewModel locvm = new LocatorItemViewModel(loc);
             // TODO: Add an event handler that will respond to IdChanged event of locvm
             locvm.IdChanged += Locvm_IdChanged;
             LocatorVMs.Add(locvm);
             // Add the Id to the list of Ids shared by BlockViewModel objects,
             // so that they can be displayed in AddTrialView
-            BlockViewModel.AddLocatorId(loc.Id);
+            BlockItemViewModel.AddLocatorId(loc.Id);
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace HurPsyExp.ExpDesign
         /// <param name="e"></param>
         private void Locvm_IdChanged(object? sender, IdChangeEventArgs e)
         {
-            LocatorViewModel? locvm = sender as LocatorViewModel;
+            LocatorItemViewModel? locvm = sender as LocatorItemViewModel;
             if (locvm != null && e.NewId != null)
             {
                 Locator? loc = locvm.ItemObject as Locator;
@@ -218,9 +218,9 @@ namespace HurPsyExp.ExpDesign
                         _experiment.ReplaceLocatorId(oldId, e.NewId);
                         // TODO: Go through Locator selections and the trial steps
                         // where the old Id was used and change them, too
-                        BlockViewModel.ReplaceLocatorId(oldId, loc.Id);
+                        BlockItemViewModel.ReplaceLocatorId(oldId, loc.Id);
 
-                        foreach (BlockViewModel blckvm in this.BlockVMs)
+                        foreach (BlockItemViewModel blckvm in this.BlockVMs)
                         {
                             blckvm.ChangeLocatorId(oldId, e.NewId);
                         }
@@ -241,10 +241,10 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void DeleteStimulus()
         {
-            List<StimulusViewModel> deleteList = new List<StimulusViewModel>();
+            List<StimulusItemViewModel> deleteList = new List<StimulusItemViewModel>();
             // Delete all the stimulus objects associated with
             // the selected members of the StimulusVms list
-            foreach (StimulusViewModel stimvm in StimulusVMs)
+            foreach (StimulusItemViewModel stimvm in StimulusVMs)
             {
                 if(stimvm.Selected)
                 {
@@ -252,7 +252,7 @@ namespace HurPsyExp.ExpDesign
                     
                     if (stim != null)
                     {
-                        BlockViewModel.DeleteStimulusId(stim.Id);
+                        BlockItemViewModel.DeleteStimulusId(stim.Id);
                         _experiment.RemoveStimulus(stim);
                     }
                     deleteList.Add(stimvm);
@@ -260,7 +260,7 @@ namespace HurPsyExp.ExpDesign
             }
 
             // Then remove the selected StimulusVm objects
-            foreach (StimulusViewModel stimvm in deleteList)
+            foreach (StimulusItemViewModel stimvm in deleteList)
             {
                 StimulusVMs.Remove(stimvm);
             }
@@ -269,17 +269,17 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void DeleteLocator()
         {
-            List<LocatorViewModel> deleteList = new List<LocatorViewModel>();
+            List<LocatorItemViewModel> deleteList = new List<LocatorItemViewModel>();
             // Delete all the locator objects associated with
             // the selected members of the LocatorVms list
-            foreach (LocatorViewModel locvm in LocatorVMs)
+            foreach (LocatorItemViewModel locvm in LocatorVMs)
             {
                 if (locvm.Selected)
                 {
                     Locator? loc = locvm.ItemObject as Locator;
                     if (loc != null)
                     {
-                        BlockViewModel.DeleteLocatorId(loc.Id);
+                        BlockItemViewModel.DeleteLocatorId(loc.Id);
                         _experiment.RemoveLocator(loc);
                     }
                     deleteList.Add(locvm);
@@ -287,7 +287,7 @@ namespace HurPsyExp.ExpDesign
             }
 
             // Then remove the selected LocatorVm objects
-            foreach (LocatorViewModel locvm in deleteList)
+            foreach (LocatorItemViewModel locvm in deleteList)
             {
                 LocatorVMs.Remove(locvm);
             }
@@ -297,17 +297,17 @@ namespace HurPsyExp.ExpDesign
         public void AddBlock()
         {
             Block newblock = _experiment.AddNewBlock();
-            BlockViewModel blockvm = new BlockViewModel(newblock);
+            BlockItemViewModel blockvm = new BlockItemViewModel(newblock);
             BlockVMs.Add(blockvm);
         }
 
         [RelayCommand]
         public void DeleteBlock()
         {
-            List<BlockViewModel> deleteList = new List<BlockViewModel>();
+            List<BlockItemViewModel> deleteList = new List<BlockItemViewModel>();
             // Delete all the locator objects associated with
             // the selected members of the LocatorVms list
-            foreach (BlockViewModel blckvm in BlockVMs)
+            foreach (BlockItemViewModel blckvm in BlockVMs)
             {
                 if (blckvm.Selected)
                 {
@@ -321,7 +321,7 @@ namespace HurPsyExp.ExpDesign
             }
 
             // Then remove the selected LocatorVm objects
-            foreach (BlockViewModel blckvm in deleteList)
+            foreach (BlockItemViewModel blckvm in deleteList)
             {
                 BlockVMs.Remove(blckvm);
             }

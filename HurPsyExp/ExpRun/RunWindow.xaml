@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:expapp="clr-namespace:HurPsyExp"
         xmlns:exprun="clr-namespace:HurPsyExp.ExpRun"
         xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
@@ -15,6 +16,8 @@
             <ResourceDictionary.MergedDictionaries>
                 
             </ResourceDictionary.MergedDictionaries>
+
+            <expapp:StimulusViewTemplateSelector x:Key="stimvmTemplateSelector"/>
 
             <ItemsPanelTemplate x:Key="CanvasTemplate">
                 <!--source: https://stackoverflow.com/questions/1871358/wpf-how-to-make-the-0-0-in-center-inside-a-canvas-->
@@ -29,6 +32,11 @@
                     <Setter Property="Canvas.Top" Value="{Binding StimulusLocation.Y}" />
             </Style>
 
+            <DataTemplate x:Key="VisualStimulusTemplate">
+                <ContentControl Content="{Binding}"
+                                ContentTemplateSelector="{StaticResource stimvmTemplateSelector}"/>
+            </DataTemplate>
+
             <DataTemplate x:Key="ImageStimulusTemplate">
                 <Image Source="{Binding StimulusObject}"
                        Width="{Binding StimulusSize.Width}"
@@ -42,7 +50,7 @@
                   ItemsSource="{Binding StimulusVMs}"
                   ItemsPanel="{StaticResource CanvasTemplate}"
                   ItemContainerStyle="{StaticResource CanvasChildStyle}"
-                  ItemTemplate="{StaticResource ImageStimulusTemplate}"
+                  ItemTemplate="{StaticResource VisualStimulusTemplate}"
                   Visibility="Hidden">
 
         </ItemsControl>

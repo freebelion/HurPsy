@@ -55,28 +55,21 @@ namespace HurPsyExp.ExpRun
         {
             Step stp = GetCurrentStep();
 
-            List<Stimulus> stimuli = GetStepStimuli(stp);
-            List<Locator> locators = GetStepLocators(stp);
-
             StimulusVMs.Clear();
 
             // ATTENTION! In case location-less stimuli
             // such as audio stimuli are implemented,
             // there should be some extra control statements.
-            for (int i = 0, n = stimuli.Count; i < n; i++)
+            for (int i = 0, n = stp.StimulusLocators.Count; i < n; i++)
             {
-                Stimulus stim = stimuli[i];
-                StimulusViewModel stimvm = new StimulusViewModel();
+                Stimulus stim = GetStimulus(stp.StimulusLocators[i].StimulusId);
+                
+                if (stim is not IVisualStimulus) continue;
 
-                if (stim is IVisualStimulus)
-                {
-                    Locator loc = locators[i];
-                    Point pnt = UtilityClass.GetDIULocation((IVisualStimulus)stim, loc);
-
-                    stimvm.StimulusObject = stim.StimulusObject;
-                    stimvm.StimulusLocation = pnt;
-                    stimvm.StimulusSize = UtilityClass.GetDIUSize((IVisualStimulus)stim);
-                }
+                Locator loc = GetLocator(stp.StimulusLocators[i].LocatorId); ;
+                Point pnt = UtilityClass.GetDIULocation((IVisualStimulus)stim, loc);
+                StimulusViewModel stimvm = new StimulusViewModel(stim, pnt);
+                stimvm.StimulusSize = UtilityClass.GetDIUSize((IVisualStimulus)stim);
 
                 StimulusVMs.Add(stimvm);
                 StepTime = stp.StepTime.Span;
@@ -84,31 +77,11 @@ namespace HurPsyExp.ExpRun
             }
         }
 
-        public List<Stimulus> GetStepStimuli(Step stp)
-        {
-            List<Stimulus> stimuli = new List<Stimulus>();
+        public Stimulus GetStimulus(string stimId)
+        { return _experiment.GetStimulus(stimId); }
 
-            foreach(StimulusLocatorPair stimlocpair in stp.StimulusLocators)
-            {
-                Stimulus? stim = _experiment.GetStimulus(stimlocpair.StimulusId);
-                if(stim != null) { stimuli.Add(stim); }
-            }
-
-            return stimuli;
-        }
-
-        public List<Locator> GetStepLocators(Step stp)
-        {
-            List<Locator> locators = new List<Locator>();
-
-            foreach (StimulusLocatorPair stimlocpair in stp.StimulusLocators)
-            {
-                Locator? loc = _experiment.GetLocator(stimlocpair.LocatorId);
-                if (loc != null) { locators.Add(loc); }
-            }
-
-            return locators;
-        }
+        public Locator GetLocator(string locId)
+        { return _experiment.GetLocator(locId); }
 
         private Block GetCurrentBlock()
         {
