@@ -99,7 +99,7 @@ namespace HurPsyExp.ExpDesign
             if (pairLists.Count == 0) { return expSteps; }
 
             // Construct experiment steps with permutations of those stimulus-locator pairs
-            List<StimulusLocatorPair[]> pairPerms = UtilityClass.GetPermutations(pairLists);
+            List<StimulusLocatorPair[]> pairPerms = Utility.GetPermutations(pairLists);
 
             foreach (StimulusLocatorPair[] pairSet in pairPerms)
             {

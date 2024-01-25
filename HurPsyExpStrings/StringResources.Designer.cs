@@ -178,11 +178,11 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trial can shuffle.
+        ///   Looks up a localized string similar to Trial is fixed.
         /// </summary>
-        public static string Label_CanShuffle {
+        public static string Label_IsFixed {
             get {
-                return ResourceManager.GetString("Label_CanShuffle", resourceCulture);
+                return ResourceManager.GetString("Label_IsFixed", resourceCulture);
             }
         }
         

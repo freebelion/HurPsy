@@ -34,7 +34,7 @@ namespace HurPsyExp.ExpRun
 
         public void LoadExperiment()
         {
-            Experiment? exp = UtilityClass.LoadExperiment();
+            Experiment? exp = Utility.LoadExperiment();
 
             if (exp != null)
             {// If an experiment definition was successfully loaded,
@@ -48,6 +48,7 @@ namespace HurPsyExp.ExpRun
             trialNo = 0;
             stepNo = 0;
 
+            GetCurrentBlock().ShuffleTrials();
             LoadCurrentStep();
         }
 
@@ -67,9 +68,9 @@ namespace HurPsyExp.ExpRun
                 if (stim is not IVisualStimulus) continue;
 
                 Locator loc = GetLocator(stp.StimulusLocators[i].LocatorId); ;
-                Point pnt = UtilityClass.GetDIULocation((IVisualStimulus)stim, loc);
+                Point pnt = Utility.GetDIULocation((IVisualStimulus)stim, loc);
                 StimulusViewModel stimvm = new StimulusViewModel(stim, pnt);
-                stimvm.StimulusSize = UtilityClass.GetDIUSize((IVisualStimulus)stim);
+                stimvm.StimulusSize = Utility.GetDIUSize((IVisualStimulus)stim);
 
                 StimulusVMs.Add(stimvm);
                 StepTime = stp.StepTime.Span;
@@ -105,7 +106,7 @@ namespace HurPsyExp.ExpRun
             else if (trialNo < GetCurrentBlock().Trials.Count - 1)
             { trialNo++; stepNo = 0; return true; }
             else if (blockNo < _experiment.Blocks.Count - 1)
-            { blockNo++; trialNo = 0; stepNo = 0; return true; }
+            { blockNo++; trialNo = 0; stepNo = 0; GetCurrentBlock().ShuffleTrials(); return true; }
             else return false;
         }
 

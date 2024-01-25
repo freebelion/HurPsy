@@ -19,10 +19,10 @@ namespace HurPsyLib
         public HurPsyOrigin Origin { get; set; }
 
         [DataMember]
-        public Dictionary<string, Stimulus> StimulusDict { get; private set; }
+        private Dictionary<string, Stimulus> StimulusDict { get; set; }
 
         [DataMember]
-        public Dictionary<string, Locator> LocatorDict { get; private set; }
+        private Dictionary<string, Locator> LocatorDict { get; set; }
 
         [DataMember]
         public List<Block> Blocks { get; private set; }
@@ -62,6 +62,9 @@ namespace HurPsyLib
         public Stimulus GetStimulus(string stimId)
         { return StimulusDict[stimId]; }
 
+        public List<Stimulus> GetStimuli()
+        { return StimulusDict.Values.ToList(); }
+
         public void RemoveStimulus(Stimulus stim)
         {
             StimulusDict.Remove(stim.Id);
@@ -81,6 +84,9 @@ namespace HurPsyLib
 
         public Locator GetLocator(string locId)
         { return LocatorDict[locId]; }
+
+        public List<Locator> GetLocators()
+        { return LocatorDict.Values.ToList(); }
 
         public void RemoveLocator(Locator loc)
         {
@@ -125,19 +131,20 @@ namespace HurPsyLib
         public static Experiment LoadFromXml(string fileName)
         {
             Experiment exp = new Experiment();
-            DataContractSerializer expser =
-                    new DataContractSerializer(typeof(Experiment));
-            FileStream fs = new FileStream(fileName, FileMode.Open);
-            XmlDictionaryReader reader =
-                    XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-
-            Experiment? tryexp = (Experiment?)expser.ReadObject(reader);
-            if (tryexp == null)
+            using (XmlDictionaryReader reader =
+                   XmlDictionaryReader.CreateTextReader(new FileStream(fileName, FileMode.Open), new XmlDictionaryReaderQuotas()))
             {
-                throw new HurPsyException(StringFinder.GetString("Error_ExperimentNotLoaded"));
+                DataContractSerializer expser =
+                    new DataContractSerializer(typeof(Experiment));
+                Experiment? tryexp = (Experiment?)expser.ReadObject(reader);
+                if (tryexp == null)
+                {
+                    throw new HurPsyException(StringFinder.GetString("Error_ExperimentNotLoaded"));
+                }
+                else
+                { exp = tryexp; }
             }
-            else
-            { exp = tryexp; }
+                
             return exp;
         }
     }

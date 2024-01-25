@@ -169,9 +169,9 @@
     <value>Stimulus Definitions</value>
     <comment>The header text for the StimuliPanel of HurPsyDesignApp</comment>
   </data>
-  <data name="Label_CanShuffle" xml:space="preserve">
-    <value>Trial can shuffle</value>
-    <comment>The label text for the CheckBox which toggles the shuffle status in AddTrialDialog</comment>
+  <data name="Label_IsFixed" xml:space="preserve">
+    <value>Trial is fixed</value>
+    <comment>The label text for the CheckBox which toggles the IsFixed property in AddTrialDialog</comment>
   </data>
   <data name="Label_StepTime" xml:space="preserve">
     <value>Step time (in ms)</value>

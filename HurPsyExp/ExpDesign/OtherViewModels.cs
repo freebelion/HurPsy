@@ -189,7 +189,7 @@ namespace HurPsyExp.ExpDesign
                 {
                     Trial trl = new Trial();
                     trl.AddStep(stp);
-                    trl.CanShuffle = TrialPattern.CanShuffle;
+                    trl.IsFixed = TrialPattern.CanShuffle;
                     blck.AddTrial(trl);
                     this.TrialVMs.Add(new TrialItemViewModel(trl));
                 }

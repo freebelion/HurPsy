@@ -88,11 +88,12 @@ namespace HurPsyLib
         public List<Step> Steps { get; set; }
 
         [DataMember]
-        public bool CanShuffle { get; set; }
+        public bool IsFixed { get; set; }
 
         public Trial()
         {
             Steps = new List<Step>();
+            IsFixed = false;
         }
 
         public Step AddStep(Step? newstep = null)
@@ -128,14 +129,14 @@ namespace HurPsyLib
         [DataMember]
         public List<Trial> Trials { get; set; }
         [DataMember]
-        public bool ShuffleTrials { get; set; }
+        public bool MustShuffleTrials { get; set; }
 
         public Block()
         {
             blockCount++;
             Name = HurPsyCommon.GetObjectGuid(this);
             Trials = new List<Trial>();
-            ShuffleTrials = true;
+            MustShuffleTrials = true;
         }
 
         public Trial AddTrial(Trial? newtrial = null)
@@ -143,6 +144,28 @@ namespace HurPsyLib
             if (newtrial == null) { newtrial = new Trial(); }
             Trials.Add(newtrial);
             return newtrial;
+        }
+
+        public void ShuffleTrials()
+        {
+            Trial tmp;
+            int nrep;
+
+            for(int i=0, j=0; i < Trials.Count - 1; i++)
+            {
+                if (Trials[i].IsFixed) { continue; }
+
+                nrep = 0;
+                do
+                {
+                    j = HurPsyCommon.Rnd.Next(i, Trials.Count);
+                    nrep++; // to avoid an infinite-loop
+                } while (Trials[j].IsFixed && nrep < 10);
+
+                tmp = Trials[i];
+                Trials[i] = Trials[j];
+                Trials[j] = tmp;
+            }
         }
     }
 }

@@ -15,9 +15,11 @@ using System.Windows.Media.Imaging;
 
 namespace HurPsyExp
 {
-    public static class UtilityClass
+    public static class Utility
     {
         const double MM2DIU = 3.77952755;
+
+        public static Random Rnd = new Random();
 
         public static string[]? OpenFiles(string filenameFilter, bool openMultiple)
         {
@@ -140,7 +142,7 @@ namespace HurPsyExp
 
         public static Experiment? LoadExperiment()
         {
-            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.FileFilter_Experiment, false);
+            string[]? selectedFiles = Utility.OpenFiles(StringResources.FileFilter_Experiment, openMultiple: false);
 
             if (selectedFiles != null && selectedFiles.Length == 1)
             {
@@ -163,15 +165,45 @@ namespace HurPsyExp
             return null;
         }
 
+        public static void SaveExperiment(Experiment exp, string expFileName)
+        {
+            // save the experiment definition
+            string? expDirectoryPath = Path.GetDirectoryName(expFileName);
+            exp.SaveToXml(expFileName);
+
+            if (expDirectoryPath != null)
+            {
+                // Save the Stimulus objects to the same directory
+                SaveStimulusObjects(exp, expDirectoryPath);
+                // Change the working directory for the application
+                // so that stimulus filenames will work without full paths.
+                Directory.SetCurrentDirectory(expDirectoryPath);
+            }
+        }
+
         public static void LoadStimulusObjects(Experiment exp)
         {
             // Load the actual Stimulus objects from files named in the experiment definition
-            foreach (Stimulus stim in exp.StimulusDict.Values)
+            foreach (Stimulus stim in exp.GetStimuli())
             {
                 switch(stim)
                 {
                     case ImageStimulus imgstim:
                         LoadImageStimulus(imgstim);
+                        break;
+                }
+            }
+        }
+
+        public static void SaveStimulusObjects(Experiment exp, string directoryPath)
+        {
+            // Load the actual Stimulus objects from files named in the experiment definition
+            foreach (Stimulus stim in exp.GetStimuli())
+            {
+                switch (stim)
+                {
+                    case ImageStimulus imgstim:
+                        SaveImageStimulus(imgstim, directoryPath);
                         break;
                 }
             }
@@ -183,14 +215,27 @@ namespace HurPsyExp
             imgstim.StimulusObject = stimImage;
         }
 
-        public static BitmapImage LoadImageObject(string filename)
-        {
-            BitmapImage bmpImage = new BitmapImage();
-            bmpImage.BeginInit();
-            bmpImage.UriSource = new Uri(filename, UriKind.Absolute);
-            bmpImage.CacheOption = BitmapCacheOption.OnLoad;
-            bmpImage.EndInit();
+        public static void SaveImageStimulus(ImageStimulus imgstim, string directoryPath)
+        {// source: https://stackoverflow.com/questions/35804375/how-do-i-save-a-bitmapimage-from-memory-into-a-file-in-wpf-c
+            BitmapEncoder bmpenc = new PngBitmapEncoder();
+            BitmapImage? bmpimg = imgstim.StimulusObject as BitmapImage;
+            bmpenc.Frames.Add(BitmapFrame.Create(bmpimg));
+            string filePath = Path.Combine(directoryPath, imgstim.FileName);
+            using (var fileStream = new System.IO.FileStream(filePath, System.IO.FileMode.Create))
+            {
+                bmpenc.Save(fileStream);
+            }
+        }
 
+        public static BitmapImage LoadImageObject(string filename)
+        {// source: https://stackoverflow.com/questions/11202807/garbage-collection-fails-to-reclaim-bitmapimage
+            BitmapImage bmpImage = new BitmapImage();
+
+            bmpImage.BeginInit();
+            bmpImage.UriSource = new Uri(filename, UriKind.RelativeOrAbsolute);
+            bmpImage.CacheOption = BitmapCacheOption.OnLoad; // needed to release the file after loading image
+            bmpImage.EndInit();
+            bmpImage.Freeze(); // turns out to be necessary; see the source
             return bmpImage;
         }
 

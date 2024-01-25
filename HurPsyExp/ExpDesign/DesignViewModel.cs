@@ -42,7 +42,7 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         public void LoadExperiment()
         {
-            Experiment? exp = UtilityClass.LoadExperiment();
+            Experiment? exp = Utility.LoadExperiment();
 
             if (exp != null)
             {// If an experiment definition was successfully loaded,
@@ -52,12 +52,12 @@ namespace HurPsyExp.ExpDesign
                 ClearVMs(); // clear all the viewmodel objects
 
                 // Load the actual Stimulus objects from files named in the experiment definition
-                foreach (Stimulus stim in _experiment.StimulusDict.Values)
+                foreach (Stimulus stim in _experiment.GetStimuli())
                 {
                     AddStimulusVM(stim);
                 }
                 // Load the Locator objects and associate them with LocatorViewModel objects
-                foreach (Locator loc in _experiment.LocatorDict.Values)
+                foreach (Locator loc in _experiment.GetLocators())
                 {
                     AddLocatorVM(loc);
                 }
@@ -80,36 +80,18 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         public void SaveExperiment()
         {
-            string? expFileName = UtilityClass.FileSaveName(StringResources.FileFilter_Experiment);
+            string? expFileName = Utility.FileSaveName(StringResources.FileFilter_Experiment);
+
             if (expFileName != null)
             {
-                string? expDirectoryPath = Path.GetDirectoryName(expFileName);
-                if (expDirectoryPath != null)
-                {
-                    // save the experiment definition
-                    _experiment.SaveToXml(expFileName);
-                    // Copy the files containing the stimuli to the same target directory
-                    // so that stimulus filename will not need to contain the whole path.
-                    foreach (Stimulus stim in _experiment.StimulusDict.Values)
-                    {
-                        string stimFileName = Path.GetFileName(stim.FileName);
-                        string stimFilePath = Path.Combine(expDirectoryPath, stimFileName);
-                        if (!File.Exists(stimFilePath))
-                        { File.Copy(stim.FileName, stimFilePath); }
-                        // Strip out the original directory path (if any) from the stimulus filename
-                        stim.FileName = stimFileName;
-                    }
-                    // Change the working directory for the application
-                    // so that stimulus filenames will work without full paths.
-                    Directory.SetCurrentDirectory(expDirectoryPath);
-                }
+                Utility.SaveExperiment(_experiment, expFileName);              
             }
         }
 
         [RelayCommand]
         public void SelectImages()
         {
-            string[]? selectedFiles = UtilityClass.OpenFiles(StringResources.FileFilter_Image, true);
+            string[]? selectedFiles = Utility.OpenFiles(StringResources.FileFilter_Image, true);
 
             if (selectedFiles != null && selectedFiles.Length > 0)
             {
@@ -118,10 +100,13 @@ namespace HurPsyExp.ExpDesign
                     string? basename = Path.GetFileNameWithoutExtension(strFile);
                     ImageStimulus imgstim = new ImageStimulus();
                     if (basename != null) { imgstim.Id = basename; }
-                    imgstim.FileName = strFile;
-                    BitmapImage bmp = UtilityClass.LoadImageObject(imgstim.FileName);
-                    imgstim.VisualSize.Width = UtilityClass.GetMMValue(bmp.Width);
-                    imgstim.VisualSize.Height = UtilityClass.GetMMValue(bmp.Height);
+                    BitmapImage bmp = Utility.LoadImageObject(strFile);
+                    // save the file name without full path; we will always work with relative paths 
+                    imgstim.FileName = Path.GetFileName(strFile);
+                    // and keep a copy of the original image
+                    imgstim.StimulusObject = bmp;
+                    imgstim.VisualSize.Width = Utility.GetMMValue(bmp.Width);
+                    imgstim.VisualSize.Height = Utility.GetMMValue(bmp.Height);
                     _experiment.AddStimulus(imgstim);
                     AddStimulusVM(imgstim);
                 }

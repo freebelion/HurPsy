@@ -117,10 +117,10 @@
                      FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"/>
 
             <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right" Margin="2"
-                       Text="{x:Static stringlib:StringResources.Label_CanShuffle}"
+                       Text="{x:Static stringlib:StringResources.Label_IsFixed}"
                        FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"/>
             <CheckBox Grid.Row="1" Grid.Column="1"
-                      IsChecked="{Binding CanShuffle}"/>
+                      IsChecked="{Binding IsFixed}"/>
         </Grid>
 
         <Button Grid.Row="3" Margin="5" Width="Auto" HorizontalAlignment="Right"
