@@ -14,7 +14,7 @@
                 <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
-            <DataTemplate x:Key="ImageStimulusTemplate">
+            <DataTemplate x:Key="VisualStimulusTemplate">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -24,24 +24,24 @@
                     </Grid.ColumnDefinitions>
                     
                     <Image Grid.Column="0" Margin="2"
-                           Source="..\Images\ImageStimulus.png" Stretch="Uniform"
+                           Source="{Binding IconImage}" Stretch="Uniform"
                            Height="{Binding Source={StaticResource DesignPreferences}, Path=ImagePreviewHeight}"/>
                     
                     <TextBox Grid.Column="1" Margin="2"
                              IsEnabled="{Binding Editable}"
                              Text="{Binding TempId}"
-                             ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusId}"/>
+                             ToolTip="{x:Static stringlib:StringResources.Tooltip_StimulusId}"/>
 
                     <TextBox Grid.Column="2" Margin="2"
                              IsEnabled="{Binding Editable}"
                              TextAlignment="Right"
                              Text="{Binding ItemObject.VisualSize.Width, StringFormat='0.0'}"
-                             ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusWidth}"/>
+                             ToolTip="{x:Static stringlib:StringResources.Tooltip_VisualStimulusWidth}"/>
                     <TextBox Grid.Column="3" Margin="2"
                              IsEnabled="{Binding Editable}"
                              TextAlignment="Right"
                              Text="{Binding ItemObject.VisualSize.Height, StringFormat='0.0'}"
-                             ToolTip="{x:Static stringlib:StringResources.Tooltip_ImageStimulusHeight}"/>
+                             ToolTip="{x:Static stringlib:StringResources.Tooltip_VisualStimulusHeight}"/>
                 </Grid>
             </DataTemplate>
 
@@ -90,6 +90,11 @@
                                 Command="{Binding SelectImagesCommand}"
                                 ToolTip="{x:Static stringlib:StringResources.Tooltip_AddImageStimulus}">
                             <Image Source="..\Images\ImageStimulus.png" Stretch="Fill"/>
+                        </Button>
+                        <Button Style="{StaticResource CommandButton}"
+                                Command="{Binding AddHtmlStimulusCommand}"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddHtmlStimulus}">
+                            <Image Source="..\Images\HtmlStimulus.png" Stretch="Fill"/>
                         </Button>
                         <Button Style="{StaticResource CommandButton}"
                                 Command="{Binding DeleteStimulusCommand}"

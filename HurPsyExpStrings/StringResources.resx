@@ -129,9 +129,21 @@
     <value>Add Trial(s)</value>
     <comment>The text content for the button which adds a trial in AddTrialView</comment>
   </data>
+  <data name="Error_ImageCannotLoad" xml:space="preserve">
+    <value>Image could not be loaded: </value>
+    <comment>The message for the exception thrown when a stimulus image could not be loaded</comment>
+  </data>
+  <data name="Error_StimulusFileNotFound" xml:space="preserve">
+    <value>Stimulus file can not be found: </value>
+    <comment>The message for the exception thrown when a stimulus can not be found</comment>
+  </data>
   <data name="FileFilter_Experiment" xml:space="preserve">
     <value>HurPsy Experiment Files (*.xml) |*.xml</value>
     <comment>The file name pattern used in the dialog that loads a previously recorded experiment</comment>
+  </data>
+  <data name="FileFilter_Html" xml:space="preserve">
+    <value>Html Files (*.htm;*.html)|*.html;*.html</value>
+    <comment>The file name pattern used in the dialog that loads an HTML file</comment>
   </data>
   <data name="FileFilter_Image" xml:space="preserve">
     <value>Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg</value>
@@ -197,6 +209,10 @@
     <value>Add New Block</value>
     <comment>The tooltip for the toolbar button which adds a new block of trials</comment>
   </data>
+  <data name="Tooltip_AddHtmlStimulus" xml:space="preserve">
+    <value>Add Html Stimulus</value>
+    <comment>The tooltip for the toolbar button which adds an Html page as stimulus</comment>
+  </data>
   <data name="Tooltip_AddImageStimulus" xml:space="preserve">
     <value>Add Image Stimulus</value>
     <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
@@ -217,22 +233,6 @@
     <value>Edit Object</value>
     <comment>The tooltip for the button that makes the object properties editable</comment>
   </data>
-  <data name="Tooltip_ImageStimulusHeight" xml:space="preserve">
-    <value>Stimulus Image Height</value>
-    <comment>The tooltip for the textbox that sets the height in ImageStimulusTemplate</comment>
-  </data>
-  <data name="Tooltip_ImageStimulusId" xml:space="preserve">
-    <value>Stimulus Image Id</value>
-    <comment>The tooltip for the textbox that sets the Id in ImageStimulusTemplate</comment>
-  </data>
-  <data name="Tooltip_ImageStimulusPreview" xml:space="preserve">
-    <value>Stimulus Image Preview</value>
-    <comment>The tooltip for the preview image of an ImageStimulus</comment>
-  </data>
-  <data name="Tooltip_ImageStimulusWidth" xml:space="preserve">
-    <value>Stimulus Image Width</value>
-    <comment>The tooltip for the textbox that sets the width in ImageStimulusTemplate</comment>
-  </data>
   <data name="Tooltip_ResizeSlider" xml:space="preserve">
     <value>Change panel width</value>
     <comment>The tooltip for the width changing slider in the "HorizontallyResizableControl" template</comment>
@@ -240,5 +240,17 @@
   <data name="Tooltip_SelectObject" xml:space="preserve">
     <value>Select object</value>
     <comment>The tooltip for the button which selects an object in an ItemsControl</comment>
+  </data>
+  <data name="Tooltip_StimulusId" xml:space="preserve">
+    <value>Stimulus Id</value>
+    <comment>The tooltip for the textbox that sets the Id in VisualStimulusTemplate</comment>
+  </data>
+  <data name="Tooltip_VisualStimulusHeight" xml:space="preserve">
+    <value>Stimulus Image Height</value>
+    <comment>The tooltip for the textbox that sets the height in VisualStimulusTemplate</comment>
+  </data>
+  <data name="Tooltip_VisualStimulusWidth" xml:space="preserve">
+    <value>Stimulus Image Width</value>
+    <comment>The tooltip for the textbox that sets the width in VisualStimulusTemplate</comment>
   </data>
 </root>

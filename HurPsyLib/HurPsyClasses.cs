@@ -6,7 +6,7 @@ namespace HurPsyLib
 {
     public interface IVisualStimulus
     {
-        HurPsySize VisualSize { get; }
+        HurPsySize VisualSize { get; set; }
     }
 
     [DataContract]

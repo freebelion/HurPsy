@@ -12,8 +12,8 @@ namespace HurPsyLib
     [DataContract]
     public class Experiment
     {
-        // Even when there are more choices of origin,
-        // we are assuminge there will be a single choice
+        // There may, in the future, more choices of origin,
+        // but we are assuminge there will be a single choice
         // that will be applied theroughout the experiment.
         [DataMember]
         public HurPsyOrigin Origin { get; set; }
@@ -25,10 +25,14 @@ namespace HurPsyLib
         private Dictionary<string, Locator> LocatorDict { get; set; }
 
         [DataMember]
+        public string FileName { get; set; }
+
+        [DataMember]
         public List<Block> Blocks { get; private set; }
        
         public Experiment()
         {
+            FileName = string.Empty;
             StimulusDict = new Dictionary<string, Stimulus>();
             LocatorDict = new Dictionary<string, Locator>();
             Blocks = new List<Block>();

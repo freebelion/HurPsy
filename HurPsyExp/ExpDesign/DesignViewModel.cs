@@ -5,6 +5,7 @@ using HurPsyLib;
 using HurPsyExpStrings;
 using CommunityToolkit.Mvvm.Input;
 using System.Security.Cryptography;
+using System.Windows.Controls;
 
 namespace HurPsyExp.ExpDesign
 {  
@@ -80,12 +81,7 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         public void SaveExperiment()
         {
-            string? expFileName = Utility.FileSaveName(StringResources.FileFilter_Experiment);
-
-            if (expFileName != null)
-            {
-                Utility.SaveExperiment(_experiment, expFileName);              
-            }
+            Utility.SaveExperiment(_experiment);
         }
 
         [RelayCommand]
@@ -100,16 +96,40 @@ namespace HurPsyExp.ExpDesign
                     string? basename = Path.GetFileNameWithoutExtension(strFile);
                     ImageStimulus imgstim = new ImageStimulus();
                     if (basename != null) { imgstim.Id = basename; }
-                    BitmapImage bmp = Utility.LoadImageObject(strFile);
-                    // save the file name without full path; we will always work with relative paths 
-                    imgstim.FileName = Path.GetFileName(strFile);
-                    // and keep a copy of the original image
-                    imgstim.StimulusObject = bmp;
-                    imgstim.VisualSize.Width = Utility.GetMMValue(bmp.Width);
-                    imgstim.VisualSize.Height = Utility.GetMMValue(bmp.Height);
+                    // save the file name
+                    imgstim.FileName = strFile;
+                    /*
+                     * I have decided not to load the actual image into memory,
+                     * so I made use of the file size in bytes to guess the size,
+                     * assuming a square image, but that was rather stupid.
+                    BitmapImage bmp = Utility.LoadImage(strFile);
+                    */
+                    FileInfo finfo = new FileInfo(strFile);
+                    double imgdim = Utility.GetMMValue(Math.Sqrt(finfo.Length));
+                    imgstim.VisualSize.Width = imgdim;
+                    imgstim.VisualSize.Height = imgdim;
+                    
                     _experiment.AddStimulus(imgstim);
                     AddStimulusVM(imgstim);
                 }
+            }
+        }
+
+        [RelayCommand]
+        public void AddHtmlStimulus()
+        {
+            string[]? selectedFiles = Utility.OpenFiles(StringResources.FileFilter_Html, false);
+
+            if (selectedFiles != null && selectedFiles.Length == 1)
+            {
+                string strFile = selectedFiles[0];
+                string? basename = Path.GetFileNameWithoutExtension(strFile);
+                HtmlStimulus htmstim = new HtmlStimulus();
+                if (basename != null) { htmstim.Id = basename; }
+                // save the file name; file will later be copied to the same directory with the experiment.
+                htmstim.FileName = strFile;
+                _experiment.AddStimulus(htmstim);
+                AddStimulusVM(htmstim);
             }
         }
 

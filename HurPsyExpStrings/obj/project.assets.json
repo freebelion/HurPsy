@@ -18,7 +18,7 @@
       "projectName": "HurPsyExpStrings",
       "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExpStrings\\HurPsyExpStrings.csproj",
       "packagesPath": "C:\\Users\\freeb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\freeb\\Source\\Repos\\HurPsy\\HurPsyExpStrings\\obj\\",
+      "outputPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExpStrings\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

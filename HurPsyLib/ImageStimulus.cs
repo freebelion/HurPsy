@@ -11,11 +11,11 @@ namespace HurPsyLib
     public class ImageStimulus : Stimulus, IVisualStimulus
     {
         [DataMember]
-        public HurPsySize VisualSize { get; private set; }
+        public HurPsySize VisualSize { get; set; }
 
         public ImageStimulus()
         {
-            VisualSize = new HurPsySize();
+            VisualSize = new HurPsySize(10, 10);
         }
     }
 }

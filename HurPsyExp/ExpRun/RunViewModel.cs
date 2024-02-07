@@ -32,14 +32,17 @@ namespace HurPsyExp.ExpRun
             RunWnd = rwnd;
         }
 
-        public void LoadExperiment()
+        public bool LoadExperiment()
         {
             Experiment? exp = Utility.LoadExperiment();
 
             if (exp != null)
             {// If an experiment definition was successfully loaded,
                 _experiment = exp;
+                return true;
             }
+
+            return false;
         }
 
         public void StartExperiment()

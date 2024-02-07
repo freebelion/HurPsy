@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         Title="{x:Static stringlib:StringResources.Title_RunWindow}" Height="450" Width="800"
         WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -37,8 +38,16 @@
                                 ContentTemplateSelector="{StaticResource stimvmTemplateSelector}"/>
             </DataTemplate>
 
+            <DataTemplate x:Key="HtmlStimulusTemplate">
+                <Border BorderBrush="DarkBlue" BorderThickness="2">
+                    <WebBrowser Loaded="WebBrowser_Loaded"
+                                Width="{Binding StimulusSize.Width}"
+                                Height="{Binding StimulusSize.Height}"/>
+                </Border>
+            </DataTemplate>
+
             <DataTemplate x:Key="ImageStimulusTemplate">
-                <Image Source="{Binding StimulusObject}"
+                <Image Loaded="Image_Loaded"
                        Width="{Binding StimulusSize.Width}"
                        Height="{Binding StimulusSize.Height}"/>
             </DataTemplate>

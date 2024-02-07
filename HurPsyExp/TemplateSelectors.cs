@@ -22,8 +22,10 @@ namespace HurPsyExp
                 {
                     switch (itemObject)
                     {
+                        case HtmlStimulus htmstim:
+                            return (DataTemplate)element.FindResource("VisualStimulusTemplate");
                         case ImageStimulus imgstim:
-                            return (DataTemplate)element.FindResource("ImageStimulusTemplate");
+                            return (DataTemplate)element.FindResource("VisualStimulusTemplate");
                         case PointLocator ploc:
                             return (DataTemplate)element.FindResource("PointLocatorTemplate");
                         case Block blck:
@@ -56,6 +58,8 @@ namespace HurPsyExp
                     {
                         case ImageStimulus imgstim:
                             return (DataTemplate)element.FindResource("ImageStimulusTemplate");
+                        case HtmlStimulus htmstim:
+                            return (DataTemplate)element.FindResource("HtmlStimulusTemplate");
                     }
                 }
             }

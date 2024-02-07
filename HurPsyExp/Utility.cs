@@ -28,7 +28,7 @@ namespace HurPsyExp
             opf.Multiselect = openMultiple;
             opf.InitialDirectory = Directory.GetCurrentDirectory();
 
-            if(opf.ShowDialog() == true)
+            if (opf.ShowDialog() == true)
             { return opf.FileNames; }
             else { return null; }
         }
@@ -37,8 +37,8 @@ namespace HurPsyExp
         {
             SaveFileDialog svf = new SaveFileDialog();
             svf.Filter = filenameFilter;
-            
-            if(svf.ShowDialog() == true)
+
+            if (svf.ShowDialog() == true)
             {
                 return svf.FileName;
             }
@@ -149,85 +149,91 @@ namespace HurPsyExp
                 string expFileName = selectedFiles[0];
 
                 string? expDirectoryPath = Path.GetDirectoryName(expFileName);
+
                 if (expDirectoryPath != null)
                 {
                     Experiment exp;
                     // Load the experiment definition from the selected file
                     exp = Experiment.LoadFromXml(expFileName);
-                    // Load the stimulus objects to make the experiment object usable
-                    LoadStimulusObjects(exp);
+                    exp.FileName = expFileName; // remember the full file path
+                    // Make sure the stimulus files exist and change their paths if necessary
+                    List<Stimulus> stimuli = exp.GetStimuli();
+                    stimuli.ForEach(stim => { FindStimulusFile(stim, expDirectoryPath); });
+
                     // Change the working directory for the application
-                    // so that stimulus filenames will work without full paths.
                     Directory.SetCurrentDirectory(expDirectoryPath);
+                    // Load the stimulus objects to make the experiment object usable
                     return exp;
                 }
             }
             return null;
         }
 
-        public static void SaveExperiment(Experiment exp, string expFileName)
+        public static void SaveExperiment(Experiment exp)
         {
-            // save the experiment definition
-            string? expDirectoryPath = Path.GetDirectoryName(expFileName);
-            exp.SaveToXml(expFileName);
+            string? expFileName = Utility.FileSaveName(StringResources.FileFilter_Experiment);
 
-            if (expDirectoryPath != null)
-            {
-                // Save the Stimulus objects to the same directory
-                SaveStimulusObjects(exp, expDirectoryPath);
-                // Change the working directory for the application
-                // so that stimulus filenames will work without full paths.
-                Directory.SetCurrentDirectory(expDirectoryPath);
-            }
-        }
+            if (expFileName != null)
+            {// save the experiment definition
+                string? expDirectoryPath = Path.GetDirectoryName(expFileName);
+                exp.FileName = expFileName;
+                exp.SaveToXml(expFileName);
 
-        public static void LoadStimulusObjects(Experiment exp)
-        {
-            // Load the actual Stimulus objects from files named in the experiment definition
-            foreach (Stimulus stim in exp.GetStimuli())
-            {
-                switch(stim)
+                if (expDirectoryPath != null)
                 {
-                    case ImageStimulus imgstim:
-                        LoadImageStimulus(imgstim);
-                        break;
+                    // Carry all the files containing the stimuli to the same directory
+                    List<Stimulus> stimuli = exp.GetStimuli();
+                    stimuli.ForEach(stim => { CopyStimulusFile(stim, expDirectoryPath); });
+                    
+                    // Change the working directory for the application
+                    Directory.SetCurrentDirectory(expDirectoryPath);
                 }
             }
         }
 
-        public static void SaveStimulusObjects(Experiment exp, string directoryPath)
+        public static bool CopyStimulusFile(Stimulus stim, string expDirectoryPath)
         {
-            // Load the actual Stimulus objects from files named in the experiment definition
-            foreach (Stimulus stim in exp.GetStimuli())
+            // If the original stimulus file exists,
+            // simply copy it to the same directory as the experiment file
+            if (File.Exists(stim.FileName))
             {
-                switch (stim)
+                string newFileName = Path.Combine(expDirectoryPath, Path.GetFileName(stim.FileName));
+                File.Copy(stim.FileName, newFileName, overwrite:true);
+                stim.FileName = newFileName;
+                return true;
+            }
+            // If, somehow, the original file did not exist
+            // report failure so another method can be tried.
+            return false;
+        }
+
+        public static void FindStimulusFile(Stimulus stim, string expDirectoryPath)
+        {
+            // If the image stimulus file does not exist in its recorded location,
+            if (!File.Exists(stim.FileName))
+            {// change its path to the directory containing the experiment file.
+                stim.FileName = Path.Combine(expDirectoryPath, Path.GetFileName(stim.FileName));
+                // If it is not there either, abandon ship!
+                if (!File.Exists(stim.FileName))
                 {
-                    case ImageStimulus imgstim:
-                        SaveImageStimulus(imgstim, directoryPath);
-                        break;
+                    throw new HurPsyException(HurPsyExpStrings.StringResources.Error_StimulusFileNotFound
+                                                + "(Id: " + stim.Id + ", Searched Path: " + stim.FileName + ")");
                 }
             }
         }
 
-        public static void LoadImageStimulus(ImageStimulus imgstim)
-        {
-            BitmapImage stimImage = LoadImageObject(imgstim.FileName);
-            imgstim.StimulusObject = stimImage;
-        }
-
-        public static void SaveImageStimulus(ImageStimulus imgstim, string directoryPath)
+        public static void SaveImage(BitmapImage bmpimg, string filePath)
         {// source: https://stackoverflow.com/questions/35804375/how-do-i-save-a-bitmapimage-from-memory-into-a-file-in-wpf-c
             BitmapEncoder bmpenc = new PngBitmapEncoder();
-            BitmapImage? bmpimg = imgstim.StimulusObject as BitmapImage;
             bmpenc.Frames.Add(BitmapFrame.Create(bmpimg));
-            string filePath = Path.Combine(directoryPath, imgstim.FileName);
+            
             using (var fileStream = new System.IO.FileStream(filePath, System.IO.FileMode.Create))
             {
                 bmpenc.Save(fileStream);
             }
         }
 
-        public static BitmapImage LoadImageObject(string filename)
+        public static BitmapImage LoadImage(string filename)
         {// source: https://stackoverflow.com/questions/11202807/garbage-collection-fails-to-reclaim-bitmapimage
             BitmapImage bmpImage = new BitmapImage();
 
@@ -265,7 +271,7 @@ namespace HurPsyExp
             // Locator will give a center position
             // in millimeters (or some other unit);
             // first, get the position of the top-left corner of stimulus
-            psypnt.X += vistim.VisualSize.Width / 2;
+            psypnt.X -= vistim.VisualSize.Width / 2;
             psypnt.Y += vistim.VisualSize.Height / 2;
 
             // then convert the values to DIU

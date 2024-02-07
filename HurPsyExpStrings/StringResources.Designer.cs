@@ -88,11 +88,38 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image could not be loaded: .
+        /// </summary>
+        public static string Error_ImageCannotLoad {
+            get {
+                return ResourceManager.GetString("Error_ImageCannotLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus file can not be found: .
+        /// </summary>
+        public static string Error_StimulusFileNotFound {
+            get {
+                return ResourceManager.GetString("Error_StimulusFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HurPsy Experiment Files (*.xml) |*.xml.
         /// </summary>
         public static string FileFilter_Experiment {
             get {
                 return ResourceManager.GetString("FileFilter_Experiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Html Files (*.htm;*.html)|*.html;*.html.
+        /// </summary>
+        public static string FileFilter_Html {
+            get {
+                return ResourceManager.GetString("FileFilter_Html", resourceCulture);
             }
         }
         
@@ -241,6 +268,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Html Stimulus.
+        /// </summary>
+        public static string Tooltip_AddHtmlStimulus {
+            get {
+                return ResourceManager.GetString("Tooltip_AddHtmlStimulus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Image Stimulus.
         /// </summary>
         public static string Tooltip_AddImageStimulus {
@@ -286,42 +322,6 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stimulus Image Height.
-        /// </summary>
-        public static string Tooltip_ImageStimulusHeight {
-            get {
-                return ResourceManager.GetString("Tooltip_ImageStimulusHeight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stimulus Image Id.
-        /// </summary>
-        public static string Tooltip_ImageStimulusId {
-            get {
-                return ResourceManager.GetString("Tooltip_ImageStimulusId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stimulus Image Preview.
-        /// </summary>
-        public static string Tooltip_ImageStimulusPreview {
-            get {
-                return ResourceManager.GetString("Tooltip_ImageStimulusPreview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stimulus Image Width.
-        /// </summary>
-        public static string Tooltip_ImageStimulusWidth {
-            get {
-                return ResourceManager.GetString("Tooltip_ImageStimulusWidth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Change panel width.
         /// </summary>
         public static string Tooltip_ResizeSlider {
@@ -336,6 +336,33 @@ namespace HurPsyExpStrings {
         public static string Tooltip_SelectObject {
             get {
                 return ResourceManager.GetString("Tooltip_SelectObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Id.
+        /// </summary>
+        public static string Tooltip_StimulusId {
+            get {
+                return ResourceManager.GetString("Tooltip_StimulusId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Image Height.
+        /// </summary>
+        public static string Tooltip_VisualStimulusHeight {
+            get {
+                return ResourceManager.GetString("Tooltip_VisualStimulusHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Image Width.
+        /// </summary>
+        public static string Tooltip_VisualStimulusWidth {
+            get {
+                return ResourceManager.GetString("Tooltip_VisualStimulusWidth", resourceCulture);
             }
         }
     }

@@ -13,22 +13,14 @@ namespace HurPsyExp.ExpRun
 {
     public partial class StimulusViewModel : ObservableObject
     {
-        [ObservableProperty]
-        private Stimulus innerStimulus;
+        public Stimulus InnerStimulus { get; set; }
 
-        [ObservableProperty]
-        private Point stimulusLocation;
+        public Point StimulusLocation { get; set; }
 
-        [ObservableProperty]
-        private Size stimulusSize;
-
+        public Size StimulusSize { get; set; }
+     
         [ObservableProperty]
         private bool hidden;
-
-        public object? StimulusObject
-        {
-            get { return InnerStimulus.StimulusObject; }
-        }
 
         public StimulusViewModel(Stimulus stim, Point stimloc)
         {

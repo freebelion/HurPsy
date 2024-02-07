@@ -2,12 +2,14 @@
 using CommunityToolkit.Mvvm.Input;
 using HurPsyExp;
 using HurPsyLib;
+using Microsoft.Windows.Themes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace HurPsyExp.ExpDesign
 {
@@ -67,7 +69,26 @@ namespace HurPsyExp.ExpDesign
     }
 
     public class StimulusItemViewModel : ItemViewModel
-    {      
+    { 
+        public string IconImage
+        {
+            get
+            {
+                if(ItemObject != null && ItemObject is Stimulus)
+                {
+                    switch ((Stimulus)ItemObject)
+                    {
+                        case HtmlStimulus htmstim:
+                            return @"../Images/HtmlStimulus.png";
+                        case ImageStimulus imgstim:
+                            return @"../Images/ImageStimulus.png";
+                    }
+                }
+
+                return string.Empty;
+            }
+        }
+
         public StimulusItemViewModel(Stimulus stim) : base(stim)
         {
             tempId = stim.Id;
@@ -147,7 +168,9 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         public void AddingTrial(Expander blckexp)
         {
-            foreach(string stimId in StimulusIds)
+            TrialPattern.Clear();
+
+            foreach (string stimId in StimulusIds)
             { TrialPattern.AddStimulusId(stimId); }
 
             foreach (string locId in LocatorIds)
