@@ -1,118 +1,131 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
-   width="500"
-   height="500"
-   viewBox="0 0 132.29166 132.29167"
-   version="1.1"
-   id="svg1"
-   inkscape:version="1.3.1 (91b66b0783, 2023-11-16)"
-   sodipodi:docname="PointLocator.svg"
-   inkscape:export-filename="PointLocator.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="96"
+   inkscape:export-filename="C:\Users\freeb\source\repos\HurPsy\HurPsyExp\Images\PointLocator.png"
+   sodipodi:docname="PointLocator.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg1"
+   version="1.1"
+   viewBox="0 0 132.29166 132.29167"
+   height="500"
+   width="500">
+  <metadata
+     id="metadata946">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="true"
-     inkscape:zoom="1.4485269"
-     inkscape:cx="341.72648"
-     inkscape:cy="209.52321"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2">
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:window-height="991"
+     inkscape:window-width="1920"
+     inkscape:cy="209.52321"
+     inkscape:cx="341.72648"
+     inkscape:zoom="1.4485269"
+     showgrid="true"
+     inkscape:document-units="mm"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:pagecheckerboard="0"
+     inkscape:pageopacity="0.0"
+     inkscape:showpageshadow="2"
+     borderopacity="0.25"
+     bordercolor="#000000"
+     pagecolor="#ffffff"
+     id="namedview1">
     <inkscape:grid
-       id="grid1"
-       units="px"
-       originx="0"
-       originy="0"
-       spacingx="2.6458333"
-       spacingy="2.6458333"
-       empcolor="#0099e5"
-       empopacity="0.30196078"
-       color="#5e7987"
-       opacity="0.14901961"
-       empspacing="5"
-       dotted="false"
-       gridanglex="30"
+       visible="true"
        gridanglez="30"
-       visible="true" />
+       gridanglex="30"
+       dotted="false"
+       empspacing="5"
+       opacity="0.14901961"
+       color="#5e7987"
+       empopacity="0.30196078"
+       empcolor="#0099e5"
+       spacingy="2.6458333"
+       spacingx="2.6458333"
+       originy="0"
+       originx="0"
+       units="px"
+       id="grid1" />
   </sodipodi:namedview>
   <defs
      id="defs1">
     <linearGradient
-       id="linearGradient13"
-       inkscape:collect="always">
+       inkscape:collect="always"
+       id="linearGradient13">
       <stop
-         style="stop-color:#000000;stop-opacity:1;"
+         id="stop13"
          offset="0"
-         id="stop13" />
+         style="stop-color:#000000;stop-opacity:1;" />
       <stop
-         style="stop-color:#000030;stop-opacity:0.8493976;"
+         id="stop14"
          offset="1"
-         id="stop14" />
+         style="stop-color:#000030;stop-opacity:0.8493976;" />
     </linearGradient>
     <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient13"
-       id="linearGradient14"
-       x1="13.229167"
-       y1="39.226355"
-       x2="60.605406"
-       y2="39.226355"
+       gradientTransform="matrix(0.84165006,0,0,0.84165005,42.346256,32.81956)"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.84165006,0,0,0.84165005,42.346256,32.81956)" />
+       y2="39.226355"
+       x2="60.605406"
+       y1="39.226355"
+       x1="13.229167"
+       id="linearGradient14"
+       xlink:href="#linearGradient13"
+       inkscape:collect="always" />
   </defs>
   <g
-     inkscape:groupmode="layer"
-     id="layer2"
+     style="display:inline"
      inkscape:label="Slayer"
-     style="display:inline">
+     id="layer2"
+     inkscape:groupmode="layer">
     <text
-       xml:space="preserve"
-       style="font-size:148.458px;fill:#000000;fill-opacity:0.602687;stroke:#000000;stroke-width:0.445372"
-       x="-4.7055297"
-       y="101.6341"
+       transform="scale(0.99529117,1.0047311)"
        id="text5"
-       transform="scale(0.99529117,1.0047311)"><tspan
-         sodipodi:role="line"
-         id="tspan5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:148.458px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#000000;fill-opacity:0.602687;stroke-width:0.445372"
+       y="101.6341"
+       x="-4.7055297"
+       style="font-size:148.458px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.445372;"
+       xml:space="preserve"><tspan
+         y="101.6341"
          x="-4.7055297"
-         y="101.6341">L</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:148.458px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#000000;fill-opacity:1;stroke-width:0.445372;"
+         id="tspan5"
+         sodipodi:role="line">L</tspan></text>
   </g>
   <g
-     inkscape:label="Background"
+     id="layer1"
      inkscape:groupmode="layer"
-     id="layer1">
+     inkscape:label="Background">
     <circle
-       id="path14"
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       cx="34.156826"
+       r="0.024329711"
        cy="39.636528"
-       r="0.024329711" />
+       cx="34.156826"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
+       id="path14" />
     <ellipse
-       style="fill:#0000ff;stroke:#000000;stroke-width:0.264582"
-       id="path1"
-       cx="66.145836"
-       cy="66.145844"
+       ry="26.45833"
        rx="26.458332"
-       ry="26.45833" />
+       cy="66.145844"
+       cx="79.297127"
+       id="path1"
+       style="fill:#0000ff;stroke:#000000;stroke-width:0.264582" />
   </g>
 </svg>

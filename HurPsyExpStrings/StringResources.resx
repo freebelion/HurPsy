@@ -151,15 +151,15 @@
   </data>
   <data name="Header_ElementsPanel" xml:space="preserve">
     <value>Element Definitions</value>
-    <comment>The header text for the ElementsPanel of HurPsyDesignApp</comment>
+    <comment>The header text for the ElementsPanel of HurPsyExp</comment>
   </data>
   <data name="Header_ExperimentMenu" xml:space="preserve">
     <value>_Experiment</value>
-    <comment>The header text for the Experiment menu of HurDesignApp</comment>
+    <comment>The header text for the Experiment menu of HurPsyExp</comment>
   </data>
   <data name="Header_ExperimentPanel" xml:space="preserve">
     <value>Experiment Blocks</value>
-    <comment>The header text for the ExperimentPanel of HurPsyDesignApp</comment>
+    <comment>The header text for the ExperimentPanel in ElementsPanel</comment>
   </data>
   <data name="Header_LoadExperimentMenuItem" xml:space="preserve">
     <value>_Load</value>
@@ -167,11 +167,15 @@
   </data>
   <data name="Header_LocatorPanel" xml:space="preserve">
     <value>Locator Definitions</value>
-    <comment>The header text for the LocatorPanel of HurPsyDesignApp</comment>
+    <comment>The header text for the LocatorPanel in ElementsPanel</comment>
   </data>
   <data name="Header_NewExperimentMenuItem" xml:space="preserve">
     <value>_New</value>
     <comment>The label for the menu item that creates a new experiment</comment>
+  </data>
+  <data name="Header_ResponsePanel" xml:space="preserve">
+    <value>Response Definitions</value>
+    <comment>The header text for the ResponsePanel in ElementsPanel</comment>
   </data>
   <data name="Header_SaveExperimentMenuItem" xml:space="preserve">
     <value>_Save</value>
@@ -216,6 +220,10 @@
   <data name="Tooltip_AddImageStimulus" xml:space="preserve">
     <value>Add Image Stimulus</value>
     <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
+  </data>
+  <data name="Tooltip_AddKeyResponse" xml:space="preserve">
+    <value>Add key response</value>
+    <comment>The tooltip for the toolbar button which adds a nkey response definition</comment>
   </data>
   <data name="Tooltip_AddPointLocator" xml:space="preserve">
     <value>Add Point Locator</value>

@@ -23,6 +23,7 @@
     <None Remove="Images\EditItem.png" />
     <None Remove="Images\HtmlStimulus.png" />
     <None Remove="Images\ImageStimulus.png" />
+    <None Remove="Images\KeyResponse.png" />
     <None Remove="Images\PointLocator.png" />
     <None Remove="Images\SelectObject.png" />
   </ItemGroup>
@@ -43,6 +44,7 @@
     <Resource Include="Images\EditItem.png" />
     <Resource Include="Images\HtmlStimulus.png" />
     <Resource Include="Images\ImageStimulus.png" />
+    <Resource Include="Images\KeyResponse.png" />
     <Resource Include="Images\PointLocator.png" />
   </ItemGroup>
 

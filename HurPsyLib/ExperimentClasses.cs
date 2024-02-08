@@ -161,7 +161,9 @@ namespace HurPsyLib
                     j = HurPsyCommon.Rnd.Next(i, Trials.Count);
                     nrep++; // to avoid an infinite-loop
                 } while (Trials[j].IsFixed && nrep < 10);
+                if(nrep == 0) { continue; }
 
+                // Non-fixed trials can exchange places
                 tmp = Trials[i];
                 Trials[i] = Trials[j];
                 Trials[j] = tmp;

@@ -143,6 +143,39 @@
                     </Border>
                 </DockPanel>
             </Expander>
+
+            <Expander DockPanel.Dock="Top"
+                  ExpandDirection="Down"
+                  IsExpanded="True"
+                  Background="{StaticResource PanelBackground}">
+
+                <Expander.Header>
+                    <TextBlock Text="{x:Static stringlib:StringResources.Header_ResponsePanel}"/>
+                </Expander.Header>
+
+                <DockPanel LastChildFill="True">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                    Style="{StaticResource CommandBar}"
+                    HorizontalAlignment="Stretch">
+                        <Button Style="{StaticResource CommandButton}"
+                    Command="{Binding AddPointLocatorCommand}"
+                    ToolTip="{x:Static stringlib:StringResources.Tooltip_AddKeyResponse}">
+                            <Image Source="..\Images\KeyResponse.png" Stretch="Fill"/>
+                        </Button>
+                        <Button Style="{StaticResource CommandButton}"
+                    Command="{Binding DeleteLocatorCommand}"
+                    ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                            <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Border>
+                        <ItemsControl ItemsSource="{Binding LocatorVMs}"
+                          ItemTemplate="{StaticResource ItemViewTemplate}">
+                        </ItemsControl>
+                    </Border>
+                </DockPanel>
+            </Expander>
         </DockPanel>
     </ScrollViewer>
 </UserControl>

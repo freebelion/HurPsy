@@ -187,6 +187,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Response Definitions.
+        /// </summary>
+        public static string Header_ResponsePanel {
+            get {
+                return ResourceManager.GetString("Header_ResponsePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Save.
         /// </summary>
         public static string Header_SaveExperimentMenuItem {
@@ -282,6 +291,15 @@ namespace HurPsyExpStrings {
         public static string Tooltip_AddImageStimulus {
             get {
                 return ResourceManager.GetString("Tooltip_AddImageStimulus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add key response.
+        /// </summary>
+        public static string Tooltip_AddKeyResponse {
+            get {
+                return ResourceManager.GetString("Tooltip_AddKeyResponse", resourceCulture);
             }
         }
         
