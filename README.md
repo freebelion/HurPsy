@@ -9,10 +9,10 @@ which was intended to help the original developer
 in developing customized programs to run experiments
 planned by researchers of psychology.
 
-I am currently working on **HurPsyDesign**,
+I am currently working on **HurPsyExp**,
 a WPF-based desktop application
-which will help design experiments
-utilizing the library classes.
+which will help design and run experiments
+by utilizing the library classes.
 This step will help perfect the visual interface
 which will eventually be used in a cross-platform
 design application based on .NET Maui.
