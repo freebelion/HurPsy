@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wZ76tY9wJtundAxWgInHlxMhDxyCPhXfvXRdfXY3fOrupJzMf61oXVAt8PwUmbgi3l9qzNriXM+hEJ4wc4nUYA==",
+  "dgSpecHash": "euMCyV5OAGI=",
   "success": true,
   "projectFilePath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExp\\HurPsyExp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\freeb\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512"
+    "C:\\Users\\freeb\\.nuget\\packages\\communitytoolkit.mvvm\\8.3.2\\communitytoolkit.mvvm.8.3.2.nupkg.sha512",
+    "C:\\Users\\freeb\\.nuget\\packages\\defaultdocumentation\\0.8.2\\defaultdocumentation.0.8.2.nupkg.sha512"
   ],
   "logs": []
 }

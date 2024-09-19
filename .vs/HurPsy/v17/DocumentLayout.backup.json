@@ -1,0 +1,74 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}|HurPsyLib\\HurPsyLib.csproj|c:\\users\\freeb\\source\\repos\\hurpsy\\hurpsylib\\documentation\\hurpsylib.experiment.md||{24510B54-A648-4D69-A6C5-F68CBDF07546}",
+      "RelativeMoniker": "D:0:0:{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}|HurPsyLib\\HurPsyLib.csproj|solutionrelative:hurpsylib\\documentation\\hurpsylib.experiment.md||{24510B54-A648-4D69-A6C5-F68CBDF07546}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}|HurPsyLib\\HurPsyLib.csproj|c:\\users\\freeb\\source\\repos\\hurpsy\\hurpsylib\\experiment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}|HurPsyLib\\HurPsyLib.csproj|solutionrelative:hurpsylib\\experiment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HurPsyLib.Experiment.md",
+              "DocumentMoniker": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\Documentation\\HurPsyLib.Experiment.md",
+              "RelativeDocumentMoniker": "HurPsyLib\\Documentation\\HurPsyLib.Experiment.md",
+              "ToolTip": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\Documentation\\HurPsyLib.Experiment.md",
+              "RelativeToolTip": "HurPsyLib\\Documentation\\HurPsyLib.Experiment.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-09-18T16:31:01.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Experiment.cs",
+              "DocumentMoniker": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\Experiment.cs",
+              "RelativeDocumentMoniker": "HurPsyLib\\Experiment.cs",
+              "ToolTip": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\Experiment.cs",
+              "RelativeToolTip": "HurPsyLib\\Experiment.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T16:23:23.996Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

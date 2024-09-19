@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HurPsyLib</name>
+    </assembly>
+    <members>
+        <member name="T:HurPsyLib.Experiment">
+            <summary>
+            The class which represents the complete definition
+            of a computerized psychology experiment.
+            </summary>
+        </member>
+        <member name="P:HurPsyLib.Experiment.Origin">
+            <summary>
+            The property which helps get/set the origin choice for the experiment.
+            </summary>
+        </member>
+        <member name="P:HurPsyLib.Experiment.FileName">
+            <summary>
+            The property which helps get/set the name of the file
+            where the experiment definition will be saved.
+            </summary>
+        </member>
+        <member name="P:HurPsyLib.Experiment.Blocks">
+            <summary>
+            The list of the Block objects which represent
+            the trial blocks that make up the experiment.
+            </summary>
+        </member>
+        <member name="M:HurPsyLib.Experiment.#ctor">
+            <summary>
+            The default class constructor which starts with
+            an empty name and empty lists of objects.
+            </summary>
+        </member>
+        <member name="M:HurPsyLib.Experiment.AddStimulus(HurPsyLib.Stimulus)">
+            <summary>
+            The method to add a Stimulus object
+            that represents an experimental stimulus
+            to the list of objects
+            that represent the stimuli used in the experiment.
+            </summary>
+            <param name="stim"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HurPsyLib.HurPsyException">
+            <summary>
+            Customary specialized Exception class
+            </summary>
+        </member>
+        <member name="M:HurPsyLib.HurPsyException.LibError(System.String)">
+            <summary>
+            This static method provides a shortcut to throw an exception
+            referring to a named string resource in HurPsyLibStrings assembly.
+            </summary>
+            <param name="strResourceName"></param>
+            <exception cref="T:HurPsyLib.HurPsyException"></exception>
+        </member>
+    </members>
+</doc>

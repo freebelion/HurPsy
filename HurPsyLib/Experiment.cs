@@ -9,12 +9,16 @@ using System.Xml;
 
 namespace HurPsyLib
 {
+    /// <summary>
+    /// The class which represents the complete definition
+    /// of a computerized psychology experiment.
+    /// </summary>
     [DataContract]
     public class Experiment
     {
-        // There may, in the future, more choices of origin,
-        // but we are assuminge there will be a single choice
-        // that will be applied theroughout the experiment.
+        /// <summary>
+        /// The property which helps get/set the origin choice for the experiment.
+        /// </summary>
         [DataMember]
         public HurPsyOrigin Origin { get; set; }
 
@@ -24,12 +28,24 @@ namespace HurPsyLib
         [DataMember]
         private Dictionary<string, Locator> LocatorDict { get; set; }
 
+        /// <summary>
+        /// The property which helps get/set the name of the file
+        /// where the experiment definition will be saved.
+        /// </summary>
         [DataMember]
         public string FileName { get; set; }
 
+        /// <summary>
+        /// The list of the Block objects which represent
+        /// the trial blocks that make up the experiment.
+        /// </summary>
         [DataMember]
         public List<Block> Blocks { get; private set; }
        
+        /// <summary>
+        /// The default class constructor which starts with
+        /// an empty name and empty lists of objects.
+        /// </summary>
         public Experiment()
         {
             FileName = string.Empty;
@@ -38,6 +54,14 @@ namespace HurPsyLib
             Blocks = new List<Block>();
         }
 
+        /// <summary>
+        /// The method to add a Stimulus object
+        /// that represents an experimental stimulus
+        /// to the list of objects
+        /// that represent the stimuli used in the experiment.
+        /// </summary>
+        /// <param name="stim"></param>
+        /// <returns></returns>
         public bool AddStimulus(Stimulus stim)
         {
             // The underlying Dictionary collection will not accept

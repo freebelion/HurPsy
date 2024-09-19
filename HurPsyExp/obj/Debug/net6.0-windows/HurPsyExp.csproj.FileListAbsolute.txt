@@ -37,9 +37,9 @@ C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.AssemblyInfo.cs
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.csproj.CoreCompileInputs.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.sourcelink.json
-C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.csproj.CopyComplete
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.dll
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\refint\HurPsyExp.dll
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.pdb
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.genruntimeconfig.cache
 C:\Users\freeb\source\repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\ref\HurPsyExp.dll
+C:\Users\freeb\Source\Repos\HurPsy\HurPsyExp\obj\Debug\net6.0-windows\HurPsyExp.csproj.Up2Date

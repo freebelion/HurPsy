@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "CommunityToolkit.Mvvm/8.2.2": {
+      "CommunityToolkit.Mvvm/8.3.2": {
         "type": "package",
         "compile": {
           "lib/net6.0/CommunityToolkit.Mvvm.dll": {
@@ -15,7 +15,13 @@
           }
         },
         "build": {
-          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+          "buildTransitive/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
+      "DefaultDocumentation/0.8.2": {
+        "type": "package",
+        "build": {
+          "build/DefaultDocumentation.targets": {}
         }
       },
       "HurPsyExpStrings/1.0.0": {
@@ -54,10 +60,10 @@
     }
   },
   "libraries": {
-    "CommunityToolkit.Mvvm/8.2.2": {
-      "sha512": "r0g0k9tGYdrnz8R7T3x5UiokDffeevzK/2P/9SBL6fqLgN8B157MIi/bVUWI1KAz6ZorZrK9AdABCWUeXZZsvA==",
+    "CommunityToolkit.Mvvm/8.3.2": {
+      "sha512": "m8EolE1A0Updj68WTsZSGI6VWb6mUqHPh7QFo0kt7+JPhYMNXRS1ch8TS/oITAdcxTLrwMOp3ku1KjeG1/Zdpg==",
       "type": "package",
-      "path": "communitytoolkit.mvvm/8.2.2",
+      "path": "communitytoolkit.mvvm/8.3.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -68,21 +74,71 @@
         "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
         "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
         "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "build/netstandard2.0/CommunityToolkit.Mvvm.targets",
-        "build/netstandard2.1/CommunityToolkit.Mvvm.targets",
-        "buildTransitive/netstandard2.0/CommunityToolkit.Mvvm.targets",
-        "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets",
-        "communitytoolkit.mvvm.8.2.2.nupkg.sha512",
+        "build/CommunityToolkit.Mvvm.FeatureSwitches.targets",
+        "build/CommunityToolkit.Mvvm.SourceGenerators.targets",
+        "build/CommunityToolkit.Mvvm.WindowsSdk.targets",
+        "build/CommunityToolkit.Mvvm.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.FeatureSwitches.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.SourceGenerators.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.WindowsSdk.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.targets",
+        "communitytoolkit.mvvm.8.3.2.nupkg.sha512",
         "communitytoolkit.mvvm.nuspec",
         "lib/net6.0/CommunityToolkit.Mvvm.dll",
         "lib/net6.0/CommunityToolkit.Mvvm.pdb",
         "lib/net6.0/CommunityToolkit.Mvvm.xml",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.pdb",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.xml",
+        "lib/net8.0/CommunityToolkit.Mvvm.dll",
+        "lib/net8.0/CommunityToolkit.Mvvm.pdb",
+        "lib/net8.0/CommunityToolkit.Mvvm.xml",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.pdb",
         "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.pdb",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
+    "DefaultDocumentation/0.8.2": {
+      "sha512": "kRlSKBiQhCW2DH7vSrZfJ4GckVsl1BCKluDDWtD/EjH7qWt/l/R+rCvA79GDKYpB42hbxseSOoqbgNiTg6u9yQ==",
+      "type": "package",
+      "path": "defaultdocumentation/0.8.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/DefaultDocumentation.Api.dll",
+        "build/DefaultDocumentation.Api.pdb",
+        "build/DefaultDocumentation.Api.xml",
+        "build/DefaultDocumentation.Common.dll",
+        "build/DefaultDocumentation.Common.pdb",
+        "build/DefaultDocumentation.Markdown.dll",
+        "build/DefaultDocumentation.Markdown.pdb",
+        "build/DefaultDocumentation.dll",
+        "build/DefaultDocumentation.pdb",
+        "build/DefaultDocumentation.targets",
+        "build/ICSharpCode.Decompiler.dll",
+        "build/Microsoft.Build.Framework.dll",
+        "build/Microsoft.Build.Utilities.Core.dll",
+        "build/Microsoft.NET.StringTools.dll",
+        "build/NLog.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/System.Buffers.dll",
+        "build/System.Collections.Immutable.dll",
+        "build/System.Configuration.ConfigurationManager.dll",
+        "build/System.Memory.dll",
+        "build/System.Numerics.Vectors.dll",
+        "build/System.Reflection.Metadata.dll",
+        "build/System.Runtime.CompilerServices.Unsafe.dll",
+        "build/System.Security.AccessControl.dll",
+        "build/System.Security.Cryptography.ProtectedData.dll",
+        "build/System.Security.Permissions.dll",
+        "build/System.Security.Principal.Windows.dll",
+        "build/System.Threading.dll",
+        "defaultdocumentation.0.8.2.nupkg.sha512",
+        "defaultdocumentation.nuspec",
+        "logo.png"
       ]
     },
     "HurPsyExpStrings/1.0.0": {
@@ -103,7 +159,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "CommunityToolkit.Mvvm >= 8.2.2",
+      "CommunityToolkit.Mvvm >= 8.3.2",
+      "DefaultDocumentation >= 0.8.2",
       "HurPsyExpStrings >= 1.0.0",
       "HurPsyLib >= 1.0.0"
     ]
@@ -130,7 +187,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -139,7 +196,7 @@
       },
       "frameworks": {
         "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+          "targetAlias": "net6.0-windows7.0",
           "projectReferences": {
             "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExpStrings\\HurPsyExpStrings.csproj": {
               "projectPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExpStrings\\HurPsyExpStrings.csproj"
@@ -154,15 +211,26 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
       "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+        "targetAlias": "net6.0-windows7.0",
         "dependencies": {
           "CommunityToolkit.Mvvm": {
             "target": "Package",
-            "version": "[8.2.2, )"
+            "version": "[8.3.2, )"
+          },
+          "DefaultDocumentation": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[0.8.2, )"
           }
         },
         "imports": [
@@ -184,7 +252,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
