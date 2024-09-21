@@ -6,8 +6,17 @@
     <members>
         <member name="T:HurPsyLib.Experiment">
             <summary>
-            The class which represents the complete definition
-            of a computerized psychology experiment.
+            The class which represents the complete definition of a computerized psychology experiment.
+            </summary>
+        </member>
+        <member name="F:HurPsyLib.Experiment.stimulusDict">
+            <summary>
+            The Dictionary collection which helps access Stimulus objects through their ids.
+            </summary>
+        </member>
+        <member name="F:HurPsyLib.Experiment.locatorDict">
+            <summary>
+            The Dictionary collection which helps access Locator objects through their ids.
             </summary>
         </member>
         <member name="P:HurPsyLib.Experiment.Origin">
@@ -17,31 +26,67 @@
         </member>
         <member name="P:HurPsyLib.Experiment.FileName">
             <summary>
-            The property which helps get/set the name of the file
-            where the experiment definition will be saved.
+            The property which helps get/set the name of the file where the experiment definition will be saved.
             </summary>
         </member>
         <member name="P:HurPsyLib.Experiment.Blocks">
             <summary>
-            The list of the Block objects which represent
-            the trial blocks that make up the experiment.
+            The list of Block objects which represent the trial blocks that make up the experiment.
             </summary>
         </member>
         <member name="M:HurPsyLib.Experiment.#ctor">
             <summary>
-            The default class constructor which starts with
-            an empty name and empty lists of objects.
+            The default class constructor which starts with an empty filename and empty lists.
             </summary>
         </member>
         <member name="M:HurPsyLib.Experiment.AddStimulus(HurPsyLib.Stimulus)">
             <summary>
-            The method to add a Stimulus object
-            that represents an experimental stimulus
-            to the list of objects
-            that represent the stimuli used in the experiment.
+            The method which adds a Stimulus object to the Dictionary collection associating Stimulus objects with their ids.
             </summary>
-            <param name="stim"></param>
+            <param name="stim">Stimulus object which will be added to the Dictionary collection.</param>
+            <returns>A boolean flag indicating whether the operation was successful</returns>
+        </member>
+        <member name="M:HurPsyLib.Experiment.StimulusIdExists(System.String)">
+            <summary>
+            The boolean function to check whether a Stimulus with the given id already exists in the Dictionary collection. 
+            </summary>
+            <param name="stimId">The Stimulus id which will be checked</param>
+            <returns>A boolean flag indicating the presence of the given id</returns>
+        </member>
+        <member name="M:HurPsyLib.Experiment.ReplaceStimulusId(System.String,System.String)">
+            <summary>
+            The method which updates the id of a Stimulus object in the Dictionary collection.
+            This method must be called when an end-user gives a Stimulus object a new id through an experimental design program.
+            Otherwise, the Dictionary collection associating Stimulus objects with their ids will be out of date.
+            </summary>
+            <param name="oldId">Previous id of the Stimulus object</param>
+            <param name="newId">New if od the Stimulus object</param>
+        </member>
+        <member name="M:HurPsyLib.Experiment.GetStimulus(System.String)">
+            <summary>
+            The method which helps access a Stimulus object through its id.
+            </summary>
+            <param name="stimId">The id of the Stimulus object which will be accessed.</param>
             <returns></returns>
+        </member>
+        <member name="M:HurPsyLib.Experiment.GetStimuli">
+            <summary>
+            The method which constructs a new generic list of Stimulus objects.
+            </summary>
+            <returns>The generic list of Stimulus objects</returns>
+        </member>
+        <member name="M:HurPsyLib.Experiment.RemoveStimulus(HurPsyLib.Stimulus)">
+            <summary>
+            The method which removes the Stimulus object with the given id from the Dictionary collection.
+            </summary>
+            <param name="stim">The Stimulus object to be removed</param>
+        </member>
+        <member name="M:HurPsyLib.Experiment.AddLocator(HurPsyLib.Locator)">
+            <summary>
+            The method which adds a Locator object to the Dictionary collection associating Locator objects with their ids.
+            </summary>
+            <param name="loc">Locator object which will be added to the Dictionary collection.</param>
+            <returns>A boolean flag indicating whether the operation was successful</returns>
         </member>
         <member name="T:HurPsyLib.HurPsyException">
             <summary>

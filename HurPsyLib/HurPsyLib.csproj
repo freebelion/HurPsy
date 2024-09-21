@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
 	<DefaultDocumentationFolder>Documentation</DefaultDocumentationFolder>
+	<DefaultDocumentationGeneratedPages>Namespaces,Types</DefaultDocumentationGeneratedPages>
   </PropertyGroup>
 
   <ItemGroup>
