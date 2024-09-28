@@ -137,4 +137,12 @@
     <value>Time value cannot be negative!</value>
     <comment>The error message shown when a negative value is assigned as a time value.</comment>
   </data>
+  <data name="Error_InvalidStimulusId" xml:space="preserve">
+    <value>No Stimulus object is found with the given id: </value>
+    <comment>The error message shown when an invalid id is used to access a Stimulus object</comment>
+  </data>
+  <data name="Error_InvalidLocatorId" xml:space="preserve">
+    <value>No Locator object is found with the given id: </value>
+    <comment>The error message shown when an invalid id is used to access a Locator object</comment>
+  </data>
 </root>

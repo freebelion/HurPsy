@@ -79,6 +79,24 @@ namespace HurPsyLibStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Locator object is found with the given id: .
+        /// </summary>
+        public static string Error_InvalidLocatorId {
+            get {
+                return ResourceManager.GetString("Error_InvalidLocatorId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Stimulus object is found with the given id: .
+        /// </summary>
+        public static string Error_InvalidStimulusId {
+            get {
+                return ResourceManager.GetString("Error_InvalidStimulusId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dimension value cannot be negative!.
         /// </summary>
         public static string Error_NegativeDimensionValue {

@@ -54,7 +54,7 @@ namespace HurPsyExp.ExpDesign {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/HurPsyExp;component/expdesign/elementspanel.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/HurPsyExp;V1.0.0.0;component/expdesign/elementspanel.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ExpDesign\ElementsPanel.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

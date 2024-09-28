@@ -65,7 +65,9 @@ namespace HurPsyLib
             set
             {
                 if (value < 0)
-                { HurPsyException.LibError("Error_NegativeDimensionValue"); }
+                {
+                    throw(new HurPsyException(HurPsyLibStrings.StringResources.Error_NegativeDimensionValue));
+                }
                 else { sizeX = value; }
             }
         }
@@ -76,7 +78,9 @@ namespace HurPsyLib
             set
             {
                 if (value < 0)
-                { HurPsyException.LibError("Error_NegativeDimensionValue"); }
+                {
+                    throw (new HurPsyException(HurPsyLibStrings.StringResources.Error_NegativeDimensionValue));
+                }
                 else { sizeY = value; }
             }
         }
@@ -99,7 +103,9 @@ namespace HurPsyLib
             set
             {
                 if (value < 0)
-                { HurPsyException.LibError("Error_NegativeTimeValue"); }
+                {
+                    throw (new HurPsyException(HurPsyLibStrings.StringResources.Error_NegativeTimeValue));
+                }
                 else
                 { period = TimeSpan.FromMilliseconds(value); }
             }
@@ -111,7 +117,9 @@ namespace HurPsyLib
             set
             {
                 if (value < 0)
-                { HurPsyException.LibError("Error_NegativeTimeValue"); }
+                {
+                    throw (new HurPsyException(HurPsyLibStrings.StringResources.Error_NegativeTimeValue));
+                }
                 else
                 { period = TimeSpan.FromSeconds(value); }
             }
@@ -132,17 +140,6 @@ namespace HurPsyLib
         public HurPsyException(string errorMessage) : base(errorMessage)
         {
 
-        }
-
-        /// <summary>
-        /// This static method provides a shortcut to throw an exception
-        /// referring to a named string resource in HurPsyLibStrings assembly.
-        /// </summary>
-        /// <param name="strResourceName"></param>
-        /// <exception cref="HurPsyException"></exception>
-        public static void LibError(string strResourceName)
-        {
-            throw new HurPsyException(StringFinder.GetString(strResourceName));
         }
     }
 }
