@@ -7,24 +7,43 @@ using System.Threading.Tasks;
 
 namespace HurPsyLib
 {
+    /// <summary>
+    /// This class represents a single-point locator
+    /// </summary>
     [DataContract]
     public class PointLocator : Locator
     {
+        /// <summary>
+        /// The location point
+        /// </summary>
         [DataMember]
         public HurPsyPoint LocatorPoint { get; private set;} 
 
+        /// <summary>
+        /// This default constructor starts with a point location at the origin (normally at the center of the screen)
+        /// </summary>
         public PointLocator()
         {
             LocatorPoint = new HurPsyPoint();
         }
 
+        /// <summary>
+        /// This parametrized constructor accepts the coordinates of a point
+        /// </summary>
+        /// <param name="locX">The horizontal position of the location point</param>
+        /// <param name="locY">The vertical position of the location point</param>
         public PointLocator(double locX, double locY)
         {
             LocatorPoint = new HurPsyPoint(locX, locY);
         }
 
+        /// <summary>
+        /// The required implementation of the function inherited from the abstracxt base class simply specific the inner location point as the stimulus location
+        /// </summary>
+        /// <param name="vistim">The visual stimulus which will be positioned by this locator instance</param>
+        /// <returns>The inner location point, which is actually a temporary copy, so that subsequent operations will not modify `LocatorPoint`</returns>
         public override HurPsyPoint GetLocation(IVisualStimulus? vistim = null)
-        {// must send a temporary copy so that subsequent operations will not modify LocatorPoint.
+        {
             return LocatorPoint.ShallowCopy();
         }
     }

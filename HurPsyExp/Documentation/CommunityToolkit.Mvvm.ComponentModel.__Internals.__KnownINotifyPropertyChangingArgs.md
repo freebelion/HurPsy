@@ -11,12 +11,82 @@ internal static class __KnownINotifyPropertyChangingArgs
 ```
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; __KnownINotifyPropertyChangingArgs
+### Fields
 
-| Fields | |
-| :--- | :--- |
-| [Editable](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Editable.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Editable') | The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Editable" generated properties. |
-| [Hidden](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Hidden.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Hidden') | The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Hidden" generated properties. |
-| [Id](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Id.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Id') | The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Id" generated properties. |
-| [ItemObject](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ItemObject.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ItemObject') | The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "ItemObject" generated properties. |
-| [Selected](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Selected.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Selected') | The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Selected" generated properties. |
-| [TempId](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TempId.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TempId') | The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "TempId" generated properties. |
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Editable'></a>
+
+## __KnownINotifyPropertyChangingArgs.Editable Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Editable" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs Editable;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
+
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Hidden'></a>
+
+## __KnownINotifyPropertyChangingArgs.Hidden Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Hidden" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs Hidden;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
+
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Id'></a>
+
+## __KnownINotifyPropertyChangingArgs.Id Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Id" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs Id;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
+
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ItemObject'></a>
+
+## __KnownINotifyPropertyChangingArgs.ItemObject Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "ItemObject" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs ItemObject;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
+
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Selected'></a>
+
+## __KnownINotifyPropertyChangingArgs.Selected Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "Selected" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs Selected;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
+
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TempId'></a>
+
+## __KnownINotifyPropertyChangingArgs.TempId Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "TempId" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs TempId;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')

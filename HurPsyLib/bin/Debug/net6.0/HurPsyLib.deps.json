@@ -1,0 +1,48 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "HurPsyLib/1.0.0": {
+        "dependencies": {
+          "DefaultDocumentation": "0.8.2",
+          "HurPsyLibStrings": "1.0.0"
+        },
+        "runtime": {
+          "HurPsyLib.dll": {}
+        }
+      },
+      "DefaultDocumentation/0.8.2": {},
+      "HurPsyLibStrings/1.0.0": {
+        "runtime": {
+          "HurPsyLibStrings.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HurPsyLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DefaultDocumentation/0.8.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kRlSKBiQhCW2DH7vSrZfJ4GckVsl1BCKluDDWtD/EjH7qWt/l/R+rCvA79GDKYpB42hbxseSOoqbgNiTg6u9yQ==",
+      "path": "defaultdocumentation/0.8.2",
+      "hashPath": "defaultdocumentation.0.8.2.nupkg.sha512"
+    },
+    "HurPsyLibStrings/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

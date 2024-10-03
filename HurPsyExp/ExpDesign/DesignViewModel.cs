@@ -6,10 +6,14 @@ using HurPsyExpStrings;
 using CommunityToolkit.Mvvm.Input;
 using System.Security.Cryptography;
 using System.Windows.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace HurPsyExp.ExpDesign
 {  
-    public partial class DesignViewModel
+    /// <summary>
+    /// This VM class will handle the exchange of data input on the experiment design interface
+    /// </summary>
+    public partial class DesignViewModel : ObservableObject
     {
         private Experiment _experiment;
 
@@ -19,6 +23,9 @@ namespace HurPsyExp.ExpDesign
 
         public ObservableCollection<BlockItemViewModel> BlockVMs { get; set; }
 
+        /// <summary>
+        /// This default constructor simply starts with empty lists of the inner viewmodel objects
+        /// </summary>
         public DesignViewModel()
         {
             _experiment = new Experiment();
@@ -258,7 +265,7 @@ namespace HurPsyExp.ExpDesign
                     if (stim != null)
                     {
                         BlockItemViewModel.DeleteStimulusId(stim.Id);
-                        _experiment.RemoveStimulus(stim);
+                        _experiment.RemoveStimulus(stim.Id);
                     }
                     deleteList.Add(stimvm);
                 }              
@@ -285,7 +292,7 @@ namespace HurPsyExp.ExpDesign
                     if (loc != null)
                     {
                         BlockItemViewModel.DeleteLocatorId(loc.Id);
-                        _experiment.RemoveLocator(loc);
+                        _experiment.RemoveLocator(loc.Id);
                     }
                     deleteList.Add(locvm);
                 }

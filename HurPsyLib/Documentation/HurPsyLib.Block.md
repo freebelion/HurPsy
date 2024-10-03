@@ -144,6 +144,40 @@ The old stimulus id
 
 The new stimulus id
 
+<a name='HurPsyLib.Block.RemoveLocatorId(string)'></a>
+
+## Block.RemoveLocatorId(string) Method
+
+The method which scans through the trials referring to a deleted `Locator` id
+
+```csharp
+public void RemoveLocatorId(string removedId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Block.RemoveLocatorId(string).removedId'></a>
+
+`removedId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The id of the deleted `Locator` object
+
+<a name='HurPsyLib.Block.RemoveStimulusId(string)'></a>
+
+## Block.RemoveStimulusId(string) Method
+
+The method which scans through the trials referring to a deleted `Stimulus` id
+
+```csharp
+public void RemoveStimulusId(string removedId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Block.RemoveStimulusId(string).removedId'></a>
+
+`removedId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The id of the deleted `Stimulus` object
+
 <a name='HurPsyLib.Block.ShuffleTrials()'></a>
 
 ## Block.ShuffleTrials() Method

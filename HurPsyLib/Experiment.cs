@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -127,12 +128,15 @@ namespace HurPsyLib
         /// <summary>
         /// The method which removes the `Stimulus` object with the given id from `stimulusDict` collection.
         /// </summary>
-        /// <param name="stim">The `Stimulus` object which will be removed</param>
-        public void RemoveStimulus(Stimulus stim)
+        /// <param name="stimId">The id of the`Stimulus` object which will be removed</param>
+        public void RemoveStimulus(string stimId)
         {
-            stimulusDict.Remove(stim.Id);
-            // WARNING! This method is so far incomplete;
-            // One should also delete the trials referring to the removed Stimulus object
+            stimulusDict.Remove(stimId);
+            // It is also necessary to scan blocks, trials and down to steps
+            // to remove stimulus-locator pairs containing the id of the deleted stimulus.
+            // !!!Maybe we should just delete a whole trial referring to a deleted stimulus id.
+            foreach (Block blck in Blocks)
+            { blck.RemoveStimulusId(stimId); }
         }
 
         /// <summary>
@@ -176,12 +180,15 @@ namespace HurPsyLib
         /// <summary>
         /// The method which removes the `Locator` object with the given id from `locatorDict` collection.
         /// </summary>
-        /// <param name="loc">The `Locator` object which will be removed</param>
-        public void RemoveLocator(Locator loc)
+        /// <param name="locId">The id of the `Locator` object which will be removed</param>
+        public void RemoveLocator(string locId)
         {
-            locatorDict.Remove(loc.Id);
-            // WARNING! This method is so far incomplete;
-            // One should also delete the trials referring to the removed Locator object.
+            locatorDict.Remove(locId);
+            // It is also necessary to scan blocks, trials and down to steps
+            // to remove stimulus-locator pairs containing the id of the deleted locator.
+            // !!!Maybe we should just delete a whole trial referring to a deleted locator id.
+            foreach (Block blck in Blocks)
+            { blck.RemoveLocatorId(locId); }
         }
 
         /// <summary>

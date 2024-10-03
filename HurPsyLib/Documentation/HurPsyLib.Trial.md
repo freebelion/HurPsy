@@ -116,3 +116,37 @@ The old stimulus id
 `newId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
 The new stimulus id
+
+<a name='HurPsyLib.Trial.RemoveLocatorId(string)'></a>
+
+## Trial.RemoveLocatorId(string) Method
+
+The method which scans through the steps referring to a deleted `Locator` id
+
+```csharp
+public void RemoveLocatorId(string removedId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Trial.RemoveLocatorId(string).removedId'></a>
+
+`removedId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The id of the deleted `Locator` object
+
+<a name='HurPsyLib.Trial.RemoveStimulusId(string)'></a>
+
+## Trial.RemoveStimulusId(string) Method
+
+The method which scans through the steps referring to a deleted `Stimulus` id
+
+```csharp
+public void RemoveStimulusId(string removedId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Trial.RemoveStimulusId(string).removedId'></a>
+
+`removedId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The id of the deleted `Stimulus` object

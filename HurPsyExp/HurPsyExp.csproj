@@ -9,6 +9,7 @@
     <SignAssembly>True</SignAssembly>
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	<DefaultDocumentationFolder>Documentation</DefaultDocumentationFolder>
+	<DefaultDocumentationGeneratedPages>Namespaces,Types</DefaultDocumentationGeneratedPages>
   </PropertyGroup>
 
   <ItemGroup>

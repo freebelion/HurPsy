@@ -34,7 +34,7 @@ public HurPsyLib.HurPsyTimePeriod StepTime { get; set; }
 ```
 
 #### Property Value
-[HurPsyLib.HurPsyTimePeriod](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.HurPsyTimePeriod 'HurPsyLib.HurPsyTimePeriod')
+[HurPsyTimePeriod](HurPsyLib.HurPsyTimePeriod.md 'HurPsyLib.HurPsyTimePeriod')
 
 <a name='HurPsyLib.Step.StimulusLocators'></a>
 
@@ -133,3 +133,37 @@ The old id
 `newId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
 The new id
+
+<a name='HurPsyLib.Step.RemoveLocatorId(string)'></a>
+
+## Step.RemoveLocatorId(string) Method
+
+The method which removes pairs containing a deleted `Locator` id
+
+```csharp
+public void RemoveLocatorId(string removedId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Step.RemoveLocatorId(string).removedId'></a>
+
+`removedId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The id of the deleted `Locator` object
+
+<a name='HurPsyLib.Step.RemoveStimulusId(string)'></a>
+
+## Step.RemoveStimulusId(string) Method
+
+The method which removes pairs containing a deleted `Stimulus` id
+
+```csharp
+public void RemoveStimulusId(string removedId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Step.RemoveStimulusId(string).removedId'></a>
+
+`removedId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The id of the deleted `Stimulus` object

@@ -33,7 +33,7 @@ private Dictionary<string,Locator> locatorDict;
 ```
 
 #### Field Value
-[System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[HurPsyLib.Locator](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Locator 'HurPsyLib.Locator')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
+[System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
 
 <a name='HurPsyLib.Experiment.stimulusDict'></a>
 
@@ -46,7 +46,7 @@ private Dictionary<string,Stimulus> stimulusDict;
 ```
 
 #### Field Value
-[System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[HurPsyLib.Stimulus](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Stimulus 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
+[System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
 ### Properties
 
 <a name='HurPsyLib.Experiment.Blocks'></a>
@@ -86,7 +86,7 @@ public HurPsyLib.HurPsyOrigin Origin { get; set; }
 ```
 
 #### Property Value
-[HurPsyLib.HurPsyOrigin](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.HurPsyOrigin 'HurPsyLib.HurPsyOrigin')
+[HurPsyOrigin](HurPsyLib.HurPsyOrigin.md 'HurPsyLib.HurPsyOrigin')
 ### Methods
 
 <a name='HurPsyLib.Experiment.AddLocator(HurPsyLib.Locator)'></a>
@@ -102,7 +102,7 @@ public bool AddLocator(HurPsyLib.Locator loc);
 
 <a name='HurPsyLib.Experiment.AddLocator(HurPsyLib.Locator).loc'></a>
 
-`loc` [HurPsyLib.Locator](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Locator 'HurPsyLib.Locator')
+`loc` [Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')
 
 The `Locator` object which will be added to the collection.
 
@@ -137,7 +137,7 @@ public bool AddStimulus(HurPsyLib.Stimulus stim);
 
 <a name='HurPsyLib.Experiment.AddStimulus(HurPsyLib.Stimulus).stim'></a>
 
-`stim` [HurPsyLib.Stimulus](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Stimulus 'HurPsyLib.Stimulus')
+`stim` [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')
 
 The `Stimulus` object which will be added
 
@@ -163,7 +163,7 @@ public HurPsyLib.Locator GetLocator(string locId);
 The id of the `Locator` object which will be accessed
 
 #### Returns
-[HurPsyLib.Locator](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Locator 'HurPsyLib.Locator')  
+[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')  
 The `Locator` object with the given id
 
 #### Exceptions
@@ -182,7 +182,7 @@ public System.Collections.Generic.List<HurPsyLib.Locator> GetLocators();
 ```
 
 #### Returns
-[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[HurPsyLib.Locator](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Locator 'HurPsyLib.Locator')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')  
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')  
 A generic list of all the `Locator` objects in the experiment definition
 
 <a name='HurPsyLib.Experiment.GetStimuli()'></a>
@@ -196,7 +196,7 @@ public System.Collections.Generic.List<HurPsyLib.Stimulus> GetStimuli();
 ```
 
 #### Returns
-[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[HurPsyLib.Stimulus](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Stimulus 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')  
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')  
 A generic list of all the `Stimulus` objects in the experiment definition
 
 <a name='HurPsyLib.Experiment.GetStimulus(string)'></a>
@@ -217,7 +217,7 @@ public HurPsyLib.Stimulus GetStimulus(string stimId);
 The id of the `Stimulus` object which will be accessed
 
 #### Returns
-[HurPsyLib.Stimulus](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Stimulus 'HurPsyLib.Stimulus')  
+[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')  
 The `Stimulus` object with the given id
 
 #### Exceptions
@@ -287,39 +287,39 @@ public void RemoveBlock(HurPsyLib.Block blck);
 
 The `Block` object which will be removed
 
-<a name='HurPsyLib.Experiment.RemoveLocator(HurPsyLib.Locator)'></a>
+<a name='HurPsyLib.Experiment.RemoveLocator(string)'></a>
 
-## Experiment.RemoveLocator(Locator) Method
+## Experiment.RemoveLocator(string) Method
 
 The method which removes the `Locator` object with the given id from `locatorDict` collection.
 
 ```csharp
-public void RemoveLocator(HurPsyLib.Locator loc);
+public void RemoveLocator(string locId);
 ```
 #### Parameters
 
-<a name='HurPsyLib.Experiment.RemoveLocator(HurPsyLib.Locator).loc'></a>
+<a name='HurPsyLib.Experiment.RemoveLocator(string).locId'></a>
 
-`loc` [HurPsyLib.Locator](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Locator 'HurPsyLib.Locator')
+`locId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
-The `Locator` object which will be removed
+The id of the `Locator` object which will be removed
 
-<a name='HurPsyLib.Experiment.RemoveStimulus(HurPsyLib.Stimulus)'></a>
+<a name='HurPsyLib.Experiment.RemoveStimulus(string)'></a>
 
-## Experiment.RemoveStimulus(Stimulus) Method
+## Experiment.RemoveStimulus(string) Method
 
 The method which removes the `Stimulus` object with the given id from `stimulusDict` collection.
 
 ```csharp
-public void RemoveStimulus(HurPsyLib.Stimulus stim);
+public void RemoveStimulus(string stimId);
 ```
 #### Parameters
 
-<a name='HurPsyLib.Experiment.RemoveStimulus(HurPsyLib.Stimulus).stim'></a>
+<a name='HurPsyLib.Experiment.RemoveStimulus(string).stimId'></a>
 
-`stim` [HurPsyLib.Stimulus](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Stimulus 'HurPsyLib.Stimulus')
+`stimId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
-The `Stimulus` object which will be removed
+The id of the`Stimulus` object which will be removed
 
 <a name='HurPsyLib.Experiment.ReplaceLocatorId(string,string)'></a>
 

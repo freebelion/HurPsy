@@ -13,15 +13,52 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 Derived  
 &#8627; [BlockItemViewModel](HurPsyExp.ExpDesign.BlockItemViewModel.md 'HurPsyExp.ExpDesign.BlockItemViewModel')
+### Fields
 
-| Fields | |
-| :--- | :--- |
-| [toggleSelectCommand](HurPsyExp.ExpDesign.ItemViewModel.toggleSelectCommand.md 'HurPsyExp.ExpDesign.ItemViewModel.toggleSelectCommand') | The backing field for [ToggleSelectCommand](HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand.md 'HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand'). |
+<a name='HurPsyExp.ExpDesign.ItemViewModel.toggleSelectCommand'></a>
 
-| Properties | |
-| :--- | :--- |
-| [ToggleSelectCommand](HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand.md 'HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand') | Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.ItemViewModel.ToggleSelect](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.ItemViewModel.ToggleSelect 'HurPsyExp.ExpDesign.ItemViewModel.ToggleSelect'). |
+## ItemViewModel.toggleSelectCommand Field
 
-| Methods | |
-| :--- | :--- |
-| [OnTempIdChanged(string)](HurPsyExp.ExpDesign.ItemViewModel.OnTempIdChanged(string).md 'HurPsyExp.ExpDesign.ItemViewModel.OnTempIdChanged(string)') | Executes the logic for when [HurPsyExp.ExpDesign.ItemViewModel.TempId](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.ItemViewModel.TempId 'HurPsyExp.ExpDesign.ItemViewModel.TempId') just changed. |
+The backing field for [ToggleSelectCommand](HurPsyExp.ExpDesign.ItemViewModel.md#HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand 'HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand').
+
+```csharp
+private RelayCommand? toggleSelectCommand;
+```
+
+#### Field Value
+[CommunityToolkit.Mvvm.Input.RelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand 'CommunityToolkit.Mvvm.Input.RelayCommand')
+### Properties
+
+<a name='HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand'></a>
+
+## ItemViewModel.ToggleSelectCommand Property
+
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.ItemViewModel.ToggleSelect](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.ItemViewModel.ToggleSelect 'HurPsyExp.ExpDesign.ItemViewModel.ToggleSelect').
+
+```csharp
+public CommunityToolkit.Mvvm.Input.IRelayCommand ToggleSelectCommand { get; }
+```
+
+#### Property Value
+[CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand')
+### Methods
+
+<a name='HurPsyExp.ExpDesign.ItemViewModel.OnTempIdChanged(string)'></a>
+
+## ItemViewModel.OnTempIdChanged(string) Method
+
+Executes the logic for when [HurPsyExp.ExpDesign.ItemViewModel.TempId](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.ItemViewModel.TempId 'HurPsyExp.ExpDesign.ItemViewModel.TempId') just changed.
+
+```csharp
+private void OnTempIdChanged(string value);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.ItemViewModel.OnTempIdChanged(string).value'></a>
+
+`value` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The new property value that was set.
+
+### Remarks
+This method is invoked right after the value of [HurPsyExp.ExpDesign.ItemViewModel.TempId](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.ItemViewModel.TempId 'HurPsyExp.ExpDesign.ItemViewModel.TempId') is changed.

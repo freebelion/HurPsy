@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HurPsyExp</name>
+    </assembly>
+    <members>
+        <member name="T:HurPsyExp.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.App.Application_Startup(System.Object,System.Windows.StartupEventArgs)">
+            <summary>
+            The handler function for the application's Startup event.
+            At this stage, the application will let the user
+            to open up a window to design an experiment,
+            or open up another window to run an experiment.
+            This is an implementation based on a tutorial found at:
+            https://wpf-tutorial.com/wpf-application/working-with-app-xaml/
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HurPsyExp.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.AddTrialDialog">
+            <summary>
+            Interaction logic for AddTrialDialog.xaml
+            </summary>
+            <summary>
+            AddTrialDialog
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.AddTrialDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.BlockView">
+            <summary>
+            Interaction logic for BlockView.xaml
+            </summary>
+            <summary>
+            BlockView
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.BlockView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.DesignViewModel">
+            <summary>
+            This VM class will handle the exchange of data input on the experiment design interface
+            </summary>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.#ctor">
+            <summary>
+            This default constructor simply starts with empty lists of the inner viewmodel objects
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.Locvm_IdChanged(System.Object,HurPsyExp.ExpDesign.IdChangeEventArgs)">
+            <summary>
+            This specialized event handler intervenes
+            when the user attempts to change the TempId
+            of a LocatorVM object and passes the change
+            to the underlying Locator object
+            only after certain conditions are met.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.newExperimentCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.NewExperimentCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.NewExperimentCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.NewExperiment"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.loadExperimentCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.LoadExperimentCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.LoadExperimentCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.LoadExperiment"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.saveExperimentCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.SaveExperimentCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.SaveExperimentCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.SaveExperiment"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.selectImagesCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.SelectImagesCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.SelectImagesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.SelectImages"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.addHtmlStimulusCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.AddHtmlStimulusCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.AddHtmlStimulusCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.AddHtmlStimulus"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.addPointLocatorCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.AddPointLocatorCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.AddPointLocatorCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.AddPointLocator"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.deleteStimulusCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.DeleteStimulusCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.DeleteStimulusCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.DeleteStimulus"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.deleteLocatorCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.DeleteLocatorCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.DeleteLocatorCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.DeleteLocator"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.addBlockCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.AddBlockCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.AddBlockCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.AddBlock"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel.deleteBlockCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.DeleteBlockCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.DeleteBlockCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.DesignViewModel.DeleteBlock"/>.</summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.DesignWindow">
+            <summary>
+            Interaction logic for DesignWindow.xaml
+            </summary>
+            <summary>
+            DesignWindow
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.ElementsPanel">
+            <summary>
+            Interaction logic for ElementsPanel.xaml
+            </summary>
+            <summary>
+            ElementsPanel
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.ElementsPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.ExperimentPanel">
+            <summary>
+            Interaction logic for ExperimentPanel.xaml
+            </summary>
+            <summary>
+            ExperimentPanel
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.ExperimentPanel.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.ItemViewModel">
+            <summary>
+            This abstract class is the base of viewmodel classes
+            which simply wrap certain model objects.
+            It has the ability to toggle a boolean property Selected
+            and a TempId property to serve as a proxy
+            for the Id properties of Stimulus and Locator objects.
+            </summary>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.ItemViewModel.TempId">
+            <inheritdoc cref="F:HurPsyExp.ExpDesign.ItemViewModel.tempId"/>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.ItemViewModel.Selected">
+            <inheritdoc cref="F:HurPsyExp.ExpDesign.ItemViewModel.selected"/>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.ItemViewModel.Editable">
+            <inheritdoc cref="F:HurPsyExp.ExpDesign.ItemViewModel.editable"/>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.ItemViewModel.ItemObject">
+            <inheritdoc cref="F:HurPsyExp.ExpDesign.ItemViewModel.itemObject"/>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.ItemViewModel.OnTempIdChanged(System.String)">
+            <summary>Executes the logic for when <see cref="P:HurPsyExp.ExpDesign.ItemViewModel.TempId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:HurPsyExp.ExpDesign.ItemViewModel.TempId"/> is changed.</remarks>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.ItemViewModel.toggleSelectCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.ItemViewModel.ToggleSelectCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.ItemViewModel.ToggleSelect"/>.</summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.BlockItemViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.BlockItemViewModel.addingTrialCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.BlockItemViewModel.AddingTrialCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.BlockItemViewModel.AddingTrialCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.BlockItemViewModel.AddingTrial(System.Windows.Controls.Expander)"/>.</summary>
+        </member>
+        <member name="F:HurPsyExp.ExpDesign.BlockItemViewModel.addStepCommand">
+            <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.BlockItemViewModel.AddStepCommand"/>.</summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.BlockItemViewModel.AddStepCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:HurPsyExp.ExpDesign.BlockItemViewModel.AddStep"/>.</summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.IdSelection">
+            <inheritdoc/>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.IdSelection.Selected">
+            <inheritdoc cref="F:HurPsyExp.ExpDesign.IdSelection.selected"/>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.IdSelection.Id">
+            <inheritdoc cref="F:HurPsyExp.ExpDesign.IdSelection.id"/>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.TempStep">
+            <summary>
+            This class will serve as a boilerplate for one or more steps
+            that an experiment designer wants to add to a trial.
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.ExpDesign.TempTrial">
+            <summary>
+            This class will serve as a boilerplate for one or more trials
+            that an experiment designer wants to add to a block.
+            When the designer presses the "Add Trial(s)" button on AddTrialView,
+            trials with the steps formed by combinations of desired pairs
+            will be added to the active block.
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.ExpRun.StimulusViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:HurPsyExp.ExpRun.StimulusViewModel.Hidden">
+            <inheritdoc cref="F:HurPsyExp.ExpRun.StimulusViewModel.hidden"/>
+        </member>
+        <member name="T:HurPsyExp.ExpRun.RunWindow">
+            <summary>
+            Interaction logic for RunWindow.xaml
+            </summary>
+            <summary>
+            RunWindow
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.StartupDialog">
+            <summary>
+            Interaction logic for StartupDialog.xaml
+            </summary>
+            <summary>
+            StartupDialog
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.StartupDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TempId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TempId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Selected">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Selected" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Editable">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Editable" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ItemObject">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ItemObject" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Hidden">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Hidden" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TempId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TempId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Selected">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Selected" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Editable">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Editable" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ItemObject">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ItemObject" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Id">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Id" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Hidden">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Hidden" generated properties.</summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HurPsyExpStrings</name>
+    </assembly>
+    <members>
+        <member name="T:HurPsyExpStrings.StringResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Content_AddButton">
+            <summary>
+              Looks up a localized string similar to ADD.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Content_AddStep">
+            <summary>
+              Looks up a localized string similar to Add Step(s).
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Content_AddTrial">
+            <summary>
+              Looks up a localized string similar to Add Trial(s).
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Error_ImageCannotLoad">
+            <summary>
+              Looks up a localized string similar to Image could not be loaded: .
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Error_StimulusFileNotFound">
+            <summary>
+              Looks up a localized string similar to Stimulus file can not be found: .
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.FileFilter_Experiment">
+            <summary>
+              Looks up a localized string similar to HurPsy Experiment Files (*.xml) |*.xml.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.FileFilter_Html">
+            <summary>
+              Looks up a localized string similar to Html Files (*.htm;*.html)|*.html;*.html.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.FileFilter_Image">
+            <summary>
+              Looks up a localized string similar to Image Stimulus Files (*.png;*.jpg)|*.png;*.jpg.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_ElementsPanel">
+            <summary>
+              Looks up a localized string similar to Element Definitions.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_ExperimentMenu">
+            <summary>
+              Looks up a localized string similar to _Experiment.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_ExperimentPanel">
+            <summary>
+              Looks up a localized string similar to Experiment Blocks.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_LoadExperimentMenuItem">
+            <summary>
+              Looks up a localized string similar to _Load.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_LocatorPanel">
+            <summary>
+              Looks up a localized string similar to Locator Definitions.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_NewExperimentMenuItem">
+            <summary>
+              Looks up a localized string similar to _New.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_ResponsePanel">
+            <summary>
+              Looks up a localized string similar to Response Definitions.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_SaveExperimentMenuItem">
+            <summary>
+              Looks up a localized string similar to _Save.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Header_StimulusPanel">
+            <summary>
+              Looks up a localized string similar to Stimulus Definitions.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Label_IsFixed">
+            <summary>
+              Looks up a localized string similar to Trial is fixed.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Label_StepTime">
+            <summary>
+              Looks up a localized string similar to Step time (in ms).
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Title_AddTrialDialog">
+            <summary>
+              Looks up a localized string similar to Add Trial(s).
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Title_DesignWindow">
+            <summary>
+              Looks up a localized string similar to Experiment Design Window.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Title_RunWindow">
+            <summary>
+              Looks up a localized string similar to Experiment Run Window.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Title_StartupDialog">
+            <summary>
+              Looks up a localized string similar to Please select the session type.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_AddBlock">
+            <summary>
+              Looks up a localized string similar to Add New Block.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_AddHtmlStimulus">
+            <summary>
+              Looks up a localized string similar to Add Html Stimulus.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_AddImageStimulus">
+            <summary>
+              Looks up a localized string similar to Add Image Stimulus.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_AddKeyResponse">
+            <summary>
+              Looks up a localized string similar to Add key response.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_AddPointLocator">
+            <summary>
+              Looks up a localized string similar to Add Point Locator.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_AddTrial">
+            <summary>
+              Looks up a localized string similar to Add new trial.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_DeleteObject">
+            <summary>
+              Looks up a localized string similar to Delete selected items.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_EditObject">
+            <summary>
+              Looks up a localized string similar to Edit Object.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_ResizeSlider">
+            <summary>
+              Looks up a localized string similar to Change panel width.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_SelectObject">
+            <summary>
+              Looks up a localized string similar to Select object.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_StimulusId">
+            <summary>
+              Looks up a localized string similar to Stimulus Id.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_VisualStimulusHeight">
+            <summary>
+              Looks up a localized string similar to Stimulus Image Height.
+            </summary>
+        </member>
+        <member name="P:HurPsyExpStrings.StringResources.Tooltip_VisualStimulusWidth">
+            <summary>
+              Looks up a localized string similar to Stimulus Image Width.
+            </summary>
+        </member>
+    </members>
+</doc>

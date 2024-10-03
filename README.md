@@ -1,31 +1,59 @@
 # HurPsy
-I am working on these projects to create
-easy-to-use applications which will help
-design and run psychology experiments
-on computer screens.
+The projects in this group are intended to result in
+easy-to-use applications which will help design and run
+psychology experiments on computer screens.
 
-Its main focus is the **HurPsyLib** class library,
-which was intended to help the original developer
-in developing customized programs to run experiments
-planned by researchers of psychology.
+The projects are:
 
-I am currently working on **HurPsyExp**,
-a WPF-based desktop application
-which will help design and run experiments
-by utilizing the library classes.
-This step will help perfect the visual interface
++ **HurPsyLib** class library is a collection of classes
+which represent experiments and parts and objects
+that make up experiments.<br>
+They are utilized in the GUI-based experiment design
+applications found in this group,
+but they can also be incorporated into other design programs
+or visual applications specifically created for single experiments.
+
+
++ **HurPsyExp** is a WPF-based desktop application
+which will help design and run experiments by utilizing
+the **HurPsyLib** library classes.
+It is being developed to perfect the visual interface
 which will eventually be used in a cross-platform
 design application based on .NET Maui.
-This final step may be developed as a properietary
+This final step may have to be developed as a properietary
 application, because it will require developer
-licenses for multiple platforms.
+licenses for multiple platforms.<br>
+This project contains two inner namespaces:
 
-As soon as I make sufficient progress on the
-design application, I will start working
-on an application which will run experiments
-saved in XML files.
+  - **ExpDesign** namespace contains view and viewmodel
+  classes which are used in the interface
+  which will help design, save and load experiment.
+  - **ExpRun** namespace contains view and viewmodel
+  classes which are used in the interface
+  which will help run experiments saved in files.
 
-After sufficient progress has been made on the projects,
-each one will have their own README files which should help
-describe the projects to the developers from
-international community.
+  Both these namespaces make use of the Community Mvvm toolkit
+  to simplify writing the viewmodel classes.
+
++ **HurPsyLibStrings** is a separate project containing
+only a `.resx` resource file with message/error strings 
+used in **HurPsyLib** library classes.<br>
+It is created as a separate project to make localization easier
+for international developers.
+
++ **HurPsyExpStrings** is a separate project containing
+only a `.resx` resource file with message/error/label strings 
+used in views and viewmodel classes of the **HurPsyExp** project.<br>
+It is created as a separate project to make localization easier
+for international developers.
+
+All these projects' class definitions, their members, properties,
+functions and methods have been explained in their respective
+XML comments.<br>
+Those XML comments have then been converted into `.md` markdown files
+in **Documentation** folders of inidividual projects
+by the NuGet package **DefaultDocumentation**.
+
+Anyone interested in the current status and future directions
+of this group of projects, please write in the
+**Discussions** section of the Github repository.

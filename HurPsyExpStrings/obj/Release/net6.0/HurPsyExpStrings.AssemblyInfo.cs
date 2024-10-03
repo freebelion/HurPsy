@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HurPsyExpStrings")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b5af1ffa926a45ddca8281ae3eaf724983f0f0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f255deb84d56681f6d7d086f5bf301634ef8026")]
 [assembly: System.Reflection.AssemblyProductAttribute("HurPsyExpStrings")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HurPsyExpStrings")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

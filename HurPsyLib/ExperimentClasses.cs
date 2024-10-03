@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -129,6 +130,24 @@ namespace HurPsyLib
                 { pair.LocatorId = newId; }
             }
         }
+
+        /// <summary>
+        /// The method which removes pairs containing a deleted `Stimulus` id
+        /// </summary>
+        /// <param name="removedId">The id of the deleted `Stimulus` object</param>
+        public void RemoveStimulusId(string removedId)
+        {
+            StimulusLocators.RemoveAll(slpair => slpair.StimulusId == removedId);
+        }
+
+        /// <summary>
+        /// The method which removes pairs containing a deleted `Locator` id
+        /// </summary>
+        /// <param name="removedId">The id of the deleted `Locator` object</param>
+        public void RemoveLocatorId(string removedId)
+        {
+            StimulusLocators.RemoveAll(slpair => slpair.LocatorId == removedId);
+        }
     }
 
     /// <summary>
@@ -194,6 +213,30 @@ namespace HurPsyLib
             foreach (Step stp in Steps)
             {
                 stp.ChangeLocatorId(oldId, newId);
+            }
+        }
+
+        /// <summary>
+        /// The method which scans through the steps referring to a deleted `Stimulus` id
+        /// </summary>
+        /// <param name="removedId">The id of the deleted `Stimulus` object</param>
+        public void RemoveStimulusId(string removedId)
+        {
+            foreach (Step stp in Steps)
+            {
+                stp.RemoveStimulusId(removedId);
+            }
+        }
+
+        /// <summary>
+        /// The method which scans through the steps referring to a deleted `Locator` id
+        /// </summary>
+        /// <param name="removedId">The id of the deleted `Locator` object</param>
+        public void RemoveLocatorId(string removedId)
+        {
+            foreach (Step stp in Steps)
+            {
+                stp.RemoveLocatorId(removedId);
             }
         }
     }
@@ -301,6 +344,30 @@ namespace HurPsyLib
             foreach (Trial tr in Trials)
             {
                 tr.ChangeLocatorId(oldId, newId);
+            }
+        }
+
+        /// <summary>
+        /// The method which scans through the trials referring to a deleted `Stimulus` id
+        /// </summary>
+        /// <param name="removedId">The id of the deleted `Stimulus` object</param>
+        public void RemoveStimulusId(string removedId)
+        {
+            foreach (Trial tr in Trials)
+            {
+                tr.RemoveStimulusId(removedId);
+            }
+        }
+
+        /// <summary>
+        /// The method which scans through the trials referring to a deleted `Locator` id
+        /// </summary>
+        /// <param name="removedId">The id of the deleted `Locator` object</param>
+        public void RemoveLocatorId(string removedId)
+        {
+            foreach (Trial tr in Trials)
+            {
+                tr.RemoveLocatorId(removedId);
             }
         }
     }
