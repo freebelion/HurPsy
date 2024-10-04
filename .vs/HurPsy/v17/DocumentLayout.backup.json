@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{8002ED58-B334-4C44-9D7D-366C7DF85800}|HurPsyExp\\HurPsyExp.csproj|c:\\users\\freeb\\source\\repos\\hurpsy\\hurpsyexp\\expdesign\\designviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8002ED58-B334-4C44-9D7D-366C7DF85800}|HurPsyExp\\HurPsyExp.csproj|solutionrelative:hurpsyexp\\expdesign\\designviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,19 +30,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DesignViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExp\\ExpDesign\\DesignViewModel.cs",
-              "RelativeDocumentMoniker": "HurPsyExp\\ExpDesign\\DesignViewModel.cs",
-              "ToolTip": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExp\\ExpDesign\\DesignViewModel.cs*",
-              "RelativeToolTip": "HurPsyExp\\ExpDesign\\DesignViewModel.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T16:40:14.446Z",
-              "EditorCaption": ""
             }
           ]
         }
