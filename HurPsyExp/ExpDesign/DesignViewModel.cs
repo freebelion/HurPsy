@@ -15,12 +15,24 @@ namespace HurPsyExp.ExpDesign
     /// </summary>
     public partial class DesignViewModel : ObservableObject
     {
+        /// <summary>
+        /// The reference variable for the object representing the experiment's definition
+        /// </summary>
         private Experiment _experiment;
 
+        /// <summary>
+        /// Observable collection of the viewmodels which will help edit/display stimulus definitions
+        /// </summary>
         public ObservableCollection<StimulusItemViewModel> StimulusVMs { get; set; }
 
+        /// <summary>
+        /// Observable collection of the viewmodels which will help edit/display locator definitions
+        /// </summary>
         public ObservableCollection<LocatorItemViewModel> LocatorVMs { get; set; }
 
+        /// <summary>
+        /// Observable collection of the viewmodels which will help edit/display trial blocks
+        /// </summary>
         public ObservableCollection<BlockItemViewModel> BlockVMs { get; set; }
 
         /// <summary>
@@ -34,12 +46,18 @@ namespace HurPsyExp.ExpDesign
             BlockVMs = new ObservableCollection<BlockItemViewModel>();
         }
 
+        /// <summary>
+        /// This private method clears all lists of viewmodel objects before loading or starting a new experiment definition.
+        /// </summary>
         private void ClearVMs()
         {
             StimulusVMs.Clear();
             LocatorVMs.Clear();
         }
 
+        /// <summary>
+        /// The method which will create a new experiment definition when the associated command is executed
+        /// </summary>
         [RelayCommand]
         public void NewExperiment()
         {
@@ -47,6 +65,10 @@ namespace HurPsyExp.ExpDesign
             _experiment = new Experiment();
         }
 
+        /// <summary>
+        /// The method which will load an experiment definition from a file when the associated command is executed
+        /// (Choosing the definition file and loading of the experiment is left to `Utility.LoadExperiment()` method because it depends on the runtime environment)
+        /// </summary>
         [RelayCommand]
         public void LoadExperiment()
         {
@@ -85,12 +107,20 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// The method which will save an experiment definition to a file when the associated command is executed
+        /// (Creating the definition file and saving the experiment definition is left to `Utility.SaveExperiment()` method because it depends on the runtime environment)
+        /// </summary>
         [RelayCommand]
         public void SaveExperiment()
         {
             Utility.SaveExperiment(_experiment);
         }
 
+        /// <summary>
+        /// The method which will load image stimuli from files selected by the user when the associated command is executed.
+        /// (Choosing the image files is left to the `Utility.OpenFiles()` method, because it depends on the runtime environment)
+        /// </summary>
         [RelayCommand]
         public void SelectImages()
         {
@@ -105,23 +135,23 @@ namespace HurPsyExp.ExpDesign
                     if (basename != null) { imgstim.Id = basename; }
                     // save the file name
                     imgstim.FileName = strFile;
-                    /*
-                     * I have decided not to load the actual image into memory,
-                     * so I made use of the file size in bytes to guess the size,
-                     * assuming a square image, but that was rather stupid.
+                    // Load the image from the file (hopefully temporarily)
                     BitmapImage bmp = Utility.LoadImage(strFile);
-                    */
-                    FileInfo finfo = new FileInfo(strFile);
-                    double imgdim = Utility.GetMMValue(Math.Sqrt(finfo.Length));
-                    imgstim.VisualSize.Width = imgdim;
-                    imgstim.VisualSize.Height = imgdim;
-                    
+                    // Get its current size in millimeters (changes may be necessary if the unit preference is different)
+                    imgstim.VisualSize.Unit = HurPsyUnit.MM;
+                    imgstim.VisualSize.Width = Utility.ConvertFromDIU(bmp.Width, HurPsyUnit.MM);
+                    imgstim.VisualSize.Height = Utility.ConvertFromDIU(bmp.Height, HurPsyUnit.MM);
+                    // Add the stimulus definition to the experiment definition and create and add an associated viewmodel object
                     _experiment.AddStimulus(imgstim);
                     AddStimulusVM(imgstim);
                 }
             }
         }
 
+        /// <summary>
+        /// The method which will load and HTML stimulus from a file selected by the user when the associated command is executed.
+        /// (Choosing the file is left to the `Utility.OpenFiles()` method, because it depends on the runtime environment)
+        /// </summary>
         [RelayCommand]
         public void AddHtmlStimulus()
         {
@@ -140,6 +170,10 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// Create and add a viewmodel object associated with a `Stimulus` object
+        /// </summary>
+        /// <param name="stim"></param>
         private void AddStimulusVM(Stimulus stim)
         {
             StimulusItemViewModel stimvm = new StimulusItemViewModel(stim);
@@ -151,6 +185,11 @@ namespace HurPsyExp.ExpDesign
             BlockItemViewModel.AddStimulusId(stim.Id);
         }
 
+        /// <summary>
+        /// This method will handle the `IdChanged` events for `StimulusVM` objects
+        /// </summary>
+        /// <param name="sender">The object reporting the id change</param>
+        /// <param name="e">Additional event info</param>
         private void Stimvm_IdChanged(object? sender, IdChangeEventArgs e)
         {
             StimulusItemViewModel? stimvm = sender as StimulusItemViewModel;
@@ -176,7 +215,7 @@ namespace HurPsyExp.ExpDesign
                     }
                     else
                     {
-                        // If the new id is not acceptible, StimulusViewModel object
+                        // If the new id is not acceptable, StimulusViewModel object
                         // here reverts to the old id, but this results in
                         // this event handler being called once again.
                         // TODO: Find a way to revert the change without invoking this same method.
@@ -186,6 +225,9 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// This method will create and add a `PointLocator` object to the experiment definition
+        /// </summary>
         [RelayCommand]
         public void AddPointLocator()
         {
@@ -195,6 +237,10 @@ namespace HurPsyExp.ExpDesign
             AddLocatorVM(ploc);
         }
 
+        /// <summary>
+        /// This method will create and add a viewmodel object associated with a `Locator` object
+        /// </summary>
+        /// <param name="loc"></param>
         private void AddLocatorVM(Locator loc)
         {
             LocatorItemViewModel locvm = new LocatorItemViewModel(loc);
@@ -207,14 +253,10 @@ namespace HurPsyExp.ExpDesign
         }
 
         /// <summary>
-        /// This specialized event handler intervenes
-        /// when the user attempts to change the TempId
-        /// of a LocatorVM object and passes the change
-        /// to the underlying Locator object
-        /// only after certain conditions are met.
+        /// This method will handle the `IdChanged` events for `LocatorVM` objects
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The object reporting the id change</param>
+        /// <param name="e">Additional event info</param>
         private void Locvm_IdChanged(object? sender, IdChangeEventArgs e)
         {
             LocatorItemViewModel? locvm = sender as LocatorItemViewModel;
@@ -249,7 +291,9 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
-
+        /// <summary>
+        /// This method which delete the `Stimulus` objects selected on the experiment design interface when the associated command is executed.
+        /// </summary>
         [RelayCommand]
         private void DeleteStimulus()
         {
@@ -271,13 +315,16 @@ namespace HurPsyExp.ExpDesign
                 }              
             }
 
-            // Then remove the selected StimulusVm objects
+            // Then remove the selected StimulusVM objects
             foreach (StimulusItemViewModel stimvm in deleteList)
             {
                 StimulusVMs.Remove(stimvm);
             }
         }
 
+        /// <summary>
+        /// This method which delete the `Locator` objects selected on the experiment design interface when the associated command is executed.
+        /// </summary>
         [RelayCommand]
         private void DeleteLocator()
         {
@@ -298,13 +345,16 @@ namespace HurPsyExp.ExpDesign
                 }
             }
 
-            // Then remove the selected LocatorVm objects
+            // Then remove the selected LocatorVM objects
             foreach (LocatorItemViewModel locvm in deleteList)
             {
                 LocatorVMs.Remove(locvm);
             }
         }
 
+        /// <summary>
+        /// This method will create and add a block of trials to the experiment definition when the associated command is executed.
+        /// </summary>
         [RelayCommand]
         public void AddBlock()
         {
@@ -313,6 +363,9 @@ namespace HurPsyExp.ExpDesign
             BlockVMs.Add(blockvm);
         }
 
+        /// <summary>
+        /// This method will deleted a block of trials selected on the experiment design interface when the associated command is executed.
+        /// </summary>
         [RelayCommand]
         public void DeleteBlock()
         {
@@ -332,7 +385,7 @@ namespace HurPsyExp.ExpDesign
                 }
             }
 
-            // Then remove the selected LocatorVm objects
+            // Then remove the selected BlockVM objects
             foreach (BlockItemViewModel blckvm in deleteList)
             {
                 BlockVMs.Remove(blckvm);

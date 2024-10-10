@@ -75,21 +75,115 @@
             <inheritdoc/>
             <inheritdoc/>
         </member>
+        <member name="F:HurPsyExp.ExpDesign.DesignViewModel._experiment">
+            <summary>
+            The reference variable for the object representing the experiment's definition
+            </summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.StimulusVMs">
+            <summary>
+            Observable collection of the viewmodels which will help edit/display stimulus definitions
+            </summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.LocatorVMs">
+            <summary>
+            Observable collection of the viewmodels which will help edit/display locator definitions
+            </summary>
+        </member>
+        <member name="P:HurPsyExp.ExpDesign.DesignViewModel.BlockVMs">
+            <summary>
+            Observable collection of the viewmodels which will help edit/display trial blocks
+            </summary>
+        </member>
         <member name="M:HurPsyExp.ExpDesign.DesignViewModel.#ctor">
             <summary>
             This default constructor simply starts with empty lists of the inner viewmodel objects
             </summary>
         </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.ClearVMs">
+            <summary>
+            This private method clears all lists of viewmodel objects before loading or starting a new experiment definition.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.NewExperiment">
+            <summary>
+            The method which will create a new experiment definition when the associated command is executed
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.LoadExperiment">
+            <summary>
+            The method which will load an experiment definition from a file when the associated command is executed
+            (Choosing the definition file and loading of the experiment is left to `Utility.LoadExperiment()` method because it depends on the runtime environment)
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.SaveExperiment">
+            <summary>
+            The method which will save an experiment definition to a file when the associated command is executed
+            (Creating the definition file and saving the experiment definition is left to `Utility.SaveExperiment()` method because it depends on the runtime environment)
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.SelectImages">
+            <summary>
+            The method which will load image stimuli from files selected by the user when the associated command is executed.
+            (Choosing the image files is left to the `Utility.OpenFiles()` method, because it depends on the runtime environment)
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.AddHtmlStimulus">
+            <summary>
+            The method which will load and HTML stimulus from a file selected by the user when the associated command is executed.
+            (Choosing the file is left to the `Utility.OpenFiles()` method, because it depends on the runtime environment)
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.AddStimulusVM(HurPsyLib.Stimulus)">
+            <summary>
+            Create and add a viewmodel object associated with a `Stimulus` object
+            </summary>
+            <param name="stim"></param>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.Stimvm_IdChanged(System.Object,HurPsyExp.ExpDesign.IdChangeEventArgs)">
+            <summary>
+            This method will handle the `IdChanged` events for `StimulusVM` objects
+            </summary>
+            <param name="sender">The object reporting the id change</param>
+            <param name="e">Additional event info</param>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.AddPointLocator">
+            <summary>
+            This method will create and add a `PointLocator` object to the experiment definition
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.AddLocatorVM(HurPsyLib.Locator)">
+            <summary>
+            This method will create and add a viewmodel object associated with a `Locator` object
+            </summary>
+            <param name="loc"></param>
+        </member>
         <member name="M:HurPsyExp.ExpDesign.DesignViewModel.Locvm_IdChanged(System.Object,HurPsyExp.ExpDesign.IdChangeEventArgs)">
             <summary>
-            This specialized event handler intervenes
-            when the user attempts to change the TempId
-            of a LocatorVM object and passes the change
-            to the underlying Locator object
-            only after certain conditions are met.
+            This method will handle the `IdChanged` events for `LocatorVM` objects
             </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
+            <param name="sender">The object reporting the id change</param>
+            <param name="e">Additional event info</param>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.DeleteStimulus">
+            <summary>
+            This method which delete the `Stimulus` objects selected on the experiment design interface when the associated command is executed.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.DeleteLocator">
+            <summary>
+            This method which delete the `Locator` objects selected on the experiment design interface when the associated command is executed.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.AddBlock">
+            <summary>
+            This method will create and add a block of trials to the experiment definition when the associated command is executed.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.DeleteBlock">
+            <summary>
+            This method will deleted a block of trials selected on the experiment design interface when the associated command is executed.
+            </summary>
         </member>
         <member name="F:HurPsyExp.ExpDesign.DesignViewModel.newExperimentCommand">
             <summary>The backing field for <see cref="P:HurPsyExp.ExpDesign.DesignViewModel.NewExperimentCommand"/>.</summary>
@@ -294,6 +388,11 @@
         <member name="M:HurPsyExp.StartupDialog.InitializeComponent">
             <summary>
             InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HurPsyExp.Utility">
+            <summary>
+            This static class will handle mundane operations like opening and saving files, etc. which fall outside the jurisdiction of the design app.
             </summary>
         </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
