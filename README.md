@@ -51,8 +51,8 @@ All these projects' class definitions, their members, properties,
 functions and methods have been explained in their respective
 XML comments.<br>
 Those XML comments have then been converted into `.md` markdown files
-in **Documentation** folders of inidividual projects
-by the NuGet package **DefaultDocumentation**.
+in **Documentation** folders of individual projects
+by the NuGet package [**DefaultDocumentation**](https://www.nuget.org/packages/DefaultDocumentation/).
 
 Anyone interested in the current status and future directions
 of this group of projects, please write in the
