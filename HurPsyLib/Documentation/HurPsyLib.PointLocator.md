@@ -59,23 +59,23 @@ public HurPsyLib.HurPsyPoint LocatorPoint { get; set; }
 [HurPsyPoint](HurPsyLib.HurPsyPoint.md 'HurPsyLib.HurPsyPoint')
 ### Methods
 
-<a name='HurPsyLib.PointLocator.GetLocation(HurPsyLib.IVisualStimulus)'></a>
+<a name='HurPsyLib.PointLocator.GetLocation(HurPsyLib.VisualStimulus)'></a>
 
-## PointLocator.GetLocation(IVisualStimulus) Method
+## PointLocator.GetLocation(VisualStimulus) Method
 
 The required implementation of the function inherited from the abstracxt base class simply specific the inner location point as the stimulus location
 
 ```csharp
-public override HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.IVisualStimulus? vistim=null);
+public override HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.VisualStimulus? vistim=null);
 ```
 #### Parameters
 
-<a name='HurPsyLib.PointLocator.GetLocation(HurPsyLib.IVisualStimulus).vistim'></a>
+<a name='HurPsyLib.PointLocator.GetLocation(HurPsyLib.VisualStimulus).vistim'></a>
 
-`vistim` [IVisualStimulus](HurPsyLib.IVisualStimulus.md 'HurPsyLib.IVisualStimulus')
+`vistim` [VisualStimulus](HurPsyLib.VisualStimulus.md 'HurPsyLib.VisualStimulus')
 
 The visual stimulus which will be positioned by this locator instance
 
 #### Returns
 [HurPsyPoint](HurPsyLib.HurPsyPoint.md 'HurPsyLib.HurPsyPoint')  
-The inner location point, which is actually a temporary copy, so that subsequent operations will not modify `LocatorPoint`
+A tempotrary copy of the inner location point, so that subsequent operations will not modify `LocatorPoint`

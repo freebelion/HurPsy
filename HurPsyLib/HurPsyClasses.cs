@@ -5,17 +5,6 @@ using System.Runtime.Serialization;
 namespace HurPsyLib
 {
     /// <summary>
-    /// A common interface which must be implemented by all classes which will represent visual stimuli
-    /// </summary>
-    public interface IVisualStimulus
-    {
-        /// <summary>
-        /// Any object representing a visual stimulus must have a property to get/set the stimulus size
-        /// </summary>
-        HurPsySize VisualSize { get; set; }
-    }
-
-    /// <summary>
     /// This enum contains the allowed unit choices which will be used with  stimulus locations and sizes
     /// </summary>
     [DataContract]

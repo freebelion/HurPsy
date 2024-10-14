@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 namespace HurPsyExp.ExpDesign
 {
     /// <summary>
-    /// Interaction logic for DesignWindow.xaml
+    /// This class definition describes the interaction logic for `DesignWindow.xaml`,
+    /// which is currently no behavior, because all user interactions are handled by commands forwarded to the associated viewmodel.
     /// </summary>
     public partial class DesignWindow : Window
     {

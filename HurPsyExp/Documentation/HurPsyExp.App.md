@@ -17,9 +17,8 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 ## App.Application_Startup(object, StartupEventArgs) Method
 
 The handler function for the application's Startup event.  
-At this stage, the application will let the user  
-to open up a window to design an experiment,  
-or open up another window to run an experiment.  
+At this stage, the application will let the user choose whether to design an experiment, or run an experiment.  
+Depending on the user choice, an instance of `ExpDesign.DesignWindow` or `ExpRun.RunWindow` will be opened.  
 This is an implementation based on a tutorial found at:  
 https://wpf-tutorial.com/wpf-application/working-with-app-xaml/
 

@@ -365,7 +365,7 @@ namespace HurPsyExp
             return double.NaN;
         }
 
-        public static Point GetDIULocation(IVisualStimulus vistim, Locator loc)
+        public static Point GetDIULocation(VisualStimulus vistim, Locator loc)
         {
             Point pnt = new Point();
             // Ask the Locator to produce a position in millimeters
@@ -377,18 +377,18 @@ namespace HurPsyExp
             psypnt.Y += vistim.VisualSize.Height / 2;
 
             // then convert the values to DIU
-            pnt.X = GetDIUValue(psypnt.X);
+            pnt.X = ConvertToDIU(psypnt.X, psypnt.Unit);
             // We need to flip the sign for Y due to windows coordinate system.
-            pnt.Y = -GetDIUValue(psypnt.Y);
+            pnt.Y = -ConvertToDIU(psypnt.Y, psypnt.Unit);
 
             return pnt;
         }
 
-        public static Size GetDIUSize(IVisualStimulus vistim)
+        public static Size GetDIUSize(VisualStimulus vistim)
         {
             Size sz = new Size();
-            sz.Width = GetDIUValue(vistim.VisualSize.Width);
-            sz.Height = GetDIUValue(vistim.VisualSize.Height);
+            sz.Width = ConvertToDIU(vistim.VisualSize.Width, vistim.VisualSize.Unit);
+            sz.Height = ConvertToDIU(vistim.VisualSize.Height, vistim.VisualSize.Unit);
             return sz;
         }
     }   

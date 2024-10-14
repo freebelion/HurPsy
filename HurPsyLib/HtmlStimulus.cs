@@ -9,16 +9,10 @@ namespace HurPsyLib
 {
     /// <summary>
     /// This class in intended to represents a viewbox displaying the contents of an HTML file.
-    /// It implements the IVisualStimulus interface because the stimulus will appear as a visual box displaying some information or instructions.
+    /// It implements the VisualStimulus interface because the stimulus will appear as a visual box displaying some information or instructions.
     /// </summary>
-    public class HtmlStimulus : Stimulus, IVisualStimulus
+    public class HtmlStimulus : VisualStimulus
     {
-        /// <summary>
-        /// The required IVisualStimulus property to get/set the display box size
-        /// </summary>
-        [DataMember]
-        public HurPsySize VisualSize { get; set; }
-
         /// <summary>
         /// This default constructor starts with a size which will be valid in case an experiment designer has not set any size.
         /// </summary>

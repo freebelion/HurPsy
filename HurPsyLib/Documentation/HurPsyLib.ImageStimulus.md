@@ -2,16 +2,13 @@
 
 ## ImageStimulus Class
 
-This class is intended to represent an image served as a visual stimulus (hence it implements the IVisualStimulus interface)
+This class is intended to represent an image served as a visual stimulus (hence it implements the VisualStimulus interface)
 
 ```csharp
-public class ImageStimulus : HurPsyLib.Stimulus,
-HurPsyLib.IVisualStimulus
+public class ImageStimulus : HurPsyLib.VisualStimulus
 ```
 
-Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus') &#129106; ImageStimulus
-
-Implements [IVisualStimulus](HurPsyLib.IVisualStimulus.md 'HurPsyLib.IVisualStimulus')
+Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus') &#129106; [VisualStimulus](HurPsyLib.VisualStimulus.md 'HurPsyLib.VisualStimulus') &#129106; ImageStimulus
 ### Constructors
 
 <a name='HurPsyLib.ImageStimulus.ImageStimulus()'></a>
@@ -23,19 +20,3 @@ This default constructor starts with an image size of 10 mm by 10 mm (didn't wan
 ```csharp
 public ImageStimulus();
 ```
-### Properties
-
-<a name='HurPsyLib.ImageStimulus.VisualSize'></a>
-
-## ImageStimulus.VisualSize Property
-
-The property required by the IVisualStimulus interface to get/set the image size
-
-```csharp
-public HurPsyLib.HurPsySize VisualSize { get; set; }
-```
-
-Implements [VisualSize](HurPsyLib.IVisualStimulus.md#HurPsyLib.IVisualStimulus.VisualSize 'HurPsyLib.IVisualStimulus.VisualSize')
-
-#### Property Value
-[HurPsySize](HurPsyLib.HurPsySize.md 'HurPsyLib.HurPsySize')

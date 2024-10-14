@@ -50,20 +50,20 @@ public HurPsyLib.HurPsySize RectangleSize { get; set; }
 [HurPsySize](HurPsyLib.HurPsySize.md 'HurPsyLib.HurPsySize')
 ### Methods
 
-<a name='HurPsyLib.RectangleLocator.GetLocation(HurPsyLib.IVisualStimulus)'></a>
+<a name='HurPsyLib.RectangleLocator.GetLocation(HurPsyLib.VisualStimulus)'></a>
 
-## RectangleLocator.GetLocation(IVisualStimulus) Method
+## RectangleLocator.GetLocation(VisualStimulus) Method
 
 The required implementation of the function inherited from the abstract base class will specify a randomized position within the underlying rectangle
 
 ```csharp
-public override HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.IVisualStimulus? vistim=null);
+public override HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.VisualStimulus? vistim=null);
 ```
 #### Parameters
 
-<a name='HurPsyLib.RectangleLocator.GetLocation(HurPsyLib.IVisualStimulus).vistim'></a>
+<a name='HurPsyLib.RectangleLocator.GetLocation(HurPsyLib.VisualStimulus).vistim'></a>
 
-`vistim` [IVisualStimulus](HurPsyLib.IVisualStimulus.md 'HurPsyLib.IVisualStimulus')
+`vistim` [VisualStimulus](HurPsyLib.VisualStimulus.md 'HurPsyLib.VisualStimulus')
 
 The visual stimulus which will be positioned by this locator instance
 

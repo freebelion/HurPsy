@@ -16,7 +16,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 ## DesignViewModel() Constructor
 
-This default constructor simply starts with empty lists of the inner viewmodel objects
+This default constructor starts with empty lists of the inner viewmodel objects
 
 ```csharp
 public DesignViewModel();
@@ -449,24 +449,24 @@ The method which will load an experiment definition from a file when the associa
 public void LoadExperiment();
 ```
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.Locvm_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs)'></a>
+<a name='HurPsyExp.ExpDesign.DesignViewModel.LocVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs)'></a>
 
-## DesignViewModel.Locvm_IdChanged(object, IdChangeEventArgs) Method
+## DesignViewModel.LocVM_IdChanged(object, IdChangeEventArgs) Method
 
 This method will handle the `IdChanged` events for `LocatorVM` objects
 
 ```csharp
-private void Locvm_IdChanged(object? sender, HurPsyExp.ExpDesign.IdChangeEventArgs e);
+private void LocVM_IdChanged(object? sender, HurPsyExp.ExpDesign.IdChangeEventArgs e);
 ```
 #### Parameters
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.Locvm_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).sender'></a>
+<a name='HurPsyExp.ExpDesign.DesignViewModel.LocVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).sender'></a>
 
 `sender` [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
 
 The object reporting the id change
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.Locvm_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).e'></a>
+<a name='HurPsyExp.ExpDesign.DesignViewModel.LocVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).e'></a>
 
 `e` [HurPsyExp.ExpDesign.IdChangeEventArgs](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.IdChangeEventArgs 'HurPsyExp.ExpDesign.IdChangeEventArgs')
 
@@ -504,24 +504,24 @@ The method which will load image stimuli from files selected by the user when th
 public void SelectImages();
 ```
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.Stimvm_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs)'></a>
+<a name='HurPsyExp.ExpDesign.DesignViewModel.StimVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs)'></a>
 
-## DesignViewModel.Stimvm_IdChanged(object, IdChangeEventArgs) Method
+## DesignViewModel.StimVM_IdChanged(object, IdChangeEventArgs) Method
 
 This method will handle the `IdChanged` events for `StimulusVM` objects
 
 ```csharp
-private void Stimvm_IdChanged(object? sender, HurPsyExp.ExpDesign.IdChangeEventArgs e);
+private void StimVM_IdChanged(object? sender, HurPsyExp.ExpDesign.IdChangeEventArgs e);
 ```
 #### Parameters
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.Stimvm_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).sender'></a>
+<a name='HurPsyExp.ExpDesign.DesignViewModel.StimVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).sender'></a>
 
 `sender` [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
 
 The object reporting the id change
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.Stimvm_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).e'></a>
+<a name='HurPsyExp.ExpDesign.DesignViewModel.StimVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).e'></a>
 
 `e` [HurPsyExp.ExpDesign.IdChangeEventArgs](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.IdChangeEventArgs 'HurPsyExp.ExpDesign.IdChangeEventArgs')
 

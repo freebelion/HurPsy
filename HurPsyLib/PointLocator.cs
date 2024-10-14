@@ -41,8 +41,8 @@ namespace HurPsyLib
         /// The required implementation of the function inherited from the abstracxt base class simply specific the inner location point as the stimulus location
         /// </summary>
         /// <param name="vistim">The visual stimulus which will be positioned by this locator instance</param>
-        /// <returns>The inner location point, which is actually a temporary copy, so that subsequent operations will not modify `LocatorPoint`</returns>
-        public override HurPsyPoint GetLocation(IVisualStimulus? vistim = null)
+        /// <returns>A tempotrary copy of the inner location point, so that subsequent operations will not modify `LocatorPoint`</returns>
+        public override HurPsyPoint GetLocation(VisualStimulus? vistim = null)
         {
             return LocatorPoint.ShallowCopy();
         }

@@ -68,12 +68,12 @@ namespace HurPsyExp.ExpRun
             {
                 Stimulus stim = GetStimulus(stp.StimulusLocators[i].StimulusId);
                 
-                if (stim is not IVisualStimulus) continue;
+                if (stim is not VisualStimulus) continue;
 
                 Locator loc = GetLocator(stp.StimulusLocators[i].LocatorId); ;
-                Point pnt = Utility.GetDIULocation((IVisualStimulus)stim, loc);
+                Point pnt = Utility.GetDIULocation((VisualStimulus)stim, loc);
                 StimulusViewModel stimvm = new StimulusViewModel(stim, pnt);
-                stimvm.StimulusSize = Utility.GetDIUSize((IVisualStimulus)stim);
+                stimvm.StimulusSize = Utility.GetDIUSize((VisualStimulus)stim);
 
                 StimulusVMs.Add(stimvm);
                 StepTime = stp.StepTime.Span;

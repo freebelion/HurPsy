@@ -365,27 +365,12 @@
         <member name="T:HurPsyLib.HtmlStimulus">
             <summary>
             This class in intended to represents a viewbox displaying the contents of an HTML file.
-            It implements the IVisualStimulus interface because the stimulus will appear as a visual box displaying some information or instructions.
-            </summary>
-        </member>
-        <member name="P:HurPsyLib.HtmlStimulus.VisualSize">
-            <summary>
-            The required IVisualStimulus property to get/set the display box size
+            It implements the VisualStimulus interface because the stimulus will appear as a visual box displaying some information or instructions.
             </summary>
         </member>
         <member name="M:HurPsyLib.HtmlStimulus.#ctor">
             <summary>
             This default constructor starts with a size which will be valid in case an experiment designer has not set any size.
-            </summary>
-        </member>
-        <member name="T:HurPsyLib.IVisualStimulus">
-            <summary>
-            A common interface which must be implemented by all classes which will represent visual stimuli
-            </summary>
-        </member>
-        <member name="P:HurPsyLib.IVisualStimulus.VisualSize">
-            <summary>
-            Any object representing a visual stimulus must have a property to get/set the stimulus size
             </summary>
         </member>
         <member name="T:HurPsyLib.HurPsyUnit">
@@ -550,12 +535,7 @@
         </member>
         <member name="T:HurPsyLib.ImageStimulus">
             <summary>
-            This class is intended to represent an image served as a visual stimulus (hence it implements the IVisualStimulus interface)
-            </summary>
-        </member>
-        <member name="P:HurPsyLib.ImageStimulus.VisualSize">
-            <summary>
-            The property required by the IVisualStimulus interface to get/set the image size
+            This class is intended to represent an image served as a visual stimulus (hence it implements the VisualStimulus interface)
             </summary>
         </member>
         <member name="M:HurPsyLib.ImageStimulus.#ctor">
@@ -578,7 +558,7 @@
             This default constructor will assign a temporary unique id to every instance, one based on its type
             </summary>
         </member>
-        <member name="M:HurPsyLib.Locator.GetLocation(HurPsyLib.IVisualStimulus)">
+        <member name="M:HurPsyLib.Locator.GetLocation(HurPsyLib.VisualStimulus)">
             <summary>
             Derived classes will have to implement this function to specify a location for a visual stimulus
             </summary>
@@ -607,12 +587,12 @@
             <param name="locX">The horizontal position of the location point</param>
             <param name="locY">The vertical position of the location point</param>
         </member>
-        <member name="M:HurPsyLib.PointLocator.GetLocation(HurPsyLib.IVisualStimulus)">
+        <member name="M:HurPsyLib.PointLocator.GetLocation(HurPsyLib.VisualStimulus)">
             <summary>
             The required implementation of the function inherited from the abstracxt base class simply specific the inner location point as the stimulus location
             </summary>
             <param name="vistim">The visual stimulus which will be positioned by this locator instance</param>
-            <returns>The inner location point, which is actually a temporary copy, so that subsequent operations will not modify `LocatorPoint`</returns>
+            <returns>A tempotrary copy of the inner location point, so that subsequent operations will not modify `LocatorPoint`</returns>
         </member>
         <member name="T:HurPsyLib.RectangleLocator">
             <summary>
@@ -635,7 +615,7 @@
             This default constructor creates a zero-size rectangle at the origin point
             </summary>
         </member>
-        <member name="M:HurPsyLib.RectangleLocator.GetLocation(HurPsyLib.IVisualStimulus)">
+        <member name="M:HurPsyLib.RectangleLocator.GetLocation(HurPsyLib.VisualStimulus)">
             <summary>
             The required implementation of the function inherited from the abstract base class will specify a randomized position within the underlying rectangle
             </summary>
@@ -660,6 +640,29 @@
         <member name="M:HurPsyLib.Stimulus.#ctor">
             <summary>
             Every instance of any class representing an experimental stimulus will start with a temporary unique id and an empty filename
+            </summary>
+        </member>
+        <member name="T:HurPsyLib.VisualStimulus">
+            <summary>
+            This abstract class will be the basis for all classes which will represent visual stimuli.
+            (It was first designed to be an interface, but that required all derived classes to keep their size and anchor information separately, so I turned it to an abstract class)
+            </summary>
+        </member>
+        <member name="P:HurPsyLib.VisualStimulus.VisualSize">
+            <summary>
+            Any object representing a visual stimulus must have a property to get/set the stimulus size
+            (which has a unit of millimeters, by default)
+            </summary>
+        </member>
+        <member name="P:HurPsyLib.VisualStimulus.AnchorChoice">
+            <summary>
+            Any object representing a visual stimulus must have a property to get/set its preferred anchor point
+            (which is the middle center of the strimulus object, by default)
+            </summary>
+        </member>
+        <member name="M:HurPsyLib.VisualStimulus.#ctor">
+            <summary>
+            This default constructor starts with an empty (zero) size
             </summary>
         </member>
     </members>

@@ -40,20 +40,20 @@ public string Id { get; set; }
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 ### Methods
 
-<a name='HurPsyLib.Locator.GetLocation(HurPsyLib.IVisualStimulus)'></a>
+<a name='HurPsyLib.Locator.GetLocation(HurPsyLib.VisualStimulus)'></a>
 
-## Locator.GetLocation(IVisualStimulus) Method
+## Locator.GetLocation(VisualStimulus) Method
 
 Derived classes will have to implement this function to specify a location for a visual stimulus
 
 ```csharp
-public abstract HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.IVisualStimulus? vistim=null);
+public abstract HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.VisualStimulus? vistim=null);
 ```
 #### Parameters
 
-<a name='HurPsyLib.Locator.GetLocation(HurPsyLib.IVisualStimulus).vistim'></a>
+<a name='HurPsyLib.Locator.GetLocation(HurPsyLib.VisualStimulus).vistim'></a>
 
-`vistim` [IVisualStimulus](HurPsyLib.IVisualStimulus.md 'HurPsyLib.IVisualStimulus')
+`vistim` [VisualStimulus](HurPsyLib.VisualStimulus.md 'HurPsyLib.VisualStimulus')
 
 The visual stimulus which will be positioned according to the outcome
 

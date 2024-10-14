@@ -11,8 +11,7 @@ public abstract class Stimulus
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; Stimulus
 
 Derived  
-&#8627; [HtmlStimulus](HurPsyLib.HtmlStimulus.md 'HurPsyLib.HtmlStimulus')  
-&#8627; [ImageStimulus](HurPsyLib.ImageStimulus.md 'HurPsyLib.ImageStimulus')
+&#8627; [VisualStimulus](HurPsyLib.VisualStimulus.md 'HurPsyLib.VisualStimulus')
 ### Constructors
 
 <a name='HurPsyLib.Stimulus.Stimulus()'></a>

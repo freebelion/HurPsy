@@ -40,7 +40,7 @@ namespace HurPsyLib
         /// </summary>
         /// <param name="vistim">The visual stimulus which will be positioned by this locator instance</param>
         /// <returns>A randomized location within the underlying rectangle (with the guarantee that the visual stoimulus will not extend beyond that rectangle)</returns>
-        public override HurPsyPoint GetLocation(IVisualStimulus? vistim = null)
+        public override HurPsyPoint GetLocation(VisualStimulus? vistim = null)
         {
             double width = RectangleSize.Width;
             double height = RectangleSize.Height;
@@ -48,20 +48,27 @@ namespace HurPsyLib
             double toplefty = RectangleLocation.Y;
             
             HurPsySize stimSize = new HurPsySize();
+            HurPsyPoint loc = new HurPsyPoint();
 
             if (vistim != null)
-            { stimSize = vistim.VisualSize; }
+            {
+                stimSize = vistim.VisualSize;
 
-            // The following calculations may have to be modified if the origin choices or anchor points are different for the locator and the runtime screen
-            topleftx += stimSize.Width / 2;
-            toplefty += stimSize.Height / 2;
-            width -= stimSize.Width;
-            height -= stimSize.Height;
+                // The following calculations may have to be modified if the origin choices or anchor points are different for the locator and the runtime screen
+                switch(vistim.AnchorChoice)
+                {
+                    case HurPsyOrigin.MiddleCenter:
+                        topleftx += stimSize.Width / 2;
+                        toplefty += stimSize.Height / 2;
+                        width -= stimSize.Width;
+                        height -= stimSize.Height;
+                        break;
+                }
+                
+                loc.X = topleftx + width * HurPsyCommon.Rnd.NextDouble();
+                loc.Y = toplefty + height * HurPsyCommon.Rnd.NextDouble();
+            }
 
-            double x = topleftx + width * HurPsyCommon.Rnd.NextDouble();
-            double y = toplefty + height * HurPsyCommon.Rnd.NextDouble();
-
-            HurPsyPoint loc = new HurPsyPoint(x, y);
             return loc;
         }
     }

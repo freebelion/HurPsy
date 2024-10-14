@@ -36,7 +36,7 @@ namespace HurPsyExp.ExpDesign
         public ObservableCollection<BlockItemViewModel> BlockVMs { get; set; }
 
         /// <summary>
-        /// This default constructor simply starts with empty lists of the inner viewmodel objects
+        /// This default constructor starts with empty lists of the inner viewmodel objects
         /// </summary>
         public DesignViewModel()
         {
@@ -178,7 +178,7 @@ namespace HurPsyExp.ExpDesign
         {
             StimulusItemViewModel stimvm = new StimulusItemViewModel(stim);
             // TODO: Add an event handler that will respond to IdChanged event of stimvm
-            stimvm.IdChanged += Stimvm_IdChanged;
+            stimvm.IdChanged += StimVM_IdChanged;
             StimulusVMs.Add(stimvm);
             // Add the Id to the list of Ids shared by BlockViewModel objects,
             // so that they can be displayed in AddTrialView
@@ -190,7 +190,7 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         /// <param name="sender">The object reporting the id change</param>
         /// <param name="e">Additional event info</param>
-        private void Stimvm_IdChanged(object? sender, IdChangeEventArgs e)
+        private void StimVM_IdChanged(object? sender, IdChangeEventArgs e)
         {
             StimulusItemViewModel? stimvm = sender as StimulusItemViewModel;
             if (stimvm != null && e.NewId != null)
@@ -245,7 +245,7 @@ namespace HurPsyExp.ExpDesign
         {
             LocatorItemViewModel locvm = new LocatorItemViewModel(loc);
             // TODO: Add an event handler that will respond to IdChanged event of locvm
-            locvm.IdChanged += Locvm_IdChanged;
+            locvm.IdChanged += LocVM_IdChanged;
             LocatorVMs.Add(locvm);
             // Add the Id to the list of Ids shared by BlockViewModel objects,
             // so that they can be displayed in AddTrialView
@@ -257,7 +257,7 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         /// <param name="sender">The object reporting the id change</param>
         /// <param name="e">Additional event info</param>
-        private void Locvm_IdChanged(object? sender, IdChangeEventArgs e)
+        private void LocVM_IdChanged(object? sender, IdChangeEventArgs e)
         {
             LocatorItemViewModel? locvm = sender as LocatorItemViewModel;
             if (locvm != null && e.NewId != null)

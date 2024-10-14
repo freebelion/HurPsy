@@ -15,9 +15,8 @@
         <member name="M:HurPsyExp.App.Application_Startup(System.Object,System.Windows.StartupEventArgs)">
             <summary>
             The handler function for the application's Startup event.
-            At this stage, the application will let the user
-            to open up a window to design an experiment,
-            or open up another window to run an experiment.
+            At this stage, the application will let the user choose whether to design an experiment, or run an experiment.
+            Depending on the user choice, an instance of `ExpDesign.DesignWindow` or `ExpRun.RunWindow` will be opened.
             This is an implementation based on a tutorial found at:
             https://wpf-tutorial.com/wpf-application/working-with-app-xaml/
             </summary>
@@ -97,7 +96,7 @@
         </member>
         <member name="M:HurPsyExp.ExpDesign.DesignViewModel.#ctor">
             <summary>
-            This default constructor simply starts with empty lists of the inner viewmodel objects
+            This default constructor starts with empty lists of the inner viewmodel objects
             </summary>
         </member>
         <member name="M:HurPsyExp.ExpDesign.DesignViewModel.ClearVMs">
@@ -140,7 +139,7 @@
             </summary>
             <param name="stim"></param>
         </member>
-        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.Stimvm_IdChanged(System.Object,HurPsyExp.ExpDesign.IdChangeEventArgs)">
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.StimVM_IdChanged(System.Object,HurPsyExp.ExpDesign.IdChangeEventArgs)">
             <summary>
             This method will handle the `IdChanged` events for `StimulusVM` objects
             </summary>
@@ -158,7 +157,7 @@
             </summary>
             <param name="loc"></param>
         </member>
-        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.Locvm_IdChanged(System.Object,HurPsyExp.ExpDesign.IdChangeEventArgs)">
+        <member name="M:HurPsyExp.ExpDesign.DesignViewModel.LocVM_IdChanged(System.Object,HurPsyExp.ExpDesign.IdChangeEventArgs)">
             <summary>
             This method will handle the `IdChanged` events for `LocatorVM` objects
             </summary>
@@ -247,7 +246,8 @@
         </member>
         <member name="T:HurPsyExp.ExpDesign.DesignWindow">
             <summary>
-            Interaction logic for DesignWindow.xaml
+            This class definition describes the interaction logic for `DesignWindow.xaml`,
+            which is currently no behavior, because all user interactions are handled by commands forwarded to the associated viewmodel.
             </summary>
             <summary>
             DesignWindow
@@ -366,11 +366,74 @@
         </member>
         <member name="T:HurPsyExp.ExpRun.RunWindow">
             <summary>
-            Interaction logic for RunWindow.xaml
+            This class definition describes the interaction logic for `RunWindow.xaml`.
             </summary>
             <summary>
             RunWindow
             </summary>
+        </member>
+        <member name="F:HurPsyExp.ExpRun.RunWindow.stepTimer">
+            <summary>
+            This timer will be used to display timed steps.
+            </summary>
+        </member>
+        <member name="P:HurPsyExp.ExpRun.RunWindow.RunVM">
+            <summary>
+            The viewmodel object will be responsible for advancing through trial steps, trials and blocks.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.#ctor">
+            <summary>
+            This default constructor will initialize this window's components, create the viewmodel object and specify the event handler for the timer
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.Window_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            The asssociated viewmodel object will start running the experiment as soon as this window is loaded.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.DisplayCurrentStep">
+            <summary>
+            This little function will display the current trial step.
+            Currently, it assumes every step will be on display for a specific period of time,
+            but there may be cases a display time is not specified because the current step may need to stay on display until an acceptable response is given.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.StepTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            This method handles the timer's `Tick` event and takes the necessary actions to end the current step.
+            </summary>
+            <param name="sender">The object firing the event (which is `stepTimer`)</param>
+            <param name="e">Additional event info</param>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.StepEnded">
+            <summary>
+            This method performs the end-of-step operations.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.WebBrowser_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            This method handles the `Loaded` event of the `WebBrowser control, which will be come onto the screen if a `HtmlStimulus` is to be displayed.
+            </summary>
+            <param name="sender">The object firing the event (which the `WebBrowser` control)</param>
+            <param name="e">Additional event info</param>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.Image_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            This method handles the `Loaded` event of an `Image` control, which will be come onto the screen if an `ImageStimulus` is to be displayed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e">Additional event info</param>
+            <exception cref="T:HurPsyLib.HurPsyException">The object firing the event (which the `Image` control)</exception>
+        </member>
+        <member name="M:HurPsyExp.ExpRun.RunWindow.Window_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            This method will handle the `KeyDown` events if the current step requires a key response.
+            </summary>
+            <param name="sender">The object firing the event (which is any key on the keyboard)</param>
+            <param name="e">Additional event info</param>
         </member>
         <member name="M:HurPsyExp.ExpRun.RunWindow.InitializeComponent">
             <summary>
@@ -379,11 +442,31 @@
         </member>
         <member name="T:HurPsyExp.StartupDialog">
             <summary>
-            Interaction logic for StartupDialog.xaml
+            This class definition defines the interaction logic for `StartupDialog.xaml`.
+            It contains the event handlers which display the design window or the run window, depending on the user's choice.
             </summary>
             <summary>
             StartupDialog
             </summary>
+        </member>
+        <member name="M:HurPsyExp.StartupDialog.#ctor">
+            <summary>
+            The usual default constructor simply calls the component initializer.
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.StartupDialog.DesignExperiment(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            If an experiment is to be designed, a design window is displayed and takes over the rest.
+            </summary>
+            <param name="sender">The object firing the event (the radio button for the "Design an Experiment" choice)</param>
+            <param name="e">Additional event info</param>
+        </member>
+        <member name="M:HurPsyExp.StartupDialog.RunExperiment(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            If an experiment is to be designed, a run window is displayed and takes over the rest.
+            </summary>
+            <param name="sender">The object firing the event (the radio button for the "Run an Experiment" choice)</param>
+            <param name="e">Additional event info</param>
         </member>
         <member name="M:HurPsyExp.StartupDialog.InitializeComponent">
             <summary>
@@ -395,6 +478,107 @@
             This static class will handle mundane operations like opening and saving files, etc. which fall outside the jurisdiction of the design app.
             </summary>
         </member>
+        <member name="F:HurPsyExp.Utility.MM2DIU">
+            <summary>
+            Millimeters to DIU conversion ratio
+            </summary>
+        </member>
+        <member name="F:HurPsyExp.Utility.Rnd">
+            <summary>
+            The pseudo-random number generator which will be used while an experiment runs
+            </summary>
+        </member>
+        <member name="M:HurPsyExp.Utility.OpenFiles(System.String,System.Boolean)">
+            <summary>
+            This function will open a open-file selection dialog and return the selected files' paths as an array of strings
+            </summary>
+            <param name="filenameFilter">The filename filter for the file selection dialog</param>
+            <param name="openMultiple">The boolean flag indicating if multiple selections are permitted</param>
+            <returns></returns>
+        </member>
+        <member name="M:HurPsyExp.Utility.FileSaveName(System.String)">
+            <summary>
+            This function will open a save-file selection dialog and return the selected file' path as a string
+            </summary>
+            <param name="filenameFilter">The filename filter for the file selection dialog</param>
+            <returns></returns>
+        </member>
+        <member name="T:HurPsyExp.Utility.PermList`1">
+            <summary>
+            This privately nested class will help permutation lists for a list of objects
+            </summary>
+            <typeparam name="T">The generic type of the objects to be permuted</typeparam>
+        </member>
+        <member name="M:HurPsyExp.Utility.GetPermutations``1(System.Collections.Generic.List{``0}[])">
+            <summary>
+            This function will return a list of permuted arrays constructed from an indeterminate number of arrays which come as parameters
+            </summary>
+            <typeparam name="T">Generic type of objects which will be permuted</typeparam>
+            <param name="arrays">The list of object arrays to be permuted</param>
+            <returns></returns>
+        </member>
+        <member name="M:HurPsyExp.Utility.GetPermutations``1(System.Collections.Generic.List{System.Collections.Generic.List{``0}})">
+            <summary>
+            This function will return a list of permuted arrays constructed from a list of objects which come as a parameter
+            </summary>
+            <typeparam name="T">Generic type of objects which will be permuted</typeparam>
+            <param name="lists">The list of object lists to be permuted</param>
+            <returns></returns>
+        </member>
+        <member name="M:HurPsyExp.Utility.LoadExperiment">
+            <summary>
+            This function will display an open-file dialog and load an experiment definition (if a valid one can be constructed) from the selected file
+            </summary>
+            <returns>The reference of the `Experiment` object (`null` if a valid definition could not be constructed)</returns>
+        </member>
+        <member name="M:HurPsyExp.Utility.SaveExperiment(HurPsyLib.Experiment)">
+            <summary>
+            This method will display a save-file dialog and save the given experiment definition into the specified file.
+            </summary>
+            <param name="exp">The experiment definition which will be saved</param>
+        </member>
+        <member name="M:HurPsyExp.Utility.CopyStimulusFile(HurPsyLib.Stimulus,System.String)">
+            <summary>
+            This method will copy the file containing a stimulus definition to the directory where the experiment files are kept.
+            (This helps package all files pertaining to an experiment and share with other experimenters, so they can run the experiment after extracting all those files into the same directory)
+            </summary>
+            <param name="stim">The `Stimulus` object representing the stimulus</param>
+            <param name="expDirectoryPath">The full path of the directory where the experiment files are kept</param>
+            <returns></returns>
+        </member>
+        <member name="M:HurPsyExp.Utility.FindStimulusFile(HurPsyLib.Stimulus,System.String)">
+            <summary>
+            This method will try to locate a file containing the definition of a stimulus.
+            (If the stimulus could not be recovered from the file path recorded in its definition, maybe because the experiment definiton was shared or moved to a different location, this method will look into the directory containing the experiment definition)
+            </summary>
+            <param name="stim">The `Stimulus` object representing the stimulus</param>
+            <param name="expDirectoryPath">The full path of the directory where the experiment files are kept</param>
+            <exception cref="T:HurPsyLib.HurPsyException"></exception>
+        </member>
+        <member name="M:HurPsyExp.Utility.SaveImage(System.Windows.Media.Imaging.BitmapImage,System.String)">
+            <summary>
+            This method will save a bitmap image into the file at the given path.
+            </summary>
+            <param name="bmpimg">The bitmap image object</param>
+            <param name="filePath">The path of the file where the image will be saved</param>
+        </member>
+        <member name="M:HurPsyExp.Utility.LoadImage(System.String)">
+            <summary>
+            This function will load and return a bitmap image from the file at the given path
+            </summary>
+            <param name="filename">The path of the file containing the image</param>
+            <returns>The image object</returns>
+        </member>
+        <member name="M:HurPsyExp.Utility.LoadObjectFromXml``1(System.String)">
+            <summary>
+            This function will load a generic object with a given type from an XML file by using a `DataContractSerializer`
+            </summary>
+            <typeparam name="T">The object type</typeparam>
+            <param name="fileName">The path of the XML file containing the object structure</param>
+            <returns>The object loaded from the file (`null` if no valid object could be recovered)</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HurPsyExp.Utility.ConvertFromDIU(System.Double,HurPsyLib.HurPsyUnit)" -->
+        <!-- Badly formed XML comment ignored for member "M:HurPsyExp.Utility.ConvertToDIU(System.Double,HurPsyLib.HurPsyUnit)" -->
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
             <summary>
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances

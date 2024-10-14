@@ -3,7 +3,8 @@
 
 ## DesignWindow Class
 
-Interaction logic for DesignWindow.xaml
+This class definition describes the interaction logic for `DesignWindow.xaml`,  
+which is currently no behavior, because all user interactions are handled by commands forwarded to the associated viewmodel.
 
 ```csharp
 public class DesignWindow : System.Windows.Window,

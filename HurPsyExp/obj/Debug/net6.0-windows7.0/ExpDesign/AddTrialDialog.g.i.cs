@@ -54,7 +54,7 @@ namespace HurPsyExp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/HurPsyExp;V1.0.0.0;component/expdesign/addtrialdialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/HurPsyExp;component/expdesign/addtrialdialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ExpDesign\AddTrialDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

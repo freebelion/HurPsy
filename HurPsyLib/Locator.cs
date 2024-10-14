@@ -32,6 +32,6 @@ namespace HurPsyLib
         /// </summary>
         /// <param name="vistim">The visual stimulus which will be positioned according to the outcome</param>
         /// <returns>The position specified for the visual stimulus</returns>
-        public abstract HurPsyPoint GetLocation(IVisualStimulus? vistim = null);
+        public abstract HurPsyPoint GetLocation(VisualStimulus? vistim = null);
     }
 }
