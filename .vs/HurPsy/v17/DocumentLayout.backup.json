@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|Solution Items{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|C:\\Users\\freeb\\source\\repos\\HurPsy\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|Solution Items{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,19 +30,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\freeb\\source\\repos\\HurPsy\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\freeb\\source\\repos\\HurPsy\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-14T17:48:24.473Z",
-              "EditorCaption": ""
             }
           ]
         }
