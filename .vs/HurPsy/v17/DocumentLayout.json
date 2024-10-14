@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\freeb\\source\\repos\\HurPsy\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}|HurPsyLib\\HurPsyLib.csproj|c:\\users\\freeb\\source\\repos\\hurpsy\\hurpsylib\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{2DF9189F-A66A-4FD7-8F47-893FD491FF3C}|HurPsyLib\\HurPsyLib.csproj|solutionrelative:hurpsylib\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8002ED58-B334-4C44-9D7D-366C7DF85800}|HurPsyExp\\HurPsyExp.csproj|c:\\users\\freeb\\source\\repos\\hurpsy\\hurpsyexp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{8002ED58-B334-4C44-9D7D-366C7DF85800}|HurPsyExp\\HurPsyExp.csproj|solutionrelative:hurpsyexp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|Solution Items{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|C:\\Users\\freeb\\source\\repos\\HurPsy\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|Solution Items{27BC09EF-6DF8-461B-8762-6B0B65DE1334}|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,45 +30,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\.gitignore",
-              "RelativeDocumentMoniker": "HurPsyLib\\.gitignore",
-              "ToolTip": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyLib\\.gitignore",
-              "RelativeToolTip": "HurPsyLib\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-14T17:48:54.546Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExp\\.gitignore",
-              "RelativeDocumentMoniker": "HurPsyExp\\.gitignore",
-              "ToolTip": "C:\\Users\\freeb\\source\\repos\\HurPsy\\HurPsyExp\\.gitignore",
-              "RelativeToolTip": "HurPsyExp\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-14T17:48:40.13Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\freeb\\source\\repos\\HurPsy\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\freeb\\source\\repos\\HurPsy\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-14T17:48:24.473Z",
-              "EditorCaption": ""
             }
           ]
         }
