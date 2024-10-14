@@ -1,8 +1,0 @@
-#### [HurPsyExp](index.md 'index')
-
-## CommunityToolkit.Mvvm.ComponentModel.__Internals Namespace
-
-| Classes | |
-| :--- | :--- |
-| [__KnownINotifyPropertyChangedArgs](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs') | A helper type providing cached, reusable [System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') instances<br/>for all properties generated with [CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute 'CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute'). |
-| [__KnownINotifyPropertyChangingArgs](CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.md 'CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs') | A helper type providing cached, reusable [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instances<br/>for all properties generated with [CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute 'CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute'). |
