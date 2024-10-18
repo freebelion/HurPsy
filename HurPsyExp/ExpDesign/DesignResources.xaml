@@ -33,7 +33,7 @@
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="SelectionBrush"
-                         StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+                         StartPoint="0.0,0.5" EndPoint="1.0,0.5  ">
         <GradientStop Color="OrangeRed" Offset="0.0"/>
         <GradientStop Color="Orange" Offset="0.25"/>
         <GradientStop Color="Orange" Offset="0.75"/>
