@@ -32,7 +32,7 @@ public VisualStimulus();
 ## VisualStimulus.AnchorChoice Property
 
 Any object representing a visual stimulus must have a property to get/set its preferred anchor point  
-(which is the middle center of the strimulus object, by default)
+(which is the middle center of the stimulus object, by default)
 
 ```csharp
 public HurPsyLib.HurPsyOrigin AnchorChoice { get; set; }

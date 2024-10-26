@@ -248,10 +248,11 @@ namespace HurPsyLib
         {
             DataContractSerializer expser = new DataContractSerializer(this.GetType());
             XmlWriterSettings settings = new XmlWriterSettings { Indent = true };
-            FileStream fs = File.Open(fileName, FileMode.Create);
-            using (var writer = XmlWriter.Create(fs, settings))
-            { expser.WriteObject(writer, this); }
-            fs.Close();
+            using (FileStream fs = File.Open(fileName, FileMode.Create))
+            {
+                using (var writer = XmlWriter.Create(fs, settings))
+                { expser.WriteObject(writer, this); }
+            }
         }
 
         /// <summary>

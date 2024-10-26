@@ -42,7 +42,7 @@ namespace HurPsyExp
 
     public class StimulusViewTemplateSelector : DataTemplateSelector
     {
-        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        public override DataTemplate? SelectTemplate(object item, DependencyObject container)
         {
             FrameworkElement element = (FrameworkElement)container;
 

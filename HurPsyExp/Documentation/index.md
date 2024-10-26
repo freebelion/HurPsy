@@ -8,3 +8,4 @@
 | [HurPsyExp](HurPsyExp.md 'HurPsyExp') | |
 | [HurPsyExp.ExpDesign](HurPsyExp.ExpDesign.md 'HurPsyExp.ExpDesign') | |
 | [HurPsyExp.ExpRun](HurPsyExp.ExpRun.md 'HurPsyExp.ExpRun') | |
+| [XamlGeneratedNamespace](XamlGeneratedNamespace.md 'XamlGeneratedNamespace') | |

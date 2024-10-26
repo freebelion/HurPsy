@@ -10,16 +10,7 @@
     <Compile Update="ExpDesign\AddTrialDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ExpDesign\BlockView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="ExpDesign\DesignWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ExpDesign\ElementsPanel.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ExpDesign\ExperimentPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ExpRun\RunWindow.xaml.cs">
@@ -30,25 +21,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="DesignStyles.xaml">
+    <Page Update="ExpDesign\DesignTemplates.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExpDesign\AddTrialDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ExpDesign\BlockView.xaml">
+    <Page Update="ExpDesign\DesignBrushes.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ExpDesign\DesignResources.xaml">
+    <Page Update="ExpDesign\DesignStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExpDesign\DesignWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="ExpDesign\ElementsPanel.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="ExpDesign\ExperimentPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExpRun\RunWindow.xaml">

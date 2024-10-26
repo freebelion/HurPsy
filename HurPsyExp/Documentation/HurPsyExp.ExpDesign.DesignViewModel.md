@@ -282,7 +282,7 @@ public System.Collections.ObjectModel.ObservableCollection<HurPsyExp.ExpDesign.L
 ```
 
 #### Property Value
-[System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[HurPsyExp.ExpDesign.LocatorItemViewModel](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.LocatorItemViewModel 'HurPsyExp.ExpDesign.LocatorItemViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
+[System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[LocatorItemViewModel](HurPsyExp.ExpDesign.LocatorItemViewModel.md 'HurPsyExp.ExpDesign.LocatorItemViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.NewExperimentCommand'></a>
 
@@ -334,7 +334,7 @@ public System.Collections.ObjectModel.ObservableCollection<HurPsyExp.ExpDesign.S
 ```
 
 #### Property Value
-[System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[HurPsyExp.ExpDesign.StimulusItemViewModel](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.StimulusItemViewModel 'HurPsyExp.ExpDesign.StimulusItemViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
+[System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[StimulusItemViewModel](HurPsyExp.ExpDesign.StimulusItemViewModel.md 'HurPsyExp.ExpDesign.StimulusItemViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
 ### Methods
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.AddBlock()'></a>
@@ -468,7 +468,7 @@ The object reporting the id change
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.LocVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).e'></a>
 
-`e` [HurPsyExp.ExpDesign.IdChangeEventArgs](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.IdChangeEventArgs 'HurPsyExp.ExpDesign.IdChangeEventArgs')
+`e` [IdChangeEventArgs](HurPsyExp.ExpDesign.IdChangeEventArgs.md 'HurPsyExp.ExpDesign.IdChangeEventArgs')
 
 Additional event info
 
@@ -523,6 +523,6 @@ The object reporting the id change
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.StimVM_IdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).e'></a>
 
-`e` [HurPsyExp.ExpDesign.IdChangeEventArgs](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.IdChangeEventArgs 'HurPsyExp.ExpDesign.IdChangeEventArgs')
+`e` [IdChangeEventArgs](HurPsyExp.ExpDesign.IdChangeEventArgs.md 'HurPsyExp.ExpDesign.IdChangeEventArgs')
 
 Additional event info

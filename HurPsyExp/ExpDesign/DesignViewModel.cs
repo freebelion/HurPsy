@@ -19,7 +19,7 @@ namespace HurPsyExp.ExpDesign
         /// The reference variable for the object representing the experiment's definition
         /// </summary>
         private Experiment _experiment;
-
+        
         /// <summary>
         /// Observable collection of the viewmodels which will help edit/display stimulus definitions
         /// </summary>

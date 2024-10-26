@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:expapp="clr-namespace:HurPsyExp"
         xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
         xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
@@ -17,46 +18,21 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DesignResources.xaml"/>
+                <!--"DesignTemplates.xaml" refers to "DesignStyles.xaml" and that,
+                    in turn, refers to "DesignBrushes.xaml".
+                    All those xaml files may need to be modifiable at runtime
+                    for giving end users some room in customizing the appearance.
+                -->
+                <ResourceDictionary Source="DesignTemplates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
-            <LinearGradientBrush x:Key="MenuBrush"
-                                 StartPoint="0.0,0.0" EndPoint="1.0,0.0">
-                <GradientStop Color="LightBlue" Offset="0"/>
-                <GradientStop Color="LightSteelBlue" Offset="0.25"/>
-                <GradientStop Color="LightSkyBlue" Offset="0.75"/>
-                <GradientStop Color="SkyBlue" Offset="1"/>
-            </LinearGradientBrush>
-            <SolidColorBrush x:Key="MenuTextBrush" Color="Black"/>
-
-            <SolidColorBrush x:Key="PreviewPanelBrush" Color="AliceBlue"/>
-
-            <!--When this template is applied to a UserControl,
-                the control's width can be changed by using the slider.-->
-            <ControlTemplate x:Key="HorizontallySizableControl" TargetType="UserControl">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <Slider Orientation="Horizontal" Grid.Row="0"
-                            ToolTip="{x:Static stringlib:StringResources.Tooltip_ResizeSlider}"
-                            Minimum="{Binding Path=MinWidth, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                            Maximum="{Binding Path=MaxWidth, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                            Value="{Binding Path=Width, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
-                    <ContentControl Grid.Row="1" Background="{TemplateBinding Background}"
-                            Content="{TemplateBinding Content}"/>
-                </Grid>
-            </ControlTemplate>
 
         </ResourceDictionary>
     </Window.Resources>
     
     <DockPanel x:Name="MainPanel" LastChildFill="True">
         <Menu DockPanel.Dock="Top"
-              Background="{StaticResource MenuBrush}"
-              Foreground="{StaticResource MenuTextBrush}"
+              Background="{StaticResource MenuBackground}"
+              Foreground="{StaticResource MenuText}"
               FontSize="{Binding Source={StaticResource DesignPreferences}, Path=MenuFontSize}">
             <MenuItem Header="{x:Static stringlib:StringResources.Header_ExperimentMenu}" Margin="2">
                 <MenuItem Header="{x:Static stringlib:StringResources.Header_NewExperimentMenuItem}"
@@ -68,6 +44,73 @@
             </MenuItem>
         </Menu>
 
+        <!--This Expander will house the controls which will help modify design preferences-->
+        <Expander DockPanel.Dock="Left"
+                  ExpandDirection="Right"
+                  IsExpanded="False"
+                  Background="{StaticResource PanelBackground}">
+            <Expander.Header>
+                <TextBlock Margin="2"
+                           Text="{x:Static stringlib:StringResources.Header_PreferencesPanel}">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+
+            <Border>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <DockPanel LastChildFill="False">
+                        <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Content="{x:Static stringlib:StringResources.Label_UIFontSize}"/>
+                        <Slider DockPanel.Dock="Top"
+                                Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"
+                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinFontSize}"
+                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxFontSize}"
+                                Interval="1"
+                                Background="{StaticResource ItemBrush}"/>
+
+                        <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Content="{x:Static stringlib:StringResources.Label_SmallFontSize}"/>
+                        <Slider DockPanel.Dock="Top"
+                                Value="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"
+                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinFontSize}"
+                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxFontSize}"
+                                Interval="1"
+                                Background="{StaticResource ItemBrush}"/>
+
+                        <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Content="{x:Static stringlib:StringResources.Label_MenuFontSize}"/>
+                        <Slider DockPanel.Dock="Top"
+                                Value="{Binding Source={StaticResource DesignPreferences}, Path=MenuFontSize}"
+                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinFontSize}"
+                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxFontSize}"
+                                Interval="1"
+                                Background="{StaticResource ItemBrush}"/>
+
+                        <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Content="{x:Static stringlib:StringResources.Label_CommandButtonHeight}"/>
+                        <Slider DockPanel.Dock="Top"
+                                Value="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"
+                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinButtonHeight}"
+                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxButtonHeight}"
+                                Interval="1"
+                                Background="{StaticResource ItemBrush}"/>
+
+                        <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Content="{x:Static stringlib:StringResources.Label_ImagePreviewHeight}"/>
+                        <Slider DockPanel.Dock="Top"
+                                Value="{Binding Source={StaticResource DesignPreferences}, Path=ImagePreviewHeight}"
+                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinButtonHeight}"
+                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxButtonHeight}"
+                                Interval="1"
+                                Background="{StaticResource ItemBrush}"/>
+                    </DockPanel>
+                </ScrollViewer>
+            </Border>
+        </Expander>
+        
+        <!--This Expander control will house the element definitions-->
         <Expander DockPanel.Dock="Left"
                   ExpandDirection="Right"
                   IsExpanded="True"
@@ -82,13 +125,131 @@
             </Expander.Header>
 
             <Border>
-                <expdesign:ElementsPanel Template="{StaticResource HorizontallySizableControl}"
-                    MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
-                    MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
-                    Width="{Binding Source={StaticResource DesignPreferences}, Path=ElementsPanelWidth}"/>
+                <!--This ContentControl will appear with width-modifying slider
+                    and will house the panels containing the itemscontrols
+                    where the end user can add/edit/delete experiment's elements.
+                -->
+                <ContentControl MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
+                                MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
+                                Width="{Binding Source={StaticResource DesignPreferences}, Path=ElementsPanelWidth, Mode=TwoWay}"
+                                Template="{StaticResource HorizontallySizableControl}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <DockPanel LastChildFill="False">
+                            <!--All panels where element definitions are listed are actually
+                                Expander controls which can open/close vertically.
+                            -->
+                            <Expander DockPanel.Dock="Top"
+                                      ExpandDirection="Down"
+                                      IsExpanded="True"
+                                      Background="{StaticResource PanelBackground}">
+
+                                <Expander.Header>
+                                    <TextBlock Text="{x:Static stringlib:StringResources.Header_StimulusPanel}"/>
+                                </Expander.Header>
+
+                                <DockPanel LastChildFill="True">
+                                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                                Style="{StaticResource CommandBar}"
+                                                HorizontalAlignment="Stretch">
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding SelectImagesCommand}"
+                                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddImageStimulus}">
+                                            <Image Source="..\Images\ImageStimulus.png" Stretch="Fill"/>
+                                        </Button>
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding AddHtmlStimulusCommand}"
+                                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddHtmlStimulus}">
+                                            <Image Source="..\Images\HtmlStimulus.png" Stretch="Fill"/>
+                                        </Button>
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding DeleteStimulusCommand}"
+                                                ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                                            <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <Border>
+                                        <ItemsControl ItemsSource="{Binding StimulusVMs}"
+                                                      ItemTemplate="{StaticResource ItemViewTemplate}">
+                                        </ItemsControl>
+                                    </Border>
+                                </DockPanel>
+                            </Expander>
+
+                            <Expander DockPanel.Dock="Top"
+                                      ExpandDirection="Down"
+                                      IsExpanded="True"
+                                      Background="{StaticResource PanelBackground}">
+
+                                <Expander.Header>
+                                    <TextBlock Text="{x:Static stringlib:StringResources.Header_LocatorPanel}"/>
+                                </Expander.Header>
+
+                                <DockPanel LastChildFill="True">
+                                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                                Style="{StaticResource CommandBar}"
+                                                HorizontalAlignment="Stretch">
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding AddPointLocatorCommand}"
+                                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddPointLocator}">
+                                            <Image Source="..\Images\PointLocator.png" Stretch="Fill"/>
+                                        </Button>
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding DeleteLocatorCommand}"
+                                                ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                                            <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <Border>
+                                        <ItemsControl ItemsSource="{Binding LocatorVMs}"
+                                      ItemTemplate="{StaticResource ItemViewTemplate}">
+                                        </ItemsControl>
+                                    </Border>
+                                </DockPanel>
+                            </Expander>
+
+                            <Expander DockPanel.Dock="Top"
+                                      ExpandDirection="Down"
+                                      IsExpanded="True"
+                                      Background="{StaticResource PanelBackground}">
+
+                                <Expander.Header>
+                                    <TextBlock Text="{x:Static stringlib:StringResources.Header_ResponsePanel}"/>
+                                </Expander.Header>
+
+                                <DockPanel LastChildFill="True">
+                                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                                Style="{StaticResource CommandBar}"
+                                                HorizontalAlignment="Stretch">
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding AddPointLocatorCommand}"
+                                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddKeyResponse}">
+                                            <Image Source="..\Images\KeyResponse.png" Stretch="Fill"/>
+                                        </Button>
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding DeleteLocatorCommand}"
+                                                ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                                            <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <Border>
+                                        <!--Wait until response definitions are implemented
+                                        <ItemsControl ItemsSource="{Binding LocatorVMs}"
+                                                      ItemTemplate="{StaticResource ItemViewTemplate}">
+                                        </ItemsControl>
+                                        -->
+                                    </Border>
+                                </DockPanel>
+                            </Expander>
+                        </DockPanel>
+                    </ScrollViewer>
+                </ContentControl>
             </Border>
         </Expander>
 
+        <!--This Expander will house the views representing the experiment's trial steps, trials and blocks.-->
         <Expander DockPanel.Dock="Left"
                   ExpandDirection="Right"
                   IsExpanded="True"
@@ -103,10 +264,37 @@
             </Expander.Header>
 
             <Border>
-                <expdesign:ExperimentPanel Template="{StaticResource HorizontallySizableControl}"
-                    MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
-                    MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
-                    Width="{Binding Source={StaticResource DesignPreferences}, Path=ExperimentPanelWidth}"/>
+                <!--This ContentControl will appear with width-modifying slider
+                    and will house the panels containing the itemscontrols
+                    where the end user can create and arrange experiment blocks.
+                -->
+                <ContentControl MinWidth="{Binding Source={StaticResource DesignPreferences}, Path=MinPanelWidth}"
+                                MaxWidth="{Binding Source={StaticResource DesignPreferences}, Path=MaxPanelWidth}"
+                                Width="{Binding Source={StaticResource DesignPreferences}, Path=ExperimentPanelWidth, Mode=TwoWay}"
+                                Template="{StaticResource HorizontallySizableControl}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <DockPanel LastChildFill="True">
+                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                        Style="{StaticResource CommandBar}"
+                                        HorizontalAlignment="Stretch">
+                                <Button Style="{StaticResource CommandButton}"
+                                        Command="{Binding AddBlockCommand}"
+                                        ToolTip="{x:Static stringlib:StringResources.Tooltip_AddBlock}">
+                                    <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
+                                </Button>
+                                <Button Style="{StaticResource CommandButton}"
+                                        Command="{Binding DeleteBlockCommand}"
+                                        ToolTip="{x:Static stringlib:StringResources.Tooltip_DeleteObject}">
+                                    <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                                </Button>
+                            </StackPanel>
+                            <ItemsControl ItemsSource="{Binding BlockVMs}"
+                                          ItemTemplate="{StaticResource ItemViewTemplate}">
+
+                            </ItemsControl>
+                        </DockPanel>
+                    </ScrollViewer>
+                </ContentControl>
             </Border>
         </Expander>
 

@@ -187,6 +187,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Design Preferences.
+        /// </summary>
+        public static string Header_PreferencesPanel {
+            get {
+                return ResourceManager.GetString("Header_PreferencesPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Response Definitions.
         /// </summary>
         public static string Header_ResponsePanel {
@@ -214,6 +223,24 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Command Button Height.
+        /// </summary>
+        public static string Label_CommandButtonHeight {
+            get {
+                return ResourceManager.GetString("Label_CommandButtonHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview image Height.
+        /// </summary>
+        public static string Label_ImagePreviewHeight {
+            get {
+                return ResourceManager.GetString("Label_ImagePreviewHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trial is fixed.
         /// </summary>
         public static string Label_IsFixed {
@@ -223,11 +250,38 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Menu Font Size.
+        /// </summary>
+        public static string Label_MenuFontSize {
+            get {
+                return ResourceManager.GetString("Label_MenuFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small Font Size.
+        /// </summary>
+        public static string Label_SmallFontSize {
+            get {
+                return ResourceManager.GetString("Label_SmallFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Step time (in ms).
         /// </summary>
         public static string Label_StepTime {
             get {
                 return ResourceManager.GetString("Label_StepTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UI Font Size.
+        /// </summary>
+        public static string Label_UIFontSize {
+            get {
+                return ResourceManager.GetString("Label_UIFontSize", resourceCulture);
             }
         }
         

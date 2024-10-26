@@ -200,8 +200,8 @@ namespace HurPsyExp
                     List<Stimulus> stimuli = exp.GetStimuli();
                     stimuli.ForEach(stim => { FindStimulusFile(stim, expDirectoryPath); });
 
-                    // Change the working directory for the application
-                    Directory.SetCurrentDirectory(expDirectoryPath);
+                    // Change the working directory for the application (if necessary)
+                    // Directory.SetCurrentDirectory(expDirectoryPath);
                     // Load the stimulus objects to make the experiment object usable
                     return exp;
                 }
@@ -229,8 +229,8 @@ namespace HurPsyExp
                     List<Stimulus> stimuli = exp.GetStimuli();
                     stimuli.ForEach(stim => { CopyStimulusFile(stim, expDirectoryPath); });
                     
-                    // Change the working directory for the application
-                    Directory.SetCurrentDirectory(expDirectoryPath);
+                    // Change the working directory for the application (if necessary)
+                    // Directory.SetCurrentDirectory(expDirectoryPath);
                 }
             }
         }
@@ -244,11 +244,12 @@ namespace HurPsyExp
         /// <returns></returns>
         public static bool CopyStimulusFile(Stimulus stim, string expDirectoryPath)
         {
-            // If the original stimulus file exists,
-            // simply copy it to the same directory as the experiment file
-            if (File.Exists(stim.FileName))
+            // If the original stimulus file exists, but it's not already in the experiment file's directory,
+            // simply copy it to the same directory as the experiment file.
+            if (File.Exists(stim.FileName) && (Path.GetDirectoryName(stim.FileName) != expDirectoryPath))
             {
                 string newFileName = Path.Combine(expDirectoryPath, Path.GetFileName(stim.FileName));
+                // WARNING! The following command will cause an existing file with the same name to be overwritten.
                 File.Copy(stim.FileName, newFileName, overwrite:true);
                 stim.FileName = newFileName;
                 return true;
@@ -302,14 +303,15 @@ namespace HurPsyExp
         /// <param name="filename">The path of the file containing the image</param>
         /// <returns>The image object</returns>
         public static BitmapImage LoadImage(string filename)
-        {// source: https://stackoverflow.com/questions/11202807/garbage-collection-fails-to-reclaim-bitmapimage
+        {// source: https://www.ridgesolutions.ie/index.php/2012/02/03/net-wpf-bitmapimage-file-locking
             BitmapImage bmpImage = new BitmapImage();
-
+            var stream = File.OpenRead(filename);
             bmpImage.BeginInit();
-            bmpImage.UriSource = new Uri(filename, UriKind.RelativeOrAbsolute);
-            bmpImage.CacheOption = BitmapCacheOption.OnLoad; // needed to release the file after loading image
+            bmpImage.CacheOption = BitmapCacheOption.OnLoad;
+            bmpImage.StreamSource = stream;
             bmpImage.EndInit();
-            bmpImage.Freeze(); // turns out to be necessary; see the source
+            stream.Close();
+            stream.Dispose();
             return bmpImage;
         }
 
@@ -319,16 +321,38 @@ namespace HurPsyExp
         /// <typeparam name="T">The object type</typeparam>
         /// <param name="fileName">The path of the XML file containing the object structure</param>
         /// <returns>The object loaded from the file (`null` if no valid object could be recovered)</returns>
-        public static T? LoadObjectFromXml<T>(string fileName) where T : class
+        public static T? LoadDataContractObjectFromXml<T>(string fileName) where T : class
         {
-            DataContractSerializer ser =
-                    new DataContractSerializer(typeof(T));
-            FileStream fs = new FileStream(fileName, FileMode.Open);
-            XmlDictionaryReader reader =
-                    XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+            T? obj = null;
+            DataContractSerializer ser = new DataContractSerializer(typeof(T));
+            using (FileStream fs = new FileStream(fileName, FileMode.Open))
+            {
+                using (var reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas()))
+                {
+                    obj = (T?)ser.ReadObject(reader);
+                }
+            }
 
-            T? obj = (T?)ser.ReadObject(reader);
             return obj;
+        }
+
+        /// <summary>
+        /// This function will save a generic object with a given type to an XML file by using a `DataContractSerializer`
+        /// </summary>
+        /// <typeparam name="T">The object type</typeparam>
+        /// <param name="fileName">The path of the XML file containing the object structure</param>
+        /// <returns>The object loaded from the file (`null` if no valid object could be recovered)</returns>
+        public static void SaveDataContractObjectToXml<T>(T obj, string fileName) where T : class
+        {
+            DataContractSerializer ser = new DataContractSerializer(typeof(T));
+            XmlWriterSettings settings = new XmlWriterSettings { Indent = true };
+            using (FileStream fs = new FileStream(fileName, FileMode.Create))
+            {
+                using (var writer = XmlWriter.Create(fs, settings))
+                {
+                    ser.WriteObject(writer, obj);
+                }
+            }
         }
 
         /// <summary>

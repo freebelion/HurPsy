@@ -168,6 +168,35 @@ The list of object arrays to be permuted
 #### Returns
 [System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[T](HurPsyExp.Utility.md#HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_T_[]).T 'HurPsyExp.Utility.GetPermutations<T>(System.Collections.Generic.List<T>[]).T')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
 
+<a name='HurPsyExp.Utility.LoadDataContractObjectFromXml_T_(string)'></a>
+
+## Utility.LoadDataContractObjectFromXml<T>(string) Method
+
+This function will load a generic object with a given type from an XML file by using a `DataContractSerializer`
+
+```csharp
+public static T? LoadDataContractObjectFromXml<T>(string fileName)
+    where T : class;
+```
+#### Type parameters
+
+<a name='HurPsyExp.Utility.LoadDataContractObjectFromXml_T_(string).T'></a>
+
+`T`
+
+The object type
+#### Parameters
+
+<a name='HurPsyExp.Utility.LoadDataContractObjectFromXml_T_(string).fileName'></a>
+
+`fileName` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The path of the XML file containing the object structure
+
+#### Returns
+[T](HurPsyExp.Utility.md#HurPsyExp.Utility.LoadDataContractObjectFromXml_T_(string).T 'HurPsyExp.Utility.LoadDataContractObjectFromXml<T>(string).T')  
+The object loaded from the file (`null` if no valid object could be recovered)
+
 <a name='HurPsyExp.Utility.LoadExperiment()'></a>
 
 ## Utility.LoadExperiment() Method
@@ -203,35 +232,6 @@ The path of the file containing the image
 [System.Windows.Media.Imaging.BitmapImage](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Media.Imaging.BitmapImage 'System.Windows.Media.Imaging.BitmapImage')  
 The image object
 
-<a name='HurPsyExp.Utility.LoadObjectFromXml_T_(string)'></a>
-
-## Utility.LoadObjectFromXml<T>(string) Method
-
-This function will load a generic object with a given type from an XML file by using a `DataContractSerializer`
-
-```csharp
-public static T? LoadObjectFromXml<T>(string fileName)
-    where T : class;
-```
-#### Type parameters
-
-<a name='HurPsyExp.Utility.LoadObjectFromXml_T_(string).T'></a>
-
-`T`
-
-The object type
-#### Parameters
-
-<a name='HurPsyExp.Utility.LoadObjectFromXml_T_(string).fileName'></a>
-
-`fileName` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
-The path of the XML file containing the object structure
-
-#### Returns
-[T](HurPsyExp.Utility.md#HurPsyExp.Utility.LoadObjectFromXml_T_(string).T 'HurPsyExp.Utility.LoadObjectFromXml<T>(string).T')  
-The object loaded from the file (`null` if no valid object could be recovered)
-
 <a name='HurPsyExp.Utility.OpenFiles(string,bool)'></a>
 
 ## Utility.OpenFiles(string, bool) Method
@@ -257,6 +257,35 @@ The boolean flag indicating if multiple selections are permitted
 
 #### Returns
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')
+
+<a name='HurPsyExp.Utility.SaveDataContractObjectToXml_T_(T,string)'></a>
+
+## Utility.SaveDataContractObjectToXml<T>(T, string) Method
+
+This function will save a generic object with a given type to an XML file by using a `DataContractSerializer`
+
+```csharp
+public static void SaveDataContractObjectToXml<T>(T obj, string fileName)
+    where T : class;
+```
+#### Type parameters
+
+<a name='HurPsyExp.Utility.SaveDataContractObjectToXml_T_(T,string).T'></a>
+
+`T`
+
+The object type
+#### Parameters
+
+<a name='HurPsyExp.Utility.SaveDataContractObjectToXml_T_(T,string).obj'></a>
+
+`obj` [T](HurPsyExp.Utility.md#HurPsyExp.Utility.SaveDataContractObjectToXml_T_(T,string).T 'HurPsyExp.Utility.SaveDataContractObjectToXml<T>(T, string).T')
+
+<a name='HurPsyExp.Utility.SaveDataContractObjectToXml_T_(T,string).fileName'></a>
+
+`fileName` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The path of the XML file containing the object structure
 
 <a name='HurPsyExp.Utility.SaveExperiment(HurPsyLib.Experiment)'></a>
 

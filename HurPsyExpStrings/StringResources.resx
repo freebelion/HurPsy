@@ -159,7 +159,11 @@
   </data>
   <data name="Header_ExperimentPanel" xml:space="preserve">
     <value>Experiment Blocks</value>
-    <comment>The header text for the ExperimentPanel in ElementsPanel</comment>
+    <comment>The header text for the ExperimentPanel</comment>
+  </data>
+  <data name="Header_PreferencesPanel" xml:space="preserve">
+    <value>Design Preferences</value>
+    <comment>The header text for the Preferences Panel in DesignWindow</comment>
   </data>
   <data name="Header_LoadExperimentMenuItem" xml:space="preserve">
     <value>_Load</value>
@@ -167,7 +171,7 @@
   </data>
   <data name="Header_LocatorPanel" xml:space="preserve">
     <value>Locator Definitions</value>
-    <comment>The header text for the LocatorPanel in ElementsPanel</comment>
+    <comment>The header text for the LocatorPanel in the ElementsPanel</comment>
   </data>
   <data name="Header_NewExperimentMenuItem" xml:space="preserve">
     <value>_New</value>
@@ -183,11 +187,15 @@
   </data>
   <data name="Header_StimulusPanel" xml:space="preserve">
     <value>Stimulus Definitions</value>
-    <comment>The header text for the StimuliPanel of HurPsyDesignApp</comment>
+    <comment>The header text for the StimuliPanel in the ElementsPanel</comment>
   </data>
   <data name="Label_IsFixed" xml:space="preserve">
     <value>Trial is fixed</value>
     <comment>The label text for the CheckBox which toggles the IsFixed property in AddTrialDialog</comment>
+  </data>
+  <data name="Label_UIFontSize" xml:space="preserve">
+    <value>UI Font Size</value>
+    <comment>The label text for the slider to set UIFontSize on Design Preferences panel</comment>
   </data>
   <data name="Label_StepTime" xml:space="preserve">
     <value>Step time (in ms)</value>
@@ -260,5 +268,21 @@
   <data name="Tooltip_VisualStimulusWidth" xml:space="preserve">
     <value>Stimulus Image Width</value>
     <comment>The tooltip for the textbox that sets the width in VisualStimulusTemplate</comment>
+  </data>
+  <data name="Label_SmallFontSize" xml:space="preserve">
+    <value>Small Font Size</value>
+    <comment>The label text for the slider to set SmallFontSize on Preferences panel</comment>
+  </data>
+  <data name="Label_MenuFontSize" xml:space="preserve">
+    <value>Menu Font Size</value>
+    <comment>The label text for the slider to set MenuFontSize on Preferences panel</comment>
+  </data>
+  <data name="Label_CommandButtonHeight" xml:space="preserve">
+    <value>Command Button Height</value>
+    <comment>The label text for the slider to set CommandButtonHeight on Preferences panel</comment>
+  </data>
+  <data name="Label_ImagePreviewHeight" xml:space="preserve">
+    <value>Preview image Height</value>
+    <comment>The label text for the slider to set ImagePreviewHeight on Preferences panel</comment>
   </data>
 </root>

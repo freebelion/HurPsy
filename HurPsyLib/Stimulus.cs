@@ -12,8 +12,7 @@ namespace HurPsyLib
     /// The abstract class which serves as the blueprint for all classes which will represent different types of experimental stimuli
     /// </summary>
     [DataContract]
-    [KnownType(typeof(HtmlStimulus))]
-    [KnownType(typeof(ImageStimulus))]
+    [KnownType(typeof(VisualStimulus))]
     public abstract class Stimulus
     {
         /// <summary>

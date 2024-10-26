@@ -1,12 +1,14 @@
 ﻿<Application x:Class="HurPsyExp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:HurPsyExp"
-             Startup="Application_Startup">
+             xmlns:expapp="clr-namespace:HurPsyExp"
+             xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
+             Startup="Application_Startup"
+             Exit="Application_Exit">
     <Application.Resources>
         <ResourceDictionary>
+            <expapp:DesignSettings x:Key="DesignPreferences"/>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DesignResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
