@@ -232,7 +232,7 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preview image Height.
+        ///   Looks up a localized string similar to Preview Image Height.
         /// </summary>
         public static string Label_ImagePreviewHeight {
             get {
@@ -376,6 +376,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preferred height for command buttons.
+        /// </summary>
+        public static string Tooltip_CommandButtonHeight {
+            get {
+                return ResourceManager.GetString("Tooltip_CommandButtonHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete selected items.
         /// </summary>
         public static string Tooltip_DeleteObject {
@@ -390,6 +399,24 @@ namespace HurPsyExpStrings {
         public static string Tooltip_EditObject {
             get {
                 return ResourceManager.GetString("Tooltip_EditObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preferred height for preview images.
+        /// </summary>
+        public static string Tooltip_ImagePreviewHeight {
+            get {
+                return ResourceManager.GetString("Tooltip_ImagePreviewHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font size for main window menus.
+        /// </summary>
+        public static string Tooltip_MenuFontSize {
+            get {
+                return ResourceManager.GetString("Tooltip_MenuFontSize", resourceCulture);
             }
         }
         
@@ -412,11 +439,29 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Font size for item views and inner forms.
+        /// </summary>
+        public static string Tooltip_SmallFontSize {
+            get {
+                return ResourceManager.GetString("Tooltip_SmallFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stimulus Id.
         /// </summary>
         public static string Tooltip_StimulusId {
             get {
                 return ResourceManager.GetString("Tooltip_StimulusId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font size for major UI elements.
+        /// </summary>
+        public static string Tooltip_UIFontSize {
+            get {
+                return ResourceManager.GetString("Tooltip_UIFontSize", resourceCulture);
             }
         }
         

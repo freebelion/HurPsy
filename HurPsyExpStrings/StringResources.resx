@@ -197,6 +197,10 @@
     <value>UI Font Size</value>
     <comment>The label text for the slider to set UIFontSize on Design Preferences panel</comment>
   </data>
+  <data name="Tooltip_UIFontSize" xml:space="preserve">
+    <value>Font size for major UI elements</value>
+    <comment>The label text for the slider to set UIFontSize on Design Preferences panel</comment>
+  </data>
   <data name="Label_StepTime" xml:space="preserve">
     <value>Step time (in ms)</value>
     <comment>The label text for the TextBox which sets the step time in AddTrial dialog</comment>
@@ -273,16 +277,32 @@
     <value>Small Font Size</value>
     <comment>The label text for the slider to set SmallFontSize on Preferences panel</comment>
   </data>
+  <data name="Tooltip_SmallFontSize" xml:space="preserve">
+    <value>Font size for item views and inner forms</value>
+    <comment>The label text for the slider to set SmallFontSize on Preferences panel</comment>
+  </data>
   <data name="Label_MenuFontSize" xml:space="preserve">
     <value>Menu Font Size</value>
+    <comment>The label text for the slider to set MenuFontSize on Preferences panel</comment>
+  </data>
+  <data name="Tooltip_MenuFontSize" xml:space="preserve">
+    <value>Font size for main window menus</value>
     <comment>The label text for the slider to set MenuFontSize on Preferences panel</comment>
   </data>
   <data name="Label_CommandButtonHeight" xml:space="preserve">
     <value>Command Button Height</value>
     <comment>The label text for the slider to set CommandButtonHeight on Preferences panel</comment>
   </data>
+  <data name="Tooltip_CommandButtonHeight" xml:space="preserve">
+    <value>Preferred height for command buttons</value>
+    <comment>The label text for the slider to set CommandButtonHeight on Preferences panel</comment>
+  </data>
   <data name="Label_ImagePreviewHeight" xml:space="preserve">
-    <value>Preview image Height</value>
+    <value>Preview Image Height</value>
+    <comment>The label text for the slider to set ImagePreviewHeight on Preferences panel</comment>
+  </data>
+  <data name="Tooltip_ImagePreviewHeight" xml:space="preserve">
+    <value>Preferred height for preview images</value>
     <comment>The label text for the slider to set ImagePreviewHeight on Preferences panel</comment>
   </data>
 </root>

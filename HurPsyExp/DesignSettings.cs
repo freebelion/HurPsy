@@ -8,6 +8,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System.Text.Json.Serialization;
 using System.IO;
 using System.Text.Json;
+using CommunityToolkit.Mvvm.Input;
+using HurPsyLib;
 
 namespace HurPsyExp
 {
@@ -107,6 +109,52 @@ namespace HurPsyExp
         /// </summary>
         [ObservableProperty]
         private double imagePreviewHeight;
+
+        [RelayCommand]
+        public void Increment(string sliderName)
+        {
+            switch(sliderName)
+            {
+                case "Slider_UIFontSize":
+                    UIFontSize++;
+                    break;
+                case "Slider_SmallFontSize":
+                    SmallFontSize++;
+                    break;
+                case "Slider_MenuFontSize":
+                    MenuFontSize++;
+                    break;
+                case "Slider_CommandButtonHeight":
+                    CommandButtonHeight++;
+                    break;
+                case "Slider_ImagePreviewHeight":
+                    ImagePreviewHeight++;
+                    break;
+            }
+        }
+
+        [RelayCommand]
+        public void Decrement(string sliderName)
+        {
+            switch (sliderName)
+            {
+                case "Slider_UIFontSize":
+                    UIFontSize--;
+                    break;
+                case "Slider_SmallFontSize":
+                    SmallFontSize--;
+                    break;
+                case "Slider_MenuFontSize":
+                    MenuFontSize--;
+                    break;
+                case "Slider_CommandButtonHeight":
+                    CommandButtonHeight--;
+                    break;
+                case "Slider_ImagePreviewHeight":
+                    ImagePreviewHeight--;
+                    break;
+            }
+        }
 
         /// <summary>
         /// This default constructor assigns initial values to all the properties as deemed fit by the programmer

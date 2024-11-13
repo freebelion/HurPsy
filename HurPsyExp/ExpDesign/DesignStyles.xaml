@@ -5,10 +5,8 @@
                     xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
 
     <!--This ResourceDictionary contains Style definitions
-        which will set the fonts or controls' sizes
-        to the values defined "DesignPreferences",
-        a property of type "DesignSettings"
-        in the "DesignViewModel" instance
+        which will set the fonts or controls' sizes to the values defined "DesignPreferences".
+        "DesignPreferences" is a property of type "DesignSettings" found in the "DesignViewModel" instance
         which serves as the DataContext of DesignWindow.
         Developers who want to customize the design interface's appearance
         should make their modifications here.
@@ -25,12 +23,6 @@
             Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
     </Style>
 
-    <Style TargetType="TextBox">
-        <Setter Property="FontSize"
-            Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
-        <Setter Property="Background" Value="{StaticResource ControlBackground}"/>
-    </Style>
-
     <Style TargetType="Expander">
         <Setter Property="FontSize"
             Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
@@ -41,8 +33,6 @@
         the buttons' appearances in better ways.
     -->
     <Style x:Key="CommandButton" TargetType="{x:Type Button}">
-        <Setter Property="FontSize"
-            Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Height"
             Value="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"/>

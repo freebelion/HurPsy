@@ -2,6 +2,8 @@
 using System.Data;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace HurPsyExp
 {
@@ -11,7 +13,7 @@ namespace HurPsyExp
     public partial class App : Application
     {
         /// <summary>
-        /// This function will handle the App's Startup event.
+        /// This function will handle the App's `Startup` event.
         /// At this stage, the application will let the user choose whether to design an experiment, or run an experiment.
         /// Depending on the user choice, an instance of `ExpDesign.DesignWindow` or `ExpRun.RunWindow` will be opened.
         /// This is an implementation based on a tutorial found at:
@@ -37,7 +39,7 @@ namespace HurPsyExp
         {
             DesignSettings designPreferences = (DesignSettings) this.Resources["DesignPreferences"];
             designPreferences.SerializeJson();
-        }
+        }      
     }
 
 }

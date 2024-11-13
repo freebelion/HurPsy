@@ -60,50 +60,45 @@
 
             <Border>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <DockPanel LastChildFill="False">
+                    <DockPanel LastChildFill="False" DataContext="{StaticResource DesignPreferences}">
                         <Label Margin="0,2,0,0" DockPanel.Dock="Top"
                                Content="{x:Static stringlib:StringResources.Label_UIFontSize}"/>
-                        <Slider DockPanel.Dock="Top"
-                                Value="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"
-                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinFontSize}"
-                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxFontSize}"
-                                Interval="1"
+                        <Slider DockPanel.Dock="Top" x:Name="Slider_UIFontSize" Template="{StaticResource NumericUpDownSlider}"
+                                Value="{Binding UIFontSize}"
+                                Minimum="{Binding MinFontSize}"
+                                Maximum="{Binding MaxFontSize}"
+                                TickFrequency="1" IsSnapToTickEnabled="True"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_UIFontSize}"
                                 Background="{StaticResource ItemBrush}"/>
 
                         <Label Margin="0,2,0,0" DockPanel.Dock="Top"
                                Content="{x:Static stringlib:StringResources.Label_SmallFontSize}"/>
-                        <Slider DockPanel.Dock="Top"
-                                Value="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"
-                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinFontSize}"
-                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxFontSize}"
-                                Interval="1"
+                        <Slider DockPanel.Dock="Top" x:Name="Slider_SmallFontSize" Template="{StaticResource NumericUpDownSlider}"
+                                Value="{Binding SmallFontSize}"
+                                Minimum="{Binding MinFontSize}"
+                                Maximum="{Binding UIFontSize}"
+                                TickFrequency="1" IsSnapToTickEnabled="True"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_SmallFontSize}"
                                 Background="{StaticResource ItemBrush}"/>
 
                         <Label Margin="0,2,0,0" DockPanel.Dock="Top"
                                Content="{x:Static stringlib:StringResources.Label_MenuFontSize}"/>
-                        <Slider DockPanel.Dock="Top"
-                                Value="{Binding Source={StaticResource DesignPreferences}, Path=MenuFontSize}"
-                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinFontSize}"
-                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxFontSize}"
-                                Interval="1"
+                        <Slider DockPanel.Dock="Top" x:Name="Slider_MenuFontSize" Template="{StaticResource NumericUpDownSlider}"
+                                Value="{Binding MenuFontSize}"
+                                Minimum="{Binding MinFontSize}"
+                                Maximum="{Binding MaxFontSize}"
+                                TickFrequency="1" IsSnapToTickEnabled="True"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_MenuFontSize}" 
                                 Background="{StaticResource ItemBrush}"/>
 
                         <Label Margin="0,2,0,0" DockPanel.Dock="Top"
                                Content="{x:Static stringlib:StringResources.Label_CommandButtonHeight}"/>
-                        <Slider DockPanel.Dock="Top"
-                                Value="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"
-                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinButtonHeight}"
-                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxButtonHeight}"
-                                Interval="1"
-                                Background="{StaticResource ItemBrush}"/>
-
-                        <Label Margin="0,2,0,0" DockPanel.Dock="Top"
-                               Content="{x:Static stringlib:StringResources.Label_ImagePreviewHeight}"/>
-                        <Slider DockPanel.Dock="Top"
-                                Value="{Binding Source={StaticResource DesignPreferences}, Path=ImagePreviewHeight}"
-                                Minimum="{Binding Source={StaticResource DesignPreferences}, Path=MinButtonHeight}"
-                                Maximum="{Binding Source={StaticResource DesignPreferences}, Path=MaxButtonHeight}"
-                                Interval="1"
+                        <Slider DockPanel.Dock="Top" x:Name="Slider_CommandButtonHeight" Template="{StaticResource NumericUpDownSlider}"
+                                Value="{Binding CommandButtonHeight}"
+                                Minimum="{Binding MinButtonHeight}"
+                                Maximum="{Binding MaxButtonHeight}"
+                                TickFrequency="1" IsSnapToTickEnabled="True"
+                                ToolTip="{x:Static stringlib:StringResources.Tooltip_CommandButtonHeight}" 
                                 Background="{StaticResource ItemBrush}"/>
                     </DockPanel>
                 </ScrollViewer>
@@ -223,7 +218,7 @@
                                                 Style="{StaticResource CommandBar}"
                                                 HorizontalAlignment="Stretch">
                                         <Button Style="{StaticResource CommandButton}"
-                                                Command="{Binding AddPointLocatorCommand}"
+                                                Command="{Binding AddKeyResponseCommand}"
                                                 ToolTip="{x:Static stringlib:StringResources.Tooltip_AddKeyResponse}">
                                             <Image Source="..\Images\KeyResponse.png" Stretch="Fill"/>
                                         </Button>

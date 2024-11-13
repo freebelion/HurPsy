@@ -22,6 +22,7 @@
   <ItemGroup>
     <None Remove="Images\AddBlock.png" />
     <None Remove="Images\AddTrial.png" />
+    <None Remove="Images\decrement.png" />
     <None Remove="Images\DeleteItem.png" />
     <None Remove="Images\EditItem.png" />
     <None Remove="Images\HtmlStimulus.png" />
@@ -47,7 +48,9 @@
   <ItemGroup>
     <Resource Include="Images\AddBlock.png" />
     <Resource Include="Images\AddTrial.png" />
+    <Resource Include="Images\decrement.png" />
     <Resource Include="Images\DeleteItem.png" />
+    <Resource Include="Images\Increment.png" />
     <Resource Include="Images\EditItem.png" />
     <Resource Include="Images\HtmlStimulus.png" />
     <Resource Include="Images\ImageStimulus.png" />

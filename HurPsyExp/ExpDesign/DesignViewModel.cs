@@ -391,5 +391,14 @@ namespace HurPsyExp.ExpDesign
                 BlockVMs.Remove(blckvm);
             }
         }
+
+        /// <summary>
+        /// This method will create and add a `KeyResponse` object to the experiment definition
+        /// </summary>
+        [RelayCommand]
+        public void AddKeyResponse()
+        {
+            
+        }
     }
 }

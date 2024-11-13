@@ -39,6 +39,34 @@ public static Random Rnd;
 [System.Random](https://docs.microsoft.com/en-us/dotnet/api/System.Random 'System.Random')
 ### Methods
 
+<a name='HurPsyExp.Utility.ConvertFromDIU(double,HurPsyLib.HurPsyUnit)'></a>
+
+## Utility.ConvertFromDIU(double, HurPsyUnit) Method
+
+This function will convert a dimension in device-independent-units (WPF equivalent of a standard pixel dimension) to the experiment unit passed as the second parameter.  
+(Normally, this design and run application will only use millimeters as its standard unit, but this function will come into use when more unit choices become available)
+
+```csharp
+public static double ConvertFromDIU(double diuValue, HurPsyLib.HurPsyUnit unit);
+```
+#### Parameters
+
+<a name='HurPsyExp.Utility.ConvertFromDIU(double,HurPsyLib.HurPsyUnit).diuValue'></a>
+
+`diuValue` [System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
+
+The value in DIUs
+
+<a name='HurPsyExp.Utility.ConvertFromDIU(double,HurPsyLib.HurPsyUnit).unit'></a>
+
+`unit` [HurPsyLib.HurPsyUnit](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.HurPsyUnit 'HurPsyLib.HurPsyUnit')
+
+The desired unit for the result
+
+#### Returns
+[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')  
+The converted value (NaN, if no valid unit choice is provided)
+
 <a name='HurPsyExp.Utility.CopyStimulusFile(HurPsyLib.Stimulus,string)'></a>
 
 ## Utility.CopyStimulusFile(Stimulus, string) Method

@@ -35,7 +35,7 @@ private void Application_Exit(object sender, System.Windows.ExitEventArgs e);
 
 ## App.Application_Startup(object, StartupEventArgs) Method
 
-This function will handle the App's Startup event.  
+This function will handle the App's `Startup` event.  
 At this stage, the application will let the user choose whether to design an experiment, or run an experiment.  
 Depending on the user choice, an instance of `ExpDesign.DesignWindow` or `ExpRun.RunWindow` will be opened.  
 This is an implementation based on a tutorial found at:  

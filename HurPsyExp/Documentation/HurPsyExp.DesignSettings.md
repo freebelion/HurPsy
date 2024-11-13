@@ -36,6 +36,19 @@ private double commandButtonHeight;
 #### Field Value
 [System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
 
+<a name='HurPsyExp.DesignSettings.decrementCommand'></a>
+
+## DesignSettings.decrementCommand Field
+
+The backing field for [DecrementCommand](HurPsyExp.DesignSettings.md#HurPsyExp.DesignSettings.DecrementCommand 'HurPsyExp.DesignSettings.DecrementCommand').
+
+```csharp
+private RelayCommand<string>? decrementCommand;
+```
+
+#### Field Value
+[CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
+
 <a name='HurPsyExp.DesignSettings.elementsPanelWidth'></a>
 
 ## DesignSettings.elementsPanelWidth Field
@@ -74,6 +87,19 @@ private double imagePreviewHeight;
 
 #### Field Value
 [System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
+
+<a name='HurPsyExp.DesignSettings.incrementCommand'></a>
+
+## DesignSettings.incrementCommand Field
+
+The backing field for [IncrementCommand](HurPsyExp.DesignSettings.md#HurPsyExp.DesignSettings.IncrementCommand 'HurPsyExp.DesignSettings.IncrementCommand').
+
+```csharp
+private RelayCommand<string>? incrementCommand;
+```
+
+#### Field Value
+[CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
 
 <a name='HurPsyExp.DesignSettings.menuFontSize'></a>
 
@@ -141,6 +167,19 @@ public double CommandButtonHeight { get; set; }
 #### Property Value
 [System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
 
+<a name='HurPsyExp.DesignSettings.DecrementCommand'></a>
+
+## DesignSettings.DecrementCommand Property
+
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1') instance wrapping [HurPsyExp.DesignSettings.Decrement(System.String)](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.DesignSettings.Decrement#HurPsyExp_DesignSettings_Decrement_System_String_ 'HurPsyExp.DesignSettings.Decrement(System.String)').
+
+```csharp
+public CommunityToolkit.Mvvm.Input.IRelayCommand<string> DecrementCommand { get; }
+```
+
+#### Property Value
+[CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
+
 <a name='HurPsyExp.DesignSettings.ElementsPanelWidth'></a>
 
 ## DesignSettings.ElementsPanelWidth Property
@@ -179,6 +218,19 @@ public double ImagePreviewHeight { get; set; }
 
 #### Property Value
 [System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
+
+<a name='HurPsyExp.DesignSettings.IncrementCommand'></a>
+
+## DesignSettings.IncrementCommand Property
+
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1') instance wrapping [HurPsyExp.DesignSettings.Increment(System.String)](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.DesignSettings.Increment#HurPsyExp_DesignSettings_Increment_System_String_ 'HurPsyExp.DesignSettings.Increment(System.String)').
+
+```csharp
+public CommunityToolkit.Mvvm.Input.IRelayCommand<string> IncrementCommand { get; }
+```
+
+#### Property Value
+[CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
 
 <a name='HurPsyExp.DesignSettings.MaxButtonHeight'></a>
 

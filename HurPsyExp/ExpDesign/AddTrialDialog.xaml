@@ -19,7 +19,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DesignResources.xaml"/>
+                <ResourceDictionary Source="DesignTemplates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate x:Key="IdTemplate">
