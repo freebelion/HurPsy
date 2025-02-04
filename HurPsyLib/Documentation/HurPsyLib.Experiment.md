@@ -2,7 +2,7 @@
 
 ## Experiment Class
 
-The class which represents the complete definition of a computerized psychology experiment.
+This class represents the complete definition of a computerized psychology experiment.
 
 ```csharp
 public class Experiment
@@ -15,7 +15,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 ## Experiment() Constructor
 
-This default constructor which starts with an empty filename and empty lists.
+This default constructor starts with an empty filename and empty collections.
 
 ```csharp
 public Experiment();
@@ -26,7 +26,7 @@ public Experiment();
 
 ## Experiment.locatorDict Field
 
-The Dictionary collection which helps access `Locator` objects through their ids.
+This Dictionary collection helps access `Locator` objects through their ids.
 
 ```csharp
 private Dictionary<string,Locator> locatorDict;
@@ -39,7 +39,7 @@ private Dictionary<string,Locator> locatorDict;
 
 ## Experiment.stimulusDict Field
 
-The Dictionary collection which helps access `Stimulus` objects through their ids.
+This Dictionary collection helps access `Stimulus` objects through their ids.
 
 ```csharp
 private Dictionary<string,Stimulus> stimulusDict;
@@ -53,7 +53,7 @@ private Dictionary<string,Stimulus> stimulusDict;
 
 ## Experiment.Blocks Property
 
-The list of `Block` objects which represent the trial blocks that make up the experiment.
+This list of `Block` objects represent the trial blocks that make up the experiment.
 
 ```csharp
 public System.Collections.Generic.List<HurPsyLib.Block> Blocks { get; set; }
@@ -66,7 +66,7 @@ public System.Collections.Generic.List<HurPsyLib.Block> Blocks { get; set; }
 
 ## Experiment.FileName Property
 
-The property which helps get/set the name of the file where the experiment definition will be saved.
+This property helps get/set the name of the file where the experiment definition will be saved.
 
 ```csharp
 public string FileName { get; set; }
@@ -79,7 +79,7 @@ public string FileName { get; set; }
 
 ## Experiment.Origin Property
 
-The property which helps get/set the origin choice for the experiment.
+This property helps get/set the origin choice for the coordinate space of the experiment.
 
 ```csharp
 public HurPsyLib.HurPsyOrigin Origin { get; set; }
@@ -93,7 +93,7 @@ public HurPsyLib.HurPsyOrigin Origin { get; set; }
 
 ## Experiment.AddLocator(Locator) Method
 
-The function which adds a `Locator` object to `locatorDict` collection and reports on the result
+This function adds a `Locator` object to `locatorDict` collection and reports on the outcome.
 
 ```csharp
 public bool AddLocator(HurPsyLib.Locator loc);
@@ -114,7 +114,7 @@ A boolean flag indicating if the operation was successful
 
 ## Experiment.AddNewBlock() Method
 
-The function which adds a newly created trial block to `Blocks` collection and returns a reference to it
+This function adds a newly created trial block to `Blocks` collection and returns a reference to it.
 
 ```csharp
 public HurPsyLib.Block AddNewBlock();
@@ -128,7 +128,7 @@ A reference to the newly added `Block` object
 
 ## Experiment.AddStimulus(Stimulus) Method
 
-The function which adds a `Stimulus` object to `stimulusDict` collection and returns on the result
+This function adds a `Stimulus` object to `stimulusDict` collection and reports on the outcome.
 
 ```csharp
 public bool AddStimulus(HurPsyLib.Stimulus stim);
@@ -149,7 +149,7 @@ A boolean flag indicating if the operation was successful
 
 ## Experiment.GetLocator(string) Method
 
-The function which returns the `Locator` object with the given id
+This function returns the reference of the `Locator` object with the given id.
 
 ```csharp
 public HurPsyLib.Locator GetLocator(string locId);
@@ -175,7 +175,7 @@ An exception will be thrown if a `Locator` object with the given id cannot be fo
 
 ## Experiment.GetLocators() Method
 
-The function which returns a new generic list of `Locator` objects.
+This function returns a new generic list of `Locator` objects.
 
 ```csharp
 public System.Collections.Generic.List<HurPsyLib.Locator> GetLocators();
@@ -189,7 +189,7 @@ A generic list of all the `Locator` objects in the experiment definition
 
 ## Experiment.GetStimuli() Method
 
-The function which returns a new generic list of `Stimulus` objects.
+This function returns a new generic list of `Stimulus` objects.
 
 ```csharp
 public System.Collections.Generic.List<HurPsyLib.Stimulus> GetStimuli();
@@ -203,7 +203,7 @@ A generic list of all the `Stimulus` objects in the experiment definition
 
 ## Experiment.GetStimulus(string) Method
 
-The function which returns the `Stimulus` object with the given id
+This function returns a reference to the `Stimulus` object with the given id.
 
 ```csharp
 public HurPsyLib.Stimulus GetStimulus(string stimId);
@@ -229,7 +229,7 @@ An exception will be thrown if a `Stimulus` object with the given id cannot be f
 
 ## Experiment.LoadFromXml(string) Method
 
-The function which loads an experiment definition from an XML file by using a `DataContractSerializer`
+This static function loads an experiment definition from an XML file by using a `DataContractSerializer`.
 
 ```csharp
 public static HurPsyLib.Experiment LoadFromXml(string fileName);
@@ -255,7 +255,7 @@ An exception will be thrown if a valid definition of an experiment could not be 
 
 ## Experiment.LocatorIdExists(string) Method
 
-The boolean function which checks whether a `Locator` id exists in `locatorDict` collection.
+This boolean function checks whether a `Locator` id exists in `locatorDict` collection.
 
 ```csharp
 public bool LocatorIdExists(string locId);
@@ -274,7 +274,7 @@ A boolean flag indicating the presence of the given id
 
 ## Experiment.RemoveBlock(Block) Method
 
-The method which removes a `Block` objects from `Blocks` collection.
+This method removes a `Block` objects from `Blocks` collection.
 
 ```csharp
 public void RemoveBlock(HurPsyLib.Block blck);
@@ -291,7 +291,7 @@ The `Block` object which will be removed
 
 ## Experiment.RemoveLocator(string) Method
 
-The method which removes the `Locator` object with the given id from `locatorDict` collection.
+This method removes the `Locator` object with the given id from `locatorDict` collection.
 
 ```csharp
 public void RemoveLocator(string locId);
@@ -308,7 +308,7 @@ The id of the `Locator` object which will be removed
 
 ## Experiment.RemoveStimulus(string) Method
 
-The method which removes the `Stimulus` object with the given id from `stimulusDict` collection.
+This method removes the `Stimulus` object with the given id from `stimulusDict` collection.
 
 ```csharp
 public void RemoveStimulus(string stimId);
@@ -325,7 +325,7 @@ The id of the`Stimulus` object which will be removed
 
 ## Experiment.ReplaceLocatorId(string, string) Method
 
-The method which updates the id of a `Locator` object in `locatorDict` collection.  
+This method updates the id of a `Locator` object in `locatorDict` collection.  
 This method must be called when an end-user gives a `Locator` object a new id through an experimental design program.  
 Otherwise, `locatorDict` collection will be out of date.
 
@@ -350,7 +350,7 @@ New id of the `Locator` object
 
 ## Experiment.ReplaceStimulusId(string, string) Method
 
-The method which updates the id of a `Stimulus` object in `stimulusDict` collection.  
+This method updates the id of a `Stimulus` object in `stimulusDict` collection.  
 This method must be called when an end-user gives a `Stimulus` object a new id through an experiment design program.  
 Otherwise, `stimulusDict` collection will be out of date.
 
@@ -375,7 +375,7 @@ New id of the `Stimulus` object
 
 ## Experiment.SaveToXml(string) Method
 
-The method which saves the experiment definition to an XML file using a `DataContractSerializer`
+This method saves the experiment definition to an XML file using a `DataContractSerializer`
 
 ```csharp
 public void SaveToXml(string fileName);
@@ -392,7 +392,7 @@ The name of the XML file
 
 ## Experiment.StimulusIdExists(string) Method
 
-The boolean function which checks if a `Stimulus` id exists in `stimulusDict` collection.
+This boolean function checks if a `Stimulus` id exists in `stimulusDict` collection.
 
 ```csharp
 public bool StimulusIdExists(string stimId);

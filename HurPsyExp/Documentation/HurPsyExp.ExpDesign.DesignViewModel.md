@@ -62,6 +62,19 @@ private RelayCommand? addHtmlStimulusCommand;
 #### Field Value
 [CommunityToolkit.Mvvm.Input.RelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand 'CommunityToolkit.Mvvm.Input.RelayCommand')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.addKeyResponseCommand'></a>
+
+## DesignViewModel.addKeyResponseCommand Field
+
+The backing field for [AddKeyResponseCommand](HurPsyExp.ExpDesign.DesignViewModel.md#HurPsyExp.ExpDesign.DesignViewModel.AddKeyResponseCommand 'HurPsyExp.ExpDesign.DesignViewModel.AddKeyResponseCommand').
+
+```csharp
+private RelayCommand? addKeyResponseCommand;
+```
+
+#### Field Value
+[CommunityToolkit.Mvvm.Input.RelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand 'CommunityToolkit.Mvvm.Input.RelayCommand')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.addPointLocatorCommand'></a>
 
 ## DesignViewModel.addPointLocatorCommand Field
@@ -188,6 +201,19 @@ Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/e
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand AddHtmlStimulusCommand { get; }
+```
+
+#### Property Value
+[CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand')
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.AddKeyResponseCommand'></a>
+
+## DesignViewModel.AddKeyResponseCommand Property
+
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [AddKeyResponse()](HurPsyExp.ExpDesign.DesignViewModel.md#HurPsyExp.ExpDesign.DesignViewModel.AddKeyResponse() 'HurPsyExp.ExpDesign.DesignViewModel.AddKeyResponse()').
+
+```csharp
+public CommunityToolkit.Mvvm.Input.IRelayCommand AddKeyResponseCommand { get; }
 ```
 
 #### Property Value
@@ -356,6 +382,16 @@ The method which will load and HTML stimulus from a file selected by the user wh
 
 ```csharp
 public void AddHtmlStimulus();
+```
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.AddKeyResponse()'></a>
+
+## DesignViewModel.AddKeyResponse() Method
+
+This method will create and add a `KeyResponse` object to the experiment definition
+
+```csharp
+public void AddKeyResponse();
 ```
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.AddLocatorVM(HurPsyLib.Locator)'></a>

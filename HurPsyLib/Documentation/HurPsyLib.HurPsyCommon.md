@@ -29,7 +29,7 @@ public static Random Rnd;
 
 ## HurPsyCommon.GetObjectGuid(object) Method
 
-This function returns a temporfary unique id generated with the type name of any object
+This function returns a temporary unique id generated with the type name of any object
 
 ```csharp
 public static string GetObjectGuid(object obj);

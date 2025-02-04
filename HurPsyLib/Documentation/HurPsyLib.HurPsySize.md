@@ -2,7 +2,7 @@
 
 ## HurPsySize Class
 
-This class represents a size object to specify the dimensions of a visual stimulus.  
+This class helps specify the dimensions of a visual stimulus.  
 Its whole point is to keep `HurPsyLib` objects independent of the GUIs used for designing or running experiments.
 
 ```csharp

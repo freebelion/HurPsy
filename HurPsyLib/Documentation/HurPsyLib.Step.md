@@ -2,7 +2,7 @@
 
 ## Step Class
 
-The class which represents a step in an experimental trial.  
+This class represents a step in an experimental trial.  
 It contains information on which stimuli will be presented together, at which locations and for how long.
 
 ```csharp
@@ -16,7 +16,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 ## Step() Constructor
 
-This default constructor starts with an empty list of stimulus-locator pairs and zero display time.
+This default constructor starts with an empty list of `Stimulus`-`Locator` pairs and zero display time.
 
 ```csharp
 public Step();
@@ -40,7 +40,7 @@ public HurPsyLib.HurPsyTimePeriod StepTime { get; set; }
 
 ## Step.StimulusLocators Property
 
-The list of `StimulusLocatorPair` objects which represent the stimuli which will be presented together and their locators which will specify stimuli's locations.
+The list of `StimulusLocatorPair` objects associating `Stimulus` objects with `Locator` objects which will determine their positions.
 
 ```csharp
 public System.Collections.Generic.List<HurPsyLib.StimulusLocatorPair> StimulusLocators { get; set; }
@@ -54,7 +54,7 @@ public System.Collections.Generic.List<HurPsyLib.StimulusLocatorPair> StimulusLo
 
 ## Step.AddStimulusLocatorPair(StimulusLocatorPair) Method
 
-The function which adds a stimulus-locator paitr to `StimulusLocators` list and returns its reference
+This function adds a given or new `Stimulus`-`Locator` pair to the pairs list and returns its reference.
 
 ```csharp
 public HurPsyLib.StimulusLocatorPair AddStimulusLocatorPair(HurPsyLib.StimulusLocatorPair? newpair=null);
@@ -75,7 +75,7 @@ The reference to the newly added `StimulusLocatorPair` object
 
 ## Step.AddStimulusLocatorPairs(StimulusLocatorPair[]) Method
 
-The method which adds a collection of `StimulusLocatorPair` objects
+This method adds a collection of `StimulusLocatorPair` objects
 
 ```csharp
 public void AddStimulusLocatorPairs(HurPsyLib.StimulusLocatorPair[] newpairs);
@@ -86,13 +86,13 @@ public void AddStimulusLocatorPairs(HurPsyLib.StimulusLocatorPair[] newpairs);
 
 `newpairs` [StimulusLocatorPair](HurPsyLib.StimulusLocatorPair.md 'HurPsyLib.StimulusLocatorPair')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')
 
-The list of `StimulusLocatorPair` objects which will be added
+The array of `StimulusLocatorPair` objects which will be added
 
 <a name='HurPsyLib.Step.ChangeLocatorId(string,string)'></a>
 
 ## Step.ChangeLocatorId(string, string) Method
 
-The method which updates a `Locator` id in the pairs making up this step
+This method updates a `Locator` id in the pairs making up this step.
 
 ```csharp
 public void ChangeLocatorId(string oldId, string newId);
@@ -115,7 +115,7 @@ The new id
 
 ## Step.ChangeStimulusId(string, string) Method
 
-The method which updates a `Stimulus` id in the pairs making up this step
+This method updates a `Stimulus` id in the pairs making up this step.
 
 ```csharp
 public void ChangeStimulusId(string oldId, string newId);
@@ -138,7 +138,7 @@ The new id
 
 ## Step.RemoveLocatorId(string) Method
 
-The method which removes pairs containing a deleted `Locator` id
+This method removes the pairs containing a deleted `Locator` id
 
 ```csharp
 public void RemoveLocatorId(string removedId);
@@ -155,7 +155,7 @@ The id of the deleted `Locator` object
 
 ## Step.RemoveStimulusId(string) Method
 
-The method which removes pairs containing a deleted `Stimulus` id
+This method removes the pairs containing a deleted `Stimulus` id.
 
 ```csharp
 public void RemoveStimulusId(string removedId);

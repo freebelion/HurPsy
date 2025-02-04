@@ -2,7 +2,7 @@
 
 ## HurPsyTimePeriod Class
 
-The class which encapculates information about a time period, independent of the OS where an expperiment is designed or run.
+This class helps specify a time period.
 
 ```csharp
 public class HurPsyTimePeriod
@@ -15,7 +15,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 ## HurPsyTimePeriod() Constructor
 
-This default constructor starts with zero time period
+This default constructor starts with zero time period.
 
 ```csharp
 public HurPsyTimePeriod();
@@ -26,7 +26,7 @@ public HurPsyTimePeriod();
 
 ## HurPsyTimePeriod.period Field
 
-The `TimeSpan` value which contains the actual time period information
+This `TimeSpan` value contains the actual time period information.
 
 ```csharp
 private TimeSpan period;

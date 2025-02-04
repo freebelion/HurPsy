@@ -2,7 +2,7 @@
 
 ## RectangleLocator Class
 
-This class is for positioning a visual stimulus in a rectangular area
+This class represents a rectangular area where a stimulus will be positioned
 
 ```csharp
 public class RectangleLocator : HurPsyLib.Locator
@@ -54,7 +54,7 @@ public HurPsyLib.HurPsySize RectangleSize { get; set; }
 
 ## RectangleLocator.GetLocation(VisualStimulus) Method
 
-The required implementation of the function inherited from the abstract base class will specify a randomized position within the underlying rectangle
+This implementation of the abstract function returns a randomized position within the underlying rectangle.
 
 ```csharp
 public override HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.VisualStimulus? vistim=null);

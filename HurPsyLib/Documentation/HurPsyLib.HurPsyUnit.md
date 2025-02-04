@@ -2,7 +2,7 @@
 
 ## HurPsyUnit Enum
 
-This enum contains the allowed unit choices which will be used with  stimulus locations and sizes
+This `enum` contains the allowed unit choices which will be used with  stimulus locations and sizes.
 
 ```csharp
 public enum HurPsyUnit
@@ -13,4 +13,4 @@ public enum HurPsyUnit
 
 `MM` 0
 
-The default unit choice is millimeter, but more choices may become available as `HurPsyLib` is developed
+The default unit choice is millimeter, but more choices may become available if there is demand and time to implement

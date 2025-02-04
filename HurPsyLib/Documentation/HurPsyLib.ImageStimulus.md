@@ -2,7 +2,7 @@
 
 ## ImageStimulus Class
 
-This class is intended to represent an image served as a visual stimulus (hence it implements the VisualStimulus interface)
+This class represents an image served as a visual stimulus (hence it implements the `VisualStimulus` interface)
 
 ```csharp
 public class ImageStimulus : HurPsyLib.VisualStimulus

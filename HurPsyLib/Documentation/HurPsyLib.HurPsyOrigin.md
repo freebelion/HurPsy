@@ -2,7 +2,7 @@
 
 ## HurPsyOrigin Enum
 
-This enum contains the allowed origin preferences when specifying stimulus locations and anchor points for visual stimulus rectangles
+This `enum` contains the allowed origin preferences when specifying stimulus locations and anchor points for visual stimulus rectangles.
 
 ```csharp
 public enum HurPsyOrigin
@@ -13,4 +13,4 @@ public enum HurPsyOrigin
 
 `MiddleCenter` 0
 
-The default origin choice is middle of the viewbox or the midpoint of any visual rectangle; other choices may become available in the future
+The default origin choice is middle of the viewbox or visual stimulus rectangle; other choices may become available in the future.

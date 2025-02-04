@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace HurPsyLib
 {
     /// <summary>
-    /// The abstract class which serves as the blueprint for all classes which will represent different types of experimental stimuli
+    /// This abstract class serves as the blueprint for all classes which will represent different types of experimental stimuli
     /// </summary>
     [DataContract]
     [KnownType(typeof(VisualStimulus))]

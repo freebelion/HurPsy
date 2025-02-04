@@ -2,7 +2,7 @@
 
 ## HurPsyException Class
 
-Customary specialized Exception class
+This library's specialized Exception class
 
 ```csharp
 public class HurPsyException : System.Exception

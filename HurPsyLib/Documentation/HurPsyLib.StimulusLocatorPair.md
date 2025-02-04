@@ -2,8 +2,8 @@
 
 ## StimulusLocatorPair Class
 
-The class which associates a `Stimulus` object with a `Locator` object by pairing their ids.  
-Any such pairing which appears in a `Step` object representing a trial step will help display a stimulus at the position specified by the associated locator.
+This class associates a `Stimulus` object with a `Locator` object by pairing their ids.  
+Such pairs appear in `Step` objects representing trial steps where `Stimulus` objects appear at positions determined by their associated `Locator` objects.
 
 ```csharp
 public class StimulusLocatorPair
@@ -50,7 +50,7 @@ The `Locator` id of the pair
 
 ## StimulusLocatorPair.LocatorId Property
 
-The `Locator` id making up the pair.
+The `Locator` id of the pair.
 
 ```csharp
 public string LocatorId { get; set; }
@@ -63,7 +63,7 @@ public string LocatorId { get; set; }
 
 ## StimulusLocatorPair.StimulusId Property
 
-The `Stimulus` id making up the pair.
+The `Stimulus` id of the pair.
 
 ```csharp
 public string StimulusId { get; set; }

@@ -2,7 +2,7 @@
 
 ## Locator Class
 
-The abstract class which serves as the blueprint for all classes which will help position experimental stimuli according to their own rules
+This abstract class serves as the blueprint for all subclasses which will help position `Stimulus` objects.
 
 ```csharp
 public abstract class Locator

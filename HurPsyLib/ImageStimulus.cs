@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace HurPsyLib
 {
     /// <summary>
-    /// This class is intended to represent an image served as a visual stimulus (hence it implements the VisualStimulus interface)
+    /// This class represents an image served as a visual stimulus (hence it implements the `VisualStimulus` interface)
     /// </summary>
     [DataContract]
     public class ImageStimulus : VisualStimulus
@@ -19,6 +19,7 @@ namespace HurPsyLib
         public ImageStimulus()
         {
             VisualSize = new HurPsySize(10, 10);
+            VisualSize.Unit = HurPsyUnit.MM;
         }
     }
 }

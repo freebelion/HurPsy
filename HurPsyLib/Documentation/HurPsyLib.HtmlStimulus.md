@@ -2,8 +2,8 @@
 
 ## HtmlStimulus Class
 
-This class in intended to represents a viewbox displaying the contents of an HTML file.  
-It implements the VisualStimulus interface because the stimulus will appear as a visual box displaying some information or instructions.
+This class represents a viewbox displaying the contents of an HTML file.  
+It implements the `VisualStimulus` interface to determinee the size of the visual box.
 
 ```csharp
 public class HtmlStimulus : HurPsyLib.VisualStimulus
@@ -16,7 +16,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 ## HtmlStimulus() Constructor
 
-This default constructor starts with a size which will be valid in case an experiment designer has not set any size.
+This default constructor starts with a default size.
 
 ```csharp
 public HtmlStimulus();

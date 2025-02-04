@@ -25,7 +25,7 @@ public PointLocator();
 
 ## PointLocator(double, double) Constructor
 
-This parametrized constructor accepts the coordinates of a point
+This parametrized constructor accepts the coordinates of the locator point.
 
 ```csharp
 public PointLocator(double locX, double locY);
@@ -63,7 +63,7 @@ public HurPsyLib.HurPsyPoint LocatorPoint { get; set; }
 
 ## PointLocator.GetLocation(VisualStimulus) Method
 
-The required implementation of the function inherited from the abstracxt base class simply specific the inner location point as the stimulus location
+This implementation of the abstract function simply returns the locator point as the stimulus location.
 
 ```csharp
 public override HurPsyLib.HurPsyPoint GetLocation(HurPsyLib.VisualStimulus? vistim=null);
@@ -78,4 +78,4 @@ The visual stimulus which will be positioned by this locator instance
 
 #### Returns
 [HurPsyPoint](HurPsyLib.HurPsyPoint.md 'HurPsyLib.HurPsyPoint')  
-A tempotrary copy of the inner location point, so that subsequent operations will not modify `LocatorPoint`
+A temporary copy of the locator point

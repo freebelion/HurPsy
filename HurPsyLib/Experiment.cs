@@ -12,43 +12,43 @@ using System.Xml;
 namespace HurPsyLib
 {
     /// <summary>
-    /// The class which represents the complete definition of a computerized psychology experiment.
+    /// This class represents the complete definition of a computerized psychology experiment.
     /// </summary>
     [DataContract]
     public class Experiment
     {
         /// <summary>
-        /// The Dictionary collection which helps access `Stimulus` objects through their ids.
+        /// This Dictionary collection helps access `Stimulus` objects through their ids.
         /// </summary>
         [DataMember]
         private Dictionary<string, Stimulus> stimulusDict;
 
         /// <summary>
-        /// The Dictionary collection which helps access `Locator` objects through their ids.
+        /// This Dictionary collection helps access `Locator` objects through their ids.
         /// </summary>
         [DataMember]
         private Dictionary<string, Locator> locatorDict;
 
         /// <summary>
-        /// The property which helps get/set the origin choice for the experiment.
+        /// This property helps get/set the origin choice for the coordinate space of the experiment.
         /// </summary>
         [DataMember]
         public HurPsyOrigin Origin { get; set; }
        
         /// <summary>
-        /// The property which helps get/set the name of the file where the experiment definition will be saved.
+        /// This property helps get/set the name of the file where the experiment definition will be saved.
         /// </summary>
         [DataMember]
         public string FileName { get; set; }
 
         /// <summary>
-        /// The list of `Block` objects which represent the trial blocks that make up the experiment.
+        /// This list of `Block` objects represent the trial blocks that make up the experiment.
         /// </summary>
         [DataMember]
         public List<Block> Blocks { get; private set; }
        
         /// <summary>
-        /// This default constructor which starts with an empty filename and empty lists.
+        /// This default constructor starts with an empty filename and empty collections.
         /// </summary>
         public Experiment()
         {
@@ -59,7 +59,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The function which adds a `Stimulus` object to `stimulusDict` collection and returns on the result
+        /// This function adds a `Stimulus` object to `stimulusDict` collection and reports on the outcome.
         /// </summary>
         /// <param name="stim">The `Stimulus` object which will be added</param>
         /// <returns>A boolean flag indicating if the operation was successful</returns>
@@ -72,11 +72,12 @@ namespace HurPsyLib
                 stimulusDict.Add(stim.Id, stim);
                 return true;
             }
+            // give up in case of any error
             catch { return false; }
         }
 
         /// <summary>
-        /// The boolean function which checks if a `Stimulus` id exists in `stimulusDict` collection. 
+        /// This boolean function checks if a `Stimulus` id exists in `stimulusDict` collection. 
         /// </summary>
         /// <param name="stimId">The `Stimulus` id which will be checked</param>
         /// <returns>A boolean flag indicating the presence of the given id</returns>
@@ -84,7 +85,7 @@ namespace HurPsyLib
         { return stimulusDict.ContainsKey(stimId); }
 
         /// <summary>
-        /// The method which updates the id of a `Stimulus` object in `stimulusDict` collection.
+        /// This method updates the id of a `Stimulus` object in `stimulusDict` collection.
         /// This method must be called when an end-user gives a `Stimulus` object a new id through an experiment design program.
         /// Otherwise, `stimulusDict` collection will be out of date.
         /// </summary>
@@ -99,13 +100,13 @@ namespace HurPsyLib
             stim.Id = newId;
             stimulusDict.Add(newId, stim);
 
-            // and make sure the id is updated in all the trial steps
+            // and make sure the id is updated in all the trial blocks, down to the trial steps
             foreach (Block blck in Blocks)
             { blck.ChangeStimulusId(oldId, newId); }
         }
 
         /// <summary>
-        /// The function which returns the `Stimulus` object with the given id
+        /// This function returns a reference to the `Stimulus` object with the given id.
         /// </summary>
         /// <param name="stimId">The id of the `Stimulus` object which will be accessed</param>
         /// <returns>The `Stimulus` object with the given id</returns>
@@ -119,20 +120,20 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The function which returns a new generic list of `Stimulus` objects.
+        /// This function returns a new generic list of `Stimulus` objects.
         /// </summary>
         /// <returns>A generic list of all the `Stimulus` objects in the experiment definition</returns>
         public List<Stimulus> GetStimuli()
         { return stimulusDict.Values.ToList(); }
 
         /// <summary>
-        /// The method which removes the `Stimulus` object with the given id from `stimulusDict` collection.
+        /// This method removes the `Stimulus` object with the given id from `stimulusDict` collection.
         /// </summary>
         /// <param name="stimId">The id of the`Stimulus` object which will be removed</param>
         public void RemoveStimulus(string stimId)
         {
             stimulusDict.Remove(stimId);
-            // It is also necessary to scan blocks, trials and down to steps
+            // It is also necessary to scan the trial blocks, down to the trial steps
             // to remove stimulus-locator pairs containing the id of the deleted stimulus.
             // !!!Maybe we should just delete a whole trial referring to a deleted stimulus id.
             foreach (Block blck in Blocks)
@@ -140,7 +141,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The function which adds a `Locator` object to `locatorDict` collection and reports on the result
+        /// This function adds a `Locator` object to `locatorDict` collection and reports on the outcome.
         /// </summary>
         /// <param name="loc">The `Locator` object which will be added to the collection.</param>
         /// <returns>A boolean flag indicating if the operation was successful</returns>
@@ -153,11 +154,12 @@ namespace HurPsyLib
                 locatorDict.Add(loc.Id, loc);
                 return true;
             }
+            // give up in case of any error
             catch { return false; }
         }
 
         /// <summary>
-        /// The function which returns the `Locator` object with the given id
+        /// This function returns the reference of the `Locator` object with the given id.
         /// </summary>
         /// <param name="locId">The id of the `Locator` object which will be accessed</param>
         /// <returns>The `Locator` object with the given id</returns>
@@ -171,20 +173,20 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The function which returns a new generic list of `Locator` objects.
+        /// This function returns a new generic list of `Locator` objects.
         /// </summary>
         /// <returns>A generic list of all the `Locator` objects in the experiment definition</returns>
         public List<Locator> GetLocators()
         { return locatorDict.Values.ToList(); }
 
         /// <summary>
-        /// The method which removes the `Locator` object with the given id from `locatorDict` collection.
+        /// This method removes the `Locator` object with the given id from `locatorDict` collection.
         /// </summary>
         /// <param name="locId">The id of the `Locator` object which will be removed</param>
         public void RemoveLocator(string locId)
         {
             locatorDict.Remove(locId);
-            // It is also necessary to scan blocks, trials and down to steps
+            // It is also necessary to scan the trial blocks, down to the trial steps
             // to remove stimulus-locator pairs containing the id of the deleted locator.
             // !!!Maybe we should just delete a whole trial referring to a deleted locator id.
             foreach (Block blck in Blocks)
@@ -192,7 +194,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The boolean function which checks whether a `Locator` id exists in `locatorDict` collection.
+        /// This boolean function checks whether a `Locator` id exists in `locatorDict` collection.
         /// </summary>
         /// <param name="locId"></param>
         /// <returns>A boolean flag indicating the presence of the given id</returns>
@@ -200,7 +202,7 @@ namespace HurPsyLib
         { return locatorDict.ContainsKey(locId); }
 
         /// <summary>
-        /// The method which updates the id of a `Locator` object in `locatorDict` collection.
+        /// This method updates the id of a `Locator` object in `locatorDict` collection.
         /// This method must be called when an end-user gives a `Locator` object a new id through an experimental design program.
         /// Otherwise, `locatorDict` collection will be out of date.
         /// </summary>
@@ -221,7 +223,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The function which adds a newly created trial block to `Blocks` collection and returns a reference to it
+        /// This function adds a newly created trial block to `Blocks` collection and returns a reference to it.
         /// </summary>
         /// <returns>A reference to the newly added `Block` object</returns>
         public Block AddNewBlock()
@@ -232,7 +234,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The method which removes a `Block` objects from `Blocks` collection.
+        /// This method removes a `Block` objects from `Blocks` collection.
         /// </summary>
         /// <param name="blck">The `Block` object which will be removed</param>
         public void RemoveBlock(Block blck)
@@ -241,7 +243,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The method which saves the experiment definition to an XML file using a `DataContractSerializer`
+        /// This method saves the experiment definition to an XML file using a `DataContractSerializer`
         /// </summary>
         /// <param name="fileName">The name of the XML file</param>
         public void SaveToXml(string fileName)
@@ -256,7 +258,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The function which loads an experiment definition from an XML file by using a `DataContractSerializer`
+        /// This static function loads an experiment definition from an XML file by using a `DataContractSerializer`.
         /// </summary>
         /// <param name="fileName">The name of the XML file</param>
         /// <returns>The `Experiment` object which contains the experiment definition loaded from the file</returns>

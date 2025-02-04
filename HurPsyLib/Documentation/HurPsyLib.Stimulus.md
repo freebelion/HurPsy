@@ -2,7 +2,7 @@
 
 ## Stimulus Class
 
-The abstract class which serves as the blueprint for all classes which will represent different types of experimental stimuli
+This abstract class serves as the blueprint for all classes which will represent different types of experimental stimuli
 
 ```csharp
 public abstract class Stimulus

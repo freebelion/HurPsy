@@ -5,33 +5,33 @@ using System.Runtime.Serialization;
 namespace HurPsyLib
 {
     /// <summary>
-    /// This enum contains the allowed unit choices which will be used with  stimulus locations and sizes
+    /// This `enum` contains the allowed unit choices which will be used with  stimulus locations and sizes.
     /// </summary>
     [DataContract]
     public enum HurPsyUnit
     {
         /// <summary>
-        /// The default unit choice is millimeter, but more choices may become available as `HurPsyLib` is developed
+        /// The default unit choice is millimeter, but more choices may become available if there is demand and time to implement
         /// </summary>
         [EnumMember]
         MM
     }
 
     /// <summary>
-    /// This enum contains the allowed origin preferences when specifying stimulus locations and anchor points for visual stimulus rectangles
+    /// This `enum` contains the allowed origin preferences when specifying stimulus locations and anchor points for visual stimulus rectangles.
     /// </summary>
     [DataContract]
     public enum HurPsyOrigin
     {
         /// <summary>
-        /// The default origin choice is middle of the viewbox or the midpoint of any visual rectangle; other choices may become available in the future
+        /// The default origin choice is middle of the viewbox or visual stimulus rectangle; other choices may become available in the future.
         /// </summary>
         [EnumMember]
         MiddleCenter 
     }
 
     /// <summary>
-    /// This class represents a point object to specify the position of a visual stimulus or its anchor point.
+    /// This class represents a point object to specify a position on the experiment's coordinate system.
     /// Its whole point is to keep `HurPsyLib` objects independent of the GUIs used for designing or running experiments.
     /// </summary>
     [DataContract]
@@ -50,7 +50,7 @@ namespace HurPsyLib
         public double Y { get; set; }
 
         /// <summary>
-        /// The property to bget/set the unit choice; it will be fully utilized when more unit choices become available
+        /// The property to get/set the unit choice; it will be fully utilized when more unit choices become available
         /// </summary>
         [DataMember]
         public HurPsyUnit Unit { get; set; }
@@ -70,15 +70,15 @@ namespace HurPsyLib
         { X = pX; Y = pY; }
 
         /// <summary>
-        /// The method for constructing a temporary copy of this instance; it helps avoid accidentally modifying the original location point after copying it for various purposes
+        /// This function constructs a temporary copy of this instance; it helps avoid accidentally modifying the original location point after copying it for various purposes.
         /// </summary>
         /// <returns></returns>
         public HurPsyPoint ShallowCopy()
-        { return (HurPsyPoint)this.MemberwiseClone(); }
+        { return (HurPsyPoint) this.MemberwiseClone(); }
     }
 
     /// <summary>
-    /// This class represents a size object to specify the dimensions of a visual stimulus.
+    /// This class helps specify the dimensions of a visual stimulus.
     /// Its whole point is to keep `HurPsyLib` objects independent of the GUIs used for designing or running experiments.
     /// </summary>
     [DataContract]
@@ -150,19 +150,19 @@ namespace HurPsyLib
     }
 
     /// <summary>
-    /// The class which encapculates information about a time period, independent of the OS where an expperiment is designed or run.
+    /// This class helps specify a time period.
     /// </summary>
     [DataContract]
     public class HurPsyTimePeriod
     {
         /// <summary>
-        /// The `TimeSpan` value which contains the actual time period information
+        /// This `TimeSpan` value contains the actual time period information.
         /// </summary>
         [DataMember]
         private TimeSpan period;
 
         /// <summary>
-        /// This default constructor starts with zero time period
+        /// This default constructor starts with zero time period.
         /// </summary>
         public HurPsyTimePeriod()
         {
@@ -214,7 +214,7 @@ namespace HurPsyLib
     }
 
     /// <summary>
-    /// Customary specialized Exception class
+    /// This library's specialized Exception class
     /// </summary>
     public class HurPsyException : Exception
     {

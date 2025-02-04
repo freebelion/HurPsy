@@ -2,7 +2,7 @@
 
 ## Block Class
 
-The class which represents a block of experimental trials as a collection of `Trial` objects.
+This class represents a block of experimental trials as a collection of `Trial` objects.
 
 ```csharp
 public class Block
@@ -26,7 +26,7 @@ public Block();
 
 ## Block.blockCount Field
 
-The static variable through which the class keeps count of `Block` objects  
+This static variable helps the class keeps count of `Block` objects.  
 (as of September 23rd, 2024, I can't remember the reason that made this count necessary)
 
 ```csharp
@@ -41,7 +41,7 @@ private static int blockCount;
 
 ## Block.MustShuffleTrials Property
 
-The boolean flag which indicates whether the trials (except the fixed ones) making up the block must be shuffled before every run of the experiment.
+This boolean flag indicates whether or not the block trials (except the fixed ones) must be shuffled before every run of the experiment.
 
 ```csharp
 public bool MustShuffleTrials { get; set; }
@@ -54,7 +54,7 @@ public bool MustShuffleTrials { get; set; }
 
 ## Block.Name Property
 
-The string which will hold the hopefully-identifying name given to the block by the designer of the experiment.
+This string will hold the name given to the block by the designer of the experiment.
 
 ```csharp
 public string Name { get; set; }
@@ -67,7 +67,7 @@ public string Name { get; set; }
 
 ## Block.Trials Property
 
-The collection of `Trial` objects representing expewrimental trials
+This collection of `Trial` objects represent the experimental trials making up this block.
 
 ```csharp
 public System.Collections.Generic.List<HurPsyLib.Trial> Trials { get; set; }
@@ -81,7 +81,7 @@ public System.Collections.Generic.List<HurPsyLib.Trial> Trials { get; set; }
 
 ## Block.AddTrial(Trial) Method
 
-The function which adds a `Trial` object to the list of trials and returns a reference to it
+This function adds an existing or new `Trial` object to the list of trials and returns a reference to it.
 
 ```csharp
 public HurPsyLib.Trial AddTrial(HurPsyLib.Trial? newtrial=null);
@@ -102,7 +102,7 @@ The reference to the newly added object
 
 ## Block.ChangeLocatorId(string, string) Method
 
-The method which updates the id of a `Locator` object by scanning through `Trials` collection
+This method updates the id of a `Locator` object by scanning through `Trials` collection.
 
 ```csharp
 public void ChangeLocatorId(string oldId, string newId);
@@ -125,7 +125,7 @@ The new locator id
 
 ## Block.ChangeStimulusId(string, string) Method
 
-The method which updates the id of a `Stimulus` object by scanning through `Trials` collection
+This method updates the id of a `Stimulus` object by scanning through `Trials` collection.
 
 ```csharp
 public void ChangeStimulusId(string oldId, string newId);
@@ -148,7 +148,7 @@ The new stimulus id
 
 ## Block.RemoveLocatorId(string) Method
 
-The method which scans through the trials referring to a deleted `Locator` id
+This method scans through the trials referring to a deleted `Locator` id.
 
 ```csharp
 public void RemoveLocatorId(string removedId);
@@ -165,7 +165,7 @@ The id of the deleted `Locator` object
 
 ## Block.RemoveStimulusId(string) Method
 
-The method which scans through the trials referring to a deleted `Stimulus` id
+This method scans through the trials referring to a deleted `Stimulus` id.
 
 ```csharp
 public void RemoveStimulusId(string removedId);
@@ -182,7 +182,7 @@ The id of the deleted `Stimulus` object
 
 ## Block.ShuffleTrials() Method
 
-The method which shuffles the order of trials (excluding the fixed ones) making up the block
+This method shuffles the order of trials (excluding the fixed ones) making up the block.
 
 ```csharp
 public void ShuffleTrials();

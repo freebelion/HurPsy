@@ -28,7 +28,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// This parametrized constructor accepts the coordinates of a point
+        /// This parametrized constructor accepts the coordinates of the locator point.
         /// </summary>
         /// <param name="locX">The horizontal position of the location point</param>
         /// <param name="locY">The vertical position of the location point</param>
@@ -38,10 +38,10 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The required implementation of the function inherited from the abstracxt base class simply specific the inner location point as the stimulus location
+        /// This implementation of the abstract function simply returns the locator point as the stimulus location.
         /// </summary>
         /// <param name="vistim">The visual stimulus which will be positioned by this locator instance</param>
-        /// <returns>A tempotrary copy of the inner location point, so that subsequent operations will not modify `LocatorPoint`</returns>
+        /// <returns>A temporary copy of the locator point</returns>
         public override HurPsyPoint GetLocation(VisualStimulus? vistim = null)
         {
             return LocatorPoint.ShallowCopy();

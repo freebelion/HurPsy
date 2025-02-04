@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace HurPsyLib
 {
     /// <summary>
-    /// This class is for positioning a visual stimulus in a rectangular area
+    /// This class represents a rectangular area where a stimulus will be positioned
     /// </summary>
     [DataContract]
     public class RectangleLocator : Locator
@@ -36,7 +36,7 @@ namespace HurPsyLib
         }
 
         /// <summary>
-        /// The required implementation of the function inherited from the abstract base class will specify a randomized position within the underlying rectangle
+        /// This implementation of the abstract function returns a randomized position within the underlying rectangle.
         /// </summary>
         /// <param name="vistim">The visual stimulus which will be positioned by this locator instance</param>
         /// <returns>A randomized location within the underlying rectangle (with the guarantee that the visual stoimulus will not extend beyond that rectangle)</returns>

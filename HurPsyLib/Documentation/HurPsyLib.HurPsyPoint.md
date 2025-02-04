@@ -2,7 +2,7 @@
 
 ## HurPsyPoint Class
 
-This class represents a point object to specify the position of a visual stimulus or its anchor point.  
+This class represents a point object to specify a position on the experiment's coordinate system.  
 Its whole point is to keep `HurPsyLib` objects independent of the GUIs used for designing or running experiments.
 
 ```csharp
@@ -50,7 +50,7 @@ Initial vertical position
 
 ## HurPsyPoint.Unit Property
 
-The property to bget/set the unit choice; it will be fully utilized when more unit choices become available
+The property to get/set the unit choice; it will be fully utilized when more unit choices become available
 
 ```csharp
 public HurPsyLib.HurPsyUnit Unit { get; set; }
@@ -90,7 +90,7 @@ public double Y { get; set; }
 
 ## HurPsyPoint.ShallowCopy() Method
 
-The method for constructing a temporary copy of this instance; it helps avoid accidentally modifying the original location point after copying it for various purposes
+This function constructs a temporary copy of this instance; it helps avoid accidentally modifying the original location point after copying it for various purposes.
 
 ```csharp
 public HurPsyLib.HurPsyPoint ShallowCopy();

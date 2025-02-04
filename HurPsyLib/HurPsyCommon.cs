@@ -19,7 +19,7 @@ namespace HurPsyLib
         public static Random Rnd = new Random((int)DateTime.Now.Ticks);
 
         /// <summary>
-        /// This function returns a temporfary unique id generated with the type name of any object
+        /// This function returns a temporary unique id generated with the type name of any object
         /// </summary>
         /// <param name="obj">The object which needs the temporary unique id</param>
         /// <returns></returns>
