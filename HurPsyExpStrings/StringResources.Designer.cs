@@ -187,15 +187,6 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Design Preferences.
-        /// </summary>
-        public static string Header_PreferencesPanel {
-            get {
-                return ResourceManager.GetString("Header_PreferencesPanel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Response Definitions.
         /// </summary>
         public static string Header_ResponsePanel {
@@ -205,11 +196,29 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to _Run.
+        /// </summary>
+        public static string Header_RunExperimentMenuItem {
+            get {
+                return ResourceManager.GetString("Header_RunExperimentMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Save.
         /// </summary>
         public static string Header_SaveExperimentMenuItem {
             get {
                 return ResourceManager.GetString("Header_SaveExperimentMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Settings.
+        /// </summary>
+        public static string Header_SettingsPanel {
+            get {
+                return ResourceManager.GetString("Header_SettingsPanel", resourceCulture);
             }
         }
         
@@ -228,6 +237,24 @@ namespace HurPsyExpStrings {
         public static string Label_CommandButtonHeight {
             get {
                 return ResourceManager.GetString("Label_CommandButtonHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design an Experiment.
+        /// </summary>
+        public static string Label_DesignExperiment {
+            get {
+                return ResourceManager.GetString("Label_DesignExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font Size.
+        /// </summary>
+        public static string Label_FontSize {
+            get {
+                return ResourceManager.GetString("Label_FontSize", resourceCulture);
             }
         }
         
@@ -259,6 +286,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Run an Experiment.
+        /// </summary>
+        public static string Label_RunExperiment {
+            get {
+                return ResourceManager.GetString("Label_RunExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Small Font Size.
         /// </summary>
         public static string Label_SmallFontSize {
@@ -273,15 +309,6 @@ namespace HurPsyExpStrings {
         public static string Label_StepTime {
             get {
                 return ResourceManager.GetString("Label_StepTime", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UI Font Size.
-        /// </summary>
-        public static string Label_UIFontSize {
-            get {
-                return ResourceManager.GetString("Label_UIFontSize", resourceCulture);
             }
         }
         
@@ -403,11 +430,38 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Font size for major UI elements.
+        /// </summary>
+        public static string Tooltip_FontSize {
+            get {
+                return ResourceManager.GetString("Tooltip_FontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icons View.
+        /// </summary>
+        public static string Tooltip_IconView {
+            get {
+                return ResourceManager.GetString("Tooltip_IconView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preferred height for preview images.
         /// </summary>
         public static string Tooltip_ImagePreviewHeight {
             get {
                 return ResourceManager.GetString("Tooltip_ImagePreviewHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Items View.
+        /// </summary>
+        public static string Tooltip_ItemView {
+            get {
+                return ResourceManager.GetString("Tooltip_ItemView", resourceCulture);
             }
         }
         
@@ -453,15 +507,6 @@ namespace HurPsyExpStrings {
         public static string Tooltip_StimulusId {
             get {
                 return ResourceManager.GetString("Tooltip_StimulusId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Font size for major UI elements.
-        /// </summary>
-        public static string Tooltip_UIFontSize {
-            get {
-                return ResourceManager.GetString("Tooltip_UIFontSize", resourceCulture);
             }
         }
         

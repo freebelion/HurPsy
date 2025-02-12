@@ -3,65 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:expapp="clr-namespace:HurPsyExp"
         xmlns:exprun="clr-namespace:HurPsyExp.ExpRun"
-        xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
+        xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
-        Title="{x:Static stringlib:StringResources.Title_RunWindow}" Height="450" Width="800"
-        WindowStyle="None" WindowState="Maximized" WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded"
-        KeyDown="Window_KeyDown">
-
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                
-            </ResourceDictionary.MergedDictionaries>
-
-            <expapp:StimulusViewTemplateSelector x:Key="stimvmTemplateSelector"/>
-
-            <ItemsPanelTemplate x:Key="CanvasTemplate">
-                <!--source: https://stackoverflow.com/questions/1871358/wpf-how-to-make-the-0-0-in-center-inside-a-canvas-->
-                <Canvas HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Width="0" Height="0"/>
-            </ItemsPanelTemplate>
-
-            <!--source: https://stackoverflow.com/questions/1265364/setting-canvas-properties-in-an-itemscontrol-datatemplate-->
-            <Style x:Key="CanvasChildStyle" TargetType="ContentPresenter">
-                    <Setter Property="Canvas.Left" Value="{Binding StimulusLocation.X}" />
-                    <Setter Property="Canvas.Top" Value="{Binding StimulusLocation.Y}" />
-            </Style>
-
-            <DataTemplate x:Key="VisualStimulusTemplate">
-                <ContentControl Content="{Binding}"
-                                ContentTemplateSelector="{StaticResource stimvmTemplateSelector}"/>
-            </DataTemplate>
-
-            <DataTemplate x:Key="HtmlStimulusTemplate">
-                <Border BorderBrush="DarkBlue" BorderThickness="2">
-                    <WebBrowser Loaded="WebBrowser_Loaded"
-                                Width="{Binding StimulusSize.Width}"
-                                Height="{Binding StimulusSize.Height}"/>
-                </Border>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ImageStimulusTemplate">
-                <Image Loaded="Image_Loaded"
-                       Width="{Binding StimulusSize.Width}"
-                       Height="{Binding StimulusSize.Height}"/>
-            </DataTemplate>
-        </ResourceDictionary>
-    </Window.Resources>
-
-    <Border>
-        <ItemsControl x:Name="StimulusItemsControl"
-                  ItemsSource="{Binding StimulusVMs}"
-                  ItemsPanel="{StaticResource CanvasTemplate}"
-                  ItemContainerStyle="{StaticResource CanvasChildStyle}"
-                  ItemTemplate="{StaticResource VisualStimulusTemplate}"
-                  Visibility="Hidden">
-
-        </ItemsControl>
-    </Border>
+        Title="{x:Static expstrings:StringResources.Title_RunWindow}"
+        FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
+        Height="800" Width="1400"
+        WindowState="Maximized" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        
+    </Grid>
 </Window>

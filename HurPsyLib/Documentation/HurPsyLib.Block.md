@@ -37,6 +37,19 @@ private static int blockCount;
 [System.Int32](https://docs.microsoft.com/en-us/dotnet/api/System.Int32 'System.Int32')
 ### Properties
 
+<a name='HurPsyLib.Block.Id'></a>
+
+## Block.Id Property
+
+This string will hold the name given to the block by the designer of the experiment.
+
+```csharp
+public string Id { get; set; }
+```
+
+#### Property Value
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
 <a name='HurPsyLib.Block.MustShuffleTrials'></a>
 
 ## Block.MustShuffleTrials Property
@@ -49,19 +62,6 @@ public bool MustShuffleTrials { get; set; }
 
 #### Property Value
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
-
-<a name='HurPsyLib.Block.Name'></a>
-
-## Block.Name Property
-
-This string will hold the name given to the block by the designer of the experiment.
-
-```csharp
-public string Name { get; set; }
-```
-
-#### Property Value
-[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
 <a name='HurPsyLib.Block.Trials'></a>
 

@@ -2,180 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:expapp="clr-namespace:HurPsyExp"
                     xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
-                    xmlns:stringlib="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
-
+                    xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="DesignStyles.xaml"/>
+        <ResourceDictionary Source="DesignBrushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
-    <BooleanToVisibilityConverter x:Key="boolvis"/>
 
+    <expdesign:ItemViewTemplateSelector x:Key="itemvmTemplateSelector"/>
 
-    <expapp:ItemViewTemplateSelector x:Key="itemvmTemplateSelector"/>
-
-    <!--This template will be applied to all items appearing in lists of experiment elements' definitions.
-        The idea in the backburner is to have small edit&delete buttons appear on all such items.
-        The inner ContentControl's appearance will change depending on the item type.
-    -->
-    <DataTemplate x:Key="ItemViewTemplate">
-        <Border Name="TemplateBorder" BorderThickness="1">
-            <Grid Name="TemplateGrid">
-
-                <Grid.InputBindings>
-                    <MouseBinding Command="{Binding ToggleSelectCommand}" MouseAction="LeftClick"/>
-                    <!--Disabled until a need arises
-                        <MouseBinding Command="{Binding ToggleEditCommand}" MouseAction="LeftDoubleClick"/>
-                    -->
-                    <!--This one is disabled as well, because it does not work, 
-                        <KeyBinding Command="{Binding DeleteItemCommand}" Key="Delete"/>
-                        for some reason.
-                    -->
-                </Grid.InputBindings>
-
-                <!--It is the ContentControl whose appearance will be changed
-                    by the template selector according to the actual type of the item.
-                -->
-                <ContentControl Name="ContentView" Content="{Binding}"
-                                FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"
-                                ContentTemplateSelector="{StaticResource itemvmTemplateSelector}">
-                </ContentControl>
-            </Grid>
-        </Border>
-
-        <DataTemplate.Triggers>
-            <!--TODO: Rethink and hopefully improve color and brush definitions.-->
-            <!--TODO: Consider using different item and selection brushes for different types of items.-->
-            <DataTrigger Binding="{Binding Path=Selected}" Value="True">
-                <Setter TargetName="TemplateBorder" Property="BorderBrush" Value="Red"/>
-                <Setter TargetName="TemplateGrid" Property="Background" Value="{StaticResource SelectionBrush}"/>
-            </DataTrigger>
-
-            <DataTrigger Binding="{Binding Path=Selected}" Value="False">
-                <Setter TargetName="TemplateBorder" Property="BorderBrush" Value="Transparent"/>
-                <Setter TargetName="TemplateGrid" Property="Background" Value="{StaticResource ItemBrush}"/>
-            </DataTrigger>
-        </DataTemplate.Triggers>
-    </DataTemplate>
-
-    <DataTemplate x:Key="StepTemplate">
-        <StackPanel Orientation="Horizontal"
-                Background="{StaticResource ItemBrush}">
-            <ItemsControl ItemsSource="{Binding StimulusLocators}"
-                      FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="2"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding LocatorId}" Margin="2" Padding="2"
-                                       Background="{StaticResource ControlBackground}"/>
-                            <TextBlock Text="{Binding StimulusId}" Margin="2" Padding="2"
-                                       Background="{StaticResource ControlBackground}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-
-            <TextBox Margin="2" Height="Auto" VerticalAlignment="Center"
-                     Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"
-                     FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"/>
-            <TextBlock Margin="2" Height="Auto" VerticalAlignment="Center"
-                       Text="ms"
-                       FontSize="{Binding Source={StaticResource DesignPreferences}, Path=SmallFontSize}"/>
-        </StackPanel>
-    </DataTemplate>
-
-    <DataTemplate x:Key="TrialTemplate">
-        <Grid DataContext="{Binding ItemObject}">
-            <ItemsControl ItemsSource="{Binding Steps}"
-                          ItemTemplate="{StaticResource StepTemplate}"/>
-        </Grid>
-    </DataTemplate>
-    
-    <DataTemplate x:Key="BlockTemplate">
-        <Grid>
-            <Expander ExpandDirection="Down" IsExpanded="False">
-                <Expander.Header>
-                    <TextBox Text="{Binding ItemObject.Name}"/>
-                </Expander.Header>
-                <DockPanel HorizontalAlignment="Stretch">
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
-                                Style="{StaticResource CommandBar}"
-                                HorizontalAlignment="Stretch">
-                        <Button Style="{StaticResource CommandButton}"
-                                Command="{Binding AddingTrialCommand}"
-                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Expander}}}"
-                                ToolTip="{x:Static stringlib:StringResources.Tooltip_AddTrial}">
-                            <Image Source="..\Images\AddTrial.png" Stretch="Fill"/>
-                        </Button>
-                    </StackPanel>
-
-                    <ItemsControl Name="TrialsControl"
-                                  ItemsSource="{Binding TrialVMs}"
-                                  ItemTemplate="{StaticResource ItemViewTemplate}">
-
-                    </ItemsControl>
-                </DockPanel>
-            </Expander>
-        </Grid>
-    </DataTemplate>
-    
-    <DataTemplate x:Key="VisualStimulusTemplate">
-        <Grid HorizontalAlignment="Stretch">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Column="0" Margin="2"
-                   Source="{Binding IconImage}" Stretch="Uniform"/>
-
-            <TextBox Grid.Column="1" Margin="2"
-                     IsEnabled="{Binding Editable}"
-                     Text="{Binding TempId}" VerticalContentAlignment="Center"
-                     ToolTip="{x:Static stringlib:StringResources.Tooltip_StimulusId}"/>
-
-            <TextBox Grid.Column="2" Margin="2"
-                      IsEnabled="{Binding Editable}"
-                      TextAlignment="Right" VerticalContentAlignment="Center"
-                      Text="{Binding ItemObject.VisualSize.Width, StringFormat='0.0'}"
-                      ToolTip="{x:Static stringlib:StringResources.Tooltip_VisualStimulusWidth}"/>
-            <TextBox Grid.Column="3" Margin="2"
-                     IsEnabled="{Binding Editable}"
-                     TextAlignment="Right" VerticalContentAlignment="Center"
-                     Text="{Binding ItemObject.VisualSize.Height, StringFormat='0.0'}"
-                     ToolTip="{x:Static stringlib:StringResources.Tooltip_VisualStimulusHeight}"/>
-        </Grid>
-    </DataTemplate>
-
-    <DataTemplate x:Key="PointLocatorTemplate">
-        <Grid Name="LocatorTemplateGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="60"/>
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Column="0" Margin="2"
-               Source="..\Images\PointLocator.png" Stretch="Uniform"/>
-
-            <TextBox Grid.Column="1" Margin="2"
-                 Text="{Binding TempId}" VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="2" Margin="2"
-                 TextAlignment="Right" VerticalContentAlignment="Center"
-                 Text="{Binding ItemObject.LocatorPoint.X, StringFormat='0.0'}"/>
-            <TextBox Grid.Column="3" Margin="2"
-                 TextAlignment="Right" VerticalContentAlignment="Center"
-                 Text="{Binding ItemObject.LocatorPoint.Y, StringFormat='0.0'}"/>
-        </Grid>
-    </DataTemplate>
-    
     <!--When this template is applied to a ContentControl,
         the control's width can be changed by using the slider appearing at the top.-->
     <ControlTemplate x:Key="HorizontallySizableControl" TargetType="ContentControl">
@@ -186,36 +19,152 @@
             </Grid.RowDefinitions>
 
             <Slider Orientation="Horizontal" Grid.Row="0"
-                    ToolTip="{x:Static stringlib:StringResources.Tooltip_ResizeSlider}"
+                    ToolTip="{x:Static expstrings:StringResources.Tooltip_ResizeSlider}"
                     Minimum="{Binding Path=MinWidth, RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}}"
                     Maximum="{Binding Path=MaxWidth, RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}}"
                     Value="{Binding Path=Width, RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}}"/>
             <ContentControl Grid.Row="1" Background="{TemplateBinding Background}"
-                            Content="{TemplateBinding Content}"/>
+                        Content="{TemplateBinding Content}"/>
         </Grid>
     </ControlTemplate>
 
+    <!--When applied to a Slider control,
+        this template makes it look like a NumericUpDown control.-->
     <ControlTemplate x:Key="NumericUpDownSlider" TargetType="Slider">
-        <Grid Margin="2">
+        <Grid Margin="2" Background="{TemplateBinding Background}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"/>
+                <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}"/>
+                <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
             </Grid.ColumnDefinitions>
             <TextBlock VerticalAlignment="Center" Grid.Column="1"
                        HorizontalAlignment="Stretch" TextAlignment="Center"
                        Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Window}}"
-                       FontSize="{Binding Source={StaticResource DesignPreferences}, Path=UIFontSize}"
+                       FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
                        Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}}"/>
             <RepeatButton Grid.Column="0" Command="Slider.DecreaseLarge"
-                          Height="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}">
+                          Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}">
                 <Image Source="..\Images\decrement.png" Stretch="Fill"/>
             </RepeatButton>
             <RepeatButton Grid.Column="2" Command="Slider.IncreaseLarge"
-                          Height="{Binding Source={StaticResource DesignPreferences}, Path=CommandButtonHeight}">
+                          Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}">
                 <Image Source="..\Images\increment.png" Stretch="Fill"/>
             </RepeatButton>
         </Grid>
     </ControlTemplate>
+
+    <DataTemplate x:Key="IconTemplate">
+        <StackPanel Orientation="Vertical">
+            
+            <Image Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"
+                   Source="{Binding IconImage}" Stretch="Uniform"/>
+
+            <TextBlock Grid.Column="1" Margin="2"
+                       Text="{Binding TempId}"
+                       ToolTip="{x:Static expstrings:StringResources.Tooltip_StimulusId}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ItemTemplate">
+        <ContentControl x:Name="templateContent" Content="{Binding}"
+                        ContentTemplateSelector="{StaticResource itemvmTemplateSelector}">
+        </ContentControl>
+    </DataTemplate>
+
+    <DataTemplate x:Key="VisualStimulusItemTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Margin="2"
+                   Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"
+                   Source="{Binding IconImage}" Stretch="Uniform"/>
+
+            <TextBox Grid.Column="1" Margin="2"
+                     Text="{Binding TempId}" VerticalContentAlignment="Center"
+                     ToolTip="{x:Static expstrings:StringResources.Tooltip_StimulusId}"/>
+
+            <TextBox Grid.Column="2" Margin="2"
+                     TextAlignment="Right" VerticalContentAlignment="Center"
+                     Text="{Binding ItemObject.VisualSize.Width, StringFormat='0.0'}"
+                     ToolTip="{x:Static expstrings:StringResources.Tooltip_VisualStimulusWidth}"/>
+            <TextBox Grid.Column="3" Margin="2"
+                     TextAlignment="Right" VerticalContentAlignment="Center"
+                     Text="{Binding ItemObject.VisualSize.Height, StringFormat='0.0'}"
+                     ToolTip="{x:Static expstrings:StringResources.Tooltip_VisualStimulusHeight}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PointLocatorItemTemplate">
+        <Grid Name="LocatorTemplateGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Margin="2"
+                   Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"
+                   Source="{Binding IconImage}" Stretch="Uniform"/>
+            <TextBox Grid.Column="1" Margin="2"
+                 Text="{Binding TempId}" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="2" Margin="2"
+                 TextAlignment="Right" VerticalContentAlignment="Center"
+                 Text="{Binding ItemObject.LocatorPoint.X, StringFormat='0.0'}"/>
+            <TextBox Grid.Column="3" Margin="2"
+                 TextAlignment="Right" VerticalContentAlignment="Center"
+                 Text="{Binding ItemObject.LocatorPoint.Y, StringFormat='0.0'}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="StepTemplate">
+        <StackPanel Orientation="Horizontal">
+
+            <TextBox Margin="2" Height="Auto" VerticalAlignment="Center"
+                 Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"
+                 FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+            <TextBlock Margin="2" Height="Auto" VerticalAlignment="Center"
+                   Text="ms"
+                   FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+            <ItemsControl ItemsSource="{Binding StimulusLocators}"
+                  FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="2"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding LocatorId}" Margin="2" Padding="2"
+                                   FontWeight="Bold" Opacity="0.5"
+                                   Background="{StaticResource ControlBackground}"/>
+                            <TextBlock Text="{Binding StimulusId}" Margin="2" Padding="2"
+                                   Background="{StaticResource ControlBackground}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </DataTemplate>
     
+    <HierarchicalDataTemplate x:Key="TrialTemplate"
+                              ItemsSource="{Binding Steps}"
+                              ItemTemplate="{StaticResource StepTemplate}">
+        <TextBlock Text="{Binding Id}"
+               FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+    </HierarchicalDataTemplate>
+    
+    <HierarchicalDataTemplate x:Key="BlockTemplate"
+                              ItemsSource="{Binding ItemObject.Trials}"
+                              ItemTemplate="{StaticResource TrialTemplate}">
+        <TextBox Text="{Binding TempId}"
+                 FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
+                 FontWeight="Bold"/>
+    </HierarchicalDataTemplate>
 </ResourceDictionary>

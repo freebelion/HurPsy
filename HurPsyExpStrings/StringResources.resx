@@ -161,9 +161,9 @@
     <value>Experiment Blocks</value>
     <comment>The header text for the ExperimentPanel</comment>
   </data>
-  <data name="Header_PreferencesPanel" xml:space="preserve">
-    <value>Design Preferences</value>
-    <comment>The header text for the Preferences Panel in DesignWindow</comment>
+  <data name="Header_SettingsPanel" xml:space="preserve">
+    <value>App Settings</value>
+    <comment>The header text for the AppSettings Panel in DesignWindow</comment>
   </data>
   <data name="Header_LoadExperimentMenuItem" xml:space="preserve">
     <value>_Load</value>
@@ -185,6 +185,10 @@
     <value>_Save</value>
     <comment>The label for the menu item that saves the experiment in a file</comment>
   </data>
+  <data name="Header_RunExperimentMenuItem" xml:space="preserve">
+    <value>_Run</value>
+    <comment>The label for the menu item that runts the experiment in the way it was designed</comment>
+  </data>
   <data name="Header_StimulusPanel" xml:space="preserve">
     <value>Stimulus Definitions</value>
     <comment>The header text for the StimuliPanel in the ElementsPanel</comment>
@@ -193,11 +197,11 @@
     <value>Trial is fixed</value>
     <comment>The label text for the CheckBox which toggles the IsFixed property in AddTrialDialog</comment>
   </data>
-  <data name="Label_UIFontSize" xml:space="preserve">
-    <value>UI Font Size</value>
+  <data name="Label_FontSize" xml:space="preserve">
+    <value>Font Size</value>
     <comment>The label text for the slider to set UIFontSize on Design Preferences panel</comment>
   </data>
-  <data name="Tooltip_UIFontSize" xml:space="preserve">
+  <data name="Tooltip_FontSize" xml:space="preserve">
     <value>Font size for major UI elements</value>
     <comment>The label text for the slider to set UIFontSize on Design Preferences panel</comment>
   </data>
@@ -273,6 +277,14 @@
     <value>Stimulus Image Width</value>
     <comment>The tooltip for the textbox that sets the width in VisualStimulusTemplate</comment>
   </data>
+  <data name="Tooltip_ItemView" xml:space="preserve">
+    <value>Items View</value>
+    <comment>The tooltip for the view-toggle button when items view is active for ListBoxes lbStimulusDefs and lbLocatorDefs</comment>
+  </data>
+  <data name="Tooltip_IconView" xml:space="preserve">
+    <value>Icons View</value>
+    <comment>The tooltip for the view-toggle button when icons view is active for ListBoxes lbStimulusDefs and lbLocatorDefs</comment>
+  </data>
   <data name="Label_SmallFontSize" xml:space="preserve">
     <value>Small Font Size</value>
     <comment>The label text for the slider to set SmallFontSize on Preferences panel</comment>
@@ -304,5 +316,13 @@
   <data name="Tooltip_ImagePreviewHeight" xml:space="preserve">
     <value>Preferred height for preview images</value>
     <comment>The label text for the slider to set ImagePreviewHeight on Preferences panel</comment>
+  </data>
+  <data name="Label_DesignExperiment" xml:space="preserve">
+    <value>Design an Experiment</value>
+    <comment>The label for the radio button on StartWindow that will open the design window </comment>
+  </data>
+  <data name="Label_RunExperiment" xml:space="preserve">
+    <value>Run an Experiment</value>
+    <comment>The label for the radio button on StartWindow that will open the run window </comment>
   </data>
 </root>

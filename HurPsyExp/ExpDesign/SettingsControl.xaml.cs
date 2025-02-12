@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HurPsyExp
+namespace HurPsyExp.ExpDesign
 {
     /// <summary>
-    /// Interaction logic for AddTrialDialog.xaml
+    /// Interaction logic for SettingsControl.xaml
     /// </summary>
-    public partial class AddTrialDialog : Window
+    public partial class SettingsControl : UserControl
     {
-        public AddTrialDialog()
+        public SettingsControl()
         {
             InitializeComponent();
-        }
-
-        private void AddTrialButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = true;
-            this.Close();
         }
     }
 }

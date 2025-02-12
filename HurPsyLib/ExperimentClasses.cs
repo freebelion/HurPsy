@@ -156,7 +156,17 @@ namespace HurPsyLib
     /// </summary>
     [DataContract]
     public class  Trial
-    {
+    {       
+        /// <summary>
+        /// This default constructor starts with an empty list of steps and unfixed order number.
+        /// </summary>
+        public Trial()
+        {
+            Steps = new List<Step>();
+            IsFixed = false;
+            Id = HurPsyCommon.GetObjectGuid(this);
+        }
+
         /// <summary>
         /// This collection of `Step` objects represent successive steps making up the trial
         /// </summary>
@@ -171,13 +181,10 @@ namespace HurPsyLib
         public bool IsFixed { get; set; }
 
         /// <summary>
-        /// This default constructor starts with an empty list of steps and unfixed order number.
+        /// This string will hold the Id automatically given to the trial.
         /// </summary>
-        public Trial()
-        {
-            Steps = new List<Step>();
-            IsFixed = false;
-        }
+        [DataMember]
+        public string Id { get; set; }
 
         /// <summary>
         /// This function adds an existing or new `Step` object to the collection of steps and returns a reference to it.
@@ -253,19 +260,24 @@ namespace HurPsyLib
         /// (as of September 23rd, 2024, I can't remember the reason that made this count necessary)
         /// </summary>
         private static int blockCount = 0;
-        
+ 
+        /// <summary>
+        /// This default constructor starts with a temporary but unique block id as the name and empty list of trials.
+        /// </summary>
+        public Block()
+        {
+            blockCount++;
+            Id = HurPsyCommon.GetObjectGuid(this);
+            Trials = new List<Trial>();
+            MustShuffleTrials = true;
+        }
+
         /// <summary>
         /// This string will hold the name given to the block by the designer of the experiment.
         /// </summary>
         [DataMember]
-        public string Name { get; set; }
-        
-        /// <summary>
-        /// This collection of `Trial` objects represent the experimental trials making up this block.
-        /// </summary>
-        [DataMember]
-        public List<Trial> Trials { get; set; }
-        
+        public string Id { get; set; }
+
         /// <summary>
         /// This boolean flag indicates whether or not the block trials (except the fixed ones) must be shuffled before every run of the experiment.
         /// </summary>
@@ -273,15 +285,10 @@ namespace HurPsyLib
         public bool MustShuffleTrials { get; set; }
 
         /// <summary>
-        /// This default constructor starts with a temporary but unique block id as the name and empty list of trials.
+        /// This collection of `Trial` objects represent the experimental trials making up this block.
         /// </summary>
-        public Block()
-        {
-            blockCount++;
-            Name = HurPsyCommon.GetObjectGuid(this);
-            Trials = new List<Trial>();
-            MustShuffleTrials = true;
-        }
+        [DataMember]
+        public List<Trial> Trials { get; set; }
 
         /// <summary>
         /// This function adds an existing or new `Trial` object to the list of trials and returns a reference to it.

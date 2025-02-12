@@ -13,7 +13,7 @@ using System.Runtime.Serialization;
 using System.Xml;
 using System.Windows.Media.Imaging;
 
-namespace HurPsyExp
+namespace HurPsy
 {
     /// <summary>
     /// This static class will handle mundane operations like opening and saving files, etc. which fall outside the jurisdiction of the design app.
@@ -177,35 +177,41 @@ namespace HurPsyExp
         }
 
         /// <summary>
-        /// This function will display an open-file dialog and load an experiment definition (if a valid one can be constructed) from the selected file
+        /// This function will load the experiment definition from the named file or from the file selected on an open-file dialog.
         /// </summary>
-        /// <returns>The reference of the `Experiment` object (`null` if a valid definition could not be constructed)</returns>
-        public static Experiment? LoadExperiment()
+        /// <param name="expFileName">The path of the file (if one is given) which contains an experiment definition</param>
+        /// <returns>The reference to the experiment definition, if a valid one could be extracted from the file</returns>
+        public static Experiment? LoadExperiment(string? expFileName = null)
         {
-            string[]? selectedFiles = Utility.OpenFiles(StringResources.FileFilter_Experiment, openMultiple: false);
-
-            if (selectedFiles != null && selectedFiles.Length == 1)
+            if (expFileName == null)
             {
-                string expFileName = selectedFiles[0];
+                string[]? selectedFiles = Utility.OpenFiles(StringResources.FileFilter_Experiment, openMultiple: false);
 
-                string? expDirectoryPath = Path.GetDirectoryName(expFileName);
-
-                if (expDirectoryPath != null)
+                if (selectedFiles != null && selectedFiles.Length == 1)
                 {
-                    Experiment exp;
-                    // Load the experiment definition from the selected file
-                    exp = Experiment.LoadFromXml(expFileName);
-                    exp.FileName = expFileName; // remember the full file path
-                    // Make sure the stimulus files exist and change their paths if necessary
-                    List<Stimulus> stimuli = exp.GetStimuli();
-                    stimuli.ForEach(stim => { FindStimulusFile(stim, expDirectoryPath); });
-
-                    // Change the working directory for the application (if necessary)
-                    // Directory.SetCurrentDirectory(expDirectoryPath);
-                    // Load the stimulus objects to make the experiment object usable
-                    return exp;
+                    expFileName = selectedFiles[0];
                 }
+                else { return null; }
             }
+
+            string? expDirectoryPath = Path.GetDirectoryName(expFileName);
+
+            if (expDirectoryPath != null)
+            {
+                Experiment exp;
+                // Load the experiment definition from the selected file
+                exp = Experiment.LoadFromXml(expFileName);
+                exp.FileName = expFileName; // remember the full file path
+                                            // Make sure the stimulus files exist and change their paths if necessary
+                List<Stimulus> stimuli = exp.GetStimuli();
+                stimuli.ForEach(stim => { FindStimulusFile(stim, expDirectoryPath); });
+
+                // Change the working directory for the application (if necessary)
+                // Directory.SetCurrentDirectory(expDirectoryPath);
+                // Load the stimulus objects to make the experiment object usable
+                return exp;
+            } 
+
             return null;
         }
 
@@ -335,13 +341,13 @@ namespace HurPsyExp
 
             return obj;
         }
-
+        
         /// <summary>
         /// This function will save a generic object with a given type to an XML file by using a `DataContractSerializer`
         /// </summary>
         /// <typeparam name="T">The object type</typeparam>
+        /// <param name="obj">The object to be saved</param>
         /// <param name="fileName">The path of the XML file containing the object structure</param>
-        /// <returns>The object loaded from the file (`null` if no valid object could be recovered)</returns>
         public static void SaveDataContractObjectToXml<T>(T obj, string fileName) where T : class
         {
             DataContractSerializer ser = new DataContractSerializer(typeof(T));
@@ -374,7 +380,7 @@ namespace HurPsyExp
 
         /// <summary>
         /// This function will convert a value in the experiment unit passed as the second parameter to device-independent-units (WPF equivalent of a standard pixel dimension)
-        /// (Normally, this design&run application will only use millimeters as its standard unit, but this function will come into use when more unit choices become available)
+        /// (Normally, this design and run application will only use millimeters as its standard unit, but this function will come into use when more unit choices become available)
         /// </summary>
         /// <param name="unitvalue">The value in the experiment unit</param>
         /// <param name="unit">The experiment unit</param>
@@ -389,6 +395,12 @@ namespace HurPsyExp
             return double.NaN;
         }
 
+        /// <summary>
+        /// This function obtains the location of a visual stimulus given by the associated `Locator` object in device-independent-units
+        /// </summary>
+        /// <param name="vistim">The `VisualStimulus` object to be displayed</param>
+        /// <param name="loc">The `Locator` object associated with the visual stimulus</param>
+        /// <returns>The point location in device-independent-units</returns>
         public static Point GetDIULocation(VisualStimulus vistim, Locator loc)
         {
             Point pnt = new Point();
@@ -408,6 +420,11 @@ namespace HurPsyExp
             return pnt;
         }
 
+        /// <summary>
+        /// This function converts the `VisualSize` of a visual stimulus to device-independent-units
+        /// </summary>
+        /// <param name="vistim">The `VisualStimulus` object to be displayed</param>
+        /// <returns>The size in device-independent-units</returns>
         public static Size GetDIUSize(VisualStimulus vistim)
         {
             Size sz = new Size();

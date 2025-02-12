@@ -2,41 +2,57 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <SignAssembly>True</SignAssembly>
+	<SignAssembly>True</SignAssembly>
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	<DefaultDocumentationFolder>Documentation</DefaultDocumentationFolder>
 	<DefaultDocumentationGeneratedPages>Namespaces,Types</DefaultDocumentationGeneratedPages>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ResourceDictionaries\**" />
-    <EmbeddedResource Remove="ResourceDictionaries\**" />
-    <None Remove="ResourceDictionaries\**" />
-    <Page Remove="ResourceDictionaries\**" />
+    <Compile Remove="ExpDesign\SettingsCtrl.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Images\AddBlock.png" />
+    <None Remove="Images\AddBlock.svg" />
     <None Remove="Images\AddTrial.png" />
+    <None Remove="Images\AddTrial.svg" />
     <None Remove="Images\decrement.png" />
     <None Remove="Images\DeleteItem.png" />
+    <None Remove="Images\DeleteItem.svg" />
     <None Remove="Images\EditItem.png" />
+    <None Remove="Images\EditItem.svg" />
     <None Remove="Images\HtmlStimulus.png" />
+    <None Remove="Images\HtmlStimulus.svg" />
+    <None Remove="Images\IconView.png" />
+    <None Remove="Images\IconView.svg" />
     <None Remove="Images\ImageStimulus.png" />
+    <None Remove="Images\ImageStimulus.svg" />
+    <None Remove="Images\Increment.png" />
+    <None Remove="Images\ItemView.png" />
+    <None Remove="Images\ItemView.svg" />
     <None Remove="Images\KeyResponse.png" />
+    <None Remove="Images\KeyResponse.svg" />
     <None Remove="Images\PointLocator.png" />
-    <None Remove="Images\SelectObject.png" />
+    <None Remove="Images\PointLocator.svg" />
+    <None Remove="Images\SelectItem.png" />
+    <None Remove="Images\SelectItem.svg" />
+    <None Remove="Images\StimulusIconView.svg" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <Page Remove="ExpDesign\SettingsCtrl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="DefaultDocumentation" Version="0.8.2">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; buildtransitive</IncludeAssets>
+      <IncludeAssets>contentfiles</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
@@ -50,12 +66,15 @@
     <Resource Include="Images\AddTrial.png" />
     <Resource Include="Images\decrement.png" />
     <Resource Include="Images\DeleteItem.png" />
-    <Resource Include="Images\Increment.png" />
     <Resource Include="Images\EditItem.png" />
     <Resource Include="Images\HtmlStimulus.png" />
+    <Resource Include="Images\IconView.png" />
     <Resource Include="Images\ImageStimulus.png" />
+    <Resource Include="Images\Increment.png" />
+    <Resource Include="Images\ItemView.png" />
     <Resource Include="Images\KeyResponse.png" />
     <Resource Include="Images\PointLocator.png" />
+    <Resource Include="Images\SelectItem.png" />
   </ItemGroup>
 
 </Project>

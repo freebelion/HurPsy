@@ -23,6 +23,19 @@ public Trial();
 ```
 ### Properties
 
+<a name='HurPsyLib.Trial.Id'></a>
+
+## Trial.Id Property
+
+This string will hold the Id automatically given to the trial.
+
+```csharp
+public string Id { get; set; }
+```
+
+#### Property Value
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
 <a name='HurPsyLib.Trial.IsFixed'></a>
 
 ## Trial.IsFixed Property

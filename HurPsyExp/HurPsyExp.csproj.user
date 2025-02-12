@@ -7,39 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ExpDesign\AddTrialDialog.xaml.cs">
+    <Compile Update="ExpDesign\DesignWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ExpDesign\DesignWindow.xaml.cs">
+    <Compile Update="ExpDesign\SettingsControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ExpRun\RunWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StartupDialog.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ExpDesign\DesignTemplates.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="ExpDesign\AddTrialDialog.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="ExpDesign\DesignBrushes.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExpDesign\DesignStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ExpDesign\DesignTemplates.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ExpDesign\DesignWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ExpDesign\SettingsControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ExpRun\RunWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="StartupDialog.xaml">
+    <Page Update="StartWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

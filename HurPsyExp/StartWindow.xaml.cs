@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,20 +6,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HurPsyExp
 {
     /// <summary>
-    /// This class definition defines the interaction logic for `StartupDialog.xaml`.
+    /// Interaction logic for StartWindow.xaml
     /// It contains the event handlers which display the design window or the run window, depending on the user's choice.
     /// </summary>
-    public partial class StartupDialog : Window
+    public partial class StartWindow : Window
     {
         /// <summary>
         /// The usual default constructor simply calls the component initializer.
         /// </summary>
-        public StartupDialog()
+        public StartWindow()
         {
             InitializeComponent();
         }
