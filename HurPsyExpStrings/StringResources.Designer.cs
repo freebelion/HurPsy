@@ -133,6 +133,24 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Stimulus.
+        /// </summary>
+        public static string Header_AddStimulusMenu {
+            get {
+                return ResourceManager.GetString("Header_AddStimulusMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new trial(s).
+        /// </summary>
+        public static string Header_AddTrial {
+            get {
+                return ResourceManager.GetString("Header_AddTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Element Definitions.
         /// </summary>
         public static string Header_ElementsPanel {
@@ -174,6 +192,15 @@ namespace HurPsyExpStrings {
         public static string Header_LocatorPanel {
             get {
                 return ResourceManager.GetString("Header_LocatorPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must Shuffle Trials.
+        /// </summary>
+        public static string Header_MustShuffleTrials {
+            get {
+                return ResourceManager.GetString("Header_MustShuffleTrials", resourceCulture);
             }
         }
         
@@ -228,6 +255,15 @@ namespace HurPsyExpStrings {
         public static string Header_StimulusPanel {
             get {
                 return ResourceManager.GetString("Header_StimulusPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Locator Choice.
+        /// </summary>
+        public static string Label_AddLocatorChoice {
+            get {
+                return ResourceManager.GetString("Label_AddLocatorChoice", resourceCulture);
             }
         }
         
@@ -385,6 +421,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose a Locator.
+        /// </summary>
+        public static string Tooltip_AddLocatorChoice {
+            get {
+                return ResourceManager.GetString("Tooltip_AddLocatorChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Point Locator.
         /// </summary>
         public static string Tooltip_AddPointLocator {
@@ -394,11 +439,29 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new trial.
+        ///   Looks up a localized string similar to Add Stimulus.
+        /// </summary>
+        public static string Tooltip_AddStimulusMenu {
+            get {
+                return ResourceManager.GetString("Tooltip_AddStimulusMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new trial(s).
         /// </summary>
         public static string Tooltip_AddTrial {
             get {
                 return ResourceManager.GetString("Tooltip_AddTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right click to open the Block menu.
+        /// </summary>
+        public static string Tooltip_BlockContextMenu {
+            get {
+                return ResourceManager.GetString("Tooltip_BlockContextMenu", resourceCulture);
             }
         }
         
@@ -439,6 +502,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Html Stimulus.
+        /// </summary>
+        public static string Tooltip_HtmlStimulus {
+            get {
+                return ResourceManager.GetString("Tooltip_HtmlStimulus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icons View.
         /// </summary>
         public static string Tooltip_IconView {
@@ -457,6 +529,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image Stimulus.
+        /// </summary>
+        public static string Tooltip_ImageStimulus {
+            get {
+                return ResourceManager.GetString("Tooltip_ImageStimulus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Items View.
         /// </summary>
         public static string Tooltip_ItemView {
@@ -466,11 +547,47 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Locator Id.
+        /// </summary>
+        public static string Tooltip_LocatorId {
+            get {
+                return ResourceManager.GetString("Tooltip_LocatorId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Font size for main window menus.
         /// </summary>
         public static string Tooltip_MenuFontSize {
             get {
                 return ResourceManager.GetString("Tooltip_MenuFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Point Locator.
+        /// </summary>
+        public static string Tooltip_PointLocator {
+            get {
+                return ResourceManager.GetString("Tooltip_PointLocator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X position.
+        /// </summary>
+        public static string Tooltip_PointLocatorX {
+            get {
+                return ResourceManager.GetString("Tooltip_PointLocatorX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y position.
+        /// </summary>
+        public static string Tooltip_PointLocatorY {
+            get {
+                return ResourceManager.GetString("Tooltip_PointLocatorY", resourceCulture);
             }
         }
         

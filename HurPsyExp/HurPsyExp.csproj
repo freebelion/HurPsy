@@ -13,12 +13,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ExpDesign\ExperimentViewModels.cs" />
+    <Compile Remove="ExpDesign\LocatorItemViewModel.cs" />
     <Compile Remove="ExpDesign\SettingsCtrl.xaml.cs" />
+    <Compile Remove="ExpDesign\StimulusItemViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Images\AddBlock.png" />
     <None Remove="Images\AddBlock.svg" />
+    <None Remove="Images\AddStimulus.png" />
+    <None Remove="Images\AddStimulus.svg" />
     <None Remove="Images\AddTrial.png" />
     <None Remove="Images\AddTrial.svg" />
     <None Remove="Images\decrement.png" />
@@ -63,6 +68,7 @@
 
   <ItemGroup>
     <Resource Include="Images\AddBlock.png" />
+    <Resource Include="Images\AddStimulus.png" />
     <Resource Include="Images\AddTrial.png" />
     <Resource Include="Images\decrement.png" />
     <Resource Include="Images\DeleteItem.png" />

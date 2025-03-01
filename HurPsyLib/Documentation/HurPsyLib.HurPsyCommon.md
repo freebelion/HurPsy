@@ -32,7 +32,7 @@ public static Random Rnd;
 This function returns a temporary unique id generated with the type name of any object
 
 ```csharp
-public static string GetObjectGuid(object obj);
+public static string GetObjectGuid(object? obj);
 ```
 #### Parameters
 

@@ -20,6 +20,9 @@ namespace HurPsyExp.ExpDesign
     /// </summary>
     public partial class SettingsControl : UserControl
     {
+        /// <summary>
+        /// The default constructor for `SettingsControl` simply initailizes the visual components.
+        /// </summary>
         public SettingsControl()
         {
             InitializeComponent();

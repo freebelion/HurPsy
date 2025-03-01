@@ -23,7 +23,11 @@ namespace HurPsyLib
         /// </summary>
         /// <param name="obj">The object which needs the temporary unique id</param>
         /// <returns></returns>
-        public static string GetObjectGuid(object obj)
-        { return obj.GetType().Name + "_" + Guid.NewGuid().ToString().Substring(0, 8); }
+        public static string GetObjectGuid(object? obj)
+        {
+            if (obj != null)
+            { return obj.GetType().Name + "_" + Guid.NewGuid().ToString().Substring(0, 8); }
+            else { return string.Empty; }
+        }
     }
 }

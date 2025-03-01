@@ -237,6 +237,14 @@
     <value>Add Image Stimulus</value>
     <comment>The tooltip for the toolbar button which adds an image stimulus</comment>
   </data>
+  <data name="Tooltip_AddStimulusMenu" xml:space="preserve">
+    <value>Add Stimulus</value>
+    <comment>The tooltip for the dropdown menu item which adds a stimulus</comment>
+  </data>
+  <data name="Header_AddStimulusMenu" xml:space="preserve">
+    <value>Add Stimulus</value>
+    <comment>The header text for the dropdown menu item which adds a stimulus</comment>
+  </data>
   <data name="Tooltip_AddKeyResponse" xml:space="preserve">
     <value>Add key response</value>
     <comment>The tooltip for the toolbar button which adds a nkey response definition</comment>
@@ -246,8 +254,12 @@
     <comment>The tooltip for the toolbar button which adds a point-type locator</comment>
   </data>
   <data name="Tooltip_AddTrial" xml:space="preserve">
-    <value>Add new trial</value>
-    <comment>The tooltip for the toolbar button which adds a new trial in a BlockView</comment>
+    <value>Add new trial(s)</value>
+    <comment>The tooltip for the ContextMenu item which adds new trials in BlockTemplate</comment>
+  </data>
+  <data name="Header_AddTrial" xml:space="preserve">
+    <value>Add new trial(s)</value>
+    <comment>The header text for the ContextMenu item which adds new trials in BlockTemplate</comment>
   </data>
   <data name="Tooltip_DeleteObject" xml:space="preserve">
     <value>Delete selected items</value>
@@ -267,7 +279,11 @@
   </data>
   <data name="Tooltip_StimulusId" xml:space="preserve">
     <value>Stimulus Id</value>
-    <comment>The tooltip for the textbox that sets the Id in VisualStimulusTemplate</comment>
+    <comment>The tooltip for the textbox that sets the Id of a Stimulus item</comment>
+  </data>
+  <data name="Tooltip_LocatorId" xml:space="preserve">
+    <value>Locator Id</value>
+    <comment>The tooltip for the textbox that sets the Id of a Locator item</comment>
   </data>
   <data name="Tooltip_VisualStimulusHeight" xml:space="preserve">
     <value>Stimulus Image Height</value>
@@ -324,5 +340,41 @@
   <data name="Label_RunExperiment" xml:space="preserve">
     <value>Run an Experiment</value>
     <comment>The label for the radio button on StartWindow that will open the run window </comment>
+  </data>
+  <data name="Tooltip_PointLocatorX" xml:space="preserve">
+    <value>X position</value>
+    <comment>The tooltip for the TextBox which sets the X position of a PointLocator</comment>
+  </data>
+  <data name="Tooltip_PointLocatorY" xml:space="preserve">
+    <value>Y position</value>
+    <comment>The tooltip for the TextBox which sets the Y position of a PointLocator</comment>
+  </data>
+  <data name="Tooltip_ImageStimulus" xml:space="preserve">
+    <value>Image Stimulus</value>
+    <comment>The tooltip for the icon image in ImageStimulusItemTemplate</comment>
+  </data>
+  <data name="Tooltip_HtmlStimulus" xml:space="preserve">
+    <value>Html Stimulus</value>
+    <comment>The tooltip for the icon image in HtmlStimulusItemTemplate</comment>
+  </data>
+  <data name="Tooltip_PointLocator" xml:space="preserve">
+    <value>Point Locator</value>
+    <comment>The tooltip for the icon image in PointLocatorItemTemplate</comment>
+  </data>
+  <data name="Label_AddLocatorChoice" xml:space="preserve">
+    <value>Add Locator Choice</value>
+    <comment>The label text for the textblock associated with the ComboBox on AddingTrialDialog which adds locator choices for the planned new trials</comment>
+  </data>
+  <data name="Tooltip_AddLocatorChoice" xml:space="preserve">
+    <value>Choose a Locator</value>
+    <comment>The tooltip for the ComboBox on AddingTrialDialog which adds a Locator choice for the planned new trials</comment>
+  </data>
+  <data name="Tooltip_BlockContextMenu" xml:space="preserve">
+    <value>Right click to open the Block menu</value>
+    <comment>The tooltip for the button associated with the ContextMenu in the BlockTemplate</comment>
+  </data>
+  <data name="Header_MustShuffleTrials" xml:space="preserve">
+    <value>Must Shuffle Trials</value>
+    <comment>The label for the checkable menu item in the BlockTemplate ContextMenu</comment>
   </data>
 </root>

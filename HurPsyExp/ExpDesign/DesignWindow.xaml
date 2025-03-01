@@ -93,7 +93,8 @@
                         <Expander DockPanel.Dock="Top"
                                   ExpandDirection="Down"
                                   IsExpanded="True"
-                                  Background="{StaticResource PanelBackground}">
+                                  Margin="5"
+                                  Background="{StaticResource InnerPanelBrush}">
 
                             <Expander.Header>
                                 <TextBlock Text="{x:Static expstrings:StringResources.Header_StimulusPanel}"/>
@@ -106,12 +107,29 @@
                                     <ToggleButton x:Name="btnStimulusDefsView" IsChecked="False"
                                                   Style="{StaticResource DefsViewButton}"/>
 
+                                    <Button Style="{StaticResource CommandButton}"
+                                            Command="{Binding SelectImagesCommand}"
+                                            ToolTip="{x:Static expstrings:StringResources.Tooltip_AddImageStimulus}">
+                                            <Image Source="..\Images\ImageStimulus.png" Stretch="Fill"/>
+                                        </Button>
+                                        <Button Style="{StaticResource CommandButton}"
+                                                Command="{Binding AddHtmlStimulusCommand}"
+                                                ToolTip="{x:Static expstrings:StringResources.Tooltip_AddHtmlStimulus}">
+                                            <Image Source="..\Images\HtmlStimulus.png" Stretch="Fill"/>
+                                        </Button>
+                                    <Button Style="{StaticResource CommandButton}"
+                                            Command="{Binding DeleteStimulusCommand}"
+                                            ToolTip="{x:Static expstrings:StringResources.Tooltip_DeleteObject}">
+                                        <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                                    </Button>
+
                                 </StackPanel>
 
                                 <ListBox x:Name="lbStimulusDefs"
                                          ItemsSource="{Binding StimulusItemVMs}"
                                          HorizontalContentAlignment="Stretch"
                                          ItemContainerStyle="{StaticResource DefsListItem}"
+                                         SelectionMode="Multiple"
                                          Background="{StaticResource ItemBrush}">
                                     <ListBox.Style>
                                         <Style TargetType="ListBox">
@@ -153,7 +171,8 @@
                         <Expander DockPanel.Dock="Top"
                                   ExpandDirection="Down"
                                   IsExpanded="True"
-                                  Background="{StaticResource PanelBackground}">
+                                  Margin="5"
+                                  Background="{StaticResource InnerPanelBrush}">
 
                             <Expander.Header>
                                 <TextBlock Text="{x:Static expstrings:StringResources.Header_LocatorPanel}"/>
@@ -165,13 +184,23 @@
                                             HorizontalAlignment="Stretch">
                                     <ToggleButton x:Name="btnLocatorDefsView" IsChecked="False"
                                                   Style="{StaticResource DefsViewButton}"/>
-
+                                    <Button Style="{StaticResource CommandButton}"
+                                            Command="{Binding AddPointLocatorCommand}"
+                                            ToolTip="{x:Static expstrings:StringResources.Tooltip_AddPointLocator}">
+                                        <Image Source="..\Images\PointLocator.png" Stretch="Fill"/>
+                                    </Button>
+                                    <Button Style="{StaticResource CommandButton}"
+                                            Command="{Binding DeleteLocatorCommand}"
+                                            ToolTip="{x:Static expstrings:StringResources.Tooltip_DeleteObject}">
+                                        <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                                    </Button>
                                 </StackPanel>
 
                                 <ListBox x:Name="lbLocatorDefs"
                                          ItemsSource="{Binding LocatorItemVMs}"
                                          HorizontalContentAlignment="Stretch"
                                          ItemContainerStyle="{StaticResource DefsListItem}"
+                                         SelectionMode="Multiple"
                                          Background="{StaticResource ItemBrush}">
                                     <ListBox.Style>
                                         <Style TargetType="ListBox">
@@ -237,11 +266,30 @@
                             Width="{Binding Source={StaticResource AppSettings}, Path=ExperimentPanelWidth, Mode=TwoWay}"
                             Template="{StaticResource HorizontallySizableControl}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <TreeView x:Name="tvBlocks" ItemsSource="{Binding BlockItemVMs}"
-                              ItemTemplate="{StaticResource BlockTemplate}"
-                              Background="{StaticResource PanelBackground}">
-                        
-                    </TreeView>
+                    <DockPanel LastChildFill="True">
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                    Style="{StaticResource CommandBar}"
+                                    HorizontalAlignment="Stretch">
+                            <Button Style="{StaticResource CommandButton}"
+                                    Command="{Binding AddBlockCommand}"
+                                    ToolTip="{x:Static expstrings:StringResources.Tooltip_AddBlock}">
+                                <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
+                            </Button>
+                            <Button Style="{StaticResource CommandButton}"
+                                    Command="{Binding DeleteBlockCommand}"
+                                    ToolTip="{x:Static expstrings:StringResources.Tooltip_DeleteObject}">
+                                <Image Source="..\Images\DeleteItem.png" Stretch="Fill"/>
+                            </Button>
+                        </StackPanel>
+
+                        <ListBox x:Name="lbBlockDefs"
+                                 ItemsSource="{Binding BlockItemVMs}"
+                                 HorizontalContentAlignment="Stretch"
+                                 ItemContainerStyle="{StaticResource DefsListItem}"
+                                 ItemTemplate="{StaticResource BlockTemplate}"
+                                 SelectionMode="Multiple"
+                                 Background="{StaticResource ItemBrush}"/>
+                    </DockPanel>
                 </ScrollViewer>
             </ContentControl>
         </Expander>

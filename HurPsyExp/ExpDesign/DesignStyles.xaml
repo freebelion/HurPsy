@@ -31,7 +31,7 @@
 
     <!--This style is for `StackPanel` controls used as make-shift toolbars-->
     <Style x:Key="CommandBar" TargetType="{x:Type StackPanel}">
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="{StaticResource BarBrush}"/>
     </Style>
 
     <!--This style is for `ToggleButton` controls which help switch between icons and list views in the two `ListBox` controls which contain `Stimulus` and `Locator` definitions-->
@@ -61,34 +61,5 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <!--When applied to a `ListBoxItem`, this style makes it use the regular and selected brushes from the file *DesignBrushes.xaml*-->
-    <Style x:Key="DefsListItem" TargetType="{x:Type ListBoxItem}">
-
-        <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
-
-        <!--This will bind the `IsSelected` property of the listbox item to the experiment element's `Selected` property.-->
-        <Setter Property="IsSelected" Value="{Binding Selected}"/>
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="templateBorder" BorderThickness="2">
-                        <ContentPresenter/>
-                    </Border>
-                    
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True" >
-                            <Setter TargetName="templateBorder" Property="Background" Value="{StaticResource SelectionBrush}"/>
-                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="Red"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="False" >
-                            <Setter TargetName="templateBorder" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="Transparent"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    
 </ResourceDictionary>

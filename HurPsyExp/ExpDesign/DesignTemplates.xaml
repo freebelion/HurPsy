@@ -7,7 +7,39 @@
         <ResourceDictionary Source="DesignBrushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <!--When applied to a `ListBoxItem`, this style makes it use the regular and selected brushes from the file *DesignBrushes.xaml*-->
+    <Style x:Key="DefsListItem" TargetType="{x:Type ListBoxItem}">
+
+        <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+
+        <!--This will bind the `IsSelected` property of the listbox item to the experiment element's `Selected` property.-->
+        <Setter Property="IsSelected" Value="{Binding Selected}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="templateBorder" BorderThickness="2">
+                        <ContentPresenter/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True" >
+                            <Setter TargetName="templateBorder" Property="Background" Value="{StaticResource SelectionBrush}"/>
+                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="Red"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False" >
+                            <Setter TargetName="templateBorder" Property="Background" Value="Transparent"/>
+                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="Transparent"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <expdesign:ItemViewTemplateSelector x:Key="itemvmTemplateSelector"/>
+
+    <BooleanToVisibilityConverter x:Key="boolvisConverter"/>
 
     <!--When this template is applied to a ContentControl,
         the control's width can be changed by using the slider appearing at the top.-->
@@ -54,24 +86,53 @@
     </ControlTemplate>
 
     <DataTemplate x:Key="IconTemplate">
-        <StackPanel Orientation="Vertical">
-            
+        <StackPanel Orientation="Vertical" Margin="2">
+
             <Image Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"
                    Source="{Binding IconImage}" Stretch="Uniform"/>
 
             <TextBlock Grid.Column="1" Margin="2"
-                       Text="{Binding TempId}"
-                       ToolTip="{x:Static expstrings:StringResources.Tooltip_StimulusId}"/>
+                       Text="{Binding ItemObject.Id}"/>
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ItemTemplate">
-        <ContentControl x:Name="templateContent" Content="{Binding}"
+        <ContentControl x:Name="templateContent" Margin="10,2,2,2"
+                        Content="{Binding}"
                         ContentTemplateSelector="{StaticResource itemvmTemplateSelector}">
         </ContentControl>
     </DataTemplate>
 
-    <DataTemplate x:Key="VisualStimulusItemTemplate">
+    <DataTemplate x:Key="HtmlStimulusItemTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Margin="2"
+               Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"
+               Source="{Binding IconImage}" Stretch="Uniform"
+               ToolTip="{x:Static expstrings:StringResources.Tooltip_HtmlStimulus}"/>
+
+            <TextBox Grid.Column="1" Margin="2"
+                 Text="{Binding TempId}" VerticalContentAlignment="Center"
+                 ToolTip="{x:Static expstrings:StringResources.Tooltip_StimulusId}"/>
+
+            <TextBox Grid.Column="2" Margin="2"
+                 TextAlignment="Right" VerticalContentAlignment="Center"
+                 Text="{Binding ItemObject.VisualSize.Width, StringFormat='0.0'}"
+                 ToolTip="{x:Static expstrings:StringResources.Tooltip_VisualStimulusWidth}"/>
+            <TextBox Grid.Column="3" Margin="2"
+                 TextAlignment="Right" VerticalContentAlignment="Center"
+                 Text="{Binding ItemObject.VisualSize.Height, StringFormat='0.0'}"
+                 ToolTip="{x:Static expstrings:StringResources.Tooltip_VisualStimulusHeight}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ImageStimulusItemTemplate">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -82,7 +143,8 @@
 
             <Image Grid.Column="0" Margin="2"
                    Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"
-                   Source="{Binding IconImage}" Stretch="Uniform"/>
+                   Source="{Binding IconImage}" Stretch="Uniform"
+                   ToolTip="{x:Static expstrings:StringResources.Tooltip_ImageStimulus}"/>
 
             <TextBox Grid.Column="1" Margin="2"
                      Text="{Binding TempId}" VerticalContentAlignment="Center"
@@ -95,12 +157,12 @@
             <TextBox Grid.Column="3" Margin="2"
                      TextAlignment="Right" VerticalContentAlignment="Center"
                      Text="{Binding ItemObject.VisualSize.Height, StringFormat='0.0'}"
-                     ToolTip="{x:Static expstrings:StringResources.Tooltip_VisualStimulusHeight}"/>
+                     />
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="PointLocatorItemTemplate">
-        <Grid Name="LocatorTemplateGrid">
+        <Grid Name="LocatorTemplateGrid" Margin="10,2,2,2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="5*"/>
@@ -110,21 +172,24 @@
 
             <Image Grid.Column="0" Margin="2"
                    Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"
-                   Source="{Binding IconImage}" Stretch="Uniform"/>
+                   Source="{Binding IconImage}" Stretch="Uniform"
+                   ToolTip="{x:Static expstrings:StringResources.Tooltip_PointLocator}"/>
             <TextBox Grid.Column="1" Margin="2"
-                 Text="{Binding TempId}" VerticalContentAlignment="Center"/>
+                     Text="{Binding TempId}" VerticalContentAlignment="Center"
+                     ToolTip="{x:Static expstrings:StringResources.Tooltip_LocatorId}"/>
             <TextBox Grid.Column="2" Margin="2"
-                 TextAlignment="Right" VerticalContentAlignment="Center"
-                 Text="{Binding ItemObject.LocatorPoint.X, StringFormat='0.0'}"/>
+                     TextAlignment="Right" VerticalContentAlignment="Center"
+                     Text="{Binding ItemObject.LocatorPoint.X, StringFormat='0.0'}"
+                     ToolTip="{x:Static expstrings:StringResources.Tooltip_PointLocatorX}"/>
             <TextBox Grid.Column="3" Margin="2"
-                 TextAlignment="Right" VerticalContentAlignment="Center"
-                 Text="{Binding ItemObject.LocatorPoint.Y, StringFormat='0.0'}"/>
+                     TextAlignment="Right" VerticalContentAlignment="Center"
+                     Text="{Binding ItemObject.LocatorPoint.Y, StringFormat='0.0'}"
+                     ToolTip="{x:Static expstrings:StringResources.Tooltip_PointLocatorY}"/>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="StepTemplate">
-        <StackPanel Orientation="Horizontal">
-
+        <StackPanel Orientation="Horizontal" Margin="10,2,2,2">
             <TextBox Margin="2" Height="Auto" VerticalAlignment="Center"
                  Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"
                  FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
@@ -152,19 +217,53 @@
             </ItemsControl>
         </StackPanel>
     </DataTemplate>
-    
-    <HierarchicalDataTemplate x:Key="TrialTemplate"
-                              ItemsSource="{Binding Steps}"
-                              ItemTemplate="{StaticResource StepTemplate}">
-        <TextBlock Text="{Binding Id}"
-               FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
-    </HierarchicalDataTemplate>
-    
-    <HierarchicalDataTemplate x:Key="BlockTemplate"
-                              ItemsSource="{Binding ItemObject.Trials}"
-                              ItemTemplate="{StaticResource TrialTemplate}">
-        <TextBox Text="{Binding TempId}"
-                 FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
-                 FontWeight="Bold"/>
-    </HierarchicalDataTemplate>
+
+    <DataTemplate x:Key="TrialTemplate">
+        <StackPanel Margin="10,2,2,2">
+            <TextBlock Text="{Binding Id}" Margin="2"
+                       FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+            <ListBox x:Name="lbSteps"
+                     ItemsSource="{Binding Steps}"
+                     ItemTemplate="{StaticResource StepTemplate}"
+                     Background="{StaticResource ItemBrush}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="BlockTemplate">
+        <Grid Margin="10,2,2,2">
+            <Expander ExpandDirection="Down" IsExpanded="False">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"
+                                Background="{StaticResource BarBrush}"
+                                HorizontalAlignment="Stretch">
+                        <Button Margin="2"
+                                Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                                ToolTip="{x:Static expstrings:StringResources.Tooltip_BlockContextMenu}">
+                            <Image Source="..\Images\AddBlock.png" Stretch="Fill"/>
+
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="{x:Static expstrings:StringResources.Header_AddTrial}"/>
+
+                                    <MenuItem Header="{x:Static expstrings:StringResources.Header_MustShuffleTrials}"
+                                              IsCheckable="True"
+                                              IsChecked="{Binding ItemObject.MustShuffleTrials, Mode=TwoWay}"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
+
+                        <TextBox Margin="2" Text="{Binding TempId}"/>
+                    </StackPanel>
+                </Expander.Header>
+
+                <ListBox x:Name="lbTrials"
+                         ItemsSource="{Binding ItemObject.Trials}"
+                         ItemContainerStyle="{StaticResource DefsListItem}"
+                         ItemTemplate="{StaticResource TrialTemplate}"
+                         SelectionMode="Multiple"
+                         Background="{StaticResource ItemBrush}"/>
+                
+            </Expander>
+        </Grid>
+    </DataTemplate>
 </ResourceDictionary>
