@@ -25,22 +25,19 @@ public static Random Rnd;
 [System.Random](https://docs.microsoft.com/en-us/dotnet/api/System.Random 'System.Random')
 ### Methods
 
-<a name='HurPsyLib.HurPsyCommon.GetObjectGuid(object)'></a>
+<a name='HurPsyLib.HurPsyCommon.Throw(string)'></a>
 
-## HurPsyCommon.GetObjectGuid(object) Method
+## HurPsyCommon.Throw(string) Method
 
-This function returns a temporary unique id generated with the type name of any object
+This static method will throw an exception displaying the named string resource from the **HurPsyLibStrings** assembly.
 
 ```csharp
-public static string GetObjectGuid(object? obj);
+public static void Throw(string strid);
 ```
 #### Parameters
 
-<a name='HurPsyLib.HurPsyCommon.GetObjectGuid(object).obj'></a>
+<a name='HurPsyLib.HurPsyCommon.Throw(string).strid'></a>
 
-`obj` [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
+`strid` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
-The object which needs the temporary unique id
-
-#### Returns
-[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+Name of the string resource

@@ -13,7 +13,7 @@ namespace HurPsyExp
 {
     /// <summary>
     /// This class houses the settings related to the visual appearance of the experiment design/run interfaces.
-    /// It is derived from `ObservableObject` class of the Mvvm Communigty Toolkit, so it acts as its own viewmodel.
+    /// It is derived from `ObservableObject` class of the Mvvm Community Toolkit, so it acts as its own viewmodel.
     /// For that reason, it cannot implement DataContract serialization; instead, it is (de)serialized by the `App` class via a JsonSeralizer.
     /// </summary>
     public partial class AppSettings : ObservableObject
@@ -175,6 +175,45 @@ namespace HurPsyExp
                 case "Slider_ImagePreviewHeight":
                     ImagePreviewHeight--;
                     break;
+            }
+        }
+
+        /// <summary>
+        /// This method serializes this object via Json
+        /// </summary>
+        public void SerializeJson()
+        {
+            using (Stream writer = new FileStream("AppSettings.json", FileMode.Create))
+            {
+                JsonSerializer.Serialize<AppSettings>(writer, this);
+            }
+        }
+
+        /// <summary>
+        /// This method loads up the Json-Serialized instance of `DesignSettings` and transfers the previously saved user preferences.
+        /// Since the design settings were referred in multiple independent XAML files, I kept an object of `DesignSettings` as a resource in `App.xaml` file.
+        /// Since it was a `StaticResource`, that object could not be loaded directly from a file. That's why its user-defined properties are transferred from the loaded copy. 
+        /// </summary>
+        public void DeSerializeJson()
+        {
+            if (File.Exists("AppSettings.json"))
+            {
+                using (Stream reader = new FileStream("AppSettings.json", FileMode.Open))
+                {
+                    AppSettings? loadedSettings = JsonSerializer.Deserialize<AppSettings>(reader);
+                    if (loadedSettings != null)
+                    {
+                        this.FontSize = loadedSettings.FontSize;
+                        this.SmallFontSize = loadedSettings.SmallFontSize;
+                        this.MenuFontSize = loadedSettings.MenuFontSize;
+
+                        this.CommandButtonHeight = loadedSettings.CommandButtonHeight;
+                        this.ImagePreviewHeight = loadedSettings.ImagePreviewHeight;
+
+                        this.ElementsPanelWidth = loadedSettings.ElementsPanelWidth;
+                        this.ExperimentPanelWidth = loadedSettings.ExperimentPanelWidth;
+                    }
+                }
             }
         }
     }

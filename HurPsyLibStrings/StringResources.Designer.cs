@@ -97,6 +97,15 @@ namespace HurPsyLibStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid String Resource: .
+        /// </summary>
+        public static string Error_InvalidStringResource {
+            get {
+                return ResourceManager.GetString("Error_InvalidStringResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dimension value cannot be negative!.
         /// </summary>
         public static string Error_NegativeDimensionValue {

@@ -2,13 +2,13 @@
 
 ## Stimulus Class
 
-This abstract class serves as the blueprint for all classes which will represent different types of experimental stimuli
+This abstract class serves as the blueprint for all classes which will represent different types of experimental stimuli.
 
 ```csharp
-public abstract class Stimulus
+public abstract class Stimulus : HurPsyLib.IdObject
 ```
 
-Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; Stimulus
+Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [IdObject](HurPsyLib.IdObject.md 'HurPsyLib.IdObject') &#129106; Stimulus
 
 Derived  
 &#8627; [VisualStimulus](HurPsyLib.VisualStimulus.md 'HurPsyLib.VisualStimulus')
@@ -18,7 +18,7 @@ Derived
 
 ## Stimulus() Constructor
 
-Every instance of any class representing an experimental stimulus will start with a temporary unique id and an empty filename
+This default constructor, after getting the object Id initialized by the base class, starts with an empty string for the filename.
 
 ```csharp
 public Stimulus();
@@ -33,19 +33,6 @@ public Stimulus();
 
 ```csharp
 public string FileName { get; set; }
-```
-
-#### Property Value
-[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
-<a name='HurPsyLib.Stimulus.Id'></a>
-
-## Stimulus.Id Property
-
-`Id` will serve as a uniquely identifying string for each instance
-
-```csharp
-public string Id { get; set; }
 ```
 
 #### Property Value

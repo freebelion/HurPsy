@@ -25,3 +25,5 @@ public HurPsyException(string errorMessage);
 <a name='HurPsyLib.HurPsyException.HurPsyException(string).errorMessage'></a>
 
 `errorMessage` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The error message string

@@ -2,17 +2,15 @@
 
 ## VisualStimulus Class
 
-This abstract class will be the basis for all classes which will represent visual stimuli.  
-(It was first designed to be an interface, but that required all derived classes to keep their size and anchor information separately, so I turned it to an abstract class)
+This abstract class will be the basis for all classes which will represent visual stimuli.
 
 ```csharp
 public abstract class VisualStimulus : HurPsyLib.Stimulus
 ```
 
-Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus') &#129106; VisualStimulus
+Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [IdObject](HurPsyLib.IdObject.md 'HurPsyLib.IdObject') &#129106; [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus') &#129106; VisualStimulus
 
 Derived  
-&#8627; [HtmlStimulus](HurPsyLib.HtmlStimulus.md 'HurPsyLib.HtmlStimulus')  
 &#8627; [ImageStimulus](HurPsyLib.ImageStimulus.md 'HurPsyLib.ImageStimulus')
 ### Constructors
 

@@ -145,4 +145,8 @@
     <value>No Locator object is found with the given id: </value>
     <comment>The error message shown when an invalid id is used to access a Locator object</comment>
   </data>
+  <data name="Error_InvalidStringResource" xml:space="preserve">
+    <value>Invalid String Resource: </value>
+    <comment>The error message shown when the string resource name is invalid.</comment>
+  </data>
 </root>

@@ -17,16 +17,20 @@
     <Compile Remove="ExpDesign\LocatorItemViewModel.cs" />
     <Compile Remove="ExpDesign\SettingsCtrl.xaml.cs" />
     <Compile Remove="ExpDesign\StimulusItemViewModel.cs" />
+    <Compile Remove="Utility.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Images\AddBlock.png" />
     <None Remove="Images\AddBlock.svg" />
+    <None Remove="Images\addlocator.png" />
+    <None Remove="Images\addlocator.svg" />
     <None Remove="Images\AddStimulus.png" />
     <None Remove="Images\AddStimulus.svg" />
     <None Remove="Images\AddTrial.png" />
     <None Remove="Images\AddTrial.svg" />
     <None Remove="Images\decrement.png" />
+    <None Remove="Images\decrement.svg" />
     <None Remove="Images\DeleteItem.png" />
     <None Remove="Images\DeleteItem.svg" />
     <None Remove="Images\EditItem.png" />
@@ -38,12 +42,17 @@
     <None Remove="Images\ImageStimulus.png" />
     <None Remove="Images\ImageStimulus.svg" />
     <None Remove="Images\Increment.png" />
+    <None Remove="Images\increment.svg" />
     <None Remove="Images\ItemView.png" />
     <None Remove="Images\ItemView.svg" />
     <None Remove="Images\KeyResponse.png" />
     <None Remove="Images\KeyResponse.svg" />
+    <None Remove="Images\lbase.png" />
+    <None Remove="Images\lbase.svg" />
     <None Remove="Images\PointLocator.png" />
     <None Remove="Images\PointLocator.svg" />
+    <None Remove="Images\sbase.png" />
+    <None Remove="Images\sbase.svg" />
     <None Remove="Images\SelectItem.png" />
     <None Remove="Images\SelectItem.svg" />
     <None Remove="Images\StimulusIconView.svg" />
@@ -67,20 +76,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\AddBlock.png" />
+    <Resource Include="Images\AddLocator.png" />
     <Resource Include="Images\AddStimulus.png" />
-    <Resource Include="Images\AddTrial.png" />
     <Resource Include="Images\decrement.png" />
-    <Resource Include="Images\DeleteItem.png" />
-    <Resource Include="Images\EditItem.png" />
-    <Resource Include="Images\HtmlStimulus.png" />
-    <Resource Include="Images\IconView.png" />
     <Resource Include="Images\ImageStimulus.png" />
-    <Resource Include="Images\Increment.png" />
-    <Resource Include="Images\ItemView.png" />
-    <Resource Include="Images\KeyResponse.png" />
+    <Resource Include="Images\increment.png" />
     <Resource Include="Images\PointLocator.png" />
-    <Resource Include="Images\SelectItem.png" />
   </ItemGroup>
 
 </Project>
