@@ -7,21 +7,14 @@ using System.Runtime.Serialization;
 
 namespace HurPsyLib
 {
-	/// <summary>
-	/// This abstract class enables all instances of derived classes to have temporary Ids assigned.
-	/// </summary>
+    /// <summary>
+    /// This abstract class enables all instances of derived classes to have temporary Ids assigned.
+    /// </summary>
+    [KnownType(typeof(Locator))]
+    [KnownType(typeof(Stimulus))]
+	[DataContract]
 	public abstract class IdObject
 	{
-		/// <summary>
-		/// This function returns a temporary unique id generated with the type name of any object derived from this class.
-		/// </summary>
-		/// <param name="idobj"></param>
-		/// <returns></returns>
-		public static string GenerateId(IdObject idobj)
-		{
-			return idobj.GetType().Name + "_" + Guid.NewGuid().ToString().Substring(0, 8);
-		}
-
 		/// <summary>
 		/// `Id` will serve as a uniquely identifying string for each instance.
 		/// </summary>
@@ -33,7 +26,7 @@ namespace HurPsyLib
 		/// </summary>
 		public IdObject()
 		{
-			Id = GenerateId(this);
-		}
+            Id = GetType().Name + "_" + Guid.NewGuid().ToString().Substring(0, 8);
+        }
 	}
 }

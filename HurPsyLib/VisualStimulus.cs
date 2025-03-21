@@ -10,9 +10,9 @@ namespace HurPsyLib
 	/// <summary>
 	/// This abstract class will be the basis for all classes which will represent visual stimuli.
 	/// </summary>
-	[DataContract]
 	[KnownType(typeof(ImageStimulus))]
-	public abstract class VisualStimulus : Stimulus
+    [DataContract]
+    public abstract class VisualStimulus : Stimulus
 	{
 		/// <summary>
 		/// Any object representing a visual stimulus must have a property to get/set the stimulus size

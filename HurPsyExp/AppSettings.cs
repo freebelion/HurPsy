@@ -12,12 +12,28 @@ using CommunityToolkit.Mvvm.Input;
 namespace HurPsyExp
 {
     /// <summary>
+    /// This enumeration is for switching the main Design Window layout at runtime
+    /// </summary>
+    public enum DesignLayout
+    {
+        /// <summary>
+        /// The upper panel is for adding and editing items and the lower panel is for displaying the items
+        /// </summary>
+        SinglePanel,
+        /// <summary>
+        /// The right panel is for adding and editing items and the left panel is for displaying the items
+        /// </summary>
+        SplitPanel
+    }
+
+    /// <summary>
     /// This class houses the settings related to the visual appearance of the experiment design/run interfaces.
     /// It is derived from `ObservableObject` class of the Mvvm Community Toolkit, so it acts as its own viewmodel.
     /// For that reason, it cannot implement DataContract serialization; instead, it is (de)serialized by the `App` class via a JsonSeralizer.
     /// </summary>
     public partial class AppSettings : ObservableObject
     {
+        #region Data members
         /// <summary>
         /// Minimum font size allowed by the app
         /// (Being an app-level setting, this property value won't be serialized)
@@ -31,20 +47,6 @@ namespace HurPsyExp
         /// </summary>
         [JsonIgnore]
         public double MaxFontSize { get; private set; }
-
-        /// <summary>
-        /// Mininum width for the panels that collapse and open horizontally
-        /// (Being an app-level setting, this property value won't be serialized)
-        /// </summary>
-        [JsonIgnore]
-        public double MinPanelWidth { get; private set; }
-
-        /// <summary>
-        /// Maximum width for the panels that collapse and open horizontally
-        /// (Being an app-level setting, this property value won't be serialized)
-        /// </summary>
-        [JsonIgnore]
-        public double MaxPanelWidth { get; private set; }
 
         /// <summary>
         /// Mininum size for a command button or an image preview
@@ -77,19 +79,7 @@ namespace HurPsyExp
         /// </summary>
         [ObservableProperty]
         private double smallFontSize;
-
-        /// <summary>
-        /// The width of the panel which holds the elements' definitions
-        /// </summary>
-        [ObservableProperty]
-        private double elementsPanelWidth;
-
-        /// <summary>
-        /// The width of the panel which helps arrange the trials and blocks
-        /// </summary>
-        [ObservableProperty]
-        private double experimentPanelWidth;
-
+       
         /// <summary>
         /// The preferred height for toolbar buttons
         /// </summary>
@@ -103,6 +93,26 @@ namespace HurPsyExp
         private double imagePreviewHeight;
 
         /// <summary>
+        /// User-chosen window width (saved between sessions)
+        /// </summary>
+        [ObservableProperty]
+        private double windowWidth;
+
+        /// <summary>
+        /// User-chosen window height (saved between sessions)
+        /// </summary>
+        [ObservableProperty]
+        private double windowHeight;
+
+        /// <summary>
+        /// The current choice for the DesignWindow layout
+        /// </summary>
+        [ObservableProperty]
+        private DesignLayout currentLayout;
+        #endregion
+
+        #region Constructor(s)
+        /// <summary>
         /// This default constructor assigns initial values to all the properties as deemed fit by the programmer
         /// </summary>
         public AppSettings()
@@ -112,18 +122,19 @@ namespace HurPsyExp
             FontSize = 20;
             MenuFontSize = 16;
             SmallFontSize = 14;
-
-            MinPanelWidth = 100;
-            MaxPanelWidth = 500;
-            ElementsPanelWidth = 250;
-            ExperimentPanelWidth = 250;
-
+           
             MinButtonHeight = 8;
             MaxButtonHeight = 64;
             CommandButtonHeight = 24;
             ImagePreviewHeight = 24;
-        }
 
+            WindowWidth = 800;
+            WindowHeight = 600;
+            CurrentLayout = DesignLayout.SinglePanel;
+        }
+        #endregion
+
+        #region Commands
         /// <summary>
         /// This method, when executed as a command, will increment the value of the property associated with the named slider.
         /// </summary>
@@ -177,7 +188,9 @@ namespace HurPsyExp
                     break;
             }
         }
+        #endregion
 
+        #region Serialization
         /// <summary>
         /// This method serializes this object via Json
         /// </summary>
@@ -210,11 +223,13 @@ namespace HurPsyExp
                         this.CommandButtonHeight = loadedSettings.CommandButtonHeight;
                         this.ImagePreviewHeight = loadedSettings.ImagePreviewHeight;
 
-                        this.ElementsPanelWidth = loadedSettings.ElementsPanelWidth;
-                        this.ExperimentPanelWidth = loadedSettings.ExperimentPanelWidth;
+                        this.WindowWidth = loadedSettings.WindowWidth;
+                        this.WindowHeight = loadedSettings.WindowHeight;
+                        this.CurrentLayout = loadedSettings.CurrentLayout;
                     }
                 }
             }
         }
+        #endregion
     }
 }

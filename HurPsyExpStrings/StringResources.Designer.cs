@@ -61,6 +61,69 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Experiment.
+        /// </summary>
+        public static string Header_Experiment {
+            get {
+                return ResourceManager.GetString("Header_Experiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Layout.
+        /// </summary>
+        public static string Header_Layout {
+            get {
+                return ResourceManager.GetString("Header_Layout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        public static string Header_LoadExperiment {
+            get {
+                return ResourceManager.GetString("Header_LoadExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string Header_NewExperiment {
+            get {
+                return ResourceManager.GetString("Header_NewExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Header_SaveExperiment {
+            get {
+                return ResourceManager.GetString("Header_SaveExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single Panel.
+        /// </summary>
+        public static string Header_SingleLayout {
+            get {
+                return ResourceManager.GetString("Header_SingleLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split Panel.
+        /// </summary>
+        public static string Header_SplitLayout {
+            get {
+                return ResourceManager.GetString("Header_SplitLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Design an Experiment.
         /// </summary>
         public static string Label_DesignExperiment {

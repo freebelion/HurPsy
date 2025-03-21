@@ -18,7 +18,7 @@ Derived
 
 ## Stimulus() Constructor
 
-This default constructor, after getting the object Id initialized by the base class, starts with an empty string for the filename.
+This default constructor, after getting the object Id is initialized by the base class, starts with an empty string for the filename.
 
 ```csharp
 public Stimulus();
@@ -29,7 +29,7 @@ public Stimulus();
 
 ## Stimulus.FileName Property
 
-`FileName` will contain the full path of the file containing the actual Stimulus object
+The full path of the file containing the actual Stimulus object
 
 ```csharp
 public string FileName { get; set; }

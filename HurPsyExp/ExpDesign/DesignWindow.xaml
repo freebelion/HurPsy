@@ -8,18 +8,60 @@
         xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         mc:Ignorable="d"
         Title="{x:Static expstrings:StringResources.Title_DesignWindow}"
-        Height="800" Width="1400"
+        Width="{Binding Source={StaticResource AppSettings}, Path=WindowWidth, Mode=TwoWay}"
+        Height="{Binding Source={StaticResource AppSettings}, Path=WindowHeight, Mode=TwoWay}" 
         FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
-        WindowState="Maximized" WindowStartupLocation="CenterScreen"
         Background="DarkGray">
+
+    <Window.DataContext>
+        <expdesign:DesignViewModel/>
+    </Window.DataContext>
 
     <Window.Resources>
         <ResourceDictionary>
-            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Views/DesignLayouts.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid>
+    <DockPanel x:Name="MainPanel" LastChildFill="True">
+        <Menu DockPanel.Dock="Top"
+              FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}">
+            <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}" Margin="2">
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"/>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_LoadExperiment}"/>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperiment}"/>
+            </MenuItem>
+
+            <MenuItem Header="{x:Static expstrings:StringResources.Header_Layout}" Margin="2">
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_SingleLayout}"
+                          Command="{Binding SwitchLayoutCommand}"
+                          CommandParameter="{x:Static expapp:DesignLayout.SinglePanel}"/>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_SplitLayout}"
+                          Command="{Binding SwitchLayoutCommand}"
+                          CommandParameter="{x:Static expapp:DesignLayout.SplitPanel}"/>
+            </MenuItem>
+        </Menu>
         
-    </Grid>
+        <Grid x:Name="MainGrid">
+            <ContentControl x:Name="MainContentCtrl">
+                <ContentControl.Style>
+                    <Style TargetType="{x:Type ContentControl}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
+                                         Value="{x:Static expapp:DesignLayout.SinglePanel}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource SingleLayout}"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
+                                         Value="{x:Static expapp:DesignLayout.SplitPanel}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource SplitLayout}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+        </Grid>
+    </DockPanel>
 </Window>
