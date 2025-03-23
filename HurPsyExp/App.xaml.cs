@@ -11,7 +11,7 @@ namespace HurPsyExp
     public partial class App : Application
     {
         /// <summary>
-        /// This function will handle the App's `Startup` event.
+        /// Previously serialized settings will be stored in App's `Startup` event.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -21,6 +21,11 @@ namespace HurPsyExp
             appSettings.DeSerializeJson();
         }
 
+        /// <summary>
+        /// Settings will be serialized in App's `Exit` event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Application_Exit(object sender, ExitEventArgs e)
         {
             AppSettings appSettings = (AppSettings)this.Resources["AppSettings"];

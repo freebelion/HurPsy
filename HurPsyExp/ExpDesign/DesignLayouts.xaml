@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
+                    xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
+
+    <Menu x:Key="MainContentMenu"
+          HorizontalAlignment="Center"
+          FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}">
+        
+        <MenuItem Header="{x:Static expstrings:StringResources.Header_Definitions}">
+            <MenuItem Header="{x:Static expstrings:StringResources.Header_StimulusDefinitions}"/>
+            <MenuItem Header="{x:Static expstrings:StringResources.Header_LocatorDefinitions}"/>
+        </MenuItem>
+    </Menu>
+
+    <TextBlock x:Key="MainContentLabel"
+               Margin="2" Background="LightBlue"
+               TextAlignment="Center"
+               FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
+               Text="StimulusDefinitions">
+    </TextBlock>
+
+    <DockPanel x:Key="SingleLayout" LastChildFill="False">
+        <ContentControl DockPanel.Dock="Top"
+                        HorizontalAlignment="Stretch">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Content" Value="{StaticResource MainContentMenu}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Content" Value="{StaticResource MainContentLabel}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </DockPanel>
+
+    <Grid x:Key="SplitLayout">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ContentControl x:Name="ItemDisplayControl" Grid.Column="0"
+                        Content="{StaticResource SingleLayout}"/>
+
+        <GridSplitter Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Stretch"
+                  Background="Black" 
+                  ShowsPreview="True"
+                  Width="5"/>
+
+        <ContentControl x:Name="ItemPreviewControl" Grid.Column="2"/>
+    </Grid>
+</ResourceDictionary>

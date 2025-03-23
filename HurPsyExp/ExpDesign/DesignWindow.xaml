@@ -11,16 +11,13 @@
         Width="{Binding Source={StaticResource AppSettings}, Path=WindowWidth, Mode=TwoWay}"
         Height="{Binding Source={StaticResource AppSettings}, Path=WindowHeight, Mode=TwoWay}" 
         FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
-        Background="DarkGray">
-
-    <Window.DataContext>
-        <expdesign:DesignViewModel/>
-    </Window.DataContext>
+        Background="DarkGray"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Views/DesignLayouts.xaml"/>
+                <ResourceDictionary Source="DesignLayouts.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -34,7 +31,8 @@
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperiment}"/>
             </MenuItem>
 
-            <MenuItem Header="{x:Static expstrings:StringResources.Header_Layout}" Margin="2">
+            <MenuItem Header="{x:Static expstrings:StringResources.Header_Layout}" Margin="2"
+                      DataContext="{StaticResource AppSettings}">
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_SingleLayout}"
                           Command="{Binding SwitchLayoutCommand}"
                           CommandParameter="{x:Static expapp:DesignLayout.SinglePanel}"/>
@@ -43,7 +41,7 @@
                           CommandParameter="{x:Static expapp:DesignLayout.SplitPanel}"/>
             </MenuItem>
         </Menu>
-        
+      
         <Grid x:Name="MainGrid">
             <ContentControl x:Name="MainContentCtrl">
                 <ContentControl.Style>
@@ -51,12 +49,12 @@
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
                                          Value="{x:Static expapp:DesignLayout.SinglePanel}">
-                                <Setter Property="ContentTemplate" Value="{StaticResource SingleLayout}"/>
+                                <Setter Property="Content" Value="{StaticResource SingleLayout}"/>
                             </DataTrigger>
 
                             <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
                                          Value="{x:Static expapp:DesignLayout.SplitPanel}">
-                                <Setter Property="ContentTemplate" Value="{StaticResource SplitLayout}"/>
+                                <Setter Property="Content" Value="{StaticResource SplitLayout}"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>

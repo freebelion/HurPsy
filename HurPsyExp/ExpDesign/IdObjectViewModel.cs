@@ -1,16 +1,17 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using HurPsyLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using HurPsyLib;
+using System.Windows.Controls.Primitives;
 
 namespace HurPsyExp.ExpDesign
 {
     /// <summary>
-    /// This custom `EventArgs` class will report an Id change for `IdObject` instances
+    /// This custom `EventArgs` class will report an Id change for items with Ids.
     /// </summary>
     public class IdChangeEventArgs : EventArgs
     {
@@ -36,103 +37,93 @@ namespace HurPsyExp.ExpDesign
     }
 
     /// <summary>
-    /// This class can serve as the viewmodel for any object of the type `IdObject` defined in `HurPsyLib`
+    /// This abstract class is the base of viewmodel classes which simply wrap certain experiment elements.
     /// </summary>
     public partial class IdObjectViewModel : ObservableObject
     {
-        #region Data members
+        #region Members and properties
         /// <summary>
-        /// This field references the inner element of the type `IdObject`. (MVVM Toolkit generates the observable property based on this field)
-        /// </summary>
-        [ObservableProperty]
-        private IdObject? itemObject;
-
-        /// <summary>
-        /// This field indicates the selection status of the inner element.
-        /// </summary>
-        [ObservableProperty]
-        private bool isSelected;
-
-        /// <summary>
-        /// This field stores a temporary Id string which may end up as the final `Id` of the inner element.
-        /// </summary>
-        [ObservableProperty]
-        private string tempId;
-
-        /// <summary>
-        /// The path of the image resource as the icon representing the inner element
+        /// The path of the image file for the icon representing the inner element
         /// </summary>
         public string IconImage
         {
             get
             {
-                if(ItemObject is Stimulus)
+                switch (ItemObject)
                 {
-                    switch(ItemObject)
-                    {
-                        case ImageStimulus imgstim:
-                            return @"../Images/ImageStimulus.png";
-                    }
-                }
-                else if (ItemObject is Locator)
-                {
-                    switch (ItemObject)
-                    {
-                        case PointLocator ploc:
-                            return @"../Images/PointLocator.png";
-                    }
+                    case ImageStimulus imgstim:
+                        return @"../Images/ImageStimulus.png";
+                    case PointLocator ploc:
+                        return @"../Images/PointLocator.png";
                 }
 
-                return null;
+                return string.Empty;
             }
         }
+
+        /// <summary>
+        /// `TempId` property keeps the newly modified Id until the change is validated.
+        /// </summary>
+        [ObservableProperty]
+        public string tempId;
+
+        /// <summary>
+        /// `Selected` property toggles the selection status of the experiment elements
+        /// </summary>
+        [ObservableProperty]
+        public bool selected;
+
+        /// <summary>
+        /// `Editable` property toggles the editable status of the experiment elements
+        /// </summary>
+        [ObservableProperty]
+        public bool editable;
+
+        /// <summary>
+        /// This field stores the reference for the actual experiment element represented by this instance
+        /// </summary>
+        [ObservableProperty]
+        public IdObject itemObject;
         #endregion
 
         #region Constructor(s)
         /// <summary>
-        /// This parametrized constructor creates a viewmodel object based on the given `IdObject` instance.
+        /// This parametrized constructor creates a viewmodel instance referencing an experiment element
         /// </summary>
-        /// <param name="innerElement">The inner element</param>
-        public IdObjectViewModel(IdObject innerElement)
+        /// <param name="innerObject"></param>
+        public IdObjectViewModel(IdObject innerObject)
         {
-            TempId = innerElement.Id;
-            ItemObject = innerElement;
-            IsSelected = false;
+            ItemObject = innerObject;
+            tempId = ItemObject.Id;
+            Editable = false;
+            Selected = false;
+        }
+        #endregion
+
+        #region Events
+        /// <summary>
+        /// The instances of this class can issue `IdChanged` events when a new Id is to be assigned to the inner element.
+        /// </summary>
+        public event EventHandler<IdChangeEventArgs>? IdChanged;
+
+        /// <summary>
+        /// This method issues the `IdChanged` event with the newly modified `TempId`
+        /// </summary>
+        /// <param name="value"></param>
+        partial void OnTempIdChanged(string value)
+        {
+            IdChanged?.Invoke(this, new IdChangeEventArgs(null, value));
         }
         #endregion
 
         #region Commands
         /// <summary>
-        /// This method serves the command that toggles the selection status in cases where `IsSelected` property is not bound to the selection  status of a visual element.
+        /// This method toggles the selection status
         /// </summary>
         [RelayCommand]
         private void ToggleSelect()
         {
-            IsSelected = !IsSelected;
-        }
-        #endregion
-
-        #region Event handler
-        /// <summary>
-        /// The instances of this class can issue `IdChanged` events
-        /// </summary>
-        public event EventHandler<IdChangeEventArgs>? IdChanged;
-
-        /// <summary>
-        /// This method issues a `IdChanged` event when the calue of `TempId` changes
-        /// </summary>
-        /// <param name="value"></param>
-        /// <exception cref="NotImplementedException"></exception>
-        partial void OnTempIdChanged(string value)
-        {
-            string? oldId = null;
-
-            if (ItemObject != null)
-            { oldId = ItemObject.Id; }
-
-            string newId = value;
-
-            IdChanged?.Invoke(this, new IdChangeEventArgs(oldId, newId));
+            Selected = !Selected;
         }
         #endregion
     }

@@ -20,11 +20,22 @@ namespace HurPsyExp.ExpDesign
     public partial class DesignWindow : Window
     {
         /// <summary>
+        /// The viewmodel object that will handle data exchange with the visual controls
+        /// </summary>
+        public DesignViewModel DesignVM { get; set; }
+
+        /// <summary>
         /// This default constructor simply initailizes the visual components of the window.
         /// </summary>
         public DesignWindow()
         {
+            DesignVM = new();
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = DesignVM;
         }
     }
 }

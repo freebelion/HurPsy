@@ -27,7 +27,7 @@ namespace HurPsyExp
     }
 
     /// <summary>
-    /// This class houses the settings related to the visual appearance of the experiment design/run interfaces.
+    /// This class hosts the settings related to the visual appearance of the experiment design/run interfaces.
     /// It is derived from `ObservableObject` class of the Mvvm Community Toolkit, so it acts as its own viewmodel.
     /// For that reason, it cannot implement DataContract serialization; instead, it is (de)serialized by the `App` class via a JsonSeralizer.
     /// </summary>
@@ -109,6 +109,7 @@ namespace HurPsyExp
         /// </summary>
         [ObservableProperty]
         private DesignLayout currentLayout;
+
         #endregion
 
         #region Constructor(s)
@@ -140,7 +141,7 @@ namespace HurPsyExp
         /// </summary>
         /// <param name="sliderName">The name of the NumericUpDownSlider where the increment button was clicked</param>
         [RelayCommand]
-        public void Increment(string sliderName)
+        private void Increment(string sliderName)
         {
             switch (sliderName)
             {
@@ -167,7 +168,7 @@ namespace HurPsyExp
         /// </summary>
         /// <param name="sliderName">The name of the NumericUpDownSlider where the increment button was clicked</param>
         [RelayCommand]
-        public void Decrement(string sliderName)
+        private void Decrement(string sliderName)
         {
             switch (sliderName)
             {
@@ -188,6 +189,17 @@ namespace HurPsyExp
                     break;
             }
         }
+
+        /// <summary>
+        /// This method switches the current layout
+        /// </summary>
+        /// <param name="newlayout"></param>
+        [RelayCommand]
+        private void SwitchLayout(DesignLayout newlayout)
+        {
+            CurrentLayout = newlayout;
+        }
+
         #endregion
 
         #region Serialization

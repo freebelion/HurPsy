@@ -30,6 +30,15 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         private Experiment exp;
 
+        /// <summary>
+        /// Collection of viewmodels associated with experiment `Stimulus` objects
+        /// </summary>
+        public ObservableCollection<IdObjectViewModel> StimulusVMs { get; set; }
+
+        /// <summary>
+        /// Collection of viewmodels associated with experiment `Locator` objects
+        /// </summary>
+        public ObservableCollection<IdObjectViewModel> LocatorVMs { get; set; }
         #endregion
 
         #region Constructor(s)
@@ -40,25 +49,22 @@ namespace HurPsyExp.ExpDesign
         {
             exp = new Experiment();
 
-            MainContent = null;
+            StimulusVMs = [];
+            LocatorVMs = [];
+
+            InitializeTest();
+        }
+        #endregion
+
+        #region Methods
+        private void InitializeTest()
+        {
+            
         }
         #endregion
 
         #region Commands
-        /// <summary>
-        /// This method switches the current layout
-        /// </summary>
-        /// <param name="newlayout"></param>
-        [RelayCommand]
-        private void SwitchLayout(DesignLayout newlayout)
-        {
-            // Layout choice is stored and (de)seralized in AppSettings resource defined in App.xaml
-            AppSettings? currentSettings = App.Current.TryFindResource("AppSettings") as AppSettings;
-            if (currentSettings != null)
-            {
-                currentSettings.CurrentLayout = newlayout;
-            }
-        }
+        
         #endregion
     }
 }

@@ -13,56 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ExpDesign\ExperimentViewModels.cs" />
-    <Compile Remove="ExpDesign\LocatorItemViewModel.cs" />
-    <Compile Remove="ExpDesign\SettingsCtrl.xaml.cs" />
-    <Compile Remove="ExpDesign\StimulusItemViewModel.cs" />
-    <Compile Remove="Utility.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Images\AddBlock.png" />
-    <None Remove="Images\AddBlock.svg" />
-    <None Remove="Images\addlocator.png" />
-    <None Remove="Images\addlocator.svg" />
-    <None Remove="Images\AddStimulus.png" />
-    <None Remove="Images\AddStimulus.svg" />
-    <None Remove="Images\AddTrial.png" />
-    <None Remove="Images\AddTrial.svg" />
-    <None Remove="Images\decrement.png" />
-    <None Remove="Images\decrement.svg" />
-    <None Remove="Images\DeleteItem.png" />
-    <None Remove="Images\DeleteItem.svg" />
-    <None Remove="Images\EditItem.png" />
-    <None Remove="Images\EditItem.svg" />
-    <None Remove="Images\HtmlStimulus.png" />
-    <None Remove="Images\HtmlStimulus.svg" />
-    <None Remove="Images\IconView.png" />
-    <None Remove="Images\IconView.svg" />
-    <None Remove="Images\ImageStimulus.png" />
-    <None Remove="Images\ImageStimulus.svg" />
-    <None Remove="Images\Increment.png" />
-    <None Remove="Images\increment.svg" />
-    <None Remove="Images\ItemView.png" />
-    <None Remove="Images\ItemView.svg" />
-    <None Remove="Images\KeyResponse.png" />
-    <None Remove="Images\KeyResponse.svg" />
-    <None Remove="Images\lbase.png" />
-    <None Remove="Images\lbase.svg" />
-    <None Remove="Images\PointLocator.png" />
-    <None Remove="Images\PointLocator.svg" />
-    <None Remove="Images\sbase.png" />
-    <None Remove="Images\sbase.svg" />
-    <None Remove="Images\SelectItem.png" />
-    <None Remove="Images\SelectItem.svg" />
-    <None Remove="Images\StimulusIconView.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Remove="ExpDesign\SettingsCtrl.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="DefaultDocumentation" Version="0.8.2">
       <PrivateAssets>all</PrivateAssets>
@@ -79,6 +29,7 @@
     <Resource Include="Images\AddLocator.png" />
     <Resource Include="Images\AddStimulus.png" />
     <Resource Include="Images\decrement.png" />
+    <Resource Include="Images\editmode.png" />
     <Resource Include="Images\ImageStimulus.png" />
     <Resource Include="Images\increment.png" />
     <Resource Include="Images\PointLocator.png" />

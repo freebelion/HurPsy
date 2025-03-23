@@ -165,4 +165,16 @@
     <value>Split Panel</value>
     <comment>Header string for the menu item for choosing split panel layout</comment>
   </data>
+  <data name="Header_Definitions" xml:space="preserve">
+    <value>Definitions</value>
+    <comment>Header string for the MenuItem in "MainContentMenu" which opens the Definitions listing choices</comment>
+  </data>
+  <data name="Header_LocatorDefinitions" xml:space="preserve">
+    <value>Locator Definitions</value>
+    <comment>Header string for the MenuItem in "MainContentMenu" which opens the Locator Definitions listing choice</comment>
+  </data>
+  <data name="Header_StimulusDefinitions" xml:space="preserve">
+    <value>Stimulus Definitions</value>
+    <comment>Header string for the MenuItem in "MainContentMenu" which opens the Stimulus Definitions listing choice</comment>
+  </data>
 </root>

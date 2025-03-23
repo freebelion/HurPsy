@@ -61,6 +61,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Definitions.
+        /// </summary>
+        public static string Header_Definitions {
+            get {
+                return ResourceManager.GetString("Header_Definitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experiment.
         /// </summary>
         public static string Header_Experiment {
@@ -84,6 +93,15 @@ namespace HurPsyExpStrings {
         public static string Header_LoadExperiment {
             get {
                 return ResourceManager.GetString("Header_LoadExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locator Definitions.
+        /// </summary>
+        public static string Header_LocatorDefinitions {
+            get {
+                return ResourceManager.GetString("Header_LocatorDefinitions", resourceCulture);
             }
         }
         
@@ -120,6 +138,15 @@ namespace HurPsyExpStrings {
         public static string Header_SplitLayout {
             get {
                 return ResourceManager.GetString("Header_SplitLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stimulus Definitions.
+        /// </summary>
+        public static string Header_StimulusDefinitions {
+            get {
+                return ResourceManager.GetString("Header_StimulusDefinitions", resourceCulture);
             }
         }
         
