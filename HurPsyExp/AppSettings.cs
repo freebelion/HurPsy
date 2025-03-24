@@ -10,22 +10,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace HurPsyExp
-{
-    /// <summary>
-    /// This enumeration is for switching the main Design Window layout at runtime
-    /// </summary>
-    public enum DesignLayout
-    {
-        /// <summary>
-        /// The upper panel is for adding and editing items and the lower panel is for displaying the items
-        /// </summary>
-        SinglePanel,
-        /// <summary>
-        /// The right panel is for adding and editing items and the left panel is for displaying the items
-        /// </summary>
-        SplitPanel
-    }
-
+{ 
     /// <summary>
     /// This class hosts the settings related to the visual appearance of the experiment design/run interfaces.
     /// It is derived from `ObservableObject` class of the Mvvm Community Toolkit, so it acts as its own viewmodel.
@@ -108,7 +93,7 @@ namespace HurPsyExp
         /// The current choice for the DesignWindow layout
         /// </summary>
         [ObservableProperty]
-        private DesignLayout currentLayout;
+        private DesignLayoutChoice currentLayout;
 
         #endregion
 
@@ -131,7 +116,7 @@ namespace HurPsyExp
 
             WindowWidth = 800;
             WindowHeight = 600;
-            CurrentLayout = DesignLayout.SinglePanel;
+            CurrentLayout = DesignLayoutChoice.SinglePanel;
         }
         #endregion
 
@@ -191,11 +176,11 @@ namespace HurPsyExp
         }
 
         /// <summary>
-        /// This method switches the current layout
+        /// This method, when executed as a command, switches the current layout.
         /// </summary>
         /// <param name="newlayout"></param>
         [RelayCommand]
-        private void SwitchLayout(DesignLayout newlayout)
+        private void SwitchLayout(DesignLayoutChoice newlayout)
         {
             CurrentLayout = newlayout;
         }

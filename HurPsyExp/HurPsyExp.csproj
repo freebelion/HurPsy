@@ -13,6 +13,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\addlocator.svg" />
+    <None Remove="Images\AddStimulus.svg" />
+    <None Remove="Images\decrement.svg" />
+    <None Remove="Images\editmode.svg" />
+    <None Remove="Images\ImageStimulus.svg" />
+    <None Remove="Images\increment.svg" />
+    <None Remove="Images\lbase.png" />
+    <None Remove="Images\lbase.svg" />
+    <None Remove="Images\PointLocator.svg" />
+    <None Remove="Images\sbase.png" />
+    <None Remove="Images\sbase.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="DefaultDocumentation" Version="0.8.2">
       <PrivateAssets>all</PrivateAssets>
@@ -32,7 +46,9 @@
     <Resource Include="Images\editmode.png" />
     <Resource Include="Images\ImageStimulus.png" />
     <Resource Include="Images\increment.png" />
+    <Resource Include="Images\lbase.png" />
     <Resource Include="Images\PointLocator.png" />
+    <Resource Include="Images\sbase.png" />
   </ItemGroup>
 
 </Project>

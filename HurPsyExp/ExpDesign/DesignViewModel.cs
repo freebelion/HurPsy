@@ -17,11 +17,16 @@ namespace HurPsyExp.ExpDesign
     {
         #region Design Properties
         /// <summary>
-        /// The current content set by this viewmodel (it will change depending on the menu choices of the user)
+        /// The current content set by this viewmodel (it will change depending on the choice clicked on **MainContentMenu** defined in **DesignLayouts.xaml**)
         /// </summary>
         [ObservableProperty]
-        private object? mainContent;
+        private object? displayContent;
 
+        /// <summary>
+        /// The label indicating the current display content (it will apear on **MainContentLabel** defined in **DesignLayouts.xaml**)
+        /// </summary>
+        [ObservableProperty]
+        private string displayContentLabel = string.Empty;
         #endregion
 
         #region Experiment Items
@@ -52,6 +57,9 @@ namespace HurPsyExp.ExpDesign
             StimulusVMs = [];
             LocatorVMs = [];
 
+            // Start with StimulusDefinitions content, until a diferent decision is made.
+            ChooseContent(DisplayContentChoice.StimulusDefinitions);
+
             InitializeTest();
         }
         #endregion
@@ -64,7 +72,25 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Commands
-        
+        /// <summary>
+        /// This method, when executed as a command, changes the display content according to the user's choice.
+        /// </summary>
+        /// <param name="newchoice"></param>
+        [RelayCommand]
+        private void ChooseContent(DisplayContentChoice newchoice)
+        {
+            switch(newchoice)
+            {
+                case DisplayContentChoice.StimulusDefinitions:
+                    DisplayContent = StimulusVMs;
+                    DisplayContentLabel = HurPsyExpStrings.StringResources.Header_StimulusDefinitions;
+                    break;
+                case DisplayContentChoice.LocatorDefinitions:
+                    DisplayContent = LocatorVMs;
+                    DisplayContentLabel = HurPsyExpStrings.StringResources.Header_LocatorDefinitions;
+                    break;
+            }
+        }
         #endregion
     }
 }
