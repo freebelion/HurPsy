@@ -35,10 +35,10 @@
                       DataContext="{StaticResource AppSettings}">
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_SingleLayout}"
                           Command="{Binding SwitchLayoutCommand}"
-                          CommandParameter="{x:Static expapp:DesignLayoutChoice.SinglePanel}"/>
+                          CommandParameter="{x:Static expapp:LayoutChoice.SinglePanel}"/>
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_SplitLayout}"
                           Command="{Binding SwitchLayoutCommand}"
-                          CommandParameter="{x:Static expapp:DesignLayoutChoice.SplitPanel}"/>
+                          CommandParameter="{x:Static expapp:LayoutChoice.SplitPanel}"/>
             </MenuItem>
         </Menu>
       
@@ -48,12 +48,12 @@
                     <Style TargetType="{x:Type ContentControl}">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
-                                         Value="{x:Static expapp:DesignLayoutChoice.SinglePanel}">
+                                         Value="{x:Static expapp:LayoutChoice.SinglePanel}">
                                 <Setter Property="Content" Value="{StaticResource SingleLayout}"/>
                             </DataTrigger>
 
                             <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
-                                         Value="{x:Static expapp:DesignLayoutChoice.SplitPanel}">
+                                         Value="{x:Static expapp:LayoutChoice.SplitPanel}">
                                 <Setter Property="Content" Value="{StaticResource SplitLayout}"/>
                             </DataTrigger>
                         </Style.Triggers>

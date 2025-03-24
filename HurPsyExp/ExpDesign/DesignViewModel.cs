@@ -16,6 +16,13 @@ namespace HurPsyExp.ExpDesign
     public partial class DesignViewModel : ObservableObject
     {
         #region Design Properties
+
+        /// <summary>
+        /// This field stores the current layout choice for `DesignWindow`
+        /// </summary>
+        [ObservableProperty]
+        private ContentChoice displayContentChoice;
+
         /// <summary>
         /// The current content set by this viewmodel (it will change depending on the choice clicked on **MainContentMenu** defined in **DesignLayouts.xaml**)
         /// </summary>
@@ -57,8 +64,9 @@ namespace HurPsyExp.ExpDesign
             StimulusVMs = [];
             LocatorVMs = [];
 
+            DisplayContentChoice = ContentChoice.StimulusDefinitions;
             // Start with StimulusDefinitions content, until a diferent decision is made.
-            ChooseContent(DisplayContentChoice.StimulusDefinitions);
+            ChooseContent(DisplayContentChoice);
 
             InitializeTest();
         }
@@ -77,15 +85,17 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         /// <param name="newchoice"></param>
         [RelayCommand]
-        private void ChooseContent(DisplayContentChoice newchoice)
+        private void ChooseContent(ContentChoice newchoice)
         {
-            switch(newchoice)
+            DisplayContentChoice = newchoice;
+
+            switch(DisplayContentChoice)
             {
-                case DisplayContentChoice.StimulusDefinitions:
+                case ContentChoice.StimulusDefinitions:
                     DisplayContent = StimulusVMs;
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_StimulusDefinitions;
                     break;
-                case DisplayContentChoice.LocatorDefinitions:
+                case ContentChoice.LocatorDefinitions:
                     DisplayContent = LocatorVMs;
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_LocatorDefinitions;
                     break;

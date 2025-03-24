@@ -13,13 +13,8 @@ namespace HurPsyExp.ExpDesign
     /// <summary>
     /// This class will select a template for the viewmodel of the item that is being displayed or edited.
     /// </summary>
-    class ItemTemplateSelector : DataTemplateSelector
+    class EditableItemTemplateSelector : DataTemplateSelector
     {
-        /// <summary>
-        /// This property is a boolean flag indicating if an editing template is to be selected.
-        /// </summary>
-        public bool ItemEdit { get; set; } = false;
-
         /// <summary>
         /// This is the implementation of the template selection method of the base class.
         /// </summary>
@@ -30,6 +25,24 @@ namespace HurPsyExp.ExpDesign
         {
             FrameworkElement element = (FrameworkElement)container;
             
+            IdObjectViewModel? idobjvm = item as IdObjectViewModel;
+
+            if (idobjvm != null)
+            {
+                if(idobjvm.Editable)
+                {
+                    IdObject idobj = idobjvm.ItemObject;
+
+                    switch(idobj)
+                    {
+                        case ImageStimulus imgstim:
+                            return (DataTemplate)element.FindResource("ImageStimulusTemplate");
+                        case PointLocator ploc:
+                            return (DataTemplate)element.FindResource("PointLocatorTemplate");
+                    }
+                }
+            }
+
             return null;
         }
     }

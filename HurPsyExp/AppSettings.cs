@@ -93,7 +93,7 @@ namespace HurPsyExp
         /// The current choice for the DesignWindow layout
         /// </summary>
         [ObservableProperty]
-        private DesignLayoutChoice currentLayout;
+        private LayoutChoice designLayout;
 
         #endregion
 
@@ -116,7 +116,7 @@ namespace HurPsyExp
 
             WindowWidth = 800;
             WindowHeight = 600;
-            CurrentLayout = DesignLayoutChoice.SinglePanel;
+            DesignLayout = LayoutChoice.SinglePanel;
         }
         #endregion
 
@@ -180,9 +180,9 @@ namespace HurPsyExp
         /// </summary>
         /// <param name="newlayout"></param>
         [RelayCommand]
-        private void SwitchLayout(DesignLayoutChoice newlayout)
+        private void SwitchLayout(LayoutChoice newlayout)
         {
-            CurrentLayout = newlayout;
+            DesignLayout = newlayout;
         }
 
         #endregion
@@ -222,7 +222,7 @@ namespace HurPsyExp
 
                         this.WindowWidth = loadedSettings.WindowWidth;
                         this.WindowHeight = loadedSettings.WindowHeight;
-                        this.CurrentLayout = loadedSettings.CurrentLayout;
+                        this.DesignLayout = loadedSettings.DesignLayout;
                     }
                 }
             }

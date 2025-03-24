@@ -14,7 +14,7 @@
         <MenuItem Header="{x:Static expstrings:StringResources.Header_Definitions}">
             <MenuItem Header="{x:Static expstrings:StringResources.Header_StimulusDefinitions}"
                       Command="{Binding ChooseContentCommand}"
-                      CommandParameter="{x:Static expapp:DisplayContentChoice.StimulusDefinitions}">
+                      CommandParameter="{x:Static expapp:ContentChoice.StimulusDefinitions}">
                 <MenuItem.Icon>
                     <Image Source="/Images/sbase.png"
                            Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"/>
@@ -22,7 +22,7 @@
             </MenuItem>
             <MenuItem Header="{x:Static expstrings:StringResources.Header_LocatorDefinitions}"
                       Command="{Binding ChooseContentCommand}"
-                      CommandParameter="{x:Static expapp:DisplayContentChoice.LocatorDefinitions}">
+                      CommandParameter="{x:Static expapp:ContentChoice.LocatorDefinitions}">
                 <MenuItem.Icon>
                     <Image Source="/Images/lbase.png"
                            Height="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"/>
