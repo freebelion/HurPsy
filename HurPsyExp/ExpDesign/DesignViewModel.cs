@@ -27,7 +27,7 @@ namespace HurPsyExp.ExpDesign
         /// The current content set by this viewmodel (it will change depending on the choice clicked on **MainContentMenu** defined in **DesignLayouts.xaml**)
         /// </summary>
         [ObservableProperty]
-        private object? displayContent;
+        private ObservableCollection<IdObjectViewModel>? displayContent;
 
         /// <summary>
         /// The label indicating the current display content (it will apear on **MainContentLabel** defined in **DesignLayouts.xaml**)
@@ -64,18 +64,24 @@ namespace HurPsyExp.ExpDesign
             StimulusVMs = [];
             LocatorVMs = [];
 
+            InitializeTest();
+
             DisplayContentChoice = ContentChoice.StimulusDefinitions;
             // Start with StimulusDefinitions content, until a diferent decision is made.
             ChooseContent(DisplayContentChoice);
-
-            InitializeTest();
         }
         #endregion
 
         #region Methods
         private void InitializeTest()
         {
-            
+            ImageStimulus imgstim;
+
+            for (int i = 0; i < 10; i++)
+            {
+                imgstim = new ImageStimulus();
+                StimulusVMs.Add(new IdObjectViewModel(imgstim));
+            }
         }
         #endregion
 
@@ -99,6 +105,18 @@ namespace HurPsyExp.ExpDesign
                     DisplayContent = LocatorVMs;
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_LocatorDefinitions;
                     break;
+            }
+        }
+
+        [RelayCommand]
+        private void ToggleEdit()
+        {
+            if (DisplayContent != null)
+            {
+                foreach (IdObjectViewModel idobjvm in DisplayContent)
+                {
+                    idobjvm.Editable = !idobjvm.Editable;
+                }
             }
         }
         #endregion

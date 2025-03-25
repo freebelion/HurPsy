@@ -47,12 +47,12 @@
                 <ContentControl.Style>
                     <Style TargetType="{x:Type ContentControl}">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
+                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=DesignLayout}"
                                          Value="{x:Static expapp:LayoutChoice.SinglePanel}">
                                 <Setter Property="Content" Value="{StaticResource SingleLayout}"/>
                             </DataTrigger>
 
-                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=CurrentLayout}"
+                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=DesignLayout}"
                                          Value="{x:Static expapp:LayoutChoice.SplitPanel}">
                                 <Setter Property="Content" Value="{StaticResource SplitLayout}"/>
                             </DataTrigger>

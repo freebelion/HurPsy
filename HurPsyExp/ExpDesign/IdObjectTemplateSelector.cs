@@ -11,9 +11,9 @@ using HurPsyLib;
 namespace HurPsyExp.ExpDesign
 {
     /// <summary>
-    /// This class will select a template for the viewmodel of the item that is being displayed or edited.
+    /// This class will select a template for an experiment item of `IdObject` type.
     /// </summary>
-    class EditableItemTemplateSelector : DataTemplateSelector
+    class IdObjectTemplateSelector : DataTemplateSelector
     {
         /// <summary>
         /// This is the implementation of the template selection method of the base class.
@@ -25,21 +25,16 @@ namespace HurPsyExp.ExpDesign
         {
             FrameworkElement element = (FrameworkElement)container;
             
-            IdObjectViewModel? idobjvm = item as IdObjectViewModel;
+            IdObject? idobj = item as IdObject;
 
-            if (idobjvm != null)
+            if (idobj != null)
             {
-                if(idobjvm.Editable)
+                switch (idobj)
                 {
-                    IdObject idobj = idobjvm.ItemObject;
-
-                    switch(idobj)
-                    {
-                        case ImageStimulus imgstim:
-                            return (DataTemplate)element.FindResource("ImageStimulusTemplate");
-                        case PointLocator ploc:
-                            return (DataTemplate)element.FindResource("PointLocatorTemplate");
-                    }
+                    case ImageStimulus imgstim:
+                        return (DataTemplate)element.FindResource("ImageStimulusEditTemplate");
+                    case PointLocator ploc:
+                        return (DataTemplate)element.FindResource("PointLocatorEditTemplate");
                 }
             }
 

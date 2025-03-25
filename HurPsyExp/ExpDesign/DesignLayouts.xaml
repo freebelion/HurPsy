@@ -4,6 +4,10 @@
                     xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
                     xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="DesignTemplates.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
     <!-- Since this Menu is defined as a separate resource used when needed,
          its DataContext had to be bound to DesignWindow's DataContext (aka DesignViewModel) -->
     <Menu x:Key="MainContentMenu"
@@ -35,10 +39,10 @@
                Margin="2" Background="LightBlue"
                TextAlignment="Center"
                FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
-               Text="{Binding Path=DataContext.DisplayContentLabel, RelativeSource={RelativeSource AncestorType=expdesign:DesignWindow}}">
+               Text="{Binding Path=DisplayContentLabel}">
     </TextBlock>
 
-    <DockPanel x:Key="SingleLayout" LastChildFill="False">
+    <DockPanel x:Key="SingleLayout" LastChildFill="True">
         <ContentControl DockPanel.Dock="Top"
                         HorizontalAlignment="Stretch"
                         Height="Auto">
@@ -55,6 +59,20 @@
                 </Style>
             </ContentControl.Style>
         </ContentControl>
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <ToggleButton x:Name="btnEditMode" IsChecked="False"
+                          Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                          Command="{Binding ToggleEditCommand}">
+                <Image Source="/Images/editmode.png" Stretch="UniformToFill"/>
+            </ToggleButton>
+        </StackPanel>
+
+        <ListBox ItemsSource="{Binding DisplayContent}"
+                 FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                 ItemTemplate="{StaticResource IdObjectVMTemplate}"
+                 HorizontalContentAlignment="Stretch"/>
+
     </DockPanel>
 
     <Grid x:Key="SplitLayout">
