@@ -1,7 +1,10 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -24,16 +27,35 @@ namespace HurPsyExp.ExpDesign
         private ContentChoice displayContentChoice;
 
         /// <summary>
-        /// The current content set by this viewmodel (it will change depending on the choice clicked on **MainContentMenu** defined in **DesignLayouts.xaml**)
+        /// The current content set by this viewmodel (it will change depending on the choice clicked on **SingleLayoutMenu** defined in **DesignLayouts.xaml**)
         /// </summary>
         [ObservableProperty]
-        private ObservableCollection<IdObjectViewModel>? displayContent;
+        private ObservableCollection<IdObjectViewModel> displayContent;
 
         /// <summary>
-        /// The label indicating the current display content (it will apear on **MainContentLabel** defined in **DesignLayouts.xaml**)
+        /// The label indicating the current display content (it will apear on **SingleLayoutLabel** defined in **DesignLayouts.xaml**)
         /// </summary>
         [ObservableProperty]
         private string displayContentLabel = string.Empty;
+
+        /// <summary>
+        /// The boolean indicator of Add Items Mode
+        /// </summary>
+        [ObservableProperty]
+        private bool addingMode;
+
+        /// <summary>
+        /// This will be an indicator that the user will be adding new `Stimulus` definitions
+        /// </summary>
+        [ObservableProperty]
+        private bool addingStimulusMode;
+
+        /// <summary>
+        /// This will be an indicator that the user will be adding new `Locator` definitions
+        /// </summary>
+        [ObservableProperty]
+        private bool addingLocatorMode;
+
         #endregion
 
         #region Experiment Items
@@ -64,8 +86,8 @@ namespace HurPsyExp.ExpDesign
             StimulusVMs = [];
             LocatorVMs = [];
 
-            InitializeTest();
-
+            AddingMode = false;
+            DisplayContent = [];
             DisplayContentChoice = ContentChoice.StimulusDefinitions;
             // Start with StimulusDefinitions content, until a diferent decision is made.
             ChooseContent(DisplayContentChoice);
@@ -73,14 +95,23 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Methods
-        private void InitializeTest()
+        /// <summary>
+        /// This method displays an open file dialog to let the user choose images to serve as `ImageStimulus` elements.
+        /// </summary>
+        private void AddingImageStimulus()
         {
-            ImageStimulus imgstim;
+            string[]? selectedFiles = Utility.OpenFiles(HurPsyExpStrings.StringResources.Filter_ImageFiles, true);
 
-            for (int i = 0; i < 10; i++)
+            if (selectedFiles != null && selectedFiles.Length > 0)
             {
-                imgstim = new ImageStimulus();
-                StimulusVMs.Add(new IdObjectViewModel(imgstim));
+                foreach (string strFile in selectedFiles)
+                {
+                    ImageStimulus imgstim = new ImageStimulus();
+                    string? basename = System.IO.Path.GetFileNameWithoutExtension(strFile);
+                    if(basename != null) { imgstim.Id = basename; }
+                    imgstim.FileName = strFile;
+                    DisplayContent.Add(new IdObjectViewModel(imgstim));
+                }
             }
         }
         #endregion
@@ -94,7 +125,7 @@ namespace HurPsyExp.ExpDesign
         private void ChooseContent(ContentChoice newchoice)
         {
             DisplayContentChoice = newchoice;
-
+            
             switch(DisplayContentChoice)
             {
                 case ContentChoice.StimulusDefinitions:
@@ -108,15 +139,59 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// This method, when executed as a command, will turn on the editing mode for all the displayed items.
+        /// </summary>
+        /// <param name="editing"></param>
         [RelayCommand]
-        private void ToggleEdit()
+        private void EditingItems(bool editing)
         {
             if (DisplayContent != null)
             {
                 foreach (IdObjectViewModel idobjvm in DisplayContent)
                 {
-                    idobjvm.Editable = !idobjvm.Editable;
+                    idobjvm.Editable = editing;
                 }
+            }
+        }
+
+        /// <summary>
+        /// This command implementation, when called with a `true` argument, will bring up **AddingItemsView** which will let the user add new items.
+        /// </summary>
+        /// <param name="adding"></param>
+        [RelayCommand]
+        private void AddingItems(bool adding)
+        {
+            AddingMode = adding;
+            // If items are going to be added, DisplayContent will be recreated as a temporary list of new items.
+            if (adding) { DisplayContent = []; }
+            // Otherwise, DisplayContent will revert to previous display content choice.
+            else { ChooseContent(DisplayContentChoice); }
+
+            AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
+            AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
+        }
+
+        [RelayCommand]
+        private void AddingStimulus(Type stimType)
+        {
+            switch(stimType.Name)
+            {
+                case "ImageStimulus":
+                    AddingImageStimulus();
+                    break;
+            }
+        }
+
+        [RelayCommand]
+        private void AddingLocator(Type locType)
+        {
+            switch (locType.Name)
+            {
+                case "PointLocator":
+                    PointLocator ploc = new PointLocator();
+                    DisplayContent.Add(new IdObjectViewModel(ploc));
+                    break;
             }
         }
         #endregion

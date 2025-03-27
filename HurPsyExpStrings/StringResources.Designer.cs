@@ -61,6 +61,51 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image files (*.png,*.jpg)|*.png;*.jpg.
+        /// </summary>
+        public static string Filter_ImageFiles {
+            get {
+                return ResourceManager.GetString("Filter_ImageFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image Stimulus.
+        /// </summary>
+        public static string Header_AddImageStimulus {
+            get {
+                return ResourceManager.GetString("Header_AddImageStimulus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Locator.
+        /// </summary>
+        public static string Header_AddLocator {
+            get {
+                return ResourceManager.GetString("Header_AddLocator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Point Locator.
+        /// </summary>
+        public static string Header_AddPointLocator {
+            get {
+                return ResourceManager.GetString("Header_AddPointLocator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Stimulus.
+        /// </summary>
+        public static string Header_AddStimulus {
+            get {
+                return ResourceManager.GetString("Header_AddStimulus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Definitions.
         /// </summary>
         public static string Header_Definitions {
@@ -151,11 +196,29 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Label_Cancel {
+            get {
+                return ResourceManager.GetString("Label_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Design an Experiment.
         /// </summary>
         public static string Label_DesignExperiment {
             get {
                 return ResourceManager.GetString("Label_DesignExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string Label_OK {
+            get {
+                return ResourceManager.GetString("Label_OK", resourceCulture);
             }
         }
         

@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="BarBrush" Color="SteelBlue"/>
+
+    <LinearGradientBrush x:Key="MenuBrush"
+                         StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+        <GradientStop Color="Transparent" Offset="0.0"/>
+        <GradientStop Color="Silver" Offset="0.05"/>
+        <GradientStop Color="Silver" Offset="0.95"/>
+        <GradientStop Color="Transparent" Offset="1.0"/>
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="ItemBrush"
+                 StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+        <GradientStop Color="DarkCyan" Offset="0.0"/>
+        <GradientStop Color="Cyan" Offset="0.05"/>
+        <GradientStop Color="Cyan" Offset="0.95"/>
+        <GradientStop Color="DarkCyan" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="SelectionBrush"
+                 StartPoint="0.0,0.5" EndPoint="1.0,0.5  ">
+        <GradientStop Color="OrangeRed" Offset="0.0"/>
+        <GradientStop Color="Orange" Offset="0.05"/>
+        <GradientStop Color="Orange" Offset="0.95"/>
+        <GradientStop Color="OrangeRed" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <RadialGradientBrush x:Key="ToggleBrush"
+                         GradientOrigin="0.5,0.5" Center="0.5,0.5"
+                         RadiusX="0.5" RadiusY="0.5">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="LightBlue" Offset="0.0" />
+            <GradientStop Color="SkyBlue" Offset="0.95" />
+            <GradientStop Color="SteelBlue" Offset="1.0" />
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+    
+    <RadialGradientBrush x:Key="CheckedToggleBrush"
+                         GradientOrigin="0.5,0.5" Center="0.5,0.5"
+                         RadiusX="0.5" RadiusY="0.5">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="LightGoldenrodYellow" Offset="0.0" />
+            <GradientStop Color="Orange" Offset="0.95" />
+            <GradientStop Color="OrangeRed" Offset="1.0" />
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+</ResourceDictionary>

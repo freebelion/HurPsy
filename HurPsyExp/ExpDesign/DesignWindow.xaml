@@ -43,7 +43,7 @@
         </Menu>
       
         <Grid x:Name="MainGrid">
-            <ContentControl x:Name="MainContentCtrl">
+            <ContentControl x:Name="DisplayContentCtrl">
                 <ContentControl.Style>
                     <Style TargetType="{x:Type ContentControl}">
                         <Style.Triggers>

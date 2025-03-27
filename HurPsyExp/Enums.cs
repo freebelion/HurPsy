@@ -17,8 +17,8 @@
     }
 
     /// <summary>
-    /// This enumeration is for choosing the `MainContent` in `DesignViewModel`.
-    /// It is used on the **MainContentMenu** which is defined in **DesignLayouts.xaml**.
+    /// This enumeration is for choosing the `DisplayContent` in `DesignViewModel`.
+    /// It is used on the **SingleLayoutMenu** which is defined in **DesignLayouts.xaml**.
     /// The menu commands are handled by the `DesignViewModel` instance.
     /// </summary>
     public enum ContentChoice

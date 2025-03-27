@@ -167,14 +167,42 @@
   </data>
   <data name="Header_Definitions" xml:space="preserve">
     <value>Definitions</value>
-    <comment>Header string for the MenuItem in "MainContentMenu" which opens the Definitions listing choices</comment>
+    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Definitions listing choices</comment>
   </data>
   <data name="Header_LocatorDefinitions" xml:space="preserve">
     <value>Locator Definitions</value>
-    <comment>Header string for the MenuItem in "MainContentMenu" which opens the Locator Definitions listing choice</comment>
+    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Locator Definitions listing choice</comment>
   </data>
   <data name="Header_StimulusDefinitions" xml:space="preserve">
     <value>Stimulus Definitions</value>
-    <comment>Header string for the MenuItem in "MainContentMenu" which opens the Stimulus Definitions listing choice</comment>
+    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Stimulus Definitions listing choice</comment>
+  </data>
+  <data name="Header_AddStimulus" xml:space="preserve">
+    <value>Add Stimulus</value>
+    <comment>Header text for the top MenuItem in the AddingStimulusMenu which is defined in DesignLayout.xaml</comment>
+  </data>
+  <data name="Header_AddImageStimulus" xml:space="preserve">
+    <value>Image Stimulus</value>
+    <comment>Header text for the MenuItem in the AddingStimulusMenu which adds ImageStimulus items</comment>
+  </data>
+  <data name="Header_AddLocator" xml:space="preserve">
+    <value>Add Locator</value>
+    <comment>Header text for the top MenuItem in the AddingLocatorMenu which is defined in DesignLayout.xaml</comment>
+  </data>
+  <data name="Header_AddPointLocator" xml:space="preserve">
+    <value>Point Locator</value>
+    <comment>Header text for the MenuItem in the AddingLocatorMenu which adds PointLocator items</comment>
+  </data>
+  <data name="Filter_ImageFiles" xml:space="preserve">
+    <value>Image files (*.png,*.jpg)|*.png;*.jpg</value>
+    <comment>File selection filter for image files</comment>
+  </data>
+  <data name="Label_OK" xml:space="preserve">
+    <value>OK</value>
+    <comment>Label for the accept button on AddingItemsView defined in DesignLayouts.xaml</comment>
+  </data>
+  <data name="Label_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Label for the canceling button on AddingItemsView defined in DesignLayouts.xaml</comment>
   </data>
 </root>
