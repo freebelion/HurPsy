@@ -16,6 +16,7 @@ namespace HurPsyLib
         /// <summary>
         /// The location point
         /// </summary>
+        [DataMember]
         public HurPsyPoint LocatorPoint {  get; private set; }
 
         /// <summary>

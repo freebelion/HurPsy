@@ -149,6 +149,10 @@
     <value>Save</value>
     <comment>Header string for the menu item that saves an experiment definition</comment>
   </data>
+  <data name="Header_SaveExperimentAs" xml:space="preserve">
+    <value>Save As</value>
+    <comment>Header string for the menu item that saves an experiment definition onto a different path</comment>
+  </data>
   <data name="Header_Experiment" xml:space="preserve">
     <value>Experiment</value>
     <comment>Header string for the menu that contains the menu items related to experiment actions</comment>
@@ -204,5 +208,9 @@
   <data name="Label_Cancel" xml:space="preserve">
     <value>Cancel</value>
     <comment>Label for the canceling button on AddingItemsView defined in DesignLayouts.xaml</comment>
+  </data>
+  <data name="Filter_ExperimentFiles" xml:space="preserve">
+    <value>Experiment definition Files (*.xml) |*.xml</value>
+    <comment>File selection filter for opening/saving Experiment derfinition files</comment>
   </data>
 </root>

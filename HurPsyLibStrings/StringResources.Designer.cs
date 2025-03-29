@@ -61,11 +61,20 @@ namespace HurPsyLibStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The experiment could not be loaded from file!.
+        ///   Looks up a localized string similar to The experiment could not be loaded from the file! .
         /// </summary>
         public static string Error_ExperimentNotLoaded {
             get {
                 return ResourceManager.GetString("Error_ExperimentNotLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The experiment could not be saved onto the file! .
+        /// </summary>
+        public static string Error_ExperimentNotSaved {
+            get {
+                return ResourceManager.GetString("Error_ExperimentNotSaved", resourceCulture);
             }
         }
         

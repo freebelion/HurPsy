@@ -68,7 +68,7 @@ namespace HurPsyExp.ExpDesign
         /// <summary>
         /// The `Experiment` object managed by this viewmodel
         /// </summary>
-        private Experiment exp;
+        private Experiment _experiment;
 
         /// <summary>
         /// Collection of viewmodels associated with experiment `Stimulus` objects
@@ -87,7 +87,7 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         public DesignViewModel()
         {
-            exp = new Experiment();
+            _experiment = new Experiment();
 
             StimulusVMs = [];
             LocatorVMs = [];
@@ -101,6 +101,29 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Methods
+        /// <summary>
+        /// This short method will clear viewmodel collections in preparations for renewing the experiment definition.
+        /// </summary>
+        private void ClearVMs()
+        {
+            StimulusVMs.Clear();
+            LocatorVMs.Clear();
+        }
+
+        /// <summary>
+        /// This method will create the viewmodel objects for a loaded experiment
+        /// </summary>
+        private void CreateVMs()
+        {
+            ClearVMs();
+
+            List<Stimulus> StimulusItems = _experiment.GetStimulusItems();
+            foreach (var item in StimulusItems) { StimulusVMs.Add(new IdObjectViewModel(item)); }
+
+            List<Locator> LocatorItems = _experiment.GetLocatorItems();
+            foreach (var item in LocatorItems) { LocatorVMs.Add(new IdObjectViewModel(item)); }
+        }
+
         /// <summary>
         /// This method displays an open file dialog to let the user choose images to serve as `ImageStimulus` elements.
         /// </summary>
@@ -126,7 +149,59 @@ namespace HurPsyExp.ExpDesign
 
         #region Commands
         /// <summary>
-        /// This method, when executed as a command, changes the display content according to the user's choice.
+        /// The command implementation for creating a new experiment definition.
+        /// </summary>
+        [RelayCommand]
+        private void NewExperiment()
+        {
+            ClearVMs();
+            _experiment = new Experiment();
+        }
+
+        /// <summary>
+        /// The command implementation for loading an experiment definition from a file.
+        /// </summary>
+        [RelayCommand]
+        private void LoadExperiment()
+        {
+            string[]? selectedFiles = Utility.OpenFiles(HurPsyExpStrings.StringResources.Filter_ExperimentFiles, false);
+
+            if(selectedFiles != null && System.IO.File.Exists(selectedFiles[0]))
+            {
+                _experiment = Experiment.LoadFromXml(selectedFiles[0]);
+                CreateVMs();
+                ChooseContent(DisplayContentChoice);
+            }
+        }
+
+        /// <summary>
+        /// The command implementation for saving an experiment definition onto the same file.
+        /// If the experiment did not yet have a valid file, SaveExperimentAs command implementation will be called.
+        /// </summary>
+        [RelayCommand]
+        private void SaveExperiment()
+        {
+            if (_experiment.FileExists())
+            { _experiment.SaveToXml(); }
+            else { SaveExperimentAs(); }
+        }
+
+        /// <summary>
+        /// The command implementation for saving an experiment definition onto a file.
+        /// </summary>
+        [RelayCommand]
+        private void SaveExperimentAs()
+        {
+            string? filename = Utility.FileSaveName(HurPsyExpStrings.StringResources.Filter_ExperimentFiles);
+
+            if (filename != null)
+            {
+                _experiment.SaveToXml(filename);
+            }
+        }
+
+        /// <summary>
+        /// This command implementation changes the display content according to the user's choice.
         /// </summary>
         /// <param name="newchoice"></param>
         [RelayCommand]
@@ -153,7 +228,7 @@ namespace HurPsyExp.ExpDesign
         }
 
         /// <summary>
-        /// This method, when executed as a command, will turn on the editing mode for all the displayed items.
+        /// This command implementation will turn on the editing mode for all the displayed items.
         /// </summary>
         [RelayCommand]
         private void EditingItems()
@@ -176,6 +251,10 @@ namespace HurPsyExp.ExpDesign
             else { ChooseContent(DisplayContentChoice); }
         }
 
+        /// <summary>
+        /// This command implementation is the first step in adding `Stimulus` definitions to the experiment.
+        /// </summary>
+        /// <param name="stimType"></param>
         [RelayCommand]
         private void AddingStimulus(Type stimType)
         {
@@ -187,6 +266,10 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// This command implementation is the first step in adding `Locator` definitions to the experiment.
+        /// </summary>
+        /// <param name="locType"></param>
         [RelayCommand]
         private void AddingLocator(Type locType)
         {
@@ -211,11 +294,17 @@ namespace HurPsyExp.ExpDesign
             {
                 case ContentChoice.StimulusDefinitions:
                     foreach (var idobjvm in DisplayContent)
-                    { StimulusVMs.Add(idobjvm); }
+                    {
+                        _experiment.AddStimulus((Stimulus)idobjvm.ItemObject);
+                        StimulusVMs.Add(idobjvm);
+                    }
                     break;
                 case ContentChoice.LocatorDefinitions:
                     foreach (var idobjvm in DisplayContent)
-                    { LocatorVMs.Add(idobjvm); }
+                    {
+                        _experiment.AddLocator((Locator)idobjvm.ItemObject);
+                        LocatorVMs.Add(idobjvm);
+                    }
                     break;
             }
             // After new items are added, revert to full display of current content choice

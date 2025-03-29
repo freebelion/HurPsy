@@ -26,9 +26,14 @@
         <Menu DockPanel.Dock="Top"
               FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}">
             <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}" Margin="2">
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"/>
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_LoadExperiment}"/>
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperiment}"/>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"
+                          Command="{Binding NewExperimentCommand}"/>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_LoadExperiment}"
+                          Command="{Binding LoadExperimentCommand}"/>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperiment}"
+                          Command="{Binding SaveExperimentCommand}"/>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperimentAs}"
+                          Command="{Binding SaveExperimentAsCommand}"/>
             </MenuItem>
 
             <MenuItem Header="{x:Static expstrings:StringResources.Header_Layout}" Margin="2"

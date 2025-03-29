@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error_ExperimentNotLoaded" xml:space="preserve">
-    <value>The experiment could not be loaded from file!</value>
-    <comment>The error message shown when the app could not load an experiment from the selected file.</comment>
-  </data>
   <data name="Error_InvalidIndex" xml:space="preserve">
     <value>Index value is invalid!</value>
     <comment>The error message shown when an index value is out of bounds.</comment>
@@ -148,5 +144,13 @@
   <data name="Error_InvalidStringResource" xml:space="preserve">
     <value>Invalid String Resource: </value>
     <comment>The error message shown when the string resource name is invalid.</comment>
+  </data>
+  <data name="Error_ExperimentNotLoaded" xml:space="preserve">
+    <value>The experiment could not be loaded from the file! </value>
+    <comment>The error message shown when the app could not load an experiment from the selected file.</comment>
+  </data>
+  <data name="Error_ExperimentNotSaved" xml:space="preserve">
+    <value>The experiment could not be saved onto the file! </value>
+    <comment>The error message shown when the app could not save an experiment onto the selected file.</comment>
   </data>
 </root>

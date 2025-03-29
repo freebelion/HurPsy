@@ -61,6 +61,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Experiment definition Files (*.xml) |*.xml.
+        /// </summary>
+        public static string Filter_ExperimentFiles {
+            get {
+                return ResourceManager.GetString("Filter_ExperimentFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image files (*.png,*.jpg)|*.png;*.jpg.
         /// </summary>
         public static string Filter_ImageFiles {
@@ -165,6 +174,15 @@ namespace HurPsyExpStrings {
         public static string Header_SaveExperiment {
             get {
                 return ResourceManager.GetString("Header_SaveExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save As.
+        /// </summary>
+        public static string Header_SaveExperimentAs {
+            get {
+                return ResourceManager.GetString("Header_SaveExperimentAs", resourceCulture);
             }
         }
         
