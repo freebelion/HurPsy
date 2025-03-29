@@ -21,6 +21,8 @@
          https://gist.github.com/LGM-AdrianHum/c8cb125bc493c1ccac99b4098c7eeb60 -->
     <Style x:Key="IdObjectVMStyle" TargetType="ListBoxItem">
         <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">

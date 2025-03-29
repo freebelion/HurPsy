@@ -49,13 +49,14 @@
                    Background="{StaticResource BarBrush}">
             <Button DockPanel.Dock="Left"
                     Content="{x:Static expstrings:StringResources.Label_OK}"
-                    Style="{StaticResource DesignButtonStyle}"/>
+                    Style="{StaticResource DesignButtonStyle}"
+                    Command="{Binding AddedItemsCommand}"/>
             <Button DockPanel.Dock="Right"
                     Content="{x:Static expstrings:StringResources.Label_Cancel}"
-                    Style="{StaticResource DesignButtonStyle}"/>
+                    Style="{StaticResource DesignButtonStyle}"
+                    Command="{Binding CancelAddingCommand}"/>
         </DockPanel>
         <ListBox ItemsSource="{Binding DisplayContent}"
-                 FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
                  ItemTemplate="{StaticResource IdObjectVMTemplate}"
                  ItemContainerStyle="{StaticResource IdObjectVMStyle}"
                  SelectionMode="Multiple"
@@ -65,7 +66,6 @@
     
     <ListBox x:Key="DisplayItemsView"
              ItemsSource="{Binding DisplayContent}"
-             FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
              ItemTemplate="{StaticResource IdObjectVMTemplate}"
              ItemContainerStyle="{StaticResource IdObjectVMStyle}"
              SelectionMode="Multiple"
@@ -120,17 +120,15 @@
 
         <StackPanel x:Name="SingleLayoutToolbar" Orientation="Horizontal" DockPanel.Dock="Top"
                     Background="{StaticResource BarBrush}">
-            <ToggleButton x:Name="btnEditingMode" IsChecked="False"
+            <ToggleButton x:Name="btnEditingMode" IsChecked="{Binding EditMode}"
                           Style="{StaticResource DesignToggleStyle}"
-                          Command="{Binding EditingItemsCommand}"
-                          CommandParameter="{Binding Path=IsChecked, RelativeSource={RelativeSource Self}}">
+                          Command="{Binding EditingItemsCommand}">
                 <Image Source="/Images/editmode.png" Stretch="UniformToFill"/>
             </ToggleButton>
 
-            <ToggleButton x:Name="btnAddingMode" IsChecked="False"
+            <ToggleButton x:Name="btnAddingMode" IsChecked="{Binding AddingMode}"
                           Style="{StaticResource DesignToggleStyle}"
-                          Command="{Binding AddingItemsCommand}"
-                          CommandParameter="{Binding Path=IsChecked, RelativeSource={RelativeSource Self}}">
+                          Command="{Binding AddingItemsCommand}">
                 <Image Source="/Images/increment.png" Stretch="UniformToFill"/>
             </ToggleButton>
 

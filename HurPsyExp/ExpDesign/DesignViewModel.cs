@@ -39,6 +39,12 @@ namespace HurPsyExp.ExpDesign
         private string displayContentLabel = string.Empty;
 
         /// <summary>
+        /// The boolean indicator of Item Editing mode
+        /// </summary>
+        [ObservableProperty]
+        private bool editMode = false;
+
+        /// <summary>
         /// The boolean indicator of Add Items Mode
         /// </summary>
         [ObservableProperty]
@@ -110,7 +116,9 @@ namespace HurPsyExp.ExpDesign
                     string? basename = System.IO.Path.GetFileNameWithoutExtension(strFile);
                     if(basename != null) { imgstim.Id = basename; }
                     imgstim.FileName = strFile;
-                    DisplayContent.Add(new IdObjectViewModel(imgstim));
+                    IdObjectViewModel stimvm = new(imgstim);
+                    stimvm.Editable = EditMode; // keep edit mode the same for new items
+                    DisplayContent.Add(stimvm);
                 }
             }
         }
@@ -124,6 +132,9 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void ChooseContent(ContentChoice newchoice)
         {
+            // Cancel the adding mode, if active.
+            if(AddingMode) { AddingMode = false; }
+
             DisplayContentChoice = newchoice;
             
             switch(DisplayContentChoice)
@@ -137,39 +148,32 @@ namespace HurPsyExp.ExpDesign
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_LocatorDefinitions;
                     break;
             }
+            // Set the items as editable, if editing mode was already on
+            EditingItems();
         }
 
         /// <summary>
         /// This method, when executed as a command, will turn on the editing mode for all the displayed items.
         /// </summary>
-        /// <param name="editing"></param>
         [RelayCommand]
-        private void EditingItems(bool editing)
+        private void EditingItems()
         {
-            if (DisplayContent != null)
+            foreach (IdObjectViewModel idobjvm in DisplayContent)
             {
-                foreach (IdObjectViewModel idobjvm in DisplayContent)
-                {
-                    idobjvm.Editable = editing;
-                }
+                idobjvm.Editable = EditMode;
             }
         }
 
         /// <summary>
         /// This command implementation, when called with a `true` argument, will bring up **AddingItemsView** which will let the user add new items.
         /// </summary>
-        /// <param name="adding"></param>
         [RelayCommand]
-        private void AddingItems(bool adding)
+        private void AddingItems()
         {
-            AddingMode = adding;
             // If items are going to be added, DisplayContent will be recreated as a temporary list of new items.
-            if (adding) { DisplayContent = []; }
+            if (AddingMode) { DisplayContent = []; }
             // Otherwise, DisplayContent will revert to previous display content choice.
             else { ChooseContent(DisplayContentChoice); }
-
-            AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
-            AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
         }
 
         [RelayCommand]
@@ -190,9 +194,54 @@ namespace HurPsyExp.ExpDesign
             {
                 case "PointLocator":
                     PointLocator ploc = new PointLocator();
-                    DisplayContent.Add(new IdObjectViewModel(ploc));
+                    IdObjectViewModel plocvm = new IdObjectViewModel(ploc);
+                    plocvm.Editable = EditMode;
+                    DisplayContent.Add(plocvm); // keep edit mode the same for new items
                     break;
             }
+        }
+
+        /// <summary>
+        /// This method will be called by the OK button on AddingItemsToolbar and will add the new items.
+        /// </summary>
+        [RelayCommand]
+        private void AddedItems()
+        {
+            switch (DisplayContentChoice)
+            {
+                case ContentChoice.StimulusDefinitions:
+                    foreach (var idobjvm in DisplayContent)
+                    { StimulusVMs.Add(idobjvm); }
+                    break;
+                case ContentChoice.LocatorDefinitions:
+                    foreach (var idobjvm in DisplayContent)
+                    { LocatorVMs.Add(idobjvm); }
+                    break;
+            }
+            // After new items are added, revert to full display of current content choice
+            ChooseContent(DisplayContentChoice);
+        }
+
+        /// <summary>
+        /// This method will be called by the Cancel button on AddingItemsToolbar and will revert to the current content choice without adding the new items.
+        /// </summary>
+        [RelayCommand]
+        private void CancelAdding()
+        {
+            AddingMode = false;
+            ChooseContent(DisplayContentChoice);
+        }
+        #endregion
+
+        #region Events
+        /// <summary>
+        /// This method handles MVVM Toolkit's value changed event; it modifies the boolean flags for hiding/showing the menus that will add Stimulus/Locator/Block, etc.
+        /// </summary>
+        /// <param name="value"></param>
+        partial void OnAddingModeChanged(bool value)
+        {
+            AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
+            AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
         }
         #endregion
     }
