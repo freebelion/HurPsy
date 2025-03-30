@@ -22,19 +22,6 @@ public Experiment();
 ```
 ### Fields
 
-<a name='HurPsyLib.Experiment.filename'></a>
-
-## Experiment.filename Field
-
-Full path of the file where the experiment definition is stored
-
-```csharp
-private string filename;
-```
-
-#### Field Value
-[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
 <a name='HurPsyLib.Experiment.LocatorDict'></a>
 
 ## Experiment.LocatorDict Field
@@ -60,6 +47,20 @@ private Dictionary<string,Stimulus> StimulusDict;
 
 #### Field Value
 [System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
+### Properties
+
+<a name='HurPsyLib.Experiment.FileName'></a>
+
+## Experiment.FileName Property
+
+Full path of the file where the experiment definition is stored
+
+```csharp
+public string FileName { get; set; }
+```
+
+#### Property Value
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 ### Methods
 
 <a name='HurPsyLib.Experiment.AddLocator(HurPsyLib.Locator)'></a>
@@ -103,20 +104,6 @@ The object to be added
 #### Returns
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')  
 The success of the operation
-
-<a name='HurPsyLib.Experiment.FileExists()'></a>
-
-## Experiment.FileExists() Method
-
-A function thyat verifies the validity of file where this experiment definition is stored
-
-```csharp
-public bool FileExists();
-```
-
-#### Returns
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')  
-Validity status of the file
 
 <a name='HurPsyLib.Experiment.GetLocatorItems()'></a>
 

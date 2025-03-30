@@ -20,7 +20,8 @@ namespace HurPsyLib
         /// <summary>
         /// Full path of the file where the experiment definition is stored
         /// </summary>
-        private string filename = string.Empty;
+        [DataMember]
+        public string FileName { get; set; } = string.Empty;
 
         /// <summary>
         /// This `Dictionary` collection helps access `Stimulus` objects through their ids.
@@ -47,15 +48,6 @@ namespace HurPsyLib
         #endregion
 
         #region Methods and Functions
-        /// <summary>
-        /// A function thyat verifies the validity of file where this experiment definition is stored
-        /// </summary>
-        /// <returns>Validity status of the file</returns>
-        public bool FileExists()
-        {
-            return (filename != string.Empty && File.Exists(filename));
-        }
-
         /// <summary>
         /// This function attempts to add the given `Stimulus` object to the dictionary collection and reports on the outcome.
         /// </summary>
@@ -150,14 +142,14 @@ namespace HurPsyLib
         /// <param name="savefilename">The full file path (if none given, the existing filename will be used)</param>
         public void SaveToXml(string? savefilename = null)
         {
-            if(savefilename != null) { filename = savefilename; }
+            if(savefilename != null) { FileName = savefilename; }
 
             DataContractSerializer expser = new DataContractSerializer(typeof(Experiment));
             XmlWriterSettings xmlwrset = new XmlWriterSettings { Indent = true };
 
             try
             {
-                using (FileStream fs = File.Open(filename, FileMode.Create))
+                using (FileStream fs = File.Open(FileName, FileMode.Create))
                 {
                     using (var writer = XmlWriter.Create(fs, xmlwrset))
                     { expser.WriteObject(writer, this); }
@@ -165,7 +157,7 @@ namespace HurPsyLib
             }
             catch
             {
-                throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotSaved + filename);
+                throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotSaved + FileName);
             }
         }
 
@@ -189,7 +181,7 @@ namespace HurPsyLib
                 }
                 else
                 {
-                    tryexp.filename = openfilename;
+                    tryexp.FileName = openfilename;
                     return tryexp;
                 }
             }

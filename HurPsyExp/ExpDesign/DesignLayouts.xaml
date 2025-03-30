@@ -43,27 +43,6 @@
         </MenuItem>
     </Menu>
 
-    <DockPanel x:Key="AddingItemsView" LastChildFill="True">
-        <DockPanel x:Name="AddingItemsToolbar" DockPanel.Dock="Bottom"
-                   LastChildFill="False"
-                   Background="{StaticResource BarBrush}">
-            <Button DockPanel.Dock="Left"
-                    Content="{x:Static expstrings:StringResources.Label_OK}"
-                    Style="{StaticResource DesignButtonStyle}"
-                    Command="{Binding AddedItemsCommand}"/>
-            <Button DockPanel.Dock="Right"
-                    Content="{x:Static expstrings:StringResources.Label_Cancel}"
-                    Style="{StaticResource DesignButtonStyle}"
-                    Command="{Binding CancelAddingCommand}"/>
-        </DockPanel>
-        <ListBox ItemsSource="{Binding DisplayContent}"
-                 ItemTemplate="{StaticResource IdObjectVMTemplate}"
-                 ItemContainerStyle="{StaticResource IdObjectVMStyle}"
-                 SelectionMode="Multiple"
-                 HorizontalContentAlignment="Stretch"
-                 Background="Transparent"/>
-    </DockPanel>
-    
     <ListBox x:Key="DisplayItemsView"
              ItemsSource="{Binding DisplayContent}"
              ItemTemplate="{StaticResource IdObjectVMTemplate}"
@@ -127,8 +106,7 @@
             </ToggleButton>
 
             <ToggleButton x:Name="btnAddingMode" IsChecked="{Binding AddingMode}"
-                          Style="{StaticResource DesignToggleStyle}"
-                          Command="{Binding AddingItemsCommand}">
+                          Style="{StaticResource DesignToggleStyle}">
                 <Image Source="/Images/increment.png" Stretch="UniformToFill"/>
             </ToggleButton>
 
@@ -139,20 +117,8 @@
             <ContentControl Content="{StaticResource AddingLocatorMenu}"/>
         </StackPanel>
 
-        <ContentControl x:Name="SingleLayoutDisplayControl">
-            <ContentControl.Style>
-                <Style TargetType="ContentControl">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Path=AddingMode}" Value="True">
-                            <Setter Property="Content" Value="{StaticResource AddingItemsView}"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Path=AddingMode}" Value="False">
-                            <Setter Property="Content" Value="{StaticResource DisplayItemsView}"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ContentControl.Style>
-        </ContentControl>
+        <ContentControl x:Name="SingleLayoutDisplayControl"
+                        Content="{StaticResource DisplayItemsView}"/>
 
     </DockPanel>
 

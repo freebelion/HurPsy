@@ -149,10 +149,11 @@ namespace HurPsyExp.ExpDesign
             {
                 foreach (string strFile in selectedFiles)
                 {
-                    ImageStimulus imgstim = new ImageStimulus();
+                    ImageStimulus imgstim = new();
                     string? basename = System.IO.Path.GetFileNameWithoutExtension(strFile);
                     if(basename != null) { imgstim.Id = basename; }
                     imgstim.FileName = strFile;
+                    _experiment.AddStimulus(imgstim);
                     IdObjectViewModel stimvm = CreateVM(imgstim);
                     DisplayContent.Add(stimvm);
                 }
@@ -194,7 +195,7 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void SaveExperiment()
         {
-            if (_experiment.FileExists())
+            if (System.IO.File.Exists(_experiment.FileName))
             { _experiment.SaveToXml(); }
             else { SaveExperimentAs(); }
         }
@@ -253,21 +254,9 @@ namespace HurPsyExp.ExpDesign
         }
 
         /// <summary>
-        /// This command implementation, when called with a `true` argument, will bring up **AddingItemsView** which will let the user add new items.
-        /// </summary>
-        [RelayCommand]
-        private void AddingItems()
-        {
-            // If items are going to be added, DisplayContent will be recreated as a temporary list of new items.
-            if (AddingMode) { DisplayContent = []; }
-            // Otherwise, DisplayContent will revert to previous display content choice.
-            else { ChooseContent(DisplayContentChoice); }
-        }
-
-        /// <summary>
         /// This command implementation is the first step in adding `Stimulus` definitions to the experiment.
         /// </summary>
-        /// <param name="stimType"></param>
+        /// <param name="stimType">The subtype of `Stimulus`</param>
         [RelayCommand]
         private void AddingStimulus(Type stimType)
         {
@@ -282,50 +271,21 @@ namespace HurPsyExp.ExpDesign
         /// <summary>
         /// This command implementation is the first step in adding `Locator` definitions to the experiment.
         /// </summary>
-        /// <param name="locType"></param>
+        /// <param name="locType">The subtype of `Locator`</param>
         [RelayCommand]
         private void AddingLocator(Type locType)
         {
             switch (locType.Name)
             {
                 case "PointLocator":
-                    PointLocator ploc = new PointLocator();
+                    PointLocator ploc = new();
+                    _experiment.AddLocator(ploc);
                     IdObjectViewModel plocvm = CreateVM(ploc);
                     DisplayContent.Add(plocvm);
                     break;
             }
         }
 
-        /// <summary>
-        /// This method will be called by the OK button on AddingItemsToolbar and will add the new items.
-        /// </summary>
-        [RelayCommand]
-        private void AddedItems()
-        {
-            switch (DisplayContentChoice)
-            {
-                case ContentChoice.StimulusDefinitions:
-                    foreach (var idobjvm in DisplayContent)
-                    { StimulusVMs.Add(idobjvm); }
-                    break;
-                case ContentChoice.LocatorDefinitions:
-                    foreach (var idobjvm in DisplayContent)
-                    { LocatorVMs.Add(idobjvm); }
-                    break;
-            }
-            // After new items are added, revert to full display of current content choice
-            ChooseContent(DisplayContentChoice);
-        }
-
-        /// <summary>
-        /// This method will be called by the Cancel button on AddingItemsToolbar and will revert to the current content choice without adding the new items.
-        /// </summary>
-        [RelayCommand]
-        private void CancelAdding()
-        {
-            AddingMode = false;
-            ChooseContent(DisplayContentChoice);
-        }
         #endregion
 
         #region Events
