@@ -135,57 +135,6 @@ namespace HurPsyLib
             loc.Id = newid;
             return AddLocator(loc);
         }
-
-        /// <summary>
-        /// This method saves the experiment definition onto an XML file.
-        /// </summary>
-        /// <param name="savefilename">The full file path (if none given, the existing filename will be used)</param>
-        public void SaveToXml(string? savefilename = null)
-        {
-            if(savefilename != null) { FileName = savefilename; }
-
-            DataContractSerializer expser = new DataContractSerializer(typeof(Experiment));
-            XmlWriterSettings xmlwrset = new XmlWriterSettings { Indent = true };
-
-            try
-            {
-                using (FileStream fs = File.Open(FileName, FileMode.Create))
-                {
-                    using (var writer = XmlWriter.Create(fs, xmlwrset))
-                    { expser.WriteObject(writer, this); }
-                }
-            }
-            catch
-            {
-                throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotSaved + FileName);
-            }
-        }
-
-        /// <summary>
-        /// This static method loads an experiment definition from an XML file and returns its reference.
-        /// </summary>
-        /// <param name="openfilename">The full path of the XML file containing the experiment definition</param>
-        /// <returns>The reference of the `Experiment` object with the loaded content.</returns>
-        /// <exception cref="HurPsyException"></exception>
-        public static Experiment LoadFromXml(string openfilename)
-        {
-            using (XmlDictionaryReader reader =
-                   XmlDictionaryReader.CreateTextReader(new FileStream(openfilename, FileMode.Open), new XmlDictionaryReaderQuotas()))
-            {
-                DataContractSerializer expser =
-                    new DataContractSerializer(typeof(Experiment));
-                Experiment? tryexp = (Experiment?)expser.ReadObject(reader);
-                if (tryexp == null)
-                {
-                    throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotLoaded + openfilename);
-                }
-                else
-                {
-                    tryexp.FileName = openfilename;
-                    return tryexp;
-                }
-            }
-        }
         #endregion
     }
 }

@@ -50,5 +50,34 @@ namespace HurPsyExp
             }
             else { return null; }
         }
+
+        /// <summary>
+        /// A generic method to save an object onto an XML file
+        /// </summary>
+        /// <typeparam name="T">Object type</typeparam>
+        /// <param name="obj">The object to be saved (serialized)</param>
+        /// <param name="savefilename">The path of the file</param>
+        public static void SaveToXml<T>(T obj, string savefilename)
+        {
+            DataContractSerializer ser = new DataContractSerializer(typeof(T));
+            XmlWriterSettings xmlset = new XmlWriterSettings { Indent = true };
+            // Using the shorcuts suggested by Visual Stuido here; noobs like me must be careful!
+            using FileStream fs = File.Open(savefilename, FileMode.Create);
+            using var writer = XmlWriter.Create(fs, xmlset);
+            ser.WriteObject(writer, obj);
+        }
+
+        /// <summary>
+        /// A generic method to load an object from an XML file.
+        /// </summary>
+        /// <typeparam name="T">Object type</typeparam>
+        /// <param name="openfilename">The path of the file</param>
+        /// <returns></returns>
+        public static T? LoadFromXml<T>(string openfilename)
+        {
+            using XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(openfilename, FileMode.Open), new XmlDictionaryReaderQuotas());
+            DataContractSerializer ser = new DataContractSerializer(typeof(T));
+            return (T?)ser.ReadObject(reader);
+        }
     }
 }

@@ -182,9 +182,17 @@ namespace HurPsyExp.ExpDesign
 
             if(selectedFiles != null && System.IO.File.Exists(selectedFiles[0]))
             {
-                _experiment = Experiment.LoadFromXml(selectedFiles[0]);
-                CreateVMs();
-                ChooseContent(DisplayContentChoice);
+                string openfilename = selectedFiles[0];
+                Experiment? tryexp = Utility.LoadFromXml<Experiment>(openfilename);
+                if (tryexp != null)
+                {
+                    _experiment = tryexp;
+                    _experiment.FileName = openfilename;
+                    CreateVMs();
+                    ChooseContent(DisplayContentChoice);
+                }
+                else
+                { throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotLoaded + openfilename); }
             }
         }
 
@@ -196,7 +204,9 @@ namespace HurPsyExp.ExpDesign
         private void SaveExperiment()
         {
             if (System.IO.File.Exists(_experiment.FileName))
-            { _experiment.SaveToXml(); }
+            {
+                Utility.SaveToXml<Experiment>(_experiment, _experiment.FileName);
+            }
             else { SaveExperimentAs(); }
         }
 
@@ -206,11 +216,12 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void SaveExperimentAs()
         {
-            string? filename = Utility.FileSaveName(HurPsyExpStrings.StringResources.Filter_ExperimentFiles);
+            string? savefilename = Utility.FileSaveName(HurPsyExpStrings.StringResources.Filter_ExperimentFiles);
 
-            if (filename != null)
+            if (savefilename != null)
             {
-                _experiment.SaveToXml(filename);
+                _experiment.FileName = savefilename;
+                Utility.SaveToXml<Experiment>(_experiment, savefilename);
             }
         }
 
