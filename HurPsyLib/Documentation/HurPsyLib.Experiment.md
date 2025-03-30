@@ -169,6 +169,52 @@ The reference of the `Experiment` object with the loaded content.
 
 [HurPsyException](HurPsyLib.HurPsyException.md 'HurPsyLib.HurPsyException')
 
+<a name='HurPsyLib.Experiment.LocatorIdChanged(HurPsyLib.Locator,string)'></a>
+
+## Experiment.LocatorIdChanged(Locator, string) Method
+
+This function updates the Id of a `Locator` item, provided that the Id is not a duplicate.
+
+```csharp
+public bool LocatorIdChanged(HurPsyLib.Locator loc, string newid);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.LocatorIdChanged(HurPsyLib.Locator,string).loc'></a>
+
+`loc` [Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')
+
+The object whose Id will be changed
+
+<a name='HurPsyLib.Experiment.LocatorIdChanged(HurPsyLib.Locator,string).newid'></a>
+
+`newid` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The new Id
+
+#### Returns
+[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
+<a name='HurPsyLib.Experiment.LocatorIdExists(string)'></a>
+
+## Experiment.LocatorIdExists(string) Method
+
+The inline function to check for duplicate locator Ids
+
+```csharp
+public bool LocatorIdExists(string newid);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.LocatorIdExists(string).newid'></a>
+
+`newid` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+Id to check
+
+#### Returns
+[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
 <a name='HurPsyLib.Experiment.SaveToXml(string)'></a>
 
 ## Experiment.SaveToXml(string) Method
@@ -185,3 +231,49 @@ public void SaveToXml(string? savefilename=null);
 `savefilename` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
 The full file path (if none given, the existing filename will be used)
+
+<a name='HurPsyLib.Experiment.StimulusIdChanged(HurPsyLib.Stimulus,string)'></a>
+
+## Experiment.StimulusIdChanged(Stimulus, string) Method
+
+This function updates the Id of a `Stimulus` item, provided that the Id is not a duplicate.
+
+```csharp
+public bool StimulusIdChanged(HurPsyLib.Stimulus stim, string newid);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.StimulusIdChanged(HurPsyLib.Stimulus,string).stim'></a>
+
+`stim` [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')
+
+The object whose Id will be changed
+
+<a name='HurPsyLib.Experiment.StimulusIdChanged(HurPsyLib.Stimulus,string).newid'></a>
+
+`newid` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The new id
+
+#### Returns
+[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
+<a name='HurPsyLib.Experiment.StimulusIdExists(string)'></a>
+
+## Experiment.StimulusIdExists(string) Method
+
+The inline function to check for duplicate stimulus Ids
+
+```csharp
+private bool StimulusIdExists(string newid);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.StimulusIdExists(string).newid'></a>
+
+`newid` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+Id to check
+
+#### Returns
+[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')

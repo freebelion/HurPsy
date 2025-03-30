@@ -65,25 +65,25 @@ namespace HurPsyExp.ExpDesign
         /// `TempId` property keeps the newly modified Id until the change is validated.
         /// </summary>
         [ObservableProperty]
-        public string tempId;
+        private string tempId;
 
         /// <summary>
         /// `Selected` property toggles the selection status of the experiment elements
         /// </summary>
         [ObservableProperty]
-        public bool selected;
+        private bool selected;
 
         /// <summary>
         /// `Editable` property toggles the editable status of the experiment elements
         /// </summary>
         [ObservableProperty]
-        public bool editable;
+        private bool editable;
 
         /// <summary>
         /// This field stores the reference for the actual experiment element represented by this instance
         /// </summary>
         [ObservableProperty]
-        public IdObject itemObject;
+        private IdObject itemObject;
         #endregion
 
         #region Constructor(s)
@@ -112,8 +112,9 @@ namespace HurPsyExp.ExpDesign
         /// <param name="value"></param>
         partial void OnTempIdChanged(string value)
         {
-            IdChanged?.Invoke(this, new IdChangeEventArgs(null, value));
+            IdChanged?.Invoke(this, new IdChangeEventArgs(ItemObject.Id, value));
         }
+
         #endregion
 
         #region Commands

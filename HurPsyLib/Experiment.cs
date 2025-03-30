@@ -55,6 +55,7 @@ namespace HurPsyLib
         {
             return (filename != string.Empty && File.Exists(filename));
         }
+
         /// <summary>
         /// This function attempts to add the given `Stimulus` object to the dictionary collection and reports on the outcome.
         /// </summary>
@@ -78,10 +79,26 @@ namespace HurPsyLib
         public List<Stimulus> GetStimulusItems() => StimulusDict.Values.ToList();
 
         /// <summary>
-        /// This inline function will return a list containing `Locator` definitions in the experiment
+        /// The inline function to check for duplicate stimulus Ids
         /// </summary>
+        /// <param name="newid">Id to check</param>
         /// <returns></returns>
-        public List<Locator> GetLocatorItems() => LocatorDict.Values.ToList();
+        private bool StimulusIdExists(string newid) => StimulusDict.ContainsKey(newid);
+
+        /// <summary>
+        /// This function updates the Id of a `Stimulus` item, provided that the Id is not a duplicate.
+        /// </summary>
+        /// <param name="stim">The object whose Id will be changed</param>
+        /// <param name="newid">The new id</param>
+        /// <returns></returns>
+        public bool StimulusIdChanged(Stimulus stim, string newid)
+        {
+            if(StimulusIdExists(newid)) return false;
+            // First, remove the key-value pair with the old id
+            StimulusDict.Remove(stim.Id);
+            stim.Id = newid;
+            return AddStimulus(stim);
+        }
 
         /// <summary>
         /// This function attempts to add the given `Locator` object to the dictionary collection and reports on the outcome.
@@ -97,6 +114,34 @@ namespace HurPsyLib
             }
             catch
             { return false; }
+        }
+
+        /// <summary>
+        /// The inline function to check for duplicate locator Ids
+        /// </summary>
+        /// <param name="newid">Id to check</param>
+        /// <returns></returns>
+        public bool LocatorIdExists(string newid) => LocatorDict.ContainsKey(newid);
+
+        /// <summary>
+        /// This inline function will return a list containing `Locator` definitions in the experiment
+        /// </summary>
+        /// <returns></returns>
+        public List<Locator> GetLocatorItems() => LocatorDict.Values.ToList();
+
+        /// <summary>
+        /// This function updates the Id of a `Locator` item, provided that the Id is not a duplicate.
+        /// </summary>
+        /// <param name="loc">The object whose Id will be changed</param>
+        /// <param name="newid">The new Id</param>
+        /// <returns></returns>
+        public bool LocatorIdChanged(Locator loc, string newid)
+        {
+            if (LocatorIdExists(newid)) return false;
+            // First, remove the key-value pair with the old id
+            LocatorDict.Remove(loc.Id);
+            loc.Id = newid;
+            return AddLocator(loc);
         }
 
         /// <summary>

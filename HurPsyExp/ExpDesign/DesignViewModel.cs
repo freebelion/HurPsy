@@ -102,6 +102,18 @@ namespace HurPsyExp.ExpDesign
 
         #region Methods
         /// <summary>
+        /// This little function creates a VM associated with an experiment item and initializes it.
+        /// </summary>
+        /// <param name="idobj"></param>
+        /// <returns></returns>
+        private IdObjectViewModel CreateVM(IdObject idobj)
+        {
+            IdObjectViewModel idobjvm = new(idobj) { Editable = EditMode };
+            idobjvm.IdChanged += ItemIdChanged;
+            return idobjvm;
+        }
+
+        /// <summary>
         /// This short method will clear viewmodel collections in preparations for renewing the experiment definition.
         /// </summary>
         private void ClearVMs()
@@ -118,10 +130,12 @@ namespace HurPsyExp.ExpDesign
             ClearVMs();
 
             List<Stimulus> StimulusItems = _experiment.GetStimulusItems();
-            foreach (var item in StimulusItems) { StimulusVMs.Add(new IdObjectViewModel(item)); }
+            foreach (var item in StimulusItems)
+            { StimulusVMs.Add(CreateVM(item)); }
 
             List<Locator> LocatorItems = _experiment.GetLocatorItems();
-            foreach (var item in LocatorItems) { LocatorVMs.Add(new IdObjectViewModel(item)); }
+            foreach (var item in LocatorItems)
+            { LocatorVMs.Add(CreateVM(item)); }
         }
 
         /// <summary>
@@ -139,8 +153,7 @@ namespace HurPsyExp.ExpDesign
                     string? basename = System.IO.Path.GetFileNameWithoutExtension(strFile);
                     if(basename != null) { imgstim.Id = basename; }
                     imgstim.FileName = strFile;
-                    IdObjectViewModel stimvm = new(imgstim);
-                    stimvm.Editable = EditMode; // keep edit mode the same for new items
+                    IdObjectViewModel stimvm = CreateVM(imgstim);
                     DisplayContent.Add(stimvm);
                 }
             }
@@ -277,9 +290,8 @@ namespace HurPsyExp.ExpDesign
             {
                 case "PointLocator":
                     PointLocator ploc = new PointLocator();
-                    IdObjectViewModel plocvm = new IdObjectViewModel(ploc);
-                    plocvm.Editable = EditMode;
-                    DisplayContent.Add(plocvm); // keep edit mode the same for new items
+                    IdObjectViewModel plocvm = CreateVM(ploc);
+                    DisplayContent.Add(plocvm);
                     break;
             }
         }
@@ -294,17 +306,11 @@ namespace HurPsyExp.ExpDesign
             {
                 case ContentChoice.StimulusDefinitions:
                     foreach (var idobjvm in DisplayContent)
-                    {
-                        _experiment.AddStimulus((Stimulus)idobjvm.ItemObject);
-                        StimulusVMs.Add(idobjvm);
-                    }
+                    { StimulusVMs.Add(idobjvm); }
                     break;
                 case ContentChoice.LocatorDefinitions:
                     foreach (var idobjvm in DisplayContent)
-                    {
-                        _experiment.AddLocator((Locator)idobjvm.ItemObject);
-                        LocatorVMs.Add(idobjvm);
-                    }
+                    { LocatorVMs.Add(idobjvm); }
                     break;
             }
             // After new items are added, revert to full display of current content choice
@@ -332,6 +338,32 @@ namespace HurPsyExp.ExpDesign
             AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
             AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
         }
+
+        /// <summary>
+        /// This is for handling the Id change events for `IdObjectViewModel` objects.
+        /// </summary>
+        /// <param name="sender">`IdObjectViewModel` objects which reports a change in its `TempId` property</param>
+        /// <param name="e">Id change parameters</param>
+        private void ItemIdChanged(object? sender, IdChangeEventArgs e)
+        {
+            IdObjectViewModel? idobjvm = sender as IdObjectViewModel;
+
+            if (idobjvm != null && !string.IsNullOrEmpty(e.NewId))
+            {
+                switch(idobjvm.ItemObject)
+                {
+                    case Stimulus stim:
+                        if(!_experiment.StimulusIdChanged(stim, e.NewId))
+                        { idobjvm.TempId = stim.Id; }
+                        break;
+                    case Locator loc:
+                        if (!_experiment.LocatorIdChanged(loc, e.NewId))
+                        { idobjvm.TempId = loc.Id; }
+                        break;
+                }
+            }
+        }
+
         #endregion
     }
 }
