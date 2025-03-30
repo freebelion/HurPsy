@@ -18,6 +18,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="DesignLayouts.xaml"/>
+                <ResourceDictionary Source="SettingsPanel.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -46,7 +47,23 @@
                           CommandParameter="{x:Static expapp:LayoutChoice.SplitPanel}"/>
             </MenuItem>
         </Menu>
-      
+
+        <Expander DockPanel.Dock="Left"
+                  ExpandDirection="Right"
+                  IsExpanded="False"
+                  Background="{StaticResource PanelBrush}">
+            <Expander.Header>
+                <TextBlock Text="{x:Static expstrings:StringResources.Header_SettingsPanel}"
+                           Margin="2,10,2,2">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="-90"/>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+
+            <ContentControl Content="{StaticResource SettingsPanel}"/>
+        </Expander>
+        
         <Grid x:Name="MainGrid">
             <ContentControl x:Name="DisplayContentCtrl">
                 <ContentControl.Style>

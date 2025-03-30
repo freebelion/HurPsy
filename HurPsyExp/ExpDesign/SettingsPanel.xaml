@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:expapp="clr-namespace:HurPsyExp"
+                    xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
+                    xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="DesignStyles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="Label">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Border x:Key="SettingsPanel">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <DockPanel LastChildFill="False"
+                       DataContext="{StaticResource AppSettings}">
+                <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                       Content="{x:Static expstrings:StringResources.Label_FontSize}"/>
+                <Slider DockPanel.Dock="Top" x:Name="Slider_FontSize"
+                        Style="{StaticResource NumericUpDownSlider}"
+                        Value="{Binding FontSize}"
+                        Minimum="{Binding MinFontSize}"
+                        Maximum="{Binding MaxFontSize}"/>
+
+                <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                       Content="{x:Static expstrings:StringResources.Label_SmallFontSize}"/>
+                <Slider DockPanel.Dock="Top" x:Name="Slider_SmallFontSize"
+                        Style="{StaticResource NumericUpDownSlider}"
+                        Value="{Binding SmallFontSize}"
+                        Minimum="{Binding MinFontSize}"
+                        Maximum="{Binding FontSize}"/>
+
+                <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                       Content="{x:Static expstrings:StringResources.Label_MenuFontSize}"/>
+                <Slider DockPanel.Dock="Top" x:Name="Slider_MenuFontSize"
+                        Style="{StaticResource NumericUpDownSlider}"
+                        Value="{Binding MenuFontSize}"
+                        Minimum="{Binding MinFontSize}"
+                        Maximum="{Binding FontSize}"/>
+
+                <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                       Content="{x:Static expstrings:StringResources.Label_CommandButtonHeight}"/>
+                <Slider DockPanel.Dock="Top" x:Name="Slider_CommandButtonHeight"
+                        Style="{StaticResource NumericUpDownSlider}"
+                        Value="{Binding CommandButtonHeight}"
+                        Minimum="{Binding MinButtonHeight}"
+                        Maximum="{Binding MaxButtonHeight}"/>
+
+                <Label Margin="0,2,0,0" DockPanel.Dock="Top"
+                       Content="{x:Static expstrings:StringResources.Label_IconImageHeight}"/>
+
+                <Slider DockPanel.Dock="Top" x:Name="Slider_IconImageHeight"
+                        Style="{StaticResource NumericUpDownSlider}"
+                        Value="{Binding IconImageHeight}"
+                        Minimum="{Binding MinButtonHeight}"
+                        Maximum="{Binding MaxButtonHeight}"/>
+
+            </DockPanel>
+        </ScrollViewer>
+    </Border>
+</ResourceDictionary>

@@ -3,6 +3,22 @@
 
     <SolidColorBrush x:Key="BarBrush" Color="SteelBlue"/>
 
+    <LinearGradientBrush x:Key="ControlBackground"
+					 StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="Silver" Offset="0.0"/>
+        <GradientStop Color="LightGray" Offset="0.25"/>
+        <GradientStop Color="LightGray" Offset="0.75"/>
+        <GradientStop Color="Silver" Offset="0.0"/>
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="PanelBrush"
+                     StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+        <GradientStop Color="DeepSkyBlue" Offset="0.0"/>
+        <GradientStop Color="SkyBlue" Offset="0.25"/>
+        <GradientStop Color="SkyBlue" Offset="0.75"/>
+        <GradientStop Color="DeepSkyBlue" Offset="1.0"/>
+    </LinearGradientBrush>
+    
     <LinearGradientBrush x:Key="MenuBrush"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">
         <GradientStop Color="Transparent" Offset="0.0"/>

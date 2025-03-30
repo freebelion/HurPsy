@@ -75,7 +75,7 @@ namespace HurPsyExp
         /// The preferred height for the icon images in the item views
         /// </summary>
         [ObservableProperty]
-        private double imagePreviewHeight;
+        private double iconImageHeight;
 
         /// <summary>
         /// User-chosen window width (saved between sessions)
@@ -112,7 +112,7 @@ namespace HurPsyExp
             MinButtonHeight = 8;
             MaxButtonHeight = 64;
             CommandButtonHeight = 24;
-            ImagePreviewHeight = 24;
+            IconImageHeight = 24;
 
             WindowWidth = 800;
             WindowHeight = 600;
@@ -142,8 +142,8 @@ namespace HurPsyExp
                 case "Slider_CommandButtonHeight":
                     CommandButtonHeight++;
                     break;
-                case "Slider_ImagePreviewHeight":
-                    ImagePreviewHeight++;
+                case "Slider_IconImageHeight":
+                    IconImageHeight++;
                     break;
             }
         }
@@ -169,8 +169,8 @@ namespace HurPsyExp
                 case "Slider_CommandButtonHeight":
                     CommandButtonHeight--;
                     break;
-                case "Slider_ImagePreviewHeight":
-                    ImagePreviewHeight--;
+                case "Slider_IconImageHeight":
+                    IconImageHeight--;
                     break;
             }
         }
@@ -218,7 +218,7 @@ namespace HurPsyExp
                         this.MenuFontSize = loadedSettings.MenuFontSize;
 
                         this.CommandButtonHeight = loadedSettings.CommandButtonHeight;
-                        this.ImagePreviewHeight = loadedSettings.ImagePreviewHeight;
+                        this.IconImageHeight = loadedSettings.IconImageHeight;
 
                         this.WindowWidth = loadedSettings.WindowWidth;
                         this.WindowHeight = loadedSettings.WindowHeight;

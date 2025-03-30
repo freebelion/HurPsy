@@ -213,4 +213,28 @@
     <value>Experiment definition Files (*.xml) |*.xml</value>
     <comment>File selection filter for opening/saving Experiment derfinition files</comment>
   </data>
+  <data name="Header_SettingsPanel" xml:space="preserve">
+    <value>Design Settings</value>
+    <comment>The header text for the Expander panel wit the controls which modify the design settings</comment>
+  </data>
+  <data name="Label_FontSize" xml:space="preserve">
+    <value>Font Size</value>
+    <comment>The label for the numeric slider which modifies the FontSize setting</comment>
+  </data>
+  <data name="Label_CommandButtonHeight" xml:space="preserve">
+    <value>Command Button Height</value>
+    <comment>The label for the numeric slider which modifies the CommandButtonHeight setting</comment>
+  </data>
+  <data name="Label_IconImageHeight" xml:space="preserve">
+    <value>Icon Image Height</value>
+    <comment>The label for the numeric slider which modifies the IconImageHeight setting</comment>
+  </data>
+  <data name="Label_SmallFontSize" xml:space="preserve">
+    <value>Menu Font Size</value>
+    <comment>The label for the numeric slider which modifies the MenuFontSize setting</comment>
+  </data>
+  <data name="Label_MenuFontSize" xml:space="preserve">
+    <value>Small Font Size</value>
+    <comment>The label for the numeric slider which modifies the SmallFontSize setting</comment>
+  </data>
 </root>

@@ -131,31 +131,6 @@ public System.Collections.Generic.List<HurPsyLib.Stimulus> GetStimulusItems();
 #### Returns
 [System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
 
-<a name='HurPsyLib.Experiment.LoadFromXml(string)'></a>
-
-## Experiment.LoadFromXml(string) Method
-
-This static method loads an experiment definition from an XML file and returns its reference.
-
-```csharp
-public static HurPsyLib.Experiment LoadFromXml(string openfilename);
-```
-#### Parameters
-
-<a name='HurPsyLib.Experiment.LoadFromXml(string).openfilename'></a>
-
-`openfilename` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
-The full path of the XML file containing the experiment definition
-
-#### Returns
-[Experiment](HurPsyLib.Experiment.md 'HurPsyLib.Experiment')  
-The reference of the `Experiment` object with the loaded content.
-
-#### Exceptions
-
-[HurPsyException](HurPsyLib.HurPsyException.md 'HurPsyLib.HurPsyException')
-
 <a name='HurPsyLib.Experiment.LocatorIdChanged(HurPsyLib.Locator,string)'></a>
 
 ## Experiment.LocatorIdChanged(Locator, string) Method
@@ -201,23 +176,6 @@ Id to check
 
 #### Returns
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
-
-<a name='HurPsyLib.Experiment.SaveToXml(string)'></a>
-
-## Experiment.SaveToXml(string) Method
-
-This method saves the experiment definition onto an XML file.
-
-```csharp
-public void SaveToXml(string? savefilename=null);
-```
-#### Parameters
-
-<a name='HurPsyLib.Experiment.SaveToXml(string).savefilename'></a>
-
-`savefilename` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
-The full file path (if none given, the existing filename will be used)
 
 <a name='HurPsyLib.Experiment.StimulusIdChanged(HurPsyLib.Stimulus,string)'></a>
 

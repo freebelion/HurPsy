@@ -73,7 +73,7 @@
     </Menu>
 
     <TextBlock x:Key="SingleLayoutLabel"
-               Margin="2" Background="LightBlue"
+               Background="LightBlue"
                TextAlignment="Center"
                FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
                Text="{Binding Path=DisplayContentLabel}">

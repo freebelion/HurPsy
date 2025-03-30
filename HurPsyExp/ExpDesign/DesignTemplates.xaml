@@ -46,7 +46,7 @@
     <DataTemplate x:Key="IdObjectVMTemplate">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=ImagePreviewHeight}"/>
+                <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>

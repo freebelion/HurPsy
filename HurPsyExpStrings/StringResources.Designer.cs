@@ -187,6 +187,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Design Settings.
+        /// </summary>
+        public static string Header_SettingsPanel {
+            get {
+                return ResourceManager.GetString("Header_SettingsPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Single Panel.
         /// </summary>
         public static string Header_SingleLayout {
@@ -223,11 +232,47 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Command Button Height.
+        /// </summary>
+        public static string Label_CommandButtonHeight {
+            get {
+                return ResourceManager.GetString("Label_CommandButtonHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Design an Experiment.
         /// </summary>
         public static string Label_DesignExperiment {
             get {
                 return ResourceManager.GetString("Label_DesignExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font Size.
+        /// </summary>
+        public static string Label_FontSize {
+            get {
+                return ResourceManager.GetString("Label_FontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon Image Height.
+        /// </summary>
+        public static string Label_IconImageHeight {
+            get {
+                return ResourceManager.GetString("Label_IconImageHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small Font Size.
+        /// </summary>
+        public static string Label_MenuFontSize {
+            get {
+                return ResourceManager.GetString("Label_MenuFontSize", resourceCulture);
             }
         }
         
@@ -246,6 +291,15 @@ namespace HurPsyExpStrings {
         public static string Label_RunExperiment {
             get {
                 return ResourceManager.GetString("Label_RunExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu Font Size.
+        /// </summary>
+        public static string Label_SmallFontSize {
+            get {
+                return ResourceManager.GetString("Label_SmallFontSize", resourceCulture);
             }
         }
         
