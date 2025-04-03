@@ -2,7 +2,11 @@
 
 | Classes | |
 | :--- | :--- |
+| [ExpBlock](HurPsyLib.ExpBlock.md 'HurPsyLib.ExpBlock') | This class represents a block of experiment trials. |
 | [Experiment](HurPsyLib.Experiment.md 'HurPsyLib.Experiment') | This class represents the complete definition of a computerized psychology experiment. |
+| [ExpPair](HurPsyLib.ExpPair.md 'HurPsyLib.ExpPair') | This class represents an association between a `Stimulus` and a `Locator` which specifies a location for the stimulus. |
+| [ExpStep](HurPsyLib.ExpStep.md 'HurPsyLib.ExpStep') | This class represents a trial step of an experiment,<br/>a step being a collection of stimuli presented together, for a specified period of time. |
+| [ExpTrial](HurPsyLib.ExpTrial.md 'HurPsyLib.ExpTrial') | This class represents an experiment trial made up of one or more steps. |
 | [HurPsyCommon](HurPsyLib.HurPsyCommon.md 'HurPsyLib.HurPsyCommon') | This static class serves as a container for global objects utilized by all the `HurPsyLib` objects |
 | [HurPsyException](HurPsyLib.HurPsyException.md 'HurPsyLib.HurPsyException') | This library's specialized Exception class |
 | [HurPsyPoint](HurPsyLib.HurPsyPoint.md 'HurPsyLib.HurPsyPoint') | This class represents a point object to specify a position on the experiment's coordinate system.<br/>Its whole point is to keep `HurPsyLib` objects independent of the GUIs used for designing or running experiments. |

@@ -13,8 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\addblock.png" />
+    <None Remove="Images\addblock.svg" />
     <None Remove="Images\addlocator.svg" />
     <None Remove="Images\AddStimulus.svg" />
+    <None Remove="Images\block.png" />
+    <None Remove="Images\block.svg" />
     <None Remove="Images\decrement.svg" />
     <None Remove="Images\editmode.svg" />
     <None Remove="Images\ImageStimulus.svg" />
@@ -40,8 +44,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\addblock.png" />
     <Resource Include="Images\AddLocator.png" />
     <Resource Include="Images\AddStimulus.png" />
+    <Resource Include="Images\block.png" />
     <Resource Include="Images\decrement.png" />
     <Resource Include="Images\editmode.png" />
     <Resource Include="Images\ImageStimulus.png" />

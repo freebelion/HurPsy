@@ -115,6 +115,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Block Definitions.
+        /// </summary>
+        public static string Header_BlockDefinitions {
+            get {
+                return ResourceManager.GetString("Header_BlockDefinitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Definitions.
         /// </summary>
         public static string Header_Definitions {
@@ -268,11 +277,29 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Small Font Size.
+        ///   Looks up a localized string similar to Fixed Trial.
+        /// </summary>
+        public static string Label_IsFixed {
+            get {
+                return ResourceManager.GetString("Label_IsFixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu Font Size.
         /// </summary>
         public static string Label_MenuFontSize {
             get {
                 return ResourceManager.GetString("Label_MenuFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must Shuffle Trials.
+        /// </summary>
+        public static string Label_MustShuffleTrials {
+            get {
+                return ResourceManager.GetString("Label_MustShuffleTrials", resourceCulture);
             }
         }
         
@@ -295,7 +322,7 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Menu Font Size.
+        ///   Looks up a localized string similar to Small Font Size.
         /// </summary>
         public static string Label_SmallFontSize {
             get {

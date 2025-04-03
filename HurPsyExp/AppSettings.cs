@@ -103,7 +103,7 @@ namespace HurPsyExp
         /// </summary>
         public AppSettings()
         {
-            MinFontSize = 10;
+            MinFontSize = 6;
             MaxFontSize = 60;
             FontSize = 20;
             MenuFontSize = 16;

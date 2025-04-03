@@ -71,14 +71,19 @@ namespace HurPsyExp.ExpDesign
         private Experiment _experiment;
 
         /// <summary>
-        /// Collection of viewmodels associated with experiment `Stimulus` objects
+        /// Collection of viewmodels associated with the experiment's `Stimulus` objects
         /// </summary>
         public ObservableCollection<IdObjectViewModel> StimulusVMs { get; set; }
 
         /// <summary>
-        /// Collection of viewmodels associated with experiment `Locator` objects
+        /// Collection of viewmodels associated with the experiment's `Locator` objects
         /// </summary>
         public ObservableCollection<IdObjectViewModel> LocatorVMs { get; set; }
+
+        /// <summary>
+        /// Collection of viewmodels associated with the experiment's trial blocks
+        /// </summary>
+        public ObservableCollection<IdObjectViewModel> BlockVMs { get; set; }
         #endregion
 
         #region Constructor(s)
@@ -91,6 +96,9 @@ namespace HurPsyExp.ExpDesign
 
             StimulusVMs = [];
             LocatorVMs = [];
+            BlockVMs = [];
+
+            CreateTestExperiment();
 
             AddingMode = false;
             DisplayContent = [];
@@ -101,6 +109,50 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Methods
+        private void CreateTestExperiment()
+        {
+            _experiment = new Experiment();
+
+            ImageStimulus[] imgstims = new ImageStimulus[6];
+            for(int i=0; i < imgstims.Length; i++)
+            {
+                imgstims[i] = new ImageStimulus();
+                imgstims[i].Id = "Image" + (i+1).ToString();
+                _experiment.AddStimulus(imgstims[i]);
+            }
+
+            PointLocator[] plocs = new PointLocator[3];
+            for (int i = 0; i < plocs.Length; i++)
+            {
+                plocs[i] = new PointLocator();
+                plocs[i].Id = "Point" + (i + 1).ToString();
+                plocs[i].LocatorPoint.X = (i-1) * 30;
+                plocs[i].LocatorPoint.Y = 0;
+                _experiment.AddLocator(plocs[i]);
+            }
+
+            ExpBlock blck = new ExpBlock();
+            blck.Id = "Block1";
+            _experiment.AddBlock(blck);
+
+            ExpStep st; ExpTrial tr;
+            for(int i=0; i < plocs.Length; i++)
+            {
+                st = new ExpStep();
+                for (int j=0; j < imgstims.Length; j++)
+                {
+                    
+                    st.AddPair(imgstims[j].Id, plocs[i].Id);
+                }
+                tr = new ExpTrial();
+                tr.AddStep(st);
+                blck.AddTrial(tr);
+            }
+
+            CreateVMs();
+            ChooseContent(DisplayContentChoice);
+        }
+
         /// <summary>
         /// This little function creates a VM associated with an experiment item and initializes it.
         /// </summary>
@@ -120,6 +172,7 @@ namespace HurPsyExp.ExpDesign
         {
             StimulusVMs.Clear();
             LocatorVMs.Clear();
+            BlockVMs.Clear();
         }
 
         /// <summary>
@@ -136,6 +189,9 @@ namespace HurPsyExp.ExpDesign
             List<Locator> LocatorItems = _experiment.GetLocatorItems();
             foreach (var item in LocatorItems)
             { LocatorVMs.Add(CreateVM(item)); }
+
+            foreach (var item in _experiment.Blocks)
+            { BlockVMs.Add(CreateVM(item)); }
         }
 
         /// <summary>
@@ -246,6 +302,10 @@ namespace HurPsyExp.ExpDesign
                 case ContentChoice.LocatorDefinitions:
                     DisplayContent = LocatorVMs;
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_LocatorDefinitions;
+                    break;
+                case ContentChoice.BlockDefinitions:
+                    DisplayContent = BlockVMs;
+                    DisplayContentLabel = HurPsyExpStrings.StringResources.Header_BlockDefinitions;
                     break;
             }
             // Set the items as editable, if editing mode was already on

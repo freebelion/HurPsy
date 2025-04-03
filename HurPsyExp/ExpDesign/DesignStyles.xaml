@@ -6,8 +6,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!-- All Image controls should have the height specified in the settings. -->
-    <Style TargetType="Image">
-        <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
+    <Style x:Key="IconImageStyle" TargetType="Image">
+        <Setter Property="Stretch" Value="UniformToFill"/>
     </Style>
     
     <!-- All menus will use this style. -->
@@ -17,26 +17,29 @@
         <Setter Property="Margin" Value="2"/>
     </Style>
 
-    <!-- The style for overriding ListBoxItem coloring is from
-         https://gist.github.com/LGM-AdrianHum/c8cb125bc493c1ccac99b4098c7eeb60 -->
-    <Style x:Key="IdObjectVMStyle" TargetType="ListBoxItem">
-        <Setter Property="Padding" Value="0"/>
+    <!--When applied to a `ListBoxItem`, this style makes it use the regular and selected brushes from the file *DesignBrushes.xaml*-->
+    <Style x:Key="DesignListItem" TargetType="{x:Type ListBoxItem}">
+
         <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
-        
+
+        <!--This will bind the `IsSelected` property of the listbox item to the experiment element's `Selected` property.-->
+        <Setter Property="IsSelected" Value="{Binding Selected}"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border Name="itemBorder" BorderThickness="1">
-                        <ContentPresenter />
+                    <Border x:Name="templateBorder" BorderThickness="1">
+                        <ContentPresenter/>
                     </Border>
+
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="itemBorder" Property="BorderBrush" Value="Red"/>
-                            <Setter TargetName="itemBorder" Property="Background" Value="{StaticResource SelectionBrush}"/>
+                        <Trigger Property="IsSelected" Value="True" >
+                            <Setter TargetName="templateBorder" Property="Background" Value="{StaticResource SelectionBrush}"/>
+                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="{StaticResource SelectionBorder}"/>
                         </Trigger>
-                        <Trigger Property="IsSelected" Value="False">
-                            <Setter TargetName="itemBorder" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="itemBorder" Property="Background" Value="{StaticResource ItemBrush}"/>
+                        <Trigger Property="IsSelected" Value="False" >
+                            <Setter TargetName="templateBorder" Property="Background" Value="Transparent"/>
+                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="Transparent"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -44,21 +47,30 @@
         </Setter>
     </Style>
 
+    <Style x:Key="DesignListStyle" TargetType="ListBox">
+        <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource IdObjectVMStyle}"/>
+    </Style>
+
     <Style x:Key="DesignButtonStyle" TargetType="Button">
-        <Setter Property="MinHeight" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
+        <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
+        <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
         <Setter Property="Margin" Value="2"/>
     </Style>
     
     <Style x:Key="DesignToggleStyle" TargetType="ToggleButton">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
+        <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border Name="buttonBorder" BorderThickness="1">
-                        <ContentPresenter />
+                        <ContentPresenter Content="{TemplateBinding Content}" Margin="0"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="Red"/>
+                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="{StaticResource SelectionBorder}"/>
                             <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource CheckedToggleBrush}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
@@ -69,9 +81,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
-        <Setter Property="MinHeight" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
-        <Setter Property="Margin" Value="2"/>
     </Style>
 
     <Style x:Key="NumericUpDownSlider" TargetType="Slider">

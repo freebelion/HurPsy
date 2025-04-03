@@ -49,6 +49,19 @@ private Dictionary<string,Stimulus> StimulusDict;
 [System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
 ### Properties
 
+<a name='HurPsyLib.Experiment.Blocks'></a>
+
+## Experiment.Blocks Property
+
+The experiment's trial blocks
+
+```csharp
+public System.Collections.Generic.List<HurPsyLib.ExpBlock> Blocks { get; set; }
+```
+
+#### Property Value
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[ExpBlock](HurPsyLib.ExpBlock.md 'HurPsyLib.ExpBlock')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
 <a name='HurPsyLib.Experiment.FileName'></a>
 
 ## Experiment.FileName Property
@@ -62,6 +75,23 @@ public string FileName { get; set; }
 #### Property Value
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 ### Methods
+
+<a name='HurPsyLib.Experiment.AddBlock(HurPsyLib.ExpBlock)'></a>
+
+## Experiment.AddBlock(ExpBlock) Method
+
+Add a new block
+
+```csharp
+public void AddBlock(HurPsyLib.ExpBlock blck);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.AddBlock(HurPsyLib.ExpBlock).blck'></a>
+
+`blck` [ExpBlock](HurPsyLib.ExpBlock.md 'HurPsyLib.ExpBlock')
+
+The block to be added
 
 <a name='HurPsyLib.Experiment.AddLocator(HurPsyLib.Locator)'></a>
 

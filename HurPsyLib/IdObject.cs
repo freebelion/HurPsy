@@ -10,6 +10,7 @@ namespace HurPsyLib
     /// <summary>
     /// This abstract class enables all instances of derived classes to have temporary Ids assigned.
     /// </summary>
+    [KnownType(typeof(ExpBlock))]
     [KnownType(typeof(Locator))]
     [KnownType(typeof(Stimulus))]
 	[DataContract]

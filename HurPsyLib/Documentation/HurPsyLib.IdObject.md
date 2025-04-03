@@ -11,6 +11,7 @@ public abstract class IdObject
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; IdObject
 
 Derived  
+&#8627; [ExpBlock](HurPsyLib.ExpBlock.md 'HurPsyLib.ExpBlock')  
 &#8627; [Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')  
 &#8627; [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')
 ### Constructors

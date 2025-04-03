@@ -43,8 +43,70 @@
         </Grid>
     </DataTemplate>
 
+    <DataTemplate x:Key="PairTemplate">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding LocatorId}" Margin="1" Padding="1"/>
+            <TextBlock Text="{Binding StimulusId}" Margin="1" Padding="1"/>
+        </StackPanel>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="StepTemplate">
+        <StackPanel Orientation="Vertical"
+                    Background="{StaticResource StepTemplateBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0"
+                         Margin="2" Height="Auto" VerticalAlignment="Center"
+                         Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"/>
+                <TextBlock Grid.Column="1"
+                           Margin="2" Height="Auto" VerticalAlignment="Center"
+                           Text="ms"/>
+            </Grid>
+            <ItemsControl ItemsSource="{Binding StepPairs}"
+                          ItemTemplate="{StaticResource PairTemplate}"
+                          Margin="2">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </StackPanel>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="TrialTemplate">
+        <StackPanel Orientation="Vertical"
+                    Background="{StaticResource TrialTemplateBrush}">
+            <CheckBox IsChecked="{Binding IsFixed}"
+                      Content="{x:Static expstrings:StringResources.Label_IsFixed}"
+                      Margin="2"/>
+            <ItemsControl ItemsSource="{Binding Steps}"
+                          ItemTemplate="{StaticResource StepTemplate}"
+                          Margin="2">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="BlockEditTemplate">
+        <StackPanel Orientation="Vertical">
+            <CheckBox IsChecked="{Binding MustShuffleTrials}"
+                      Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"/>
+            <ItemsControl ItemsSource="{Binding Trials}"
+                          ItemTemplate="{StaticResource TrialTemplate}"/>
+        </StackPanel>
+    </DataTemplate>
+
     <DataTemplate x:Key="IdObjectVMTemplate">
-        <Grid>
+        <Grid Background="{StaticResource ItemBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
                 <ColumnDefinition Width="*"/>
@@ -52,11 +114,14 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="0" Margin="2"
-                   Source="{Binding Path=IconImage}" Stretch="Uniform"/>
+                   Style="{StaticResource IconImageStyle}"
+                   Source="{Binding Path=IconImage}"
+                   VerticalAlignment="Top"/>
 
             <TextBox Grid.Column="1" Margin="2"
                      Text="{Binding Path=TempId}"
-                     IsEnabled="{Binding Path=Editable}"/>
+                     IsEnabled="{Binding Path=Editable}"
+                     VerticalAlignment="Top"/>
 
             <ContentControl Grid.Column="2" Content="{Binding Path=ItemObject}"
                             Visibility="{Binding Path=Editable, Converter={StaticResource bvisConverter}}"

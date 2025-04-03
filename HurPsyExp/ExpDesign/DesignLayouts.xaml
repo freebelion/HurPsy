@@ -46,10 +46,11 @@
     <ListBox x:Key="DisplayItemsView"
              ItemsSource="{Binding DisplayContent}"
              ItemTemplate="{StaticResource IdObjectVMTemplate}"
-             ItemContainerStyle="{StaticResource IdObjectVMStyle}"
+             ItemContainerStyle="{StaticResource DesignListItem}"
              SelectionMode="Multiple"
              HorizontalContentAlignment="Stretch"
-             Background="Transparent"/>
+             Background="Transparent">
+    </ListBox>
 
     <Menu x:Key="SingleLayoutMenu"
           HorizontalAlignment="Center"
@@ -67,6 +68,13 @@
                       CommandParameter="{x:Static expapp:ContentChoice.LocatorDefinitions}">
                 <MenuItem.Icon>
                     <Image Source="/Images/lbase.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="{x:Static expstrings:StringResources.Header_BlockDefinitions}"
+                      Command="{Binding ChooseContentCommand}"
+                      CommandParameter="{x:Static expapp:ContentChoice.BlockDefinitions}">
+                <MenuItem.Icon>
+                    <Image Source="/Images/block.png"/>
                 </MenuItem.Icon>
             </MenuItem>
         </MenuItem>
@@ -102,12 +110,12 @@
             <ToggleButton x:Name="btnEditingMode" IsChecked="{Binding EditMode}"
                           Style="{StaticResource DesignToggleStyle}"
                           Command="{Binding EditingItemsCommand}">
-                <Image Source="/Images/editmode.png" Stretch="UniformToFill"/>
+                <Image Source="/Images/editmode.png" Stretch="Fill"/>
             </ToggleButton>
 
             <ToggleButton x:Name="btnAddingMode" IsChecked="{Binding AddingMode}"
                           Style="{StaticResource DesignToggleStyle}">
-                <Image Source="/Images/increment.png" Stretch="UniformToFill"/>
+                <Image Source="/Images/increment.png" Stretch="Fill"/>
             </ToggleButton>
 
             <!-- One of the following menus will apear on this toolbar,

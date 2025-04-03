@@ -34,6 +34,11 @@ namespace HurPsyLib
         /// </summary>
         [DataMember]
         private Dictionary<string, Locator> LocatorDict;
+
+        /// <summary>
+        /// The experiment's trial blocks
+        /// </summary>
+        public List<ExpBlock> Blocks { get; set; }
         #endregion
 
         #region Constructor(s)
@@ -44,10 +49,17 @@ namespace HurPsyLib
 		{
 			StimulusDict = [];
             LocatorDict = [];
+            Blocks = [];
 		}
         #endregion
 
         #region Methods and Functions
+        /// <summary>
+        /// Add a new block
+        /// </summary>
+        /// <param name="blck">The block to be added</param>
+        public void AddBlock(ExpBlock blck) => Blocks.Add(blck);
+
         /// <summary>
         /// This function attempts to add the given `Stimulus` object to the dictionary collection and reports on the outcome.
         /// </summary>

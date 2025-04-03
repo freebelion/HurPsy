@@ -55,6 +55,8 @@ namespace HurPsyExp.ExpDesign
                         return @"../Images/ImageStimulus.png";
                     case PointLocator ploc:
                         return @"../Images/PointLocator.png";
+                    case ExpBlock blck:
+                        return @"../Images/block.png";
                 }
 
                 return string.Empty;

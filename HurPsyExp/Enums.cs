@@ -30,6 +30,10 @@
         /// <summary>
         /// Locator definitions are to be displayed
         /// </summary>
-        LocatorDefinitions
+        LocatorDefinitions,
+        /// <summary>
+        /// Block definitions nare to be displayed
+        /// </summary>
+        BlockDefinitions
     }
 }

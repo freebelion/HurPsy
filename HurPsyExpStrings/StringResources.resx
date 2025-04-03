@@ -177,6 +177,10 @@
     <value>Locator Definitions</value>
     <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Locator Definitions listing choice</comment>
   </data>
+  <data name="Header_BlockDefinitions" xml:space="preserve">
+    <value>Block Definitions</value>
+    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Block Definitions listing choice</comment>
+  </data>
   <data name="Header_StimulusDefinitions" xml:space="preserve">
     <value>Stimulus Definitions</value>
     <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Stimulus Definitions listing choice</comment>
@@ -230,11 +234,19 @@
     <comment>The label for the numeric slider which modifies the IconImageHeight setting</comment>
   </data>
   <data name="Label_SmallFontSize" xml:space="preserve">
-    <value>Menu Font Size</value>
+    <value>Small Font Size</value>
     <comment>The label for the numeric slider which modifies the MenuFontSize setting</comment>
   </data>
   <data name="Label_MenuFontSize" xml:space="preserve">
-    <value>Small Font Size</value>
+    <value>Menu Font Size</value>
     <comment>The label for the numeric slider which modifies the SmallFontSize setting</comment>
+  </data>
+  <data name="Label_MustShuffleTrials" xml:space="preserve">
+    <value>Must Shuffle Trials</value>
+    <comment>The label text of the checkbox for the same-named property in BlockEditTemplate</comment>
+  </data>
+  <data name="Label_IsFixed" xml:space="preserve">
+    <value>Fixed Trial</value>
+    <comment>The label text of the checkbox for the same-named property in TrialTemplate</comment>
   </data>
 </root>
