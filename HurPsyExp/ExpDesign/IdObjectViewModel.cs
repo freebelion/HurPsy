@@ -127,6 +127,7 @@ namespace HurPsyExp.ExpDesign
         private void ToggleSelect()
         {
             Selected = !Selected;
+            Editable = Selected;
         }
         #endregion
     }

@@ -28,7 +28,7 @@
     </LinearGradientBrush>
 
     <SolidColorBrush x:Key="ItemBorder" Color="DarkCyan"/>
-    
+
     <LinearGradientBrush x:Key="ItemBrush"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">
         <GradientStop Color="DarkCyan" Offset="0.0"/>
@@ -37,19 +37,31 @@
         <GradientStop Color="DarkCyan" Offset="1.0"/>
     </LinearGradientBrush>
 
-    <LinearGradientBrush x:Key="StepTemplateBrush"
+    <SolidColorBrush x:Key="PairBorderBrush" Color="WhiteSmoke"/>
+    
+    <LinearGradientBrush x:Key="PairTemplateBrush"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">
+        <GradientStop Color="BurlyWood" Offset="0.0"/>
+        <GradientStop Color="Beige" Offset="0.25"/>
+        <GradientStop Color="Beige" Offset="0.75"/>
+        <GradientStop Color="BurlyWood" Offset="1.0"/>
+    </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="StepTemplateBrush"
+                         StartPoint="0.5,0.0" EndPoint="0.5,1.0">
         <GradientStop Color="LightBlue" Offset="0.0"/>
         <GradientStop Color="AliceBlue" Offset="0.05"/>
         <GradientStop Color="AliceBlue" Offset="0.95"/>
         <GradientStop Color="LightBlue" Offset="1.0"/>
     </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TrialBorderBrush" Color="ForestGreen"/>
     
     <LinearGradientBrush x:Key="TrialTemplateBrush"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">
         <GradientStop Color="MediumAquamarine" Offset="0.0"/>
-        <GradientStop Color="Aquamarine" Offset="0.05"/>
-        <GradientStop Color="Aquamarine" Offset="0.95"/>
+        <GradientStop Color="Aquamarine" Offset="0.25"/>
+        <GradientStop Color="Aquamarine" Offset="0.75"/>
         <GradientStop Color="MediumAquamarine" Offset="1.0"/>
     </LinearGradientBrush>
 

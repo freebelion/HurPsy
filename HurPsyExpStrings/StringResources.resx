@@ -249,4 +249,16 @@
     <value>Fixed Trial</value>
     <comment>The label text of the checkbox for the same-named property in TrialTemplate</comment>
   </data>
+  <data name="Label_StepTime" xml:space="preserve">
+    <value>Step Time</value>
+    <comment>Label text for the textbox bound to StepTime property on StepTemplate</comment>
+  </data>
+  <data name="Label_VisualWidth" xml:space="preserve">
+    <value>Visual Height</value>
+    <comment>Label string for the textbox which sets the height of a VisualStimulus</comment>
+  </data>
+  <data name="Label_VisualHeight" xml:space="preserve">
+    <value>Visual Width</value>
+    <comment>Label string for the textbox which sets the width of a VisualStimulus</comment>
+  </data>
 </root>

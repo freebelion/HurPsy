@@ -17,13 +17,20 @@
         <Setter Property="Margin" Value="2"/>
     </Style>
 
+    <Style x:Key="PairBorder" TargetType="Border">
+        <Setter Property="BorderBrush" Value="{StaticResource PairBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="3"/>
+    </Style>
+
     <!--When applied to a `ListBoxItem`, this style makes it use the regular and selected brushes from the file *DesignBrushes.xaml*-->
     <Style x:Key="DesignListItem" TargetType="{x:Type ListBoxItem}">
 
         <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
 
-        <!--This will bind the `IsSelected` property of the listbox item to the experiment element's `Selected` property.-->
+        <!-- Selecting a ListBoxItem whould make the bound item selected and editable.-->
         <Setter Property="IsSelected" Value="{Binding Selected}"/>
+        <Setter Property="IsSelected" Value="{Binding Editable}"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -38,8 +45,8 @@
                             <Setter TargetName="templateBorder" Property="BorderBrush" Value="{StaticResource SelectionBorder}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="False" >
-                            <Setter TargetName="templateBorder" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="Transparent"/>
+                            <Setter TargetName="templateBorder" Property="Background" Value="{StaticResource ItemBrush}"/>
+                            <Setter TargetName="templateBorder" Property="BorderBrush" Value="{StaticResource ItemBorder}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -49,7 +56,8 @@
 
     <Style x:Key="DesignListStyle" TargetType="ListBox">
         <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource IdObjectVMStyle}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource DesignListItem}"/>
     </Style>
 
     <Style x:Key="DesignButtonStyle" TargetType="Button">

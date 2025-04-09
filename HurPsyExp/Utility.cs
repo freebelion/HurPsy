@@ -17,6 +17,11 @@ namespace HurPsyExp
     public static class Utility
     {
         /// <summary>
+        /// Application-wide pseudo-RNG
+        /// </summary>
+        public static Random RND { get; private set; } = new Random(Guid.NewGuid().GetHashCode());
+
+        /// <summary>
         /// This function will open a open-file selection dialog and return the selected files' paths as an array of strings
         /// </summary>
         /// <param name="filenameFilter">The filename filter for the file selection dialog</param>

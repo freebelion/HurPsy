@@ -33,6 +33,12 @@ namespace HurPsyExp.ExpDesign
         private ObservableCollection<IdObjectViewModel> displayContent;
 
         /// <summary>
+        /// Currently selected item
+        /// </summary>
+        [ObservableProperty]
+        private IdObjectViewModel selectedItemVM;
+
+        /// <summary>
         /// The label indicating the current display content (it will apear on **SingleLayoutLabel** defined in **DesignLayouts.xaml**)
         /// </summary>
         [ObservableProperty]
@@ -113,7 +119,8 @@ namespace HurPsyExp.ExpDesign
         {
             _experiment = new Experiment();
 
-            ImageStimulus[] imgstims = new ImageStimulus[6];
+            int stimCount = Utility.RND.Next(5, 16);
+            ImageStimulus[] imgstims = new ImageStimulus[stimCount];
             for(int i=0; i < imgstims.Length; i++)
             {
                 imgstims[i] = new ImageStimulus();
@@ -121,7 +128,8 @@ namespace HurPsyExp.ExpDesign
                 _experiment.AddStimulus(imgstims[i]);
             }
 
-            PointLocator[] plocs = new PointLocator[3];
+            int locCount = Utility.RND.Next(5, 16);
+            PointLocator[] plocs = new PointLocator[locCount];
             for (int i = 0; i < plocs.Length; i++)
             {
                 plocs[i] = new PointLocator();
@@ -131,22 +139,37 @@ namespace HurPsyExp.ExpDesign
                 _experiment.AddLocator(plocs[i]);
             }
 
-            ExpBlock blck = new ExpBlock();
-            blck.Id = "Block1";
-            _experiment.AddBlock(blck);
-
-            ExpStep st; ExpTrial tr;
-            for(int i=0; i < plocs.Length; i++)
+            int blockCount = Utility.RND.Next(5, 16);
+            for(int i=0; i < blockCount; i++)
             {
-                st = new ExpStep();
-                for (int j=0; j < imgstims.Length; j++)
+                ExpBlock blck = new ExpBlock();
+
+                int trialCount = Utility.RND.Next(10, 101);
+                for (int j = 0; j < trialCount; j++)
                 {
-                    
-                    st.AddPair(imgstims[j].Id, plocs[i].Id);
+                    ExpTrial tr = new ExpTrial();
+
+                    int stepCount = Utility.RND.Next(1, 6);
+                    for(int k=0;  k<stepCount; k++)
+                    {
+                        ExpStep st = new ExpStep();
+
+                        int pairCount = Utility.RND.Next(1, 6);
+                        for(int n=0; n<pairCount; n++)
+                        {
+                            int stimIndex = Utility.RND.Next(imgstims.Length);
+                            int locIndex = Utility.RND.Next(plocs.Length);
+
+                            st.AddPair(imgstims[stimIndex].Id, plocs[locIndex].Id);
+                        }
+
+                        tr.AddStep(st);
+                    }
+
+                    blck.AddTrial(tr);
                 }
-                tr = new ExpTrial();
-                tr.AddStep(st);
-                blck.AddTrial(tr);
+
+                _experiment.AddBlock(blck);
             }
 
             CreateVMs();
@@ -288,8 +311,8 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void ChooseContent(ContentChoice newchoice)
         {
-            // Cancel the adding mode, if active.
-            if(AddingMode) { AddingMode = false; }
+            // Disable AddingMode if it was active
+            AddingMode = false;
 
             DisplayContentChoice = newchoice;
             
@@ -375,6 +398,8 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         /// <param name="sender">`IdObjectViewModel` objects which reports a change in its `TempId` property</param>
         /// <param name="e">Id change parameters</param>
+        
+        
         private void ItemIdChanged(object? sender, IdChangeEventArgs e)
         {
             IdObjectViewModel? idobjvm = sender as IdObjectViewModel;

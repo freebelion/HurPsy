@@ -6,6 +6,7 @@
         xmlns:expapp="clr-namespace:HurPsyExp"
         xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
         xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
+        xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib"
         mc:Ignorable="d"
         Title="{x:Static expstrings:StringResources.Title_DesignWindow}"
         Width="{Binding Source={StaticResource AppSettings}, Path=WindowWidth, Mode=TwoWay}"
@@ -17,39 +18,91 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DesignLayouts.xaml"/>
-                <ResourceDictionary Source="SettingsPanel.xaml"/>
+                <ResourceDictionary Source="/ExpDesign/DesignTemplates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
     <DockPanel x:Name="MainPanel" LastChildFill="True">
-        <Menu DockPanel.Dock="Top"
+        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+            <Menu x:Name="MainMenu"
               FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}">
-            <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}" Margin="2">
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}" Margin="2">
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"
                           Command="{Binding NewExperimentCommand}"/>
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_LoadExperiment}"
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_LoadExperiment}"
                           Command="{Binding LoadExperimentCommand}"/>
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperiment}"
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperiment}"
                           Command="{Binding SaveExperimentCommand}"/>
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperimentAs}"
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperimentAs}"
                           Command="{Binding SaveExperimentAsCommand}"/>
-            </MenuItem>
+                </MenuItem>
 
-            <MenuItem Header="{x:Static expstrings:StringResources.Header_Layout}" Margin="2"
-                      DataContext="{StaticResource AppSettings}">
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_SingleLayout}"
-                          Command="{Binding SwitchLayoutCommand}"
-                          CommandParameter="{x:Static expapp:LayoutChoice.SinglePanel}"/>
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_SplitLayout}"
-                          Command="{Binding SwitchLayoutCommand}"
-                          CommandParameter="{x:Static expapp:LayoutChoice.SplitPanel}"/>
-            </MenuItem>
-        </Menu>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_Definitions}">
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_StimulusDefinitions}"
+                          Command="{Binding ChooseContentCommand}"
+                          CommandParameter="{x:Static expapp:ContentChoice.StimulusDefinitions}">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/sbase.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_LocatorDefinitions}"
+                          Command="{Binding ChooseContentCommand}"
+                          CommandParameter="{x:Static expapp:ContentChoice.LocatorDefinitions}">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/lbase.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_BlockDefinitions}"
+                          Command="{Binding ChooseContentCommand}"
+                          CommandParameter="{x:Static expapp:ContentChoice.BlockDefinitions}">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/block.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
 
-        <Expander DockPanel.Dock="Left"
-                  ExpandDirection="Right"
+            <ToggleButton x:Name="btnAddingMode" IsChecked="{Binding AddingMode}"
+                          Style="{StaticResource DesignToggleStyle}">
+                <Image Source="/Images/increment.png" Stretch="Fill"/>
+            </ToggleButton>
+
+            <Menu>
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_AddStimulus}"
+                          Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/AddStimulus.png"/>
+                    </MenuItem.Icon>
+
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_AddImageStimulus}"
+                          Command="{Binding AddingStimulusCommand}"
+                          CommandParameter="{x:Type psylib:ImageStimulus}">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/ImageStimulus.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_AddLocator}"
+                          Visibility="{Binding AddingLocatorMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/AddLocator.png"/>
+                    </MenuItem.Icon>
+
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_AddPointLocator}"
+                              Command="{Binding AddingLocatorCommand}"
+                              CommandParameter="{x:Type psylib:PointLocator}">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/PointLocator.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <Expander DockPanel.Dock="Right"
+                  ExpandDirection="Left"
                   IsExpanded="False"
                   Background="{StaticResource PanelBrush}">
             <Expander.Header>
@@ -61,27 +114,88 @@
                 </TextBlock>
             </Expander.Header>
 
-            <ContentControl Content="{StaticResource SettingsPanel}"/>
-        </Expander>
-        
-        <Grid x:Name="MainGrid">
-            <ContentControl x:Name="DisplayContentCtrl">
-                <ContentControl.Style>
-                    <Style TargetType="{x:Type ContentControl}">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=DesignLayout}"
-                                         Value="{x:Static expapp:LayoutChoice.SinglePanel}">
-                                <Setter Property="Content" Value="{StaticResource SingleLayout}"/>
-                            </DataTrigger>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <DockPanel LastChildFill="False"
+                           DataContext="{StaticResource AppSettings}">
 
-                            <DataTrigger Binding="{Binding Source={StaticResource AppSettings}, Path=DesignLayout}"
-                                         Value="{x:Static expapp:LayoutChoice.SplitPanel}">
-                                <Setter Property="Content" Value="{StaticResource SplitLayout}"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ContentControl.Style>
-            </ContentControl>
+                    <DockPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center"/>
+                        </Style>
+                    </DockPanel.Resources>
+                    
+                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Text="{x:Static expstrings:StringResources.Label_FontSize}"/>
+                    <Slider DockPanel.Dock="Top" x:Name="Slider_FontSize"
+                            Style="{StaticResource NumericUpDownSlider}"
+                            Value="{Binding FontSize}"
+                            Minimum="{Binding MinFontSize}"
+                            Maximum="{Binding MaxFontSize}"/>
+
+                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Text="{x:Static expstrings:StringResources.Label_SmallFontSize}"/>
+                    <Slider DockPanel.Dock="Top" x:Name="Slider_SmallFontSize"
+                            Style="{StaticResource NumericUpDownSlider}"
+                            Value="{Binding SmallFontSize}"
+                            Minimum="{Binding MinFontSize}"
+                            Maximum="{Binding FontSize}"/>
+
+                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Text="{x:Static expstrings:StringResources.Label_MenuFontSize}"/>
+                    <Slider DockPanel.Dock="Top" x:Name="Slider_MenuFontSize"
+                            Style="{StaticResource NumericUpDownSlider}"
+                            Value="{Binding MenuFontSize}"
+                            Minimum="{Binding MinFontSize}"
+                            Maximum="{Binding FontSize}"/>
+
+                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Text="{x:Static expstrings:StringResources.Label_CommandButtonHeight}"/>
+                    <Slider DockPanel.Dock="Top" x:Name="Slider_CommandButtonHeight"
+                            Style="{StaticResource NumericUpDownSlider}"
+                            Value="{Binding CommandButtonHeight}"
+                            Minimum="{Binding MinButtonHeight}"
+                            Maximum="{Binding MaxButtonHeight}"/>
+
+                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                               Text="{x:Static expstrings:StringResources.Label_IconImageHeight}"/>
+                    <Slider DockPanel.Dock="Top" x:Name="Slider_IconImageHeight"
+                            Style="{StaticResource NumericUpDownSlider}"
+                            Value="{Binding IconImageHeight}"
+                            Minimum="{Binding MinButtonHeight}"
+                            Maximum="{Binding MaxButtonHeight}"/>
+                </DockPanel>
+            </ScrollViewer>
+        </Expander>
+
+        <Grid x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="DisplayListBox" Grid.Column="0"
+                     Style="{StaticResource DesignListStyle}"
+                     ItemsSource="{Binding DisplayContent}"
+                     ItemTemplate="{StaticResource IdObjectVMTemplate}"
+                     SelectionMode="Single"
+                     SelectedItem="{Binding SelectedItemVM}"
+                     HorizontalContentAlignment="Stretch">
+            </ListBox>
+
+            <GridSplitter Grid.Column="1"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Stretch"
+                          Background="Transparent" 
+                          ShowsPreview="True"
+                          Width="5"/>
+
+            <ScrollViewer Grid.Column="2"
+                          VerticalScrollBarVisibility="Auto">
+                <ContentControl VerticalAlignment="Top"
+                                Content="{Binding SelectedItemVM}"
+                                ContentTemplateSelector="{StaticResource idobjTemplateSelector}"/>
+            </ScrollViewer>
         </Grid>
     </DockPanel>
 </Window>

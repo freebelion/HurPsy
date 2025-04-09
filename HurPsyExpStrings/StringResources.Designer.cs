@@ -331,6 +331,33 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Step Time.
+        /// </summary>
+        public static string Label_StepTime {
+            get {
+                return ResourceManager.GetString("Label_StepTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visual Width.
+        /// </summary>
+        public static string Label_VisualHeight {
+            get {
+                return ResourceManager.GetString("Label_VisualHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visual Height.
+        /// </summary>
+        public static string Label_VisualWidth {
+            get {
+                return ResourceManager.GetString("Label_VisualWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experiment Design Window.
         /// </summary>
         public static string Title_DesignWindow {

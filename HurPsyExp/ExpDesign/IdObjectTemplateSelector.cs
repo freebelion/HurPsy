@@ -25,11 +25,11 @@ namespace HurPsyExp.ExpDesign
         {
             FrameworkElement element = (FrameworkElement)container;
             
-            IdObject? idobj = item as IdObject;
+            IdObjectViewModel? idobjvm = item as IdObjectViewModel;
 
-            if (idobj != null)
+            if (idobjvm != null)
             {
-                switch (idobj)
+                switch (idobjvm.ItemObject)
                 {
                     case ImageStimulus imgstim:
                         return (DataTemplate)element.FindResource("ImageStimulusEditTemplate");

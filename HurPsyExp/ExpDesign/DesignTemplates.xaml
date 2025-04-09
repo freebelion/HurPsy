@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:expapp="clr-namespace:HurPsyExp"
                     xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
-                    xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings">
+                    xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
+                    xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ExpDesign/DesignStyles.xaml"/>
@@ -12,23 +13,34 @@
     <expdesign:IdObjectTemplateSelector x:Key="idobjTemplateSelector"/>
    
     <DataTemplate x:Key="ImageStimulusEditTemplate">
-        <Grid>
+        <Grid DataContext="{Binding ItemObject}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox Grid.Column="0" Margin="2"
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="{x:Static expstrings:StringResources.Label_VisualWidth}"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Margin="2"
                      TextAlignment="Right" VerticalContentAlignment="Center"
                      Text="{Binding VisualSize.Width, StringFormat='0.0'}"/>
-            <TextBox Grid.Column="1" Margin="2"
+
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                       Text="{x:Static expstrings:StringResources.Label_VisualHeight}"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="2"
                      TextAlignment="Right" VerticalContentAlignment="Center"
                      Text="{Binding VisualSize.Height, StringFormat='0.0'}"/>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="PointLocatorEditTemplate">
-        <Grid Name="LocatorTemplateGrid">
+        <Grid DataContext="{Binding ItemObject}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -44,34 +56,33 @@
     </DataTemplate>
 
     <DataTemplate x:Key="PairTemplate">
-        <StackPanel Orientation="Vertical">
-            <TextBlock Text="{Binding LocatorId}" Margin="1" Padding="1"/>
-            <TextBlock Text="{Binding StimulusId}" Margin="1" Padding="1"/>
+        <StackPanel Orientation="Vertical"
+                    Background="{StaticResource PairTemplateBrush}">
+            <Border Style="{StaticResource PairBorder}">
+                <TextBlock Text="{Binding LocatorId}"/>
+            </Border>
+            <Border Style="{StaticResource PairBorder}">
+                <TextBlock Text="{Binding StimulusId}"/>
+            </Border>
         </StackPanel>
     </DataTemplate>
     
     <DataTemplate x:Key="StepTemplate">
-        <StackPanel Orientation="Vertical"
+        <StackPanel Orientation="Vertical" Margin="1"
                     Background="{StaticResource StepTemplateBrush}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0"
-                         Margin="2" Height="Auto" VerticalAlignment="Center"
-                         Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"/>
-                <TextBlock Grid.Column="1"
-                           Margin="2" Height="Auto" VerticalAlignment="Center"
-                           Text="ms"/>
-            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{x:Static expstrings:StringResources.Label_StepTime}"
+                           Margin="2"/>
+                <TextBox Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"
+                         Margin="2"/>
+                <TextBlock Text="ms" Margin="2"/>
+            </StackPanel>
             <ItemsControl ItemsSource="{Binding StepPairs}"
                           ItemTemplate="{StaticResource PairTemplate}"
-                          Margin="2">
+                          Margin="5">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"
-                               HorizontalAlignment="Stretch"/>
+                        <WrapPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
@@ -79,38 +90,41 @@
     </DataTemplate>
     
     <DataTemplate x:Key="TrialTemplate">
-        <StackPanel Orientation="Vertical"
-                    Background="{StaticResource TrialTemplateBrush}">
-            <CheckBox IsChecked="{Binding IsFixed}"
-                      Content="{x:Static expstrings:StringResources.Label_IsFixed}"
-                      Margin="2"/>
-            <ItemsControl ItemsSource="{Binding Steps}"
-                          ItemTemplate="{StaticResource StepTemplate}"
-                          Margin="2">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Grid/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-        </StackPanel>
+        <Border Margin="1" BorderBrush="{StaticResource TrialBorderBrush}" BorderThickness="1"
+                CornerRadius="2" Padding="2">
+            <StackPanel Orientation="Vertical"
+                        Background="{StaticResource TrialTemplateBrush}">
+                <CheckBox IsChecked="{Binding IsFixed}"
+                          Content="{x:Static expstrings:StringResources.Label_IsFixed}"
+                          Margin="2"/>
+                <ItemsControl ItemsSource="{Binding Steps}"
+                              ItemTemplate="{StaticResource StepTemplate}"
+                              Margin="2">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="{Binding Steps.Count}"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="BlockEditTemplate">
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" DataContext="{Binding ItemObject}">
             <CheckBox IsChecked="{Binding MustShuffleTrials}"
-                      Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"/>
+                      Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"
+                      HorizontalAlignment="Right" Margin="2"/>
             <ItemsControl ItemsSource="{Binding Trials}"
                           ItemTemplate="{StaticResource TrialTemplate}"/>
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="IdObjectVMTemplate">
-        <Grid Background="{StaticResource ItemBrush}">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="0" Margin="2"
@@ -122,10 +136,6 @@
                      Text="{Binding Path=TempId}"
                      IsEnabled="{Binding Path=Editable}"
                      VerticalAlignment="Top"/>
-
-            <ContentControl Grid.Column="2" Content="{Binding Path=ItemObject}"
-                            Visibility="{Binding Path=Editable, Converter={StaticResource bvisConverter}}"
-                            ContentTemplateSelector="{StaticResource idobjTemplateSelector}"/>
         </Grid>
     </DataTemplate>
 </ResourceDictionary>
