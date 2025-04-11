@@ -153,49 +153,41 @@
     <value>Save As</value>
     <comment>Header string for the menu item that saves an experiment definition onto a different path</comment>
   </data>
-  <data name="Header_Experiment" xml:space="preserve">
-    <value>Experiment</value>
-    <comment>Header string for the menu that contains the menu items related to experiment actions</comment>
-  </data>
   <data name="Header_Layout" xml:space="preserve">
     <value>Layout</value>
     <comment>Header string for the menu that contains the menu items related to DesinWindow layouts</comment>
   </data>
-  <data name="Header_SingleLayout" xml:space="preserve">
-    <value>Single Panel</value>
-    <comment>Header string for the menu item for choosing single panel layout</comment>
-  </data>
-  <data name="Header_SplitLayout" xml:space="preserve">
-    <value>Split Panel</value>
-    <comment>Header string for the menu item for choosing split panel layout</comment>
-  </data>
   <data name="Header_Definitions" xml:space="preserve">
     <value>Definitions</value>
-    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Definitions listing choices</comment>
+    <comment>Header string for the top MenuItem in which opens the Definitions listing choices</comment>
   </data>
   <data name="Header_LocatorDefinitions" xml:space="preserve">
     <value>Locator Definitions</value>
-    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Locator Definitions listing choice</comment>
+    <comment>Header string for the MenuItem which displays Locator Definitions</comment>
   </data>
   <data name="Header_BlockDefinitions" xml:space="preserve">
     <value>Block Definitions</value>
-    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Block Definitions listing choice</comment>
+    <comment>Header string for the MenuItem which displays Block Definitions</comment>
   </data>
   <data name="Header_StimulusDefinitions" xml:space="preserve">
     <value>Stimulus Definitions</value>
-    <comment>Header string for the MenuItem in "SingleLayoutMenu" which opens the Stimulus Definitions listing choice</comment>
+    <comment>Header string for the MenuItem which displays Stimulus Definitions</comment>
   </data>
   <data name="Header_AddStimulus" xml:space="preserve">
     <value>Add Stimulus</value>
-    <comment>Header text for the top MenuItem in the AddingStimulusMenu which is defined in DesignLayout.xaml</comment>
+    <comment>Header text for the top MenuItem which adds Stimulus definitions in DesignWindow.xaml</comment>
   </data>
   <data name="Header_AddImageStimulus" xml:space="preserve">
     <value>Image Stimulus</value>
-    <comment>Header text for the MenuItem in the AddingStimulusMenu which adds ImageStimulus items</comment>
+    <comment>Header text for the MenuItem which adds ImageStimulus items</comment>
   </data>
   <data name="Header_AddLocator" xml:space="preserve">
     <value>Add Locator</value>
-    <comment>Header text for the top MenuItem in the AddingLocatorMenu which is defined in DesignLayout.xaml</comment>
+    <comment>Header text for the top MenuItem which adds Locator definitions in DesignWindow.xaml</comment>
+  </data>
+  <data name="Header_AddBlock" xml:space="preserve">
+    <value>Add Block</value>
+    <comment>Header text for the top MenuItem which adds Block definitions in DesignWindow.xaml</comment>
   </data>
   <data name="Header_AddPointLocator" xml:space="preserve">
     <value>Point Locator</value>
@@ -260,5 +252,17 @@
   <data name="Label_VisualHeight" xml:space="preserve">
     <value>Visual Width</value>
     <comment>Label string for the textbox which sets the width of a VisualStimulus</comment>
+  </data>
+  <data name="Label_LocationX" xml:space="preserve">
+    <value>Location X</value>
+    <comment>Label string for the TextBox in PointLocatorTemplate</comment>
+  </data>
+  <data name="Label_LocationY" xml:space="preserve">
+    <value>Location Y</value>
+    <comment>Label string for the TextBox in PointLocatorTemplate</comment>
+  </data>
+  <data name="Header_Experiment" xml:space="preserve">
+    <value>Experiment</value>
+    <comment>Header string for the menu that contains the menu items related to experiment actions</comment>
   </data>
 </root>

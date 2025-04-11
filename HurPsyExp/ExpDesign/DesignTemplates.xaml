@@ -11,7 +11,7 @@
     
     <BooleanToVisibilityConverter x:Key="bvisConverter"/>
     <expdesign:IdObjectTemplateSelector x:Key="idobjTemplateSelector"/>
-   
+
     <DataTemplate x:Key="ImageStimulusEditTemplate">
         <Grid DataContext="{Binding ItemObject}">
             <Grid.RowDefinitions>
@@ -41,15 +41,26 @@
 
     <DataTemplate x:Key="PointLocatorEditTemplate">
         <Grid DataContext="{Binding ItemObject}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox Grid.Column="0" Margin="2"
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="{x:Static expstrings:StringResources.Label_LocationX}"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Margin="2"
                      TextAlignment="Right" VerticalContentAlignment="Center"
                      Text="{Binding LocatorPoint.X, StringFormat='0.0'}"/>
-            <TextBox Grid.Column="1" Margin="2"
+
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                       Text="{x:Static expstrings:StringResources.Label_LocationY}"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="2"
                      TextAlignment="Right" VerticalContentAlignment="Center"
                      Text="{Binding LocatorPoint.Y, StringFormat='0.0'}"/>
         </Grid>
@@ -78,11 +89,10 @@
                 <TextBlock Text="ms" Margin="2"/>
             </StackPanel>
             <ItemsControl ItemsSource="{Binding StepPairs}"
-                          ItemTemplate="{StaticResource PairTemplate}"
-                          Margin="5">
+                          ItemTemplate="{StaticResource PairTemplate}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
+                        <StackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
@@ -99,13 +109,8 @@
                           Margin="2"/>
                 <ItemsControl ItemsSource="{Binding Steps}"
                               ItemTemplate="{StaticResource StepTemplate}"
-                              Margin="2">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Rows="{Binding Steps.Count}"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+                              HorizontalContentAlignment="Stretch"
+                              Margin="2"/>
             </StackPanel>
         </Border>
     </DataTemplate>
@@ -116,7 +121,9 @@
                       Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"
                       HorizontalAlignment="Right" Margin="2"/>
             <ItemsControl ItemsSource="{Binding Trials}"
-                          ItemTemplate="{StaticResource TrialTemplate}"/>
+                          ItemTemplate="{StaticResource TrialTemplate}"
+                          FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                          HorizontalContentAlignment="Stretch"/>
         </StackPanel>
     </DataTemplate>
 

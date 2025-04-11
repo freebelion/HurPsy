@@ -17,6 +17,10 @@
         <Setter Property="Margin" Value="2"/>
     </Style>
 
+    <Style TargetType="MenuItem">
+        <Setter Property="Background" Value="{StaticResource MenuBrush}"/>
+    </Style>
+
     <Style x:Key="PairBorder" TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource PairBorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>

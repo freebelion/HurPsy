@@ -79,6 +79,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Block.
+        /// </summary>
+        public static string Header_AddBlock {
+            get {
+                return ResourceManager.GetString("Header_AddBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image Stimulus.
         /// </summary>
         public static string Header_AddImageStimulus {
@@ -205,24 +214,6 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Single Panel.
-        /// </summary>
-        public static string Header_SingleLayout {
-            get {
-                return ResourceManager.GetString("Header_SingleLayout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Split Panel.
-        /// </summary>
-        public static string Header_SplitLayout {
-            get {
-                return ResourceManager.GetString("Header_SplitLayout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Stimulus Definitions.
         /// </summary>
         public static string Header_StimulusDefinitions {
@@ -282,6 +273,24 @@ namespace HurPsyExpStrings {
         public static string Label_IsFixed {
             get {
                 return ResourceManager.GetString("Label_IsFixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location X.
+        /// </summary>
+        public static string Label_LocationX {
+            get {
+                return ResourceManager.GetString("Label_LocationX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location Y.
+        /// </summary>
+        public static string Label_LocationY {
+            get {
+                return ResourceManager.GetString("Label_LocationY", resourceCulture);
             }
         }
         

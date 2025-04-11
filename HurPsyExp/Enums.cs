@@ -24,6 +24,10 @@
     public enum ContentChoice
     {
         /// <summary>
+        /// No definitions are to be displayed
+        /// </summary>
+        NoDefinitions,
+        /// <summary>
         /// Stimulus definitions are to be displayed
         /// </summary>
         StimulusDefinitions,

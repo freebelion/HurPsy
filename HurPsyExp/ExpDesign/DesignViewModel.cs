@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HurPsyExpStrings;
 using HurPsyLib;
 
 namespace HurPsyExp.ExpDesign
@@ -36,19 +37,13 @@ namespace HurPsyExp.ExpDesign
         /// Currently selected item
         /// </summary>
         [ObservableProperty]
-        private IdObjectViewModel selectedItemVM;
+        private IdObjectViewModel? selectedItemVM;
 
         /// <summary>
         /// The label indicating the current display content (it will apear on **SingleLayoutLabel** defined in **DesignLayouts.xaml**)
         /// </summary>
         [ObservableProperty]
-        private string displayContentLabel = string.Empty;
-
-        /// <summary>
-        /// The boolean indicator of Item Editing mode
-        /// </summary>
-        [ObservableProperty]
-        private bool editMode = false;
+        private string displayContentLabel;
 
         /// <summary>
         /// The boolean indicator of Add Items Mode
@@ -67,6 +62,12 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         [ObservableProperty]
         private bool addingLocatorMode;
+
+        /// <summary>
+        /// This will be an indicator that the user will be adding new `Block` definitions
+        /// </summary>
+        [ObservableProperty]
+        private bool addingBlockMode;
 
         #endregion
 
@@ -104,13 +105,11 @@ namespace HurPsyExp.ExpDesign
             LocatorVMs = [];
             BlockVMs = [];
 
-            CreateTestExperiment();
-
             AddingMode = false;
             DisplayContent = [];
-            DisplayContentChoice = ContentChoice.StimulusDefinitions;
-            // Start with StimulusDefinitions content, until a diferent decision is made.
-            ChooseContent(DisplayContentChoice);
+            SelectedItemVM = null;
+            DisplayContentChoice = ContentChoice.NoDefinitions;
+            DisplayContentLabel = StringResources.Header_Definitions;
         }
         #endregion
 
@@ -183,7 +182,7 @@ namespace HurPsyExp.ExpDesign
         /// <returns></returns>
         private IdObjectViewModel CreateVM(IdObject idobj)
         {
-            IdObjectViewModel idobjvm = new(idobj) { Editable = EditMode };
+            IdObjectViewModel idobjvm = new(idobj);
             idobjvm.IdChanged += ItemIdChanged;
             return idobjvm;
         }
@@ -234,7 +233,7 @@ namespace HurPsyExp.ExpDesign
                     imgstim.FileName = strFile;
                     _experiment.AddStimulus(imgstim);
                     IdObjectViewModel stimvm = CreateVM(imgstim);
-                    DisplayContent.Add(stimvm);
+                    StimulusVMs.Add(stimvm);
                 }
             }
         }
@@ -331,20 +330,6 @@ namespace HurPsyExp.ExpDesign
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_BlockDefinitions;
                     break;
             }
-            // Set the items as editable, if editing mode was already on
-            EditingItems();
-        }
-
-        /// <summary>
-        /// This command implementation will turn on the editing mode for all the displayed items.
-        /// </summary>
-        [RelayCommand]
-        private void EditingItems()
-        {
-            foreach (IdObjectViewModel idobjvm in DisplayContent)
-            {
-                idobjvm.Editable = EditMode;
-            }
         }
 
         /// <summary>
@@ -375,9 +360,18 @@ namespace HurPsyExp.ExpDesign
                     PointLocator ploc = new();
                     _experiment.AddLocator(ploc);
                     IdObjectViewModel plocvm = CreateVM(ploc);
-                    DisplayContent.Add(plocvm);
+                    LocatorVMs.Add(plocvm);
                     break;
             }
+        }
+
+        [RelayCommand]
+        private void AddingBlock()
+        {
+            ExpBlock blck = new();
+            _experiment.AddBlock(blck);
+            IdObjectViewModel blckvm = CreateVM(blck);
+            BlockVMs.Add(blckvm);
         }
 
         #endregion
@@ -391,6 +385,7 @@ namespace HurPsyExp.ExpDesign
         {
             AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
             AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
+            AddingBlockMode = AddingMode && (DisplayContentChoice == ContentChoice.BlockDefinitions);
         }
 
         /// <summary>

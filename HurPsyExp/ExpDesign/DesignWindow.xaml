@@ -38,7 +38,7 @@
                           Command="{Binding SaveExperimentAsCommand}"/>
                 </MenuItem>
 
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_Definitions}">
+                <MenuItem Header="{Binding DisplayContentLabel}">
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_StimulusDefinitions}"
                           Command="{Binding ChooseContentCommand}"
                           CommandParameter="{x:Static expapp:ContentChoice.StimulusDefinitions}">
@@ -97,6 +97,14 @@
                             <Image Source="/Images/PointLocator.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_AddBlock}"
+                          Command="{Binding AddingBlockCommand}"
+                          Visibility="{Binding AddingBlockMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/AddBlock.png"/>
+                    </MenuItem.Icon>
                 </MenuItem>
             </Menu>
         </DockPanel>
@@ -194,7 +202,17 @@
                           VerticalScrollBarVisibility="Auto">
                 <ContentControl VerticalAlignment="Top"
                                 Content="{Binding SelectedItemVM}"
-                                ContentTemplateSelector="{StaticResource idobjTemplateSelector}"/>
+                                ContentTemplateSelector="{StaticResource idobjTemplateSelector}">
+                    <ContentControl.Template>
+                        <ControlTemplate TargetType="ContentControl">
+                            <Border x:Name="controlBorder" BorderThickness="1"
+                                    BorderBrush="{StaticResource SelectionBorder}"
+                                    Background="{StaticResource SelectionBrush}">
+                                <ContentPresenter/>
+                            </Border>
+                        </ControlTemplate>
+                    </ContentControl.Template>
+                </ContentControl>
             </ScrollViewer>
         </Grid>
     </DockPanel>

@@ -38,6 +38,7 @@ namespace HurPsyLib
         /// <summary>
         /// The experiment's trial blocks
         /// </summary>
+        [DataMember]
         public List<ExpBlock> Blocks { get; set; }
         #endregion
 
