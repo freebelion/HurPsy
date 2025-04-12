@@ -24,7 +24,6 @@
     <Style x:Key="PairBorder" TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource PairBorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Padding" Value="3"/>
     </Style>
 
     <!--When applied to a `ListBoxItem`, this style makes it use the regular and selected brushes from the file *DesignBrushes.xaml*-->

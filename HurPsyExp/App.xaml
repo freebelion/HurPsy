@@ -7,7 +7,9 @@
              Exit="Application_Exit">
 
     <Application.Resources>
-        <!-- Bindings were easier when the AppSettings instance was created as a resource instead of a property of the App class. -->
-        <expapp:AppSettings x:Key="AppSettings"/>
+        <ResourceDictionary>
+            <!-- Bindings were easier when the AppSettings instance was created as a resource instead of a property of the App class. -->
+            <expapp:AppSettings x:Key="AppSettings"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

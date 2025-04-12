@@ -105,6 +105,8 @@ namespace HurPsyExp.ExpDesign
             LocatorVMs = [];
             BlockVMs = [];
 
+            CreateTestExperiment();
+
             AddingMode = false;
             DisplayContent = [];
             SelectedItemVM = null;
@@ -153,7 +155,7 @@ namespace HurPsyExp.ExpDesign
                     {
                         ExpStep st = new ExpStep();
 
-                        int pairCount = Utility.RND.Next(1, 6);
+                        int pairCount = Utility.RND.Next(1, 16);
                         for(int n=0; n<pairCount; n++)
                         {
                             int stimIndex = Utility.RND.Next(imgstims.Length);

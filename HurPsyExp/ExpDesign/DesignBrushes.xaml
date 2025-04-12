@@ -37,7 +37,7 @@
         <GradientStop Color="DarkCyan" Offset="1.0"/>
     </LinearGradientBrush>
 
-    <SolidColorBrush x:Key="PairBorderBrush" Color="WhiteSmoke"/>
+    <SolidColorBrush x:Key="PairBorderBrush" Color="Chocolate"/>
     
     <LinearGradientBrush x:Key="PairTemplateBrush"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">

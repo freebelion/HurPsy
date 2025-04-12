@@ -67,15 +67,21 @@
     </DataTemplate>
 
     <DataTemplate x:Key="PairTemplate">
-        <StackPanel Orientation="Vertical"
-                    Background="{StaticResource PairTemplateBrush}">
-            <Border Style="{StaticResource PairBorder}">
-                <TextBlock Text="{Binding LocatorId}"/>
-            </Border>
-            <Border Style="{StaticResource PairBorder}">
-                <TextBlock Text="{Binding StimulusId}"/>
-            </Border>
-        </StackPanel>
+        <Border Style="{StaticResource PairBorder}"
+                        Margin="2">
+            <Grid Background="{StaticResource PairTemplateBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Text="{Binding LocatorId}" Margin="2"/>
+                <Line Grid.Row="1" Stroke="Chocolate" StrokeThickness="0.5"
+                      X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+                <TextBlock Grid.Row="2" Text="{Binding StimulusId}" Margin="2"/>
+            </Grid>
+        </Border>
     </DataTemplate>
     
     <DataTemplate x:Key="StepTemplate">
@@ -92,7 +98,8 @@
                           ItemTemplate="{StaticResource PairTemplate}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <WrapPanel Orientation="Horizontal"
+                                   Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=ActualWidth}"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>

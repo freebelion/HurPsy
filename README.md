@@ -38,13 +38,13 @@ This project contains two inner namespaces:
 + **HurPsyLibStrings** is a separate project containing
 only a `.resx` resource file with message/error strings 
 used in **HurPsyLib** library classes.<br>
-It is created as a separate project to make localization easier
+> It is created as a separate project to make localization easier
 for international developers.
 
 + **HurPsyExpStrings** is a separate project containing
 only a `.resx` resource file with message/error/label strings 
 used in views and viewmodel classes of the **HurPsyExp** project.<br>
-It is created as a separate project to make localization easier
+> It is created as a separate project to make localization easier
 for international developers.
 
 All these projects' class definitions, their members, properties,
