@@ -199,10 +199,11 @@
                           Width="5"/>
 
             <ScrollViewer Grid.Column="2"
-                          VerticalScrollBarVisibility="Auto">
+                          VerticalScrollBarVisibility="Visible">
                 <ContentControl VerticalAlignment="Top"
                                 Content="{Binding SelectedItemVM}"
-                                ContentTemplateSelector="{StaticResource idobjTemplateSelector}">
+                                ContentTemplateSelector="{StaticResource idobjTemplateSelector}"
+                                FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}">
                     <ContentControl.Template>
                         <ControlTemplate TargetType="ContentControl">
                             <Border x:Name="controlBorder" BorderThickness="1"

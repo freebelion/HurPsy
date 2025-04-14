@@ -16,6 +16,8 @@
     <None Remove="Images\addblock.png" />
     <None Remove="Images\addblock.svg" />
     <None Remove="Images\addlocator.svg" />
+    <None Remove="Images\addsingletrial.png" />
+    <None Remove="Images\addsingletrial.svg" />
     <None Remove="Images\AddStimulus.svg" />
     <None Remove="Images\block.png" />
     <None Remove="Images\block.svg" />
@@ -51,6 +53,7 @@
   <ItemGroup>
     <Resource Include="Images\addblock.png" />
     <Resource Include="Images\AddLocator.png" />
+    <Resource Include="Images\addsingletrial.png" />
     <Resource Include="Images\AddStimulus.png" />
     <Resource Include="Images\block.png" />
     <Resource Include="Images\decrement.png" />

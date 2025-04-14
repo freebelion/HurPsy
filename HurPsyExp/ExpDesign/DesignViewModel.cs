@@ -125,8 +125,6 @@ namespace HurPsyExp.ExpDesign
             LocatorVMs = [];
             BlockVMs = [];
 
-            CreateTestExperiment();
-
             AddingMode = false;
             DisplayContent = [];
             SelectedItemVM = null;
@@ -136,67 +134,6 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Methods
-        private void CreateTestExperiment()
-        {
-            _experiment = new Experiment();
-
-            int stimCount = Utility.RND.Next(5, 16);
-            ImageStimulus[] imgstims = new ImageStimulus[stimCount];
-            for(int i=0; i < imgstims.Length; i++)
-            {
-                imgstims[i] = new ImageStimulus();
-                imgstims[i].Id = "Image" + (i+1).ToString();
-                _experiment.AddStimulus(imgstims[i]);
-            }
-
-            int locCount = Utility.RND.Next(5, 16);
-            PointLocator[] plocs = new PointLocator[locCount];
-            for (int i = 0; i < plocs.Length; i++)
-            {
-                plocs[i] = new PointLocator();
-                plocs[i].Id = "Point" + (i + 1).ToString();
-                plocs[i].LocatorPoint.X = (i-1) * 30;
-                plocs[i].LocatorPoint.Y = 0;
-                _experiment.AddLocator(plocs[i]);
-            }
-
-            int blockCount = Utility.RND.Next(5, 16);
-            for(int i=0; i < blockCount; i++)
-            {
-                ExpBlock blck = new ExpBlock();
-
-                int trialCount = Utility.RND.Next(10, 101);
-                for (int j = 0; j < trialCount; j++)
-                {
-                    ExpTrial tr = new ExpTrial();
-
-                    int stepCount = Utility.RND.Next(1, 6);
-                    for(int k=0;  k<stepCount; k++)
-                    {
-                        ExpStep st = new ExpStep();
-
-                        int pairCount = Utility.RND.Next(1, 16);
-                        for(int n=0; n<pairCount; n++)
-                        {
-                            int stimIndex = Utility.RND.Next(imgstims.Length);
-                            int locIndex = Utility.RND.Next(plocs.Length);
-
-                            st.AddPair(imgstims[stimIndex].Id, plocs[locIndex].Id);
-                        }
-
-                        tr.AddStep(st);
-                    }
-
-                    blck.AddTrial(tr);
-                }
-
-                _experiment.AddBlock(blck);
-            }
-
-            CreateVMs();
-            ChooseContent(DisplayContentChoice);
-        }
-
         /// <summary>
         /// This little function creates a VM associated with an experiment item and initializes it.
         /// </summary>
@@ -206,7 +143,7 @@ namespace HurPsyExp.ExpDesign
         {
             IdObjectViewModel idobjvm ;
 
-            if(idobj is ExpBlock blck)
+            if(idobj is ExpBlock blck) // An experiment block requires its own specialized viewmodel
             { idobjvm = new BlockViewModel(blck); }
             else
             { idobjvm = new IdObjectViewModel(idobj); }

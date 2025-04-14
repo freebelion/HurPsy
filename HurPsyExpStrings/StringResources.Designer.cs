@@ -394,6 +394,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add a single trial.
+        /// </summary>
+        public static string Tooltip_AddSingleTrial {
+            get {
+                return ResourceManager.GetString("Tooltip_AddSingleTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Locator-Stimulus Pair.
         /// </summary>
         public static string Tooltip_btnAddPair {
@@ -403,11 +412,29 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Next Trial.
+        /// </summary>
+        public static string Tooltip_NextTrial {
+            get {
+                return ResourceManager.GetString("Tooltip_NextTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Locator-Stimulus Pairs.
         /// </summary>
         public static string Tooltip_PairItemsCtrl {
             get {
                 return ResourceManager.GetString("Tooltip_PairItemsCtrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous Trial.
+        /// </summary>
+        public static string Tooltip_PreviousTrial {
+            get {
+                return ResourceManager.GetString("Tooltip_PreviousTrial", resourceCulture);
             }
         }
     }

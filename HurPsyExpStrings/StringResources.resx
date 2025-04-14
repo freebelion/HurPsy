@@ -273,4 +273,16 @@
     <value>Locator-Stimulus Pairs</value>
     <comment>Tooltip for the ItemsControl in StepTemplate which displays pairs of Locator and Stimulus Ids</comment>
   </data>
+  <data name="Tooltip_NextTrial" xml:space="preserve">
+    <value>Next Trial</value>
+    <comment>Tooltip for the right button on BlockEditTemplate which moves on to the next trial to display</comment>
+  </data>
+  <data name="Tooltip_PreviousTrial" xml:space="preserve">
+    <value>Previous Trial</value>
+    <comment>Tooltip for the left button on BlockEditTemplate which moves on to the previous trial to display</comment>
+  </data>
+  <data name="Tooltip_AddSingleTrial" xml:space="preserve">
+    <value>Add a single trial</value>
+    <comment>Tooltip for the button in BlockEditTemplate which adds one single-step trial to the block</comment>
+  </data>
 </root>

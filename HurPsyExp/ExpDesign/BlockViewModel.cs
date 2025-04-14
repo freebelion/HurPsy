@@ -72,5 +72,8 @@ namespace HurPsyExp.ExpDesign
                 GetCurrentTrial();
             }
         }
+
+        [RelayCommand]
+        private void AddSingleTrial() => GetBlockItem().Trials.Add(new ExpTrial());     
     }
 }

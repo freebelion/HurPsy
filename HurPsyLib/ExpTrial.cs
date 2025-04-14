@@ -11,7 +11,7 @@ namespace HurPsyLib
     /// This class represents an experiment trial made up of one or more steps.
     /// </summary>
     [DataContract]
-    public class ExpTrial
+    public class ExpTrial : IdObject
     {
         /// <summary>
         /// The collection of experiment steps that make up this trial
@@ -32,6 +32,8 @@ namespace HurPsyLib
         {
             Steps = [];
             IsFixed = false;
+            // Every trial must have at least one step (which may have to be step requiring a response)
+            AddStep(new ExpStep());
         }
 
         /// <summary>

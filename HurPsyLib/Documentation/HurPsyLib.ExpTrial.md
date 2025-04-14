@@ -5,10 +5,10 @@
 This class represents an experiment trial made up of one or more steps.
 
 ```csharp
-public class ExpTrial
+public class ExpTrial : HurPsyLib.IdObject
 ```
 
-Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; ExpTrial
+Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [IdObject](HurPsyLib.IdObject.md 'HurPsyLib.IdObject') &#129106; ExpTrial
 ### Constructors
 
 <a name='HurPsyLib.ExpTrial.ExpTrial()'></a>

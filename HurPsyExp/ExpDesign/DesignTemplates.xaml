@@ -177,9 +177,15 @@
                 CornerRadius="2" Padding="2">
             <StackPanel Orientation="Vertical"
                         Background="{StaticResource TrialTemplateBrush}">
-                <CheckBox IsChecked="{Binding IsFixed}"
-                          Content="{x:Static expstrings:StringResources.Label_IsFixed}"
-                          Margin="2"/>
+                <DockPanel LastChildFill="False">
+                    <CheckBox DockPanel.Dock="Right"
+                              IsChecked="{Binding IsFixed}"
+                              Content="{x:Static expstrings:StringResources.Label_IsFixed}"
+                              Margin="2"/>
+
+                    <TextBlock DockPanel.Dock="Left"
+                               Text="{Binding Id}" Margin="2"/>
+                </DockPanel>
                 <ItemsControl x:Name="StepItemsCtrl"
                               ItemsSource="{Binding Steps}"
                               ItemTemplate="{StaticResource StepTemplate}"
@@ -192,7 +198,7 @@
     <DataTemplate x:Key="BlockEditTemplate">
         <StackPanel Orientation="Vertical">
             <DockPanel LastChildFill="False">
-                <CheckBox IsChecked="{Binding MustShuffleTrials}"
+                <CheckBox IsChecked="{Binding ItemObject.MustShuffleTrials}"
                           Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"
                           HorizontalAlignment="Right" Margin="2"
                           DockPanel.Dock="Left"/>
@@ -205,6 +211,24 @@
                            DockPanel.Dock="Right"
                            Margin="2"/>
             </DockPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Stretch">
+                <Button x:Name="btnAddSingleTrial"
+                        Style="{StaticResource DesignButtonStyle}"
+                        ToolTip="{x:Static expstrings:StringResources.Tooltip_AddSingleTrial}">
+                    <Image Source="/Images/addsingletrial.png"
+                           Stretch="Fill"/>
+
+                    <wpfint:Interaction.Triggers>
+                        <wpfint:EventTrigger EventName="Click">
+                            <wpfint:InvokeCommandAction
+                                Command="{Binding AddSingleTrialCommand}"/>
+                        </wpfint:EventTrigger>
+                    </wpfint:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+            
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -213,7 +237,8 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" VerticalAlignment="Stretch"
-                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}">
+                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                        ToolTip="{x:Static expstrings:StringResources.Tooltip_PreviousTrial}">
                     <Image Grid.Column="0" Source="/Images/previous.png"
                            Stretch="UniformToFill"/>
 
@@ -232,7 +257,8 @@
                                 HorizontalContentAlignment="Stretch"/>
 
                 <Button Grid.Column="2" VerticalAlignment="Stretch"
-                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}">
+                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                        ToolTip="{x:Static expstrings:StringResources.Tooltip_NextTrial}">
                     <Image Grid.Column="0" Source="/Images/next.png"
                            Stretch="UniformToFill"/>
 
