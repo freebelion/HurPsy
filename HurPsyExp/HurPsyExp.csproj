@@ -25,7 +25,11 @@
     <None Remove="Images\increment.svg" />
     <None Remove="Images\lbase.png" />
     <None Remove="Images\lbase.svg" />
+    <None Remove="Images\next.png" />
+    <None Remove="Images\next.svg" />
     <None Remove="Images\PointLocator.svg" />
+    <None Remove="Images\previous.png" />
+    <None Remove="Images\previous.svg" />
     <None Remove="Images\sbase.png" />
     <None Remove="Images\sbase.svg" />
   </ItemGroup>
@@ -54,7 +58,9 @@
     <Resource Include="Images\ImageStimulus.png" />
     <Resource Include="Images\increment.png" />
     <Resource Include="Images\lbase.png" />
+    <Resource Include="Images\next.png" />
     <Resource Include="Images\PointLocator.png" />
+    <Resource Include="Images\previous.png" />
     <Resource Include="Images\sbase.png" />
   </ItemGroup>
 

@@ -96,11 +96,21 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         public ObservableCollection<IdObjectViewModel> BlockVMs { get; set; }
 
+        /// <summary>
+        /// `LocatorVM` selected on the top combobox of the `AddPair` popup
+        /// </summary>
         [ObservableProperty]
         private IdObjectViewModel? selectedLocatorVM;
 
+        /// <summary>
+        /// `StimulusVM` selected on the bottom combobox of the `AddPair` popup
+        /// </summary>
         [ObservableProperty]
         private IdObjectViewModel? selectedStimulusVM;
+
+        [ObservableProperty]
+        private ExpTrial? currentTrial;
+        
         #endregion
 
         #region Constructor(s)
@@ -194,7 +204,13 @@ namespace HurPsyExp.ExpDesign
         /// <returns></returns>
         private IdObjectViewModel CreateVM(IdObject idobj)
         {
-            IdObjectViewModel idobjvm = new(idobj);
+            IdObjectViewModel idobjvm ;
+
+            if(idobj is ExpBlock blck)
+            { idobjvm = new BlockViewModel(blck); }
+            else
+            { idobjvm = new IdObjectViewModel(idobj); }
+
             idobjvm.IdChanged += ItemIdChanged;
             return idobjvm;
         }
@@ -433,13 +449,21 @@ namespace HurPsyExp.ExpDesign
             AddingBlockMode = AddingMode && (DisplayContentChoice == ContentChoice.BlockDefinitions);
         }
 
+        partial void OnSelectedItemVMChanged(IdObjectViewModel? value)
+        {
+            if(value != null && value.ItemObject is ExpBlock blck)
+            {
+                CurrentTrial = blck.Trials[0];
+            }
+        }
+
         /// <summary>
         /// This is for handling the Id change events for `IdObjectViewModel` objects.
         /// </summary>
         /// <param name="sender">`IdObjectViewModel` objects which reports a change in its `TempId` property</param>
         /// <param name="e">Id change parameters</param>
-        
-        
+
+
         private void ItemIdChanged(object? sender, IdChangeEventArgs e)
         {
             IdObjectViewModel? idobjvm = sender as IdObjectViewModel;

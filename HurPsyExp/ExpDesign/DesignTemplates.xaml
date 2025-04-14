@@ -190,15 +190,61 @@
     </DataTemplate>
 
     <DataTemplate x:Key="BlockEditTemplate">
-        <StackPanel Orientation="Vertical" DataContext="{Binding ItemObject}">
-            <CheckBox IsChecked="{Binding MustShuffleTrials}"
-                      Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"
-                      HorizontalAlignment="Right" Margin="2"/>
-            <ItemsControl x:Name="TrialItemsCtrl"
-                          ItemsSource="{Binding Trials}"
-                          ItemTemplate="{StaticResource TrialTemplate}"
-                          FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
-                          HorizontalContentAlignment="Stretch"/>
+        <StackPanel Orientation="Vertical">
+            <DockPanel LastChildFill="False">
+                <CheckBox IsChecked="{Binding MustShuffleTrials}"
+                          Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"
+                          HorizontalAlignment="Right" Margin="2"
+                          DockPanel.Dock="Left"/>
+
+                <TextBlock Text="{Binding CurrentTrialIndex}"
+                           DockPanel.Dock="Right"
+                           Margin="2,2,5,2"/>
+                <TextBlock Text="Trial Index"
+                           TextAlignment="Right"
+                           DockPanel.Dock="Right"
+                           Margin="2"/>
+            </DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" VerticalAlignment="Stretch"
+                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}">
+                    <Image Grid.Column="0" Source="/Images/previous.png"
+                           Stretch="UniformToFill"/>
+
+                    <wpfint:Interaction.Triggers>
+                        <wpfint:EventTrigger EventName="Click">
+                            <wpfint:InvokeCommandAction
+                                Command="{Binding PreviousTrialCommand}"/>
+                        </wpfint:EventTrigger>
+                    </wpfint:Interaction.Triggers>
+                </Button>
+                
+                <ContentControl Grid.Column="1"
+                                Content="{Binding CurrentTrial}"
+                                ContentTemplate="{StaticResource TrialTemplate}"
+                                FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                                HorizontalContentAlignment="Stretch"/>
+
+                <Button Grid.Column="2" VerticalAlignment="Stretch"
+                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}">
+                    <Image Grid.Column="0" Source="/Images/next.png"
+                           Stretch="UniformToFill"/>
+
+                    <wpfint:Interaction.Triggers>
+                        <wpfint:EventTrigger EventName="Click">
+                            <wpfint:InvokeCommandAction
+                                Command="{Binding NextTrialCommand}"/>
+                        </wpfint:EventTrigger>
+                    </wpfint:Interaction.Triggers>
+                </Button>
+
+            </Grid>
         </StackPanel>
     </DataTemplate>
 
