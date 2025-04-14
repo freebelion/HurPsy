@@ -24,38 +24,38 @@
     </Window.Resources>
 
     <DockPanel x:Name="MainPanel" LastChildFill="True">
-        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+        <DockPanel DockPanel.Dock="Top" LastChildFill="True" Background="{StaticResource MenuBrush}">
             <Menu x:Name="MainMenu"
-              FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}">
+                  FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}">
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}" Margin="2">
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"
-                          Command="{Binding NewExperimentCommand}"/>
+                              Command="{Binding NewExperimentCommand}"/>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_LoadExperiment}"
-                          Command="{Binding LoadExperimentCommand}"/>
+                              Command="{Binding LoadExperimentCommand}"/>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperiment}"
-                          Command="{Binding SaveExperimentCommand}"/>
+                              Command="{Binding SaveExperimentCommand}"/>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperimentAs}"
-                          Command="{Binding SaveExperimentAsCommand}"/>
+                              Command="{Binding SaveExperimentAsCommand}"/>
                 </MenuItem>
 
                 <MenuItem Header="{Binding DisplayContentLabel}">
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_StimulusDefinitions}"
-                          Command="{Binding ChooseContentCommand}"
-                          CommandParameter="{x:Static expapp:ContentChoice.StimulusDefinitions}">
+                              Command="{Binding ChooseContentCommand}"
+                              CommandParameter="{x:Static expapp:ContentChoice.StimulusDefinitions}">
                         <MenuItem.Icon>
                             <Image Source="/Images/sbase.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_LocatorDefinitions}"
-                          Command="{Binding ChooseContentCommand}"
-                          CommandParameter="{x:Static expapp:ContentChoice.LocatorDefinitions}">
+                              Command="{Binding ChooseContentCommand}"
+                              CommandParameter="{x:Static expapp:ContentChoice.LocatorDefinitions}">
                         <MenuItem.Icon>
                             <Image Source="/Images/lbase.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_BlockDefinitions}"
-                          Command="{Binding ChooseContentCommand}"
-                          CommandParameter="{x:Static expapp:ContentChoice.BlockDefinitions}">
+                              Command="{Binding ChooseContentCommand}"
+                              CommandParameter="{x:Static expapp:ContentChoice.BlockDefinitions}">
                         <MenuItem.Icon>
                             <Image Source="/Images/block.png"/>
                         </MenuItem.Icon>
@@ -76,8 +76,8 @@
                     </MenuItem.Icon>
 
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_AddImageStimulus}"
-                          Command="{Binding AddingStimulusCommand}"
-                          CommandParameter="{x:Type psylib:ImageStimulus}">
+                              Command="{Binding AddingStimulusCommand}"
+                              CommandParameter="{x:Type psylib:ImageStimulus}">
                         <MenuItem.Icon>
                             <Image Source="/Images/ImageStimulus.png"/>
                         </MenuItem.Icon>

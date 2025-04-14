@@ -392,5 +392,23 @@ namespace HurPsyExpStrings {
                 return ResourceManager.GetString("Title_StartupDialog", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Locator-Stimulus Pair.
+        /// </summary>
+        public static string Tooltip_btnAddPair {
+            get {
+                return ResourceManager.GetString("Tooltip_btnAddPair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locator-Stimulus Pairs.
+        /// </summary>
+        public static string Tooltip_PairItemsCtrl {
+            get {
+                return ResourceManager.GetString("Tooltip_PairItemsCtrl", resourceCulture);
+            }
+        }
     }
 }

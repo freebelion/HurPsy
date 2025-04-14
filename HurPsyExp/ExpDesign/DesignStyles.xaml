@@ -7,23 +7,23 @@
 
     <!-- All Image controls should have the height specified in the settings. -->
     <Style x:Key="IconImageStyle" TargetType="Image">
-        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Setter Property="Stretch" Value="Fill"/>
     </Style>
     
     <!-- All menus will use this style. -->
     <Style TargetType="Menu">
         <Setter Property="Background" Value="{StaticResource MenuBrush}"/>
         <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"/>
-        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Padding" Value="2"/>
     </Style>
 
     <Style TargetType="MenuItem">
-        <Setter Property="Background" Value="{StaticResource MenuBrush}"/>
+        <Setter Property="Background" Value="{StaticResource MenuItemBrush}"/>
     </Style>
 
     <Style x:Key="PairBorder" TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource PairBorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
     </Style>
 
     <!--When applied to a `ListBoxItem`, this style makes it use the regular and selected brushes from the file *DesignBrushes.xaml*-->
@@ -68,30 +68,28 @@
         <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
         <Setter Property="Margin" Value="2"/>
     </Style>
-    
+
+    <ControlTemplate x:Key="DesignToggleTemplate" TargetType="ToggleButton">
+        <Border Name="buttonBorder" BorderThickness="1">
+            <ContentPresenter Content="{TemplateBinding Content}" Margin="0"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="buttonBorder" Property="BorderBrush" Value="{StaticResource SelectionBorder}"/>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource CheckedToggleBrush}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter TargetName="buttonBorder" Property="BorderBrush" Value="Transparent"/>
+                <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource ToggleBrush}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
     <Style x:Key="DesignToggleStyle" TargetType="ToggleButton">
         <Setter Property="Margin" Value="2"/>
         <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
         <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ToggleButton">
-                    <Border Name="buttonBorder" BorderThickness="1">
-                        <ContentPresenter Content="{TemplateBinding Content}" Margin="0"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="{StaticResource SelectionBorder}"/>
-                            <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource CheckedToggleBrush}"/>
-                        </Trigger>
-                        <Trigger Property="IsChecked" Value="False">
-                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="Transparent"/>
-                            <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource ToggleBrush}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Template" Value="{StaticResource DesignToggleTemplate}"/>
     </Style>
 
     <Style x:Key="NumericUpDownSlider" TargetType="Slider">

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using HurPsyLib;
 using System.Xml;
 using Microsoft.Win32;
+using System.Windows.Media;
+using System.Windows;
 
 namespace HurPsyExp
 {
@@ -83,6 +85,90 @@ namespace HurPsyExp
             using XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(openfilename, FileMode.Open), new XmlDictionaryReaderQuotas());
             DataContractSerializer ser = new DataContractSerializer(typeof(T));
             return (T?)ser.ReadObject(reader);
+        }
+
+        /// <summary>
+        /// Recursively finds the specified named parent in a control hierarchy
+        /// Source: https://stackoverflow.com/questions/15198104/find-parent-of-control-by-name
+        /// </summary>
+        /// <typeparam name="T">The type of the targeted Find</typeparam>
+        /// <param name="child">The child control to start with</param>
+        /// <param name="parentName">The name of the parent to find</param>
+        /// <returns></returns>
+        public static T FindParent<T>(DependencyObject child, string parentName)
+            where T : DependencyObject
+        {
+            if (child == null) return null;
+
+            T? foundParent = null;
+            var currentParent = VisualTreeHelper.GetParent(child);
+
+            do
+            {
+                var frameworkElement = currentParent as FrameworkElement;
+                if (frameworkElement != null && frameworkElement.Name == parentName && frameworkElement is T)
+                {
+                    foundParent = (T)currentParent;
+                    break;
+                }
+
+                currentParent = VisualTreeHelper.GetParent(currentParent);
+
+            } while (currentParent != null);
+
+            return foundParent;
+        }
+
+        /// <summary>
+        /// Finds a Child of a given item in the visual tree. 
+        /// Source: https://stackoverflow.com/questions/636383/how-can-i-find-wpf-controls-by-name-or-type
+        /// </summary>
+        /// <param name="parent">A direct parent of the queried item.</param>
+        /// <typeparam name="T">The type of the queried item.</typeparam>
+        /// <param name="childName">x:Name or Name of child. </param>
+        /// <returns>The first parent item that matches the submitted type parameter or null if not found</returns> 
+        public static T FindChild<T>(DependencyObject parent, string childName)
+           where T : DependencyObject
+        {
+            // Confirm parent and childName are valid. 
+            if (parent == null) return null;
+
+            T foundChild = null;
+
+            int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < childrenCount; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                // If the child is not of the request child type child
+                T childType = child as T;
+                if (childType == null)
+                {
+                    // recursively drill down the tree
+                    foundChild = FindChild<T>(child, childName);
+
+                    // If the child is found, break so we do not overwrite the found child. 
+                    if (foundChild != null) break;
+                }
+                else if (!string.IsNullOrEmpty(childName))
+                {
+                    var frameworkElement = child as FrameworkElement;
+                    // If the child's name is set for search
+                    if (frameworkElement != null && frameworkElement.Name == childName)
+                    {
+                        // if the child's name is of the request name
+                        foundChild = (T)child;
+                        break;
+                    }
+                }
+                else
+                {
+                    // child element found.
+                    foundChild = (T)child;
+                    break;
+                }
+            }
+
+            return foundChild;
         }
     }
 }

@@ -7,6 +7,10 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HurPsyExpStrings;
@@ -91,6 +95,12 @@ namespace HurPsyExp.ExpDesign
         /// Collection of viewmodels associated with the experiment's trial blocks
         /// </summary>
         public ObservableCollection<IdObjectViewModel> BlockVMs { get; set; }
+
+        [ObservableProperty]
+        private IdObjectViewModel? selectedLocatorVM;
+
+        [ObservableProperty]
+        private IdObjectViewModel? selectedStimulusVM;
         #endregion
 
         #region Constructor(s)
@@ -376,6 +386,39 @@ namespace HurPsyExp.ExpDesign
             BlockVMs.Add(blckvm);
         }
 
+        [RelayCommand]
+        private void AddPair(object sender)
+        {
+            if( sender is ToggleButton btn)
+            {
+                if (btn.DataContext is ExpStep stp)
+                {
+                    if (SelectedLocatorVM != null && SelectedStimulusVM != null)
+                    {
+                        stp.AddPair(SelectedStimulusVM.ItemObject.Id, SelectedLocatorVM.ItemObject.Id);
+                        ItemsControl itemsCtrl = Utility.FindParent<ItemsControl>(btn, "StepItemsCtrl");
+                        itemsCtrl.Items.Refresh();
+                    }
+
+                    SelectedStimulusVM = null;
+                    SelectedLocatorVM = null;
+
+                    btn.IsChecked = false;
+                }
+            }
+        }
+
+        [RelayCommand]
+        private void CancelAddPair(object sender)
+        {
+            if (sender is ToggleButton btn)
+            {
+                SelectedStimulusVM = null;
+                SelectedLocatorVM = null;
+
+                btn.IsChecked = false;
+            }
+        }
         #endregion
 
         #region Events

@@ -18,8 +18,10 @@
         <GradientStop Color="SkyBlue" Offset="0.75"/>
         <GradientStop Color="DeepSkyBlue" Offset="1.0"/>
     </LinearGradientBrush>
-    
-    <LinearGradientBrush x:Key="MenuBrush"
+
+    <SolidColorBrush x:Key="MenuBrush" Color="DimGray"/>
+
+    <LinearGradientBrush x:Key="MenuItemBrush"
                          StartPoint="0.0,0.5" EndPoint="1.0,0.5">
         <GradientStop Color="Transparent" Offset="0.0"/>
         <GradientStop Color="Silver" Offset="0.05"/>
@@ -56,14 +58,8 @@
     </LinearGradientBrush>
 
     <SolidColorBrush x:Key="TrialBorderBrush" Color="ForestGreen"/>
-    
-    <LinearGradientBrush x:Key="TrialTemplateBrush"
-                         StartPoint="0.0,0.5" EndPoint="1.0,0.5">
-        <GradientStop Color="MediumAquamarine" Offset="0.0"/>
-        <GradientStop Color="Aquamarine" Offset="0.25"/>
-        <GradientStop Color="Aquamarine" Offset="0.75"/>
-        <GradientStop Color="MediumAquamarine" Offset="1.0"/>
-    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TrialTemplateBrush" Color="MediumAquamarine"/>
 
     <SolidColorBrush x:Key="SelectionBorder" Color="DarkRed"/>
     

@@ -3,7 +3,8 @@
                     xmlns:expapp="clr-namespace:HurPsyExp"
                     xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
                     xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
-                    xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib">
+                    xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib"
+                    xmlns:wpfint="http://schemas.microsoft.com/xaml/behaviors">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ExpDesign/DesignStyles.xaml"/>
@@ -12,6 +13,64 @@
     <BooleanToVisibilityConverter x:Key="bvisConverter"/>
     <expdesign:IdObjectTemplateSelector x:Key="idobjTemplateSelector"/>
 
+    <Image x:Key="AddPairIcon" Source="/Images/increment.png" x:Shared="False"
+           Width="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+           Height="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+           Stretch="Fill"/>
+
+    <Border x:Key="AddPairPopup" x:Shared="False"
+        Style="{StaticResource PairBorder}"
+        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
+        <StackPanel Orientation="Vertical">
+            <Border Style="{StaticResource PairBorder}">
+                <ComboBox ItemsSource="{Binding LocatorVMs}"
+                          DisplayMemberPath="TempId"
+                          SelectedItem="{Binding Path=SelectedLocatorVM, Mode=TwoWay}"/>
+            </Border>
+            <Border Style="{StaticResource PairBorder}">
+                <ComboBox ItemsSource="{Binding StimulusVMs}"
+                          DisplayMemberPath="TempId"
+                          SelectedItem="{Binding Path=SelectedStimulusVM, Mode=TwoWay}"/>
+            </Border>
+
+            <DockPanel LastChildFill="False">
+                <Button DockPanel.Dock="Left"
+                    Content="{x:Static expstrings:StringResources.Label_OK}">
+                    <wpfint:Interaction.Triggers>
+                        <wpfint:EventTrigger EventName="Click">
+                            <wpfint:InvokeCommandAction
+                                Command="{Binding AddPairCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                        </wpfint:EventTrigger>
+                    </wpfint:Interaction.Triggers>
+                </Button>
+                <Button DockPanel.Dock="Right"
+                    Content="{x:Static expstrings:StringResources.Label_Cancel}">
+                    <wpfint:Interaction.Triggers>
+                        <wpfint:EventTrigger EventName="Click">
+                            <wpfint:InvokeCommandAction
+                                Command="{Binding CancelAddPairCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                        </wpfint:EventTrigger>
+                    </wpfint:Interaction.Triggers>
+                </Button>
+            </DockPanel>
+        </StackPanel>
+    </Border>
+
+    <Style x:Key="AddPairToggleStyle" TargetType="ToggleButton">
+        <Setter Property="Margin" Value="2"/>
+        
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Content" Value="{StaticResource AddPairPopup}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter Property="Content" Value="{StaticResource AddPairIcon}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <DataTemplate x:Key="ImageStimulusEditTemplate">
         <Grid DataContext="{Binding ItemObject}">
             <Grid.RowDefinitions>
@@ -68,34 +127,41 @@
 
     <DataTemplate x:Key="PairTemplate">
         <Border Style="{StaticResource PairBorder}"
-                        Margin="2">
-            <Grid Background="{StaticResource PairTemplateBrush}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Grid.Row="0" Text="{Binding LocatorId}" Margin="2"/>
-                <Line Grid.Row="1" Stroke="Chocolate" StrokeThickness="0.5"
-                      X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
-                <TextBlock Grid.Row="2" Text="{Binding StimulusId}" Margin="2"/>
-            </Grid>
+                Background="{StaticResource PairTemplateBrush}"
+                Margin="2">
+            <StackPanel Orientation="Vertical">
+                <Border Style="{StaticResource PairBorder}">
+                    <TextBlock Grid.Row="0" Text="{Binding LocatorId}" Margin="2"/>
+                </Border>
+                <Border Style="{StaticResource PairBorder}">
+                    <TextBlock Grid.Row="0" Text="{Binding StimulusId}" Margin="2"/>
+                </Border>
+            </StackPanel>
         </Border>
     </DataTemplate>
-    
+
     <DataTemplate x:Key="StepTemplate">
         <StackPanel Orientation="Vertical" Margin="1"
                     Background="{StaticResource StepTemplateBrush}">
-            <StackPanel Orientation="Horizontal">
+            <DockPanel LastChildFill="False">
                 <TextBlock Text="{x:Static expstrings:StringResources.Label_StepTime}"
+                           DockPanel.Dock="Left" VerticalAlignment="Top"
                            Margin="2"/>
                 <TextBox Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"
+                         DockPanel.Dock="Left" VerticalAlignment="Top"
                          Margin="2"/>
-                <TextBlock Text="ms" Margin="2"/>
-            </StackPanel>
-            <ItemsControl ItemsSource="{Binding StepPairs}"
-                          ItemTemplate="{StaticResource PairTemplate}">
+                <TextBlock Text="ms"
+                           DockPanel.Dock="Left" VerticalAlignment="Top"
+                           Margin="2"/>
+
+                <ToggleButton x:Name="btnAddPair" DockPanel.Dock="Right"
+                              ToolTip="{x:Static expstrings:StringResources.Tooltip_btnAddPair}"
+                              Style="{StaticResource AddPairToggleStyle}"/>
+            </DockPanel>
+            <ItemsControl x:Name="PairItemsCtrl"
+                          ItemsSource="{Binding StepPairs}"
+                          ItemTemplate="{StaticResource PairTemplate}"
+                          ToolTip="{x:Static expstrings:StringResources.Tooltip_PairItemsCtrl}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"
@@ -114,7 +180,8 @@
                 <CheckBox IsChecked="{Binding IsFixed}"
                           Content="{x:Static expstrings:StringResources.Label_IsFixed}"
                           Margin="2"/>
-                <ItemsControl ItemsSource="{Binding Steps}"
+                <ItemsControl x:Name="StepItemsCtrl"
+                              ItemsSource="{Binding Steps}"
                               ItemTemplate="{StaticResource StepTemplate}"
                               HorizontalContentAlignment="Stretch"
                               Margin="2"/>
@@ -127,7 +194,8 @@
             <CheckBox IsChecked="{Binding MustShuffleTrials}"
                       Content="{x:Static expstrings:StringResources.Label_MustShuffleTrials}"
                       HorizontalAlignment="Right" Margin="2"/>
-            <ItemsControl ItemsSource="{Binding Trials}"
+            <ItemsControl x:Name="TrialItemsCtrl"
+                          ItemsSource="{Binding Trials}"
                           ItemTemplate="{StaticResource TrialTemplate}"
                           FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
                           HorizontalContentAlignment="Stretch"/>
