@@ -28,7 +28,7 @@ namespace HurPsyExp.ExpDesign
         /// <summary>
         /// The observable collection equivalent to the `ExpPair` list in the inner object
         /// </summary>
-        public ObservableCollection<PairViewModel> PairVMs { get; set; }
+        public ObservableCollection<ExpPair> PairVMs { get; set; }
 
         /// <summary>
         /// The parametrized constructor for this specialized viewmodel
@@ -40,23 +40,23 @@ namespace HurPsyExp.ExpDesign
 
             foreach (ExpPair pr in st.StepPairs)
             {
-                PairVMs.Add(new PairViewModel(pr));
+                PairVMs.Add(pr);
             }
         }
 
         [RelayCommand]
-        private void AddPair()
+        private void AddPair(DependencyPair dpobj)
         {
-            if (!string.IsNullOrEmpty(DesignViewModel.TempLocatorId)
-                && !string.IsNullOrEmpty(DesignViewModel.TempStimulusId))
+            if (dpobj.Object1 is string locId && dpobj.Object2 is string stimid)
             {
-                ExpPair pr = new ExpPair(DesignViewModel.TempLocatorId, DesignViewModel.TempStimulusId);
-                ((ExpStep)ItemObject).AddPair(pr);
-                PairVMs.Add(new PairViewModel(pr));
-                // Revert the temp pair static properties so they won't affect the future attempts
-                DesignViewModel.TempLocatorId = null;
-                DesignViewModel.TempStimulusId = null;
+                if (!string.IsNullOrEmpty(locId) && !string.IsNullOrEmpty(stimid))
+                {
+                    ExpPair pr = new ExpPair(locId, stimid);
+                    ((ExpStep) ItemObject).StepPairs.Add(pr);
+                    PairVMs.Add(pr);
+                }
             }
+
             AddingMode = false;
         }
 

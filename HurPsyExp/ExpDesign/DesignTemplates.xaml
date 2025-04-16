@@ -40,21 +40,27 @@
 
     <Border x:Key="AddPairPopup" x:Shared="False"
             Style="{StaticResource PairBorder}">
+        
+        <Border.Resources>
+            <!--This local resource is to pass along Ids selected on comboboxes as a CommandParameter-->
+            <expdesign:DependencyPair x:Key="TempPair"/>
+        </Border.Resources>
+        
         <StackPanel x:Name="PairSelectionPanel" Orientation="Vertical">
             <Border Style="{StaticResource PairBorder}">
-                <ComboBox x:Name="cbLocatorIds"
+                <ComboBox Name="cbLocatorIds"
                           DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
                           ItemsSource="{Binding LocatorVMs}"
-                          Text="{Binding Path=(expdesign:DesignViewModel.TempLocatorId), Mode=OneWayToSource}"
-                          DisplayMemberPath="TempId"/>
+                          DisplayMemberPath="TempId"
+                          Text="{Binding Source={StaticResource TempPair}, Path=Object1}"/>
             </Border>
 
             <Border Style="{StaticResource PairBorder}">
-                <ComboBox x:Name="cbStimulusIds"
+                <ComboBox Name="cbStimulusIds"
                           DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
                           ItemsSource="{Binding StimulusVMs}"
-                          Text="{Binding Path=(expdesign:DesignViewModel.TempStimulusId), Mode=OneWayToSource}"
-                          DisplayMemberPath="TempId"/>
+                          DisplayMemberPath="TempId"
+                          Text="{Binding Source={StaticResource TempPair}, Path=Object2}"/>
             </Border>
             
             <DockPanel LastChildFill="False">
@@ -64,7 +70,8 @@
                     <wpfint:Interaction.Triggers>
                         <wpfint:EventTrigger EventName="Click">
                             <wpfint:InvokeCommandAction
-                                Command="{Binding AddPairCommand}"/>
+                                Command="{Binding AddPairCommand}"
+                                CommandParameter="{StaticResource TempPair}"/>
                         </wpfint:EventTrigger>
                     </wpfint:Interaction.Triggers>
                 </Button>

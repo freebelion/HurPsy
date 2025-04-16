@@ -96,20 +96,9 @@ namespace HurPsyExp.ExpDesign
         /// Collection of viewmodels associated with the experiment's trial blocks
         /// </summary>
         public ObservableCollection<IdObjectViewModel> BlockVMs { get; set; }
-
-        /// <summary>
-        /// This static property if passing along `Stimulus` Id selected on the bottom combobox of **AddPairPopup**
-        /// </summary>
-        public static string? TempStimulusId { get; set; }
-
-        /// <summary>
-        /// This static property if passing along `Locator` Id selected on the top combobox of **AddPairPopup**
-        /// </summary>
-        public static string? TempLocatorId { get; set; }
         #endregion
 
         #region Constructor(s)
-
         /// <summary>
         /// This default constructor starts with a new experiment definition and empty VM collections
         /// </summary>
@@ -132,7 +121,6 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Methods
-
         private void LoadTestExperiment()
         {
             string openfilename = @"C:\Users\freeb\Documents\HurPsyTest\deney1\deney1.xml";
