@@ -63,6 +63,11 @@
                 </MenuItem>
             </Menu>
 
+            <ToggleButton x:Name="btnEditMode" IsChecked="{Binding EditMode}"
+                          Style="{StaticResource DesignToggleStyle}">
+                <Image Source="/Images/editmode.png" Stretch="Fill"/>
+            </ToggleButton>
+
             <ToggleButton x:Name="btnAddingMode" IsChecked="{Binding AddingMode}"
                           Style="{StaticResource DesignToggleStyle}">
                 <Image Source="/Images/increment.png" Stretch="Fill"/>

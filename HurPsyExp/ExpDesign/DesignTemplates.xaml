@@ -33,7 +33,7 @@
 
             <TextBox Grid.Column="1" Margin="2"
                      Text="{Binding Path=TempId}"
-                     IsEnabled="{Binding Path=Editable}"
+                     IsEnabled="{Binding Path=DataContext.EditMode, RelativeSource={RelativeSource AncestorType= Window}}"
                      VerticalAlignment="Top"/>
         </Grid>
     </DataTemplate>
@@ -65,25 +65,13 @@
             
             <DockPanel LastChildFill="False">
                 <Button DockPanel.Dock="Left"
-                    Content="{x:Static expstrings:StringResources.Label_OK}">
-                    
-                    <wpfint:Interaction.Triggers>
-                        <wpfint:EventTrigger EventName="Click">
-                            <wpfint:InvokeCommandAction
-                                Command="{Binding AddPairCommand}"
-                                CommandParameter="{StaticResource TempPair}"/>
-                        </wpfint:EventTrigger>
-                    </wpfint:Interaction.Triggers>
-                </Button>
+                        Content="{x:Static expstrings:StringResources.Label_OK}"
+                        Command="{Binding AddPairCommand}"
+                        CommandParameter="{StaticResource TempPair}"/>
+
                 <Button DockPanel.Dock="Right"
-                    Content="{x:Static expstrings:StringResources.Label_Cancel}">
-                    <wpfint:Interaction.Triggers>
-                        <wpfint:EventTrigger EventName="Click">
-                            <wpfint:InvokeCommandAction
-                                Command="{Binding CancelAddPairCommand}"/>
-                        </wpfint:EventTrigger>
-                    </wpfint:Interaction.Triggers>
-                </Button>
+                        Content="{x:Static expstrings:StringResources.Label_Cancel}"
+                        Command="{Binding CancelAddPairCommand}"/>
             </DockPanel>
         </StackPanel>
     </Border>
@@ -211,13 +199,21 @@
             <StackPanel Orientation="Vertical"
                         Background="{StaticResource TrialTemplateBrush}">
                 <DockPanel LastChildFill="False">
-                    <CheckBox DockPanel.Dock="Right"
+                    <TextBlock DockPanel.Dock="Left"
+                               Text="{Binding TempId}" Margin="2"/>
+                    <CheckBox DockPanel.Dock="Left"
                               IsChecked="{Binding ItemObject.IsFixed}"
                               Content="{x:Static expstrings:StringResources.Label_IsFixed}"
                               Margin="2"/>
 
-                    <TextBlock DockPanel.Dock="Left"
-                               Text="{Binding TempId}" Margin="2"/>
+
+                    <Button DockPanel.Dock="Right"
+                            Style="{StaticResource DesignButtonStyle}"
+                            Command="{Binding AddStepCommand}"
+                            ToolTip="{x:Static expstrings:StringResources.Tooltip_AddStep}">
+                        <Image Source="/Images/AddStep.png"
+                               Stretch="Fill"/>
+                    </Button>
                 </DockPanel>
                 <ItemsControl x:Name="StepVMsCtrl"
                               ItemsSource="{Binding StepVMs}"
@@ -249,16 +245,10 @@
                         HorizontalAlignment="Stretch">
                 <Button x:Name="btnAddSingleTrial"
                         Style="{StaticResource DesignButtonStyle}"
+                        Command="{Binding AddSingleTrialCommand}"
                         ToolTip="{x:Static expstrings:StringResources.Tooltip_AddSingleTrial}">
                     <Image Source="/Images/addsingletrial.png"
                            Stretch="Fill"/>
-
-                    <wpfint:Interaction.Triggers>
-                        <wpfint:EventTrigger EventName="Click">
-                            <wpfint:InvokeCommandAction
-                                Command="{Binding AddSingleTrialCommand}"/>
-                        </wpfint:EventTrigger>
-                    </wpfint:Interaction.Triggers>
                 </Button>
             </StackPanel>
 
@@ -271,16 +261,10 @@
 
                 <Button Grid.Column="0" VerticalAlignment="Stretch"
                         Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                        Command="{Binding PreviousTrialCommand}"
                         ToolTip="{x:Static expstrings:StringResources.Tooltip_PreviousTrial}">
                     <Image Grid.Column="0" Source="/Images/previous.png"
                            Stretch="UniformToFill"/>
-
-                    <wpfint:Interaction.Triggers>
-                        <wpfint:EventTrigger EventName="Click">
-                            <wpfint:InvokeCommandAction
-                                Command="{Binding PreviousTrialCommand}"/>
-                        </wpfint:EventTrigger>
-                    </wpfint:Interaction.Triggers>
                 </Button>
 
                 <StackPanel Grid.Column="1" Orientation="Vertical">
@@ -293,22 +277,16 @@
                              ItemsSource="{Binding TrialVMs}"
                              ItemTemplate="{StaticResource IdObjectVMTemplate}"
                              SelectionMode="Single"
-                             SelectedIndex="{Binding CurrentTrialIndex, Mode=OneWay}"
-                             IsEnabled="False"/>
+                             SelectedIndex="{Binding CurrentTrialIndex, Mode=TwoWay}"
+                             IsEnabled="True"/>
                 </StackPanel>
 
                 <Button Grid.Column="2" VerticalAlignment="Stretch"
                         Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                        Command="{Binding NextTrialCommand}"
                         ToolTip="{x:Static expstrings:StringResources.Tooltip_NextTrial}">
                     <Image Grid.Column="0" Source="/Images/next.png"
                            Stretch="UniformToFill"/>
-
-                    <wpfint:Interaction.Triggers>
-                        <wpfint:EventTrigger EventName="Click">
-                            <wpfint:InvokeCommandAction
-                                Command="{Binding NextTrialCommand}"/>
-                        </wpfint:EventTrigger>
-                    </wpfint:Interaction.Triggers>
                 </Button>
 
             </Grid>

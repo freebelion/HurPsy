@@ -20,7 +20,7 @@ namespace HurPsyExp.ExpDesign
         /// The privately stored index of `CurrentTrial`
         /// </summary>
         [ObservableProperty]
-        private int currentTrialIndex;
+        private int currentTrialIndex = -1;
         /// <summary>
         /// This field will keep track of the index for the current trial being edited
         /// </summary>
@@ -40,15 +40,23 @@ namespace HurPsyExp.ExpDesign
         {
             TrialVMs = [];
 
-            foreach(ExpTrial tr in blck.Trials)
-            { TrialVMs.Add(new TrialViewModel(tr)); }
+            foreach (ExpTrial tr in blck.Trials)
+            { AddTrialVM(tr); }
 
-            CurrentTrialIndex = -1;
+            if (TrialVMs.Count > 0)
+            { CurrentTrialIndex = 0; }
+        }
+
+        private void AddTrialVM(ExpTrial tr)
+        {
+            TrialViewModel trvm = new TrialViewModel(tr);
+            trvm.IdChanged += TrialIdChanged;
+            TrialVMs.Add(trvm);
         }
 
         partial void OnCurrentTrialIndexChanged(int value)
         {
-            if (CurrentTrialIndex >=0 && TrialVMs.Count > CurrentTrialIndex)
+            if (CurrentTrialIndex >= 0 && TrialVMs.Count > CurrentTrialIndex)
             {
                 CurrentTrial = TrialVMs[CurrentTrialIndex];
                 CurrentTrial.Selected = true;
@@ -81,9 +89,17 @@ namespace HurPsyExp.ExpDesign
         private void AddSingleTrial()
         {
             ExpTrial newTrial = new ExpTrial();
-            ((ExpBlock) ItemObject).AddTrial(newTrial);
-            TrialVMs.Add(new TrialViewModel(newTrial));
+            ((ExpBlock)ItemObject).AddTrial(newTrial);
+            AddTrialVM(newTrial);
             CurrentTrialIndex = TrialVMs.Count - 1;
+        }
+
+        private void TrialIdChanged(object? sender, IdChangeEventArgs e)
+        {
+            if (sender is TrialViewModel trvm && !string.IsNullOrEmpty(e.NewId))
+            {
+                ((ExpTrial)trvm.ItemObject).Id = e.NewId;
+            }
         }
     }
 }

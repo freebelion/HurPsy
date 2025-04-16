@@ -403,6 +403,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Step.
+        /// </summary>
+        public static string Tooltip_AddStep {
+            get {
+                return ResourceManager.GetString("Tooltip_AddStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Locator-Stimulus Pair.
         /// </summary>
         public static string Tooltip_btnAddPair {

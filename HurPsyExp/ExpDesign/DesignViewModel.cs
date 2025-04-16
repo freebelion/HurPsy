@@ -51,6 +51,12 @@ namespace HurPsyExp.ExpDesign
         private string displayContentLabel;
 
         /// <summary>
+        /// The boolean indicator of editing Mode
+        /// </summary>
+        [ObservableProperty]
+        private bool editMode;
+
+        /// <summary>
         /// The boolean indicator of Add Items Mode
         /// </summary>
         [ObservableProperty]
@@ -111,6 +117,7 @@ namespace HurPsyExp.ExpDesign
             BlockVMs = [];
           
             AddingMode = false;
+            EditMode = false;
             DisplayContent = [];
             SelectedItemVM = null;
             DisplayContentChoice = ContentChoice.NoDefinitions;

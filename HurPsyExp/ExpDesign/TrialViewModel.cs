@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
+using CommunityToolkit.Mvvm.Input;
 using HurPsyLib;
 
 namespace HurPsyExp.ExpDesign
@@ -31,5 +32,12 @@ namespace HurPsyExp.ExpDesign
             { StepVMs.Add(new StepViewModel(st)); }
         }
 
+        [RelayCommand]
+        private void AddStep()
+        {
+            ExpStep st = new ExpStep();
+            ((ExpTrial) ItemObject).AddStep(st);
+            StepVMs.Add(new StepViewModel(st));
+        }
     }
 }

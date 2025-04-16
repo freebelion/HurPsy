@@ -285,4 +285,8 @@
     <value>Add a single trial</value>
     <comment>Tooltip for the button in BlockEditTemplate which adds one single-step trial to the block</comment>
   </data>
+  <data name="Tooltip_AddStep" xml:space="preserve">
+    <value>Add Step</value>
+    <comment>Tooltip for the button in TrialEditTemplate which adds a step to the trial</comment>
+  </data>
 </root>
