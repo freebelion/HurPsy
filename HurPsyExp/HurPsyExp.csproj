@@ -34,6 +34,8 @@
     <None Remove="Images\previous.svg" />
     <None Remove="Images\sbase.png" />
     <None Remove="Images\sbase.svg" />
+    <None Remove="Images\trial.png" />
+    <None Remove="Images\trial.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +67,7 @@
     <Resource Include="Images\PointLocator.png" />
     <Resource Include="Images\previous.png" />
     <Resource Include="Images\sbase.png" />
+    <Resource Include="Images\trial.png" />
   </ItemGroup>
 
 </Project>

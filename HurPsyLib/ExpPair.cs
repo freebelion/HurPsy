@@ -37,9 +37,9 @@ namespace HurPsyLib
         /// <summary>
         /// This parametrized constructor uses the given Ids for initialization.
         /// </summary>
-        /// <param name="stimId"></param>
-        /// <param name="locId"></param>
-        public ExpPair(string stimId, string locId)
+        /// <param name="locId">Locator mId</param>
+        /// <param name="stimId">Stimulus Id</param>
+        public ExpPair(string locId, string stimId)
         {
             StimulusId = stimId;
             LocatorId = locId;

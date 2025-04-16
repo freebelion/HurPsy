@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -97,23 +98,18 @@ namespace HurPsyExp.ExpDesign
         public ObservableCollection<IdObjectViewModel> BlockVMs { get; set; }
 
         /// <summary>
-        /// `LocatorVM` selected on the top combobox of the `AddPair` popup
+        /// This static property if passing along `Stimulus` Id selected on the bottom combobox of **AddPairPopup**
         /// </summary>
-        [ObservableProperty]
-        private IdObjectViewModel? selectedLocatorVM;
+        public static string? TempStimulusId { get; set; }
 
         /// <summary>
-        /// `StimulusVM` selected on the bottom combobox of the `AddPair` popup
+        /// This static property if passing along `Locator` Id selected on the top combobox of **AddPairPopup**
         /// </summary>
-        [ObservableProperty]
-        private IdObjectViewModel? selectedStimulusVM;
-
-        [ObservableProperty]
-        private ExpTrial? currentTrial;
-        
+        public static string? TempLocatorId { get; set; }
         #endregion
 
         #region Constructor(s)
+
         /// <summary>
         /// This default constructor starts with a new experiment definition and empty VM collections
         /// </summary>
@@ -124,16 +120,35 @@ namespace HurPsyExp.ExpDesign
             StimulusVMs = [];
             LocatorVMs = [];
             BlockVMs = [];
-
+          
             AddingMode = false;
             DisplayContent = [];
             SelectedItemVM = null;
             DisplayContentChoice = ContentChoice.NoDefinitions;
             DisplayContentLabel = StringResources.Header_Definitions;
+
+            LoadTestExperiment();
         }
         #endregion
 
         #region Methods
+
+        private void LoadTestExperiment()
+        {
+            string openfilename = @"C:\Users\freeb\Documents\HurPsyTest\deney1\deney1.xml";
+            Experiment? tryexp = Utility.LoadFromXml<Experiment>(openfilename);
+            if (tryexp != null)
+            {
+                _experiment = tryexp;
+                _experiment.FileName = openfilename;
+                CreateVMs();
+                DisplayContentChoice = ContentChoice.StimulusDefinitions;
+                ChooseContent(DisplayContentChoice);
+            }
+            else
+            { throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotLoaded + openfilename); }
+        }
+
         /// <summary>
         /// This little function creates a VM associated with an experiment item and initializes it.
         /// </summary>
@@ -338,40 +353,7 @@ namespace HurPsyExp.ExpDesign
             IdObjectViewModel blckvm = CreateVM(blck);
             BlockVMs.Add(blckvm);
         }
-
-        [RelayCommand]
-        private void AddPair(object sender)
-        {
-            if( sender is ToggleButton btn)
-            {
-                if (btn.DataContext is ExpStep stp)
-                {
-                    if (SelectedLocatorVM != null && SelectedStimulusVM != null)
-                    {
-                        stp.AddPair(SelectedStimulusVM.ItemObject.Id, SelectedLocatorVM.ItemObject.Id);
-                        ItemsControl itemsCtrl = Utility.FindParent<ItemsControl>(btn, "StepItemsCtrl");
-                        itemsCtrl.Items.Refresh();
-                    }
-
-                    SelectedStimulusVM = null;
-                    SelectedLocatorVM = null;
-
-                    btn.IsChecked = false;
-                }
-            }
-        }
-
-        [RelayCommand]
-        private void CancelAddPair(object sender)
-        {
-            if (sender is ToggleButton btn)
-            {
-                SelectedStimulusVM = null;
-                SelectedLocatorVM = null;
-
-                btn.IsChecked = false;
-            }
-        }
+        
         #endregion
 
         #region Events
@@ -384,14 +366,6 @@ namespace HurPsyExp.ExpDesign
             AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
             AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
             AddingBlockMode = AddingMode && (DisplayContentChoice == ContentChoice.BlockDefinitions);
-        }
-
-        partial void OnSelectedItemVMChanged(IdObjectViewModel? value)
-        {
-            if(value != null && value.ItemObject is ExpBlock blck)
-            {
-                CurrentTrial = blck.Trials[0];
-            }
         }
 
         /// <summary>
@@ -416,6 +390,9 @@ namespace HurPsyExp.ExpDesign
                     case Locator loc:
                         if (!_experiment.LocatorIdChanged(loc, e.NewId))
                         { idobjvm.TempId = loc.Id; }
+                        break;
+                    case ExpBlock blck:
+                        blck.Id = e.NewId;
                         break;
                 }
             }

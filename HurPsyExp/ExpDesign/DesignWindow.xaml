@@ -70,7 +70,8 @@
 
             <Menu>
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_AddStimulus}"
-                          Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
+                          Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
+                          VerticalContentAlignment="Center">
                     <MenuItem.Icon>
                         <Image Source="/Images/AddStimulus.png"/>
                     </MenuItem.Icon>
@@ -85,7 +86,8 @@
                 </MenuItem>
 
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_AddLocator}"
-                          Visibility="{Binding AddingLocatorMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
+                          Visibility="{Binding AddingLocatorMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
+                          VerticalContentAlignment="Center">
                     <MenuItem.Icon>
                         <Image Source="/Images/AddLocator.png"/>
                     </MenuItem.Icon>
@@ -101,7 +103,8 @@
 
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_AddBlock}"
                           Command="{Binding AddingBlockCommand}"
-                          Visibility="{Binding AddingBlockMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
+                          Visibility="{Binding AddingBlockMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
+                          VerticalContentAlignment="Center">
                     <MenuItem.Icon>
                         <Image Source="/Images/AddBlock.png"/>
                     </MenuItem.Icon>
@@ -202,7 +205,7 @@
                           VerticalScrollBarVisibility="Visible">
                 <ContentControl VerticalAlignment="Top"
                                 Content="{Binding SelectedItemVM}"
-                                ContentTemplateSelector="{StaticResource idobjTemplateSelector}"
+                                ContentTemplateSelector="{StaticResource editTemplateSelector}"
                                 FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}">
                     <ContentControl.Template>
                         <ControlTemplate TargetType="ContentControl">

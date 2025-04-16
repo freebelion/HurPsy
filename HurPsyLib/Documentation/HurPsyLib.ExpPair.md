@@ -28,17 +28,21 @@ public ExpPair();
 This parametrized constructor uses the given Ids for initialization.
 
 ```csharp
-public ExpPair(string stimId, string locId);
+public ExpPair(string locId, string stimId);
 ```
 #### Parameters
+
+<a name='HurPsyLib.ExpPair.ExpPair(string,string).locId'></a>
+
+`locId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+Locator mId
 
 <a name='HurPsyLib.ExpPair.ExpPair(string,string).stimId'></a>
 
 `stimId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
-<a name='HurPsyLib.ExpPair.ExpPair(string,string).locId'></a>
-
-`locId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+Stimulus Id
 ### Properties
 
 <a name='HurPsyLib.ExpPair.LocatorId'></a>

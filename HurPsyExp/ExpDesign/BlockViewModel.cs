@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HurPsyLib;
@@ -23,7 +25,12 @@ namespace HurPsyExp.ExpDesign
         /// This field will keep track of the index for the current trial being edited
         /// </summary>
         [ObservableProperty]
-        private ExpTrial? currentTrial;
+        private TrialViewModel? currentTrial;
+
+        /// <summary>
+        /// Observable collection of viewmodels representing the block trials
+        /// </summary>
+        public ObservableCollection<TrialViewModel> TrialVMs { get; set; }
 
         /// <summary>
         /// This parametrized constructor defers to the base class.
@@ -31,49 +38,52 @@ namespace HurPsyExp.ExpDesign
         /// <param name="blck"></param>
         public BlockViewModel(ExpBlock blck) : base(blck)
         {
-            CurrentTrialIndex = 0;
-            GetCurrentTrial();
+            TrialVMs = [];
+
+            foreach(ExpTrial tr in blck.Trials)
+            { TrialVMs.Add(new TrialViewModel(tr)); }
+
+            CurrentTrialIndex = -1;
         }
 
-        /// <summary>
-        /// A shortcut method to access the inner block of trials
-        /// </summary>
-        /// <returns></returns>
-        private ExpBlock GetBlockItem() => (ExpBlock) ItemObject;
-
-        /// <summary>
-        /// A readonly property to access the current Trial being edited
-        /// </summary>
-        public void GetCurrentTrial()
+        partial void OnCurrentTrialIndexChanged(int value)
         {
-            if (GetBlockItem().Trials.Count > CurrentTrialIndex)
-            { CurrentTrial = GetBlockItem().Trials[CurrentTrialIndex]; }
+            if (CurrentTrialIndex >=0 && TrialVMs.Count > CurrentTrialIndex)
+            {
+                CurrentTrial = TrialVMs[CurrentTrialIndex];
+                CurrentTrial.Selected = true;
+            }
+
             else { CurrentTrial = null; }
         }
 
         [RelayCommand]
         private void PreviousTrial()
         {
-            if (GetBlockItem().Trials.Count > 0
+            if (TrialVMs.Count > 0
                 && CurrentTrialIndex > 0)
             {
                 CurrentTrialIndex--;
-                GetCurrentTrial();
             }
         }
 
         [RelayCommand]
         private void NextTrial()
         {
-            if (GetBlockItem().Trials.Count > 0
-                && GetBlockItem().Trials.Count > 1 + CurrentTrialIndex)
+            if (TrialVMs.Count > 0
+                && TrialVMs.Count > 1 + CurrentTrialIndex)
             {
                 CurrentTrialIndex++;
-                GetCurrentTrial();
             }
         }
 
         [RelayCommand]
-        private void AddSingleTrial() => GetBlockItem().Trials.Add(new ExpTrial());     
+        private void AddSingleTrial()
+        {
+            ExpTrial newTrial = new ExpTrial();
+            ((ExpBlock) ItemObject).AddTrial(newTrial);
+            TrialVMs.Add(new TrialViewModel(newTrial));
+            CurrentTrialIndex = TrialVMs.Count - 1;
+        }
     }
 }

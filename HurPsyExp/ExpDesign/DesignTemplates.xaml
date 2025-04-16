@@ -11,36 +11,60 @@
     </ResourceDictionary.MergedDictionaries>
     
     <BooleanToVisibilityConverter x:Key="bvisConverter"/>
-    <expdesign:IdObjectTemplateSelector x:Key="idobjTemplateSelector"/>
-
+    <expdesign:IdObjectEditTemplateSelector x:Key="editTemplateSelector"/>
+    
     <Image x:Key="AddPairIcon" Source="/Images/increment.png" x:Shared="False"
            Width="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
            Height="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
            Stretch="Fill"/>
 
+
+    <DataTemplate x:Key="IdObjectVMTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Margin="2"
+                   Style="{StaticResource IconImageStyle}"                                                                                                                                                                                                      
+                   Source="{Binding Path=IconImage}"
+                   VerticalAlignment="Top"/>
+
+            <TextBox Grid.Column="1" Margin="2"
+                     Text="{Binding Path=TempId}"
+                     IsEnabled="{Binding Path=Editable}"
+                     VerticalAlignment="Top"/>
+        </Grid>
+    </DataTemplate>
+
     <Border x:Key="AddPairPopup" x:Shared="False"
-        Style="{StaticResource PairBorder}"
-        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
-        <StackPanel Orientation="Vertical">
+            Style="{StaticResource PairBorder}">
+        <StackPanel x:Name="PairSelectionPanel" Orientation="Vertical">
             <Border Style="{StaticResource PairBorder}">
-                <ComboBox ItemsSource="{Binding LocatorVMs}"
-                          DisplayMemberPath="TempId"
-                          SelectedItem="{Binding Path=SelectedLocatorVM, Mode=TwoWay}"/>
-            </Border>
-            <Border Style="{StaticResource PairBorder}">
-                <ComboBox ItemsSource="{Binding StimulusVMs}"
-                          DisplayMemberPath="TempId"
-                          SelectedItem="{Binding Path=SelectedStimulusVM, Mode=TwoWay}"/>
+                <ComboBox x:Name="cbLocatorIds"
+                          DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
+                          ItemsSource="{Binding LocatorVMs}"
+                          Text="{Binding Path=(expdesign:DesignViewModel.TempLocatorId), Mode=OneWayToSource}"
+                          DisplayMemberPath="TempId"/>
             </Border>
 
+            <Border Style="{StaticResource PairBorder}">
+                <ComboBox x:Name="cbStimulusIds"
+                          DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
+                          ItemsSource="{Binding StimulusVMs}"
+                          Text="{Binding Path=(expdesign:DesignViewModel.TempStimulusId), Mode=OneWayToSource}"
+                          DisplayMemberPath="TempId"/>
+            </Border>
+            
             <DockPanel LastChildFill="False">
                 <Button DockPanel.Dock="Left"
                     Content="{x:Static expstrings:StringResources.Label_OK}">
+                    
                     <wpfint:Interaction.Triggers>
                         <wpfint:EventTrigger EventName="Click">
                             <wpfint:InvokeCommandAction
-                                Command="{Binding AddPairCommand}"
-                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                                Command="{Binding AddPairCommand}"/>
                         </wpfint:EventTrigger>
                     </wpfint:Interaction.Triggers>
                 </Button>
@@ -49,8 +73,7 @@
                     <wpfint:Interaction.Triggers>
                         <wpfint:EventTrigger EventName="Click">
                             <wpfint:InvokeCommandAction
-                                Command="{Binding CancelAddPairCommand}"
-                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                                Command="{Binding CancelAddPairCommand}"/>
                         </wpfint:EventTrigger>
                     </wpfint:Interaction.Triggers>
                 </Button>
@@ -58,9 +81,10 @@
         </StackPanel>
     </Border>
 
+
     <Style x:Key="AddPairToggleStyle" TargetType="ToggleButton">
         <Setter Property="Margin" Value="2"/>
-        
+
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Content" Value="{StaticResource AddPairPopup}"/>
@@ -70,7 +94,8 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
+
     <DataTemplate x:Key="ImageStimulusEditTemplate">
         <Grid DataContext="{Binding ItemObject}">
             <Grid.RowDefinitions>
@@ -140,14 +165,14 @@
         </Border>
     </DataTemplate>
 
-    <DataTemplate x:Key="StepTemplate">
+    <DataTemplate x:Key="StepEditTemplate">
         <StackPanel Orientation="Vertical" Margin="1"
                     Background="{StaticResource StepTemplateBrush}">
             <DockPanel LastChildFill="False">
                 <TextBlock Text="{x:Static expstrings:StringResources.Label_StepTime}"
                            DockPanel.Dock="Left" VerticalAlignment="Top"
                            Margin="2"/>
-                <TextBox Text="{Binding StepTime.Milliseconds, StringFormat='0.0'}"
+                <TextBox Text="{Binding ItemObject.StepTime.Milliseconds, StringFormat='0.0'}"
                          DockPanel.Dock="Left" VerticalAlignment="Top"
                          Margin="2"/>
                 <TextBlock Text="ms"
@@ -155,40 +180,41 @@
                            Margin="2"/>
 
                 <ToggleButton x:Name="btnAddPair" DockPanel.Dock="Right"
+                              IsChecked="{Binding AddingMode, Mode=TwoWay}"
                               ToolTip="{x:Static expstrings:StringResources.Tooltip_btnAddPair}"
                               Style="{StaticResource AddPairToggleStyle}"/>
             </DockPanel>
-            <ItemsControl x:Name="PairItemsCtrl"
-                          ItemsSource="{Binding StepPairs}"
+            <ItemsControl x:Name="PairVMsCtrl"
+                          ItemsSource="{Binding PairVMs}"
                           ItemTemplate="{StaticResource PairTemplate}"
                           ToolTip="{x:Static expstrings:StringResources.Tooltip_PairItemsCtrl}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal"
-                                   Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=ActualWidth}"/>
+                                   Width="{Binding RelativeSource={RelativeSource AncestorType=StackPanel}, Path=ActualWidth}"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </StackPanel>
     </DataTemplate>
     
-    <DataTemplate x:Key="TrialTemplate">
-        <Border Margin="1" BorderBrush="{StaticResource TrialBorderBrush}" BorderThickness="1"
-                CornerRadius="2" Padding="2">
+    <DataTemplate x:Key="TrialEditTemplate">
+        <Border Margin="1" BorderBrush="{StaticResource TrialBorderBrush}"
+                BorderThickness="1" CornerRadius="2" Padding="2">
             <StackPanel Orientation="Vertical"
                         Background="{StaticResource TrialTemplateBrush}">
                 <DockPanel LastChildFill="False">
                     <CheckBox DockPanel.Dock="Right"
-                              IsChecked="{Binding IsFixed}"
+                              IsChecked="{Binding ItemObject.IsFixed}"
                               Content="{x:Static expstrings:StringResources.Label_IsFixed}"
                               Margin="2"/>
 
                     <TextBlock DockPanel.Dock="Left"
-                               Text="{Binding Id}" Margin="2"/>
+                               Text="{Binding TempId}" Margin="2"/>
                 </DockPanel>
-                <ItemsControl x:Name="StepItemsCtrl"
-                              ItemsSource="{Binding Steps}"
-                              ItemTemplate="{StaticResource StepTemplate}"
+                <ItemsControl x:Name="StepVMsCtrl"
+                              ItemsSource="{Binding StepVMs}"
+                              ItemTemplate="{StaticResource StepEditTemplate}"
                               HorizontalContentAlignment="Stretch"
                               Margin="2"/>
             </StackPanel>
@@ -228,7 +254,7 @@
                     </wpfint:Interaction.Triggers>
                 </Button>
             </StackPanel>
-            
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -249,12 +275,20 @@
                         </wpfint:EventTrigger>
                     </wpfint:Interaction.Triggers>
                 </Button>
-                
-                <ContentControl Grid.Column="1"
-                                Content="{Binding CurrentTrial}"
-                                ContentTemplate="{StaticResource TrialTemplate}"
-                                FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
-                                HorizontalContentAlignment="Stretch"/>
+
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <ContentControl Content="{Binding CurrentTrial}"
+                                    ContentTemplate="{StaticResource TrialEditTemplate}"
+                                    FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                                    HorizontalContentAlignment="Stretch"/>
+
+                    <ListBox Style="{StaticResource DesignListStyle}"
+                             ItemsSource="{Binding TrialVMs}"
+                             ItemTemplate="{StaticResource IdObjectVMTemplate}"
+                             SelectionMode="Single"
+                             SelectedIndex="{Binding CurrentTrialIndex, Mode=OneWay}"
+                             IsEnabled="False"/>
+                </StackPanel>
 
                 <Button Grid.Column="2" VerticalAlignment="Stretch"
                         Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
@@ -272,24 +306,5 @@
 
             </Grid>
         </StackPanel>
-    </DataTemplate>
-
-    <DataTemplate x:Key="IdObjectVMTemplate">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Column="0" Margin="2"
-                   Style="{StaticResource IconImageStyle}"
-                   Source="{Binding Path=IconImage}"
-                   VerticalAlignment="Top"/>
-
-            <TextBox Grid.Column="1" Margin="2"
-                     Text="{Binding Path=TempId}"
-                     IsEnabled="{Binding Path=Editable}"
-                     VerticalAlignment="Top"/>
-        </Grid>
     </DataTemplate>
 </ResourceDictionary>

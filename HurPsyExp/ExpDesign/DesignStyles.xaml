@@ -28,9 +28,6 @@
 
     <!--When applied to a `ListBoxItem`, this style makes it use the regular and selected brushes from the file *DesignBrushes.xaml*-->
     <Style x:Key="DesignListItem" TargetType="{x:Type ListBoxItem}">
-
-        <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
-
         <!-- Selecting a ListBoxItem whould make the bound item selected and editable.-->
         <Setter Property="IsSelected" Value="{Binding Selected}"/>
         <Setter Property="IsSelected" Value="{Binding Editable}"/>

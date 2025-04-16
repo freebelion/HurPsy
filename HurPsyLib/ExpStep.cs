@@ -12,7 +12,7 @@ namespace HurPsyLib
     /// a step being a collection of stimuli presented together, for a specified period of time.
     /// </summary>
     [DataContract]
-    public class ExpStep
+    public class ExpStep : IdObject
     {
         /// <summary>
         /// The Id pairs making up this step
@@ -38,9 +38,8 @@ namespace HurPsyLib
         /// <summary>
         /// This method adds a new `Stimulus`-`Locator` pair.
         /// </summary>
-        /// <param name="stimId">`Stimulus` Id</param>
-        /// <param name="locId">`Locator` Id</param>
-        public void AddPair(string stimId, string locId) => StepPairs.Add(new ExpPair(stimId, locId));
+        /// <param name="pr">`ExpPair` object to be added</param>
+        public void AddPair(ExpPair pr) => StepPairs.Add(pr);
 
         /// <summary>
         /// This method adds an array of pairs.

@@ -6,10 +6,10 @@ This class represents a trial step of an experiment,
 a step being a collection of stimuli presented together, for a specified period of time.
 
 ```csharp
-public class ExpStep
+public class ExpStep : HurPsyLib.IdObject
 ```
 
-Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; ExpStep
+Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [IdObject](HurPsyLib.IdObject.md 'HurPsyLib.IdObject') &#129106; ExpStep
 ### Constructors
 
 <a name='HurPsyLib.ExpStep.ExpStep()'></a>
@@ -50,28 +50,22 @@ public HurPsyLib.HurPsyTimePeriod StepTime { get; set; }
 [HurPsyTimePeriod](HurPsyLib.HurPsyTimePeriod.md 'HurPsyLib.HurPsyTimePeriod')
 ### Methods
 
-<a name='HurPsyLib.ExpStep.AddPair(string,string)'></a>
+<a name='HurPsyLib.ExpStep.AddPair(HurPsyLib.ExpPair)'></a>
 
-## ExpStep.AddPair(string, string) Method
+## ExpStep.AddPair(ExpPair) Method
 
 This method adds a new `Stimulus`-`Locator` pair.
 
 ```csharp
-public void AddPair(string stimId, string locId);
+public void AddPair(HurPsyLib.ExpPair pr);
 ```
 #### Parameters
 
-<a name='HurPsyLib.ExpStep.AddPair(string,string).stimId'></a>
+<a name='HurPsyLib.ExpStep.AddPair(HurPsyLib.ExpPair).pr'></a>
 
-`stimId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+`pr` [ExpPair](HurPsyLib.ExpPair.md 'HurPsyLib.ExpPair')
 
-`Stimulus` Id
-
-<a name='HurPsyLib.ExpStep.AddPair(string,string).locId'></a>
-
-`locId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
-`Locator` Id
+`ExpPair` object to be added
 
 <a name='HurPsyLib.ExpStep.AddPairs(HurPsyLib.ExpPair[])'></a>
 

@@ -12,6 +12,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 Derived  
 &#8627; [ExpBlock](HurPsyLib.ExpBlock.md 'HurPsyLib.ExpBlock')  
+&#8627; [ExpStep](HurPsyLib.ExpStep.md 'HurPsyLib.ExpStep')  
 &#8627; [ExpTrial](HurPsyLib.ExpTrial.md 'HurPsyLib.ExpTrial')  
 &#8627; [Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')  
 &#8627; [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')

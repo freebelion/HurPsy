@@ -13,7 +13,7 @@ namespace HurPsyExp.ExpDesign
     /// <summary>
     /// This class will select a template for an experiment item of `IdObject` type.
     /// </summary>
-    class IdObjectTemplateSelector : DataTemplateSelector
+    class IdObjectEditTemplateSelector : DataTemplateSelector
     {
         /// <summary>
         /// This is the implementation of the template selection method of the base class.
