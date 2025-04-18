@@ -28,6 +28,12 @@ namespace HurPsyExp.ExpDesign
         private TrialViewModel? currentTrial;
 
         /// <summary>
+        /// This is the basis of the property bound to the `ToggleButton` **btnAddMultipleTrial**.
+        /// </summary>
+        [ObservableProperty]
+        private bool addingMode;
+
+        /// <summary>
         /// Observable collection of viewmodels representing the block trials
         /// </summary>
         public ObservableCollection<TrialViewModel> TrialVMs { get; set; }
@@ -38,6 +44,7 @@ namespace HurPsyExp.ExpDesign
         /// <param name="blck"></param>
         public BlockViewModel(ExpBlock blck) : base(blck)
         {
+            AddingMode = false;
             TrialVMs = [];
 
             foreach (ExpTrial tr in blck.Trials)
@@ -92,6 +99,18 @@ namespace HurPsyExp.ExpDesign
             ((ExpBlock)ItemObject).AddTrial(newTrial);
             AddTrialVM(newTrial);
             CurrentTrialIndex = TrialVMs.Count - 1;
+        }
+
+        [RelayCommand]
+        private void AddMultipleTrial()
+        {
+            AddingMode = false;
+        }
+
+        [RelayCommand]
+        private void AddMultipleTrialCancel()
+        {
+            AddingMode = false;
         }
 
         private void TrialIdChanged(object? sender, IdChangeEventArgs e)

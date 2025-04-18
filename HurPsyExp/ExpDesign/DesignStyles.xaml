@@ -60,11 +60,7 @@
     </Style>
 
     <Style x:Key="DesignButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource ButtonBrush}"/>
-        <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
-        <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
         <Setter Property="Margin" Value="2"/>
-
         <Setter Property="Button.Effect">
             <Setter.Value>
                 <DropShadowEffect Color="SteelBlue" Direction="225" ShadowDepth="5" BlurRadius="5" Opacity="0.5"/>
@@ -93,6 +89,11 @@
         <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
         <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
         <Setter Property="Template" Value="{StaticResource DesignToggleTemplate}"/>
+        <Setter Property="ToggleButton.Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="SteelBlue" Direction="225" ShadowDepth="5" BlurRadius="5" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="NumericUpDownSlider" TargetType="Slider">

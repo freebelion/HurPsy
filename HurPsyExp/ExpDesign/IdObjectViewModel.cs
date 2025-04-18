@@ -49,6 +49,8 @@ namespace HurPsyExp.ExpDesign
         {
             get
             {
+                // Maybe this property should return references to image resources,
+                // but then there is the problem of accessing the resources by name.
                 switch (ItemObject)
                 {
                     case ImageStimulus imgstim:

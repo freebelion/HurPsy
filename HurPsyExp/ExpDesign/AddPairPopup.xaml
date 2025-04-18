@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:expapp="clr-namespace:HurPsyExp"
+                    xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
+                    xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
+                    xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib">
+    
+    <Image x:Key="AddPairIcon" Source="/Images/increment.png" x:Shared="False"
+           Width="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+           Height="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+           Stretch="Fill"/>
+
+    <DataTemplate x:Key="IdStringTemplate">
+        <TextBlock Text="{Binding}"/>
+    </DataTemplate>
+
+    <ScrollViewer x:Key="AddPairPopup" x:Shared="False"
+                  VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical">
+            <ComboBox Name="cbLocatorIds"
+                      ItemsSource="{Binding Path=DataContext.LocatorIds, RelativeSource={RelativeSource AncestorType=Window}, Mode=OneTime}"
+                      ItemTemplate="{StaticResource IdStringTemplate}"
+                      Text="{Binding Source={StaticResource ParamPair}, Path=Object1}"/>
+
+            <ComboBox Name="cbStimulusIds"
+                      ItemsSource="{Binding DataContext.StimulusIds, RelativeSource={RelativeSource AncestorType=Window}, Mode=OneTime}"
+                      ItemTemplate="{StaticResource IdStringTemplate}"
+                      Text="{Binding Source={StaticResource ParamPair}, Path=Object2}"/>
+
+            <DockPanel LastChildFill="False">
+                <Button DockPanel.Dock="Left"
+                        Content="{x:Static expstrings:StringResources.Label_OK}"
+                        Command="{Binding AddPairCommand}"
+                        CommandParameter="{StaticResource ParamPair}"/>
+
+                <Button DockPanel.Dock="Right"
+                        Content="{x:Static expstrings:StringResources.Label_Cancel}"
+                        Command="{Binding CancelAddPairCommand}"/>
+            </DockPanel>
+        </StackPanel>
+    </ScrollViewer>
+
+    <Style x:Key="AddPairToggleStyle" TargetType="ToggleButton">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="ToggleButton.Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="SteelBlue" Direction="225" ShadowDepth="5" BlurRadius="5" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Content" Value="{StaticResource AddPairPopup}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter Property="Content" Value="{StaticResource AddPairIcon}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

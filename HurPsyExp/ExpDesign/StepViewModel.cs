@@ -20,7 +20,7 @@ namespace HurPsyExp.ExpDesign
     public partial class StepViewModel : IdObjectViewModel
     {
         /// <summary>
-        /// This is the basis of the property bound to the `ToggleButton` **btnAddPair** with a popu that helkps add a pair of Ids.
+        /// This is the basis of the property bound to the `ToggleButton` **btnAddPair**.
         /// </summary>
         [ObservableProperty]
         private bool addingMode;
@@ -45,7 +45,7 @@ namespace HurPsyExp.ExpDesign
         }
 
         [RelayCommand]
-        private void AddPair(DependencyPair dpobj)
+        private void AddPair(ParameterPair dpobj)
         {
             if (dpobj.Object1 is string locId && dpobj.Object2 is string stimid)
             {

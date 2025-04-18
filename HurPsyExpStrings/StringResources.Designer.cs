@@ -394,6 +394,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add multiple trials.
+        /// </summary>
+        public static string Tooltip_AddMultipleTrial {
+            get {
+                return ResourceManager.GetString("Tooltip_AddMultipleTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add a single trial.
         /// </summary>
         public static string Tooltip_AddSingleTrial {

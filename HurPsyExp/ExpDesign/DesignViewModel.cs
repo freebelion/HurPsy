@@ -94,9 +94,37 @@ namespace HurPsyExp.ExpDesign
         public ObservableCollection<IdObjectViewModel> StimulusVMs { get; set; }
 
         /// <summary>
+        /// A list containing only the Ids of `Stimulus` objects (used with one time binding for adding pairs to steps or trials to blocks)
+        /// </summary>
+        public List<string> StimulusIds
+        {
+            get
+            {
+                List<string> stimIdList = new List<string>();
+                foreach (var stimvm in StimulusVMs)
+                { stimIdList.Add(stimvm.ItemObject.Id); }
+                return stimIdList;
+            }
+        }
+
+        /// <summary>
         /// Collection of viewmodels associated with the experiment's `Locator` objects
         /// </summary>
         public ObservableCollection<IdObjectViewModel> LocatorVMs { get; set; }
+
+        /// <summary>
+        /// A list containing only the Ids of `Locator` objects (used with one time binding for adding pairs to steps or trials to blocks)
+        /// </summary>
+        public List<string> LocatorIds
+        {
+            get
+            {
+                List<string> locIdList = new List<string>();
+                foreach (var locvm in LocatorVMs)
+                { locIdList.Add(locvm.ItemObject.Id); }
+                return locIdList;
+            }
+        }
 
         /// <summary>
         /// Collection of viewmodels associated with the experiment's trial blocks

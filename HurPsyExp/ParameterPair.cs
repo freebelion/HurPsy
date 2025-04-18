@@ -5,24 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace HurPsyExp.ExpDesign
+namespace HurPsyExp
 {
     /// <summary>
     /// This class will help pass a pair of objects as a CommandParameter.
     /// The objects will be bound to properties of some controls in templates of AddPairPopup and AddTrialPopup
     /// </summary>
-    public class DependencyPair : DependencyObject
+    public class ParameterPair : DependencyObject
     {
         /// <summary>
         /// First bindable object
         /// </summary>
         public static readonly DependencyProperty Object1Property =
-            DependencyProperty.Register("Object1", typeof(object), typeof(DependencyPair));
+            DependencyProperty.Register("Object1", typeof(object), typeof(ParameterPair));
         /// <summary>
         /// Second bindable object
         /// </summary>
         public static readonly DependencyProperty Object2Property =
-            DependencyProperty.Register("Object2", typeof(object), typeof(DependencyPair));
+            DependencyProperty.Register("Object2", typeof(object), typeof(ParameterPair));
         
         /// <summary>
         /// The actual Object1 property for this instance

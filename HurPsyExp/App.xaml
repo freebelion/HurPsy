@@ -10,7 +10,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <!-- Bindings were easier when the AppSettings instance was created as a resource instead of a property of the App class. -->
-            <expapp:AppSettings x:Key="AppSettings"/>
+            <expapp:AppSettings x:Key="AppSettings" x:Shared="True"/>
+            <expapp:ParameterPair x:Key="ParamPair" x:Shared="False"/>
             <sys:Boolean x:Key="True">True</sys:Boolean>
             <sys:Boolean x:Key="False">False</sys:Boolean>
         </ResourceDictionary>
