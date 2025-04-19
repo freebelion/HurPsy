@@ -39,26 +39,41 @@
                 </MenuItem>
 
                 <MenuItem Header="{Binding DisplayContentLabel}">
-                    <MenuItem Header="{x:Static expstrings:StringResources.Header_StimulusDefinitions}"
-                              Command="{Binding ChooseContentCommand}"
+                    <MenuItem Command="{Binding ChooseContentCommand}"
                               CommandParameter="{x:Static expapp:ContentChoice.StimulusDefinitions}">
-                        <MenuItem.Icon>
-                            <Image Source="/Images/sbase.png"/>
-                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource StimulusIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_StimulusDefinitions}"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </MenuItem.Header>
                     </MenuItem>
-                    <MenuItem Header="{x:Static expstrings:StringResources.Header_LocatorDefinitions}"
-                              Command="{Binding ChooseContentCommand}"
+                    <MenuItem Command="{Binding ChooseContentCommand}"
                               CommandParameter="{x:Static expapp:ContentChoice.LocatorDefinitions}">
-                        <MenuItem.Icon>
-                            <Image Source="/Images/lbase.png"/>
-                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource LocatorIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_LocatorDefinitions}"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </MenuItem.Header>
                     </MenuItem>
-                    <MenuItem Header="{x:Static expstrings:StringResources.Header_BlockDefinitions}"
-                              Command="{Binding ChooseContentCommand}"
+                    <MenuItem Command="{Binding ChooseContentCommand}"
                               CommandParameter="{x:Static expapp:ContentChoice.BlockDefinitions}">
-                        <MenuItem.Icon>
-                            <Image Source="/Images/block.png"/>
-                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource BlockIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_BlockDefinitions}"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
             </Menu>
@@ -72,15 +87,14 @@
                           Style="{StaticResource DesignToggleStyle}"/>
 
             <Menu>
-                <MenuItem Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
-                          VerticalContentAlignment="Center">
+                <MenuItem Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <ContentControl Content="{StaticResource AddStimulusIcon}"
                                             Style="{StaticResource IconImageStyle}"
                                             VerticalAlignment="Center"/>
                             <TextBlock Text="{x:Static expstrings:StringResources.Header_AddStimulus}"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center" Margin="2"/>
                         </StackPanel>
                     </MenuItem.Header>
 
@@ -92,21 +106,20 @@
                                                 Style="{StaticResource IconImageStyle}"
                                                 VerticalAlignment="Center"/>
                                 <TextBlock Text="{x:Static expstrings:StringResources.Header_AddImageStimulus}"
-                                           VerticalAlignment="Center"/>
+                                           VerticalAlignment="Center" Margin="2"/>
                             </StackPanel>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
 
-                <MenuItem Visibility="{Binding AddingLocatorMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
-                          VerticalContentAlignment="Center">
+                <MenuItem Visibility="{Binding AddingLocatorMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <ContentControl Content="{StaticResource AddLocatorIcon}"
                                             Style="{StaticResource IconImageStyle}"
                                             VerticalAlignment="Center"/>
                             <TextBlock Text="{x:Static expstrings:StringResources.Header_AddStimulus}"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center" Margin="2"/>
                         </StackPanel>
                     </MenuItem.Header>
 
@@ -118,22 +131,21 @@
                                                 Style="{StaticResource IconImageStyle}"
                                                 VerticalAlignment="Center"/>
                                 <TextBlock Text="{x:Static expstrings:StringResources.Header_AddPointLocator}"
-                                           VerticalAlignment="Center"/>
+                                           VerticalAlignment="Center" Margin="2"/>
                             </StackPanel>
                         </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
 
                 <MenuItem Command="{Binding AddingBlockCommand}"
-                          Visibility="{Binding AddingBlockMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
-                          VerticalContentAlignment="Center">
+                          Visibility="{Binding AddingBlockMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <ContentControl Content="{StaticResource AddBlockIcon}"
                                             Style="{StaticResource IconImageStyle}"
                                             VerticalAlignment="Center"/>
                             <TextBlock Text="{x:Static expstrings:StringResources.Header_AddBlock}"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center" Margin="2"/>
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
@@ -154,55 +166,61 @@
             </Expander.Header>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <DockPanel LastChildFill="False"
-                           DataContext="{StaticResource AppSettings}">
+                <StackPanel Orientation="Vertical"
+                            DataContext="{StaticResource AppSettings}">
 
-                    <DockPanel.Resources>
+                    <StackPanel.Resources>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextAlignment" Value="Center"/>
                         </Style>
-                    </DockPanel.Resources>
+                    </StackPanel.Resources>
                     
-                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                    <TextBlock Margin="0,2,0,0"
                                Text="{x:Static expstrings:StringResources.Label_FontSize}"/>
-                    <Slider DockPanel.Dock="Top" x:Name="Slider_FontSize"
+                    <Slider x:Name="Slider_FontSize"
                             Style="{StaticResource NumericUpDownSlider}"
                             Value="{Binding FontSize}"
                             Minimum="{Binding MinFontSize}"
                             Maximum="{Binding MaxFontSize}"/>
 
-                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                    <TextBlock Margin="0,2,0,0"
                                Text="{x:Static expstrings:StringResources.Label_SmallFontSize}"/>
-                    <Slider DockPanel.Dock="Top" x:Name="Slider_SmallFontSize"
+                    <Slider x:Name="Slider_SmallFontSize"
                             Style="{StaticResource NumericUpDownSlider}"
                             Value="{Binding SmallFontSize}"
                             Minimum="{Binding MinFontSize}"
                             Maximum="{Binding FontSize}"/>
 
-                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                    <TextBlock Margin="0,2,0,0"
                                Text="{x:Static expstrings:StringResources.Label_MenuFontSize}"/>
-                    <Slider DockPanel.Dock="Top" x:Name="Slider_MenuFontSize"
+                    <Slider x:Name="Slider_MenuFontSize"
                             Style="{StaticResource NumericUpDownSlider}"
                             Value="{Binding MenuFontSize}"
                             Minimum="{Binding MinFontSize}"
                             Maximum="{Binding FontSize}"/>
 
-                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                    <TextBlock Margin="0,2,0,0"
                                Text="{x:Static expstrings:StringResources.Label_CommandButtonHeight}"/>
-                    <Slider DockPanel.Dock="Top" x:Name="Slider_CommandButtonHeight"
+                    <Slider x:Name="Slider_CommandButtonHeight"
                             Style="{StaticResource NumericUpDownSlider}"
                             Value="{Binding CommandButtonHeight}"
                             Minimum="{Binding MinButtonHeight}"
                             Maximum="{Binding MaxButtonHeight}"/>
 
-                    <TextBlock Margin="0,2,0,0" DockPanel.Dock="Top"
+                    <TextBlock Margin="0,2,0,0"
                                Text="{x:Static expstrings:StringResources.Label_IconImageHeight}"/>
-                    <Slider DockPanel.Dock="Top" x:Name="Slider_IconImageHeight"
+                    <Slider x:Name="Slider_IconImageHeight"
                             Style="{StaticResource NumericUpDownSlider}"
                             Value="{Binding IconImageHeight}"
                             Minimum="{Binding MinButtonHeight}"
                             Maximum="{Binding MaxButtonHeight}"/>
-                </DockPanel>
+
+                    <TextBlock Margin="0,2,0,0"
+                               Text="{x:Static expstrings:StringResources.Label_StepTime}"/>
+                    <TextBox Text="{Binding StepTime}"
+                             TextAlignment="Center"
+                             Background="{StaticResource ControlBackground}"/>
+                </StackPanel>
             </ScrollViewer>
         </Expander>
 
@@ -225,7 +243,7 @@
             <GridSplitter Grid.Column="1"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Stretch"
-                          Background="Transparent" 
+                          Background="Silver" 
                           ShowsPreview="True"
                           Width="5"/>
 

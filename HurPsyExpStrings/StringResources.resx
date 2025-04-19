@@ -242,8 +242,8 @@
     <comment>Label for the checkbox for the same-named property in TrialTemplate</comment>
   </data>
   <data name="Label_StepTime" xml:space="preserve">
-    <value>Step Time</value>
-    <comment>Label for the textbox bound to StepTime property on StepTemplate</comment>
+    <value>Step Time (ms)</value>
+    <comment>Label for the textbox bound to StepTime property on StepTemplate and the TextBox to modify thw named setting</comment>
   </data>
   <data name="Label_VisualWidth" xml:space="preserve">
     <value>Visual Height</value>
@@ -300,5 +300,9 @@
   <data name="Label_RepeatCount" xml:space="preserve">
     <value>Repeat Count</value>
     <comment>Label for the NumericUpDownSlider control in AddTrialPopup</comment>
+  </data>
+  <data name="Error_CannotAccessSettings" xml:space="preserve">
+    <value>Cannot access AppSettings!</value>
+    <comment>Error message for the relevant situation</comment>
   </data>
 </root>

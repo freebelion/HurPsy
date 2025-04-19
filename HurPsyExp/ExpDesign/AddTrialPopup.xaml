@@ -65,8 +65,8 @@
                     <Button Content="{StaticResource AddIcon}"
                             DockPanel.Dock="Left"
                             Command="{Binding AddIdPairSetCommand}"
-                            Height="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
-                            Width="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                            Height="{Binding Path=SmallFontSize, Source={StaticResource AppSettings}}"
+                            Width="{Binding Path=SmallFontSize, Source={StaticResource AppSettings}}"
                             VerticalAlignment="Top"
                             Margin="2"/>
                 </DockPanel>

@@ -61,6 +61,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot access AppSettings!.
+        /// </summary>
+        public static string Error_CannotAccessSettings {
+            get {
+                return ResourceManager.GetString("Error_CannotAccessSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experiment definition Files (*.xml) |*.xml.
         /// </summary>
         public static string Filter_ExperimentFiles {
@@ -358,7 +367,7 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Step Time.
+        ///   Looks up a localized string similar to Step Time (ms).
         /// </summary>
         public static string Label_StepTime {
             get {

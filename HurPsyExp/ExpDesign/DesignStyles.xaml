@@ -7,14 +7,14 @@
 
     <!-- All Image controls should have the height specified in the settings. -->
     <Style x:Key="IconImageStyle" TargetType="ContentControl">
-        <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
-        <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
+        <Setter Property="Height" Value="{Binding Path=IconImageHeight, Source={StaticResource AppSettings}}"/>
+        <Setter Property="Width" Value="{Binding Path=IconImageHeight, Source={StaticResource AppSettings}}"/>
     </Style>
     
     <!-- All menus will use this style. -->
     <Style TargetType="Menu">
         <Setter Property="Background" Value="{StaticResource MenuBrush}"/>
-        <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"/>
+        <Setter Property="FontSize" Value="{Binding Path=MenuFontSize, Source={StaticResource AppSettings}}"/>
         <Setter Property="Padding" Value="2"/>
     </Style>
 
@@ -55,15 +55,15 @@
     </Style>
 
     <Style x:Key="DesignListStyle" TargetType="ListBox">
-        <Setter Property="FontSize" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+        <Setter Property="FontSize" Value="{Binding Path=SmallFontSize, Source={StaticResource AppSettings}}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource DesignListItem}"/>
     </Style>
 
     <Style x:Key="DesignButtonStyle" TargetType="Button">
         <Setter Property="Margin" Value="2"/>
-        <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
-        <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"/>
+        <Setter Property="Height" Value="{Binding Path=CommandButtonHeight, Source={StaticResource AppSettings}}"/>
+        <Setter Property="Width" Value="{Binding Path=CommandButtonHeight, Source={StaticResource AppSettings}}"/>
         <Setter Property="Button.Effect">
             <Setter.Value>
                 <DropShadowEffect Color="SteelBlue" Direction="225" ShadowDepth="5" BlurRadius="5" Opacity="0.5"/>

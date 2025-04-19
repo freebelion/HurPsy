@@ -10,6 +10,20 @@ public class App : System.Windows.Application
 ```
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [System.Windows.Threading.DispatcherObject](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Threading.DispatcherObject 'System.Windows.Threading.DispatcherObject') &#129106; [System.Windows.Application](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Application 'System.Windows.Application') &#129106; App
+### Properties
+
+<a name='HurPsyExp.App.CurrentSettings'></a>
+
+## App.CurrentSettings Property
+
+An easy accessor for the AppSettings to use in the code
+
+```csharp
+public HurPsyExp.AppSettings CurrentSettings { get; }
+```
+
+#### Property Value
+[AppSettings](HurPsyExp.AppSettings.md 'HurPsyExp.AppSettings')
 ### Methods
 
 <a name='HurPsyExp.App.Application_Exit(object,System.Windows.ExitEventArgs)'></a>

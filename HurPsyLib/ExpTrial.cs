@@ -32,8 +32,6 @@ namespace HurPsyLib
         {
             Steps = [];
             IsFixed = false;
-            // Every trial must have at least one step (which may have to be step requiring a response)
-            AddStep(new ExpStep());
         }
 
         /// <summary>

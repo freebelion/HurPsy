@@ -273,6 +273,19 @@ public static readonly PropertyChangedEventArgs SmallFontSize;
 #### Field Value
 [System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs')
 
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StepTime'></a>
+
+## __KnownINotifyPropertyChangedArgs.StepTime Field
+
+The cached [System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') instance for all "StepTime" generated properties.
+
+```csharp
+public static readonly PropertyChangedEventArgs StepTime;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs')
+
 <a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TempId'></a>
 
 ## __KnownINotifyPropertyChangedArgs.TempId Field

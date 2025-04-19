@@ -73,3 +73,16 @@ This command implementation creates a new Id-pair set which shows up on **AddTri
 ```csharp
 private void AddIdPairSet();
 ```
+
+<a name='HurPsyExp.ExpDesign.TrialPattern.ConstructTrialSteps()'></a>
+
+## TrialPattern.ConstructTrialSteps() Method
+
+This method will construct an array of steps to be used in multiple single-step trials.
+
+```csharp
+public System.Collections.Generic.List<HurPsyLib.ExpStep> ConstructTrialSteps();
+```
+
+#### Returns
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[HurPsyLib.ExpStep](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.ExpStep 'HurPsyLib.ExpStep')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')

@@ -114,9 +114,6 @@
                 <TextBox Text="{Binding ItemObject.StepTime.Milliseconds, StringFormat='0.0'}"
                          DockPanel.Dock="Left" VerticalAlignment="Top"
                          Margin="2"/>
-                <TextBlock Text="ms"
-                           DockPanel.Dock="Left" VerticalAlignment="Top"
-                           Margin="2"/>
 
                 <ToggleButton x:Name="btnAddPair" DockPanel.Dock="Right"
                               IsChecked="{Binding AddingMode, Mode=TwoWay}"

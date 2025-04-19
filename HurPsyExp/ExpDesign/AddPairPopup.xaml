@@ -5,11 +5,6 @@
                     xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
                     xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib">
     
-    <Image x:Key="AddPairIcon" Source="/Images/increment.png" x:Shared="False"
-           Width="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
-           Height="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
-           Stretch="Fill"/>
-
     <ScrollViewer x:Key="AddPairPopup" x:Shared="False"
                   VerticalScrollBarVisibility="Auto">
         <ScrollViewer.Resources>

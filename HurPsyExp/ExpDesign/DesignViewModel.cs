@@ -151,7 +151,7 @@ namespace HurPsyExp.ExpDesign
             DisplayContentChoice = ContentChoice.NoDefinitions;
             DisplayContentLabel = StringResources.Header_Definitions;
 
-            LoadTestExperiment();
+            // LoadTestExperiment();
         }
         #endregion
 

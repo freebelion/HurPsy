@@ -132,9 +132,12 @@ namespace HurPsyExp.ExpDesign
             ExpBlock? blck = this.ItemObject as ExpBlock;
             if(blck != null)
             {
+                
+
                 // Construct single-step experiment trials by permuting the combinations in steplist
                 foreach (ExpStep stp in stepList)
                 {
+                    stp.StepTime.Milliseconds = ((App)Application.Current).CurrentSettings.StepTime;
                     ExpTrial tr = new ExpTrial();
                     tr.AddStep(stp);
                     blck.AddTrial(tr);

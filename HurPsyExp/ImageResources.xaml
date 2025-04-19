@@ -27,8 +27,12 @@
     <Image x:Key="DecrementIcon" x:Shared="False"
            Source="/Images/decrement.png" Stretch="UniformToFill"/>
 
+    <Image x:Key="StimulusIcon" x:Shared="False"
+           Source="/Images/sbase.png" Stretch="UniformToFill"/>
     <Image x:Key="ImageStimulusIcon" x:Shared="False"
            Source="/Images/ImageStimulus.png" Stretch="UniformToFill"/>
+    <Image x:Key="LocatorIcon" x:Shared="False"
+           Source="/Images/lbase.png" Stretch="UniformToFill"/>
     <Image x:Key="PointLocatorIcon" x:Shared="False"
            Source="/Images/PointLocator.png" Stretch="UniformToFill"/>
     <Image x:Key="BlockIcon" x:Shared="False"

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Documents;
 using CommunityToolkit.Mvvm.Input;
 using HurPsyLib;
@@ -39,6 +40,7 @@ namespace HurPsyExp.ExpDesign
         private void AddStep()
         {
             ExpStep st = new ExpStep();
+            st.StepTime.Milliseconds = ((App) Application.Current).CurrentSettings.StepTime;
             ((ExpTrial) ItemObject).AddStep(st);
             StepVMs.Add(new StepViewModel(st));
         }

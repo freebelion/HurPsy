@@ -2,6 +2,7 @@
 using System.Data;
 using System.IO;
 using System.Windows;
+using HurPsyLib;
 
 namespace HurPsyExp
 {
@@ -30,6 +31,20 @@ namespace HurPsyExp
         {
             AppSettings appSettings = (AppSettings)this.Resources["AppSettings"];
             appSettings.SerializeJson();
+        }
+
+        /// <summary>
+        /// An easy accessor for the AppSettings to use in the code
+        /// </summary>
+        public AppSettings CurrentSettings
+        {
+            get
+            {
+                AppSettings? curSettings = this.FindResource("AppSettings") as AppSettings;
+
+                if (curSettings != null) { return curSettings; }
+                else { throw new HurPsyException(HurPsyExpStrings.StringResources.Error_CannotAccessSettings); }
+            }
         }
     }
 

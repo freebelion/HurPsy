@@ -48,6 +48,13 @@ namespace HurPsyExp
         public double MaxButtonHeight { get; private set; }
 
         /// <summary>
+        /// Minimum value for any numerical setting which has to be zero or positive.
+        /// (Being an app-level setting, this property value won't be serialized)
+        /// </summary>
+        [JsonIgnore]
+        const double MinZero = 0;
+
+        /// <summary>
         /// The font size of the user interface
         /// </summary>
         [ObservableProperty]
@@ -95,6 +102,11 @@ namespace HurPsyExp
         [ObservableProperty]
         private LayoutChoice designLayout;
 
+        /// <summary>
+        /// The time period (in milliseconds) which will be applied to future trial steps until it is modified.
+        /// </summary>
+        [ObservableProperty]
+        private double stepTime = MinZero;
         #endregion
 
         #region Constructor(s)
@@ -223,6 +235,8 @@ namespace HurPsyExp
                         this.WindowWidth = loadedSettings.WindowWidth;
                         this.WindowHeight = loadedSettings.WindowHeight;
                         this.DesignLayout = loadedSettings.DesignLayout;
+
+                        this.StepTime = loadedSettings.StepTime;
                     }
                 }
             }

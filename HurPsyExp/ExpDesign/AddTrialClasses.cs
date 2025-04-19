@@ -85,6 +85,10 @@ namespace HurPsyExp.ExpDesign
             IdPairSets.Add(new IdPairSet());
         }
 
+        /// <summary>
+        /// This method will construct an array of steps to be used in multiple single-step trials.
+        /// </summary>
+        /// <returns></returns>
         public List<ExpStep> ConstructTrialSteps()
         {
             List<List<ExpPair>> pairLists = new List<List<ExpPair>>();

@@ -114,6 +114,20 @@ private double menuFontSize;
 #### Field Value
 [System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
 
+<a name='HurPsyExp.AppSettings.MinZero'></a>
+
+## AppSettings.MinZero Field
+
+Minimum value for any numerical setting which has to be zero or positive.  
+(Being an app-level setting, this property value won't be serialized)
+
+```csharp
+private const double MinZero = 0;
+```
+
+#### Field Value
+[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
+
 <a name='HurPsyExp.AppSettings.smallFontSize'></a>
 
 ## AppSettings.smallFontSize Field
@@ -122,6 +136,19 @@ The size of the small font used in item views
 
 ```csharp
 private double smallFontSize;
+```
+
+#### Field Value
+[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
+
+<a name='HurPsyExp.AppSettings.stepTime'></a>
+
+## AppSettings.stepTime Field
+
+The time period (in milliseconds) which will be applied to future trial steps until it is modified.
+
+```csharp
+private double stepTime;
 ```
 
 #### Field Value
@@ -322,6 +349,19 @@ The size of the small font used in item views
 
 ```csharp
 public double SmallFontSize { get; set; }
+```
+
+#### Property Value
+[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
+
+<a name='HurPsyExp.AppSettings.StepTime'></a>
+
+## AppSettings.StepTime Property
+
+The time period (in milliseconds) which will be applied to future trial steps until it is modified.
+
+```csharp
+public double StepTime { get; set; }
 ```
 
 #### Property Value
