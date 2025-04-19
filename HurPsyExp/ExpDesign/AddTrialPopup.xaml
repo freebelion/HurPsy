@@ -3,46 +3,91 @@
                     xmlns:expapp="clr-namespace:HurPsyExp"
                     xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
                     xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
-                    xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib">
-
-    <Image x:Key="AddSingleTrialIcon" Source="/Images/addsingletrial.png" x:Shared="False"
-           Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-           Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-           Stretch="Fill"/>
-
-    <Image x:Key="AddMultipleTrialIcon" Source="/Images/AddMultipleTrial.png" x:Shared="False"
-           Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-           Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-           Stretch="Fill"/>
-
+                    xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib"
+                    xmlns:wpfint="http://schemas.microsoft.com/xaml/behaviors">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ExpDesign/DesignStyles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
     <DataTemplate x:Key="IdSelectTemplate">
         <StackPanel Orientation="Horizontal">
-            <CheckBox Content="{Binding TempId}"/>
+            <CheckBox Content="{Binding}"
+                      IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="IdPairSetTemplate">
+        <StackPanel Orientation="Vertical">
+            <ComboBox ItemsSource="{Binding Path=DataContext.LocatorIds, RelativeSource={RelativeSource AncestorType=Window}, Mode=OneTime}"
+                      Text="{Binding LocatorId}"/>
+            <ListBox ItemsSource="{Binding Path=DataContext.StimulusIds, RelativeSource={RelativeSource AncestorType=Window}, Mode=OneTime}"
+                     ItemTemplate="{StaticResource IdSelectTemplate}"
+                     SelectionMode="Multiple">
+                <wpfint:Interaction.Triggers>
+                    <wpfint:EventTrigger EventName="SelectionChanged">
+                        <wpfint:InvokeCommandAction Command="{Binding IdSelectionChangedCommand}"
+                                                    PassEventArgsToCommand="True"/>
+                    </wpfint:EventTrigger>
+                </wpfint:Interaction.Triggers>
+            </ListBox>
+            <DockPanel LastChildFill="False">
+                <Slider DockPanel.Dock="Right"
+                        Value="{Binding RepeatCount}"
+                        Minimum="1"
+                        Maximum="100"
+                        Style="{StaticResource NumericUpDownSlider}"
+                        VerticalAlignment="Center"/>
+                <TextBlock DockPanel.Dock="Right"
+                           Text="{x:Static expstrings:StringResources.Label_RepeatCount}"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"/>
+            </DockPanel>
         </StackPanel>
     </DataTemplate>
 
     <ScrollViewer x:Key="AddMultipleTrialPopup" x:Shared="False"
-                  VerticalScrollBarVisibility="Auto">
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Auto">
+
+        <ScrollViewer.Resources>
+            <!--This resource will carry the selected Ids as a CommandParameter-->
+            <expdesign:TrialPattern x:Key="TempTrials"/>
+        </ScrollViewer.Resources>
+
         <StackPanel Orientation="Vertical">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <DockPanel LastChildFill="True"
+                       DataContext="{Binding Source={StaticResource TempTrials}}">
+                <DockPanel DockPanel.Dock="Top"
+                           LastChildFill="False"
+                           Background="{StaticResource ControlBackground}">
+                    <TextBlock DockPanel.Dock="Left"
+                               Text="{x:Static expstrings:StringResources.Label_AddIdPairSet}"/>
+                    <Button Content="{StaticResource AddIcon}"
+                            DockPanel.Dock="Left"
+                            Command="{Binding AddIdPairSetCommand}"
+                            Height="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                            Width="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                            VerticalAlignment="Top"
+                            Margin="2"/>
+                </DockPanel>
 
-                <ListBox Name="lbLocatorIds" Grid.Column="0"
-                         ItemsSource="{Binding Path=DataContext.LocatorVMs, RelativeSource={RelativeSource AncestorType=Window}}"
-                         ItemTemplate="{StaticResource IdSelectTemplate}"/>
+                <ItemsControl ItemsSource="{Binding IdPairSets}"
+                              ItemTemplate="{StaticResource IdPairSetTemplate}"
+                              Margin="2">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
 
-                <ListBox Name="lbStimulusIds" Grid.Column="1"
-                         ItemsSource="{Binding Path=DataContext.StimulusVMs, RelativeSource={RelativeSource AncestorType=Window}}"
-                         ItemTemplate="{StaticResource IdSelectTemplate}"/>
-            </Grid>
+                </ItemsControl>
+            </DockPanel>
 
             <DockPanel LastChildFill="False">
                 <Button DockPanel.Dock="Left"
                         Content="{x:Static expstrings:StringResources.Label_OK}"
-                        Command="{Binding AddMultipleTrialCommand}"/>
+                        Command="{Binding AddMultipleTrialCommand}"
+                        CommandParameter="{StaticResource TempTrials}"/>
 
                 <Button DockPanel.Dock="Right"
                         Content="{x:Static expstrings:StringResources.Label_Cancel}"
@@ -50,24 +95,5 @@
             </DockPanel>
         </StackPanel>
     </ScrollViewer>
-
-
-    <Style x:Key="AddMultipleTrialToggleStyle" TargetType="ToggleButton">
-        <Setter Property="Margin" Value="2"/>
-        <Setter Property="ToggleButton.Effect">
-            <Setter.Value>
-                <DropShadowEffect Color="SteelBlue" Direction="225" ShadowDepth="5" BlurRadius="5" Opacity="0.5"/>
-            </Setter.Value>
-        </Setter>
-
-        <Style.Triggers>
-            <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Content" Value="{StaticResource AddMultipleTrialPopup}"/>
-            </Trigger>
-            <Trigger Property="IsChecked" Value="False">
-                <Setter Property="Content" Value="{StaticResource AddMultipleTrialIcon}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
 
 </ResourceDictionary>

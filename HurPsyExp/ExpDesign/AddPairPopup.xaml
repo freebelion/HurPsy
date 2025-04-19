@@ -10,28 +10,27 @@
            Height="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
            Stretch="Fill"/>
 
-    <DataTemplate x:Key="IdStringTemplate">
-        <TextBlock Text="{Binding}"/>
-    </DataTemplate>
-
     <ScrollViewer x:Key="AddPairPopup" x:Shared="False"
                   VerticalScrollBarVisibility="Auto">
+        <ScrollViewer.Resources>
+            <!--This resource will carry the selected Ids as a CommandParameter-->
+            <psylib:ExpPair x:Key="TempPair"/>
+        </ScrollViewer.Resources>
+        
         <StackPanel Orientation="Vertical">
             <ComboBox Name="cbLocatorIds"
                       ItemsSource="{Binding Path=DataContext.LocatorIds, RelativeSource={RelativeSource AncestorType=Window}, Mode=OneTime}"
-                      ItemTemplate="{StaticResource IdStringTemplate}"
-                      Text="{Binding Source={StaticResource ParamPair}, Path=Object1}"/>
+                      Text="{Binding Source={StaticResource TempPair}, Path=LocatorId}"/>
 
             <ComboBox Name="cbStimulusIds"
                       ItemsSource="{Binding DataContext.StimulusIds, RelativeSource={RelativeSource AncestorType=Window}, Mode=OneTime}"
-                      ItemTemplate="{StaticResource IdStringTemplate}"
-                      Text="{Binding Source={StaticResource ParamPair}, Path=Object2}"/>
+                      Text="{Binding Source={StaticResource TempPair}, Path=StimulusId}"/>
 
             <DockPanel LastChildFill="False">
                 <Button DockPanel.Dock="Left"
                         Content="{x:Static expstrings:StringResources.Label_OK}"
                         Command="{Binding AddPairCommand}"
-                        CommandParameter="{StaticResource ParamPair}"/>
+                        CommandParameter="{StaticResource TempPair}"/>
 
                 <Button DockPanel.Dock="Right"
                         Content="{x:Static expstrings:StringResources.Label_Cancel}"

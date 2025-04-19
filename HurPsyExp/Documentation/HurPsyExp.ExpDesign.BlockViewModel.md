@@ -61,11 +61,11 @@ private RelayCommand? addMultipleTrialCancelCommand;
 The backing field for [AddMultipleTrialCommand](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCommand 'HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCommand').
 
 ```csharp
-private RelayCommand? addMultipleTrialCommand;
+private RelayCommand<object>? addMultipleTrialCommand;
 ```
 
 #### Field Value
-[CommunityToolkit.Mvvm.Input.RelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand 'CommunityToolkit.Mvvm.Input.RelayCommand')
+[CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
 
 <a name='HurPsyExp.ExpDesign.BlockViewModel.addSingleTrialCommand'></a>
 
@@ -150,7 +150,7 @@ public bool AddingMode { get; set; }
 
 ## BlockViewModel.AddMultipleTrialCancelCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCancel](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCancel 'HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCancel').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [AddMultipleTrialCancel()](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCancel() 'HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCancel()').
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand AddMultipleTrialCancelCommand { get; }
@@ -163,20 +163,20 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand AddMultipleTrialCancelCommand {
 
 ## BlockViewModel.AddMultipleTrialCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrial](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrial 'HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrial').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1') instance wrapping [AddMultipleTrial(object)](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrial(object) 'HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrial(object)').
 
 ```csharp
-public CommunityToolkit.Mvvm.Input.IRelayCommand AddMultipleTrialCommand { get; }
+public CommunityToolkit.Mvvm.Input.IRelayCommand<object> AddMultipleTrialCommand { get; }
 ```
 
 #### Property Value
-[CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand')
+[CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
 
 <a name='HurPsyExp.ExpDesign.BlockViewModel.AddSingleTrialCommand'></a>
 
 ## BlockViewModel.AddSingleTrialCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.BlockViewModel.AddSingleTrial](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.BlockViewModel.AddSingleTrial 'HurPsyExp.ExpDesign.BlockViewModel.AddSingleTrial').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [AddSingleTrial()](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.AddSingleTrial() 'HurPsyExp.ExpDesign.BlockViewModel.AddSingleTrial()').
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand AddSingleTrialCommand { get; }
@@ -215,7 +215,7 @@ public int CurrentTrialIndex { get; set; }
 
 ## BlockViewModel.NextTrialCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.BlockViewModel.NextTrial](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.BlockViewModel.NextTrial 'HurPsyExp.ExpDesign.BlockViewModel.NextTrial').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [NextTrial()](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.NextTrial() 'HurPsyExp.ExpDesign.BlockViewModel.NextTrial()').
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand NextTrialCommand { get; }
@@ -228,7 +228,7 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand NextTrialCommand { get; }
 
 ## BlockViewModel.PreviousTrialCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.BlockViewModel.PreviousTrial](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.BlockViewModel.PreviousTrial 'HurPsyExp.ExpDesign.BlockViewModel.PreviousTrial').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [PreviousTrial()](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.PreviousTrial() 'HurPsyExp.ExpDesign.BlockViewModel.PreviousTrial()').
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand PreviousTrialCommand { get; }
@@ -251,11 +251,71 @@ public System.Collections.ObjectModel.ObservableCollection<HurPsyExp.ExpDesign.T
 [System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[TrialViewModel](HurPsyExp.ExpDesign.TrialViewModel.md 'HurPsyExp.ExpDesign.TrialViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
 ### Methods
 
+<a name='HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrial(object)'></a>
+
+## BlockViewModel.AddMultipleTrial(object) Method
+
+This command implementation adds multiple trials based on the combination of `Stimulus`-`Locator` pairing choices of the user.
+
+```csharp
+private void AddMultipleTrial(object param);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrial(object).param'></a>
+
+`param` [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.AddMultipleTrialCancel()'></a>
+
+## BlockViewModel.AddMultipleTrialCancel() Method
+
+This command implementation will cancel adding multiple trials and close the **AddTrialPopup**.
+
+```csharp
+private void AddMultipleTrialCancel();
+```
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.AddSingleTrial()'></a>
+
+## BlockViewModel.AddSingleTrial() Method
+
+This command implementation adds one new single-step trial and moves the `CurrentTrial` to that one.
+
+```csharp
+private void AddSingleTrial();
+```
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.AddTrialVM(HurPsyLib.ExpTrial)'></a>
+
+## BlockViewModel.AddTrialVM(ExpTrial) Method
+
+This private method adds a viewmodel object associated with a `ExpTrial` object
+
+```csharp
+private void AddTrialVM(HurPsyLib.ExpTrial tr);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.AddTrialVM(HurPsyLib.ExpTrial).tr'></a>
+
+`tr` [HurPsyLib.ExpTrial](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.ExpTrial 'HurPsyLib.ExpTrial')
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.NextTrial()'></a>
+
+## BlockViewModel.NextTrial() Method
+
+This command implementation moves to the next trial as `CurrentTrial`
+
+```csharp
+private void NextTrial();
+```
+
 <a name='HurPsyExp.ExpDesign.BlockViewModel.OnCurrentTrialIndexChanged(int)'></a>
 
 ## BlockViewModel.OnCurrentTrialIndexChanged(int) Method
 
-Executes the logic for when [CurrentTrialIndex](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.CurrentTrialIndex 'HurPsyExp.ExpDesign.BlockViewModel.CurrentTrialIndex') just changed.
+This inner method updates the `CurrentTrial` property after `CurrentTrialIndex` has changed.
 
 ```csharp
 private void OnCurrentTrialIndexChanged(int value);
@@ -266,7 +326,31 @@ private void OnCurrentTrialIndexChanged(int value);
 
 `value` [System.Int32](https://docs.microsoft.com/en-us/dotnet/api/System.Int32 'System.Int32')
 
-The new property value that was set.
+<a name='HurPsyExp.ExpDesign.BlockViewModel.PreviousTrial()'></a>
 
-### Remarks
-This method is invoked right after the value of [CurrentTrialIndex](HurPsyExp.ExpDesign.BlockViewModel.md#HurPsyExp.ExpDesign.BlockViewModel.CurrentTrialIndex 'HurPsyExp.ExpDesign.BlockViewModel.CurrentTrialIndex') is changed.
+## BlockViewModel.PreviousTrial() Method
+
+This command implementation moves to the previous trial as `CurrentTrial`
+
+```csharp
+private void PreviousTrial();
+```
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.TrialIdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs)'></a>
+
+## BlockViewModel.TrialIdChanged(object, IdChangeEventArgs) Method
+
+This event handler updates the Id of an `ExpTrial` object when its viewmodel reports an Id change.
+
+```csharp
+private void TrialIdChanged(object? sender, HurPsyExp.ExpDesign.IdChangeEventArgs e);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.TrialIdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).sender'></a>
+
+`sender` [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
+
+<a name='HurPsyExp.ExpDesign.BlockViewModel.TrialIdChanged(object,HurPsyExp.ExpDesign.IdChangeEventArgs).e'></a>
+
+`e` [IdChangeEventArgs](HurPsyExp.ExpDesign.IdChangeEventArgs.md 'HurPsyExp.ExpDesign.IdChangeEventArgs')

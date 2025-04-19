@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
 namespace HurPsyExp.ExpDesign
@@ -45,7 +46,7 @@ namespace HurPsyExp.ExpDesign
         /// <summary>
         /// The path of the image file for the icon representing the inner element
         /// </summary>
-        public string IconImage
+        public object? IconImage
         {
             get
             {
@@ -54,16 +55,16 @@ namespace HurPsyExp.ExpDesign
                 switch (ItemObject)
                 {
                     case ImageStimulus imgstim:
-                        return @"../Images/ImageStimulus.png";
+                        return App.Current.TryFindResource("ImageStimulusIcon");
                     case PointLocator ploc:
-                        return @"../Images/PointLocator.png";
+                        return App.Current.TryFindResource("PointLocatorIcon");
                     case ExpBlock blck:
-                        return @"../Images/block.png";
+                        return App.Current.TryFindResource("BlockIcon"); ;
                     case ExpTrial tr:
-                        return @"../Images/trial.png";
+                        return App.Current.TryFindResource("TrialIcon"); ;
                 }
 
-                return string.Empty;
+                return null;
             }
         }
 

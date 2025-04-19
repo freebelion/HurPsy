@@ -54,6 +54,10 @@ namespace HurPsyExp.ExpDesign
             { CurrentTrialIndex = 0; }
         }
 
+        /// <summary>
+        /// This private method adds a viewmodel object associated with a `ExpTrial` object
+        /// </summary>
+        /// <param name="tr"></param>
         private void AddTrialVM(ExpTrial tr)
         {
             TrialViewModel trvm = new TrialViewModel(tr);
@@ -61,6 +65,10 @@ namespace HurPsyExp.ExpDesign
             TrialVMs.Add(trvm);
         }
 
+        /// <summary>
+        /// This inner method updates the `CurrentTrial` property after `CurrentTrialIndex` has changed.
+        /// </summary>
+        /// <param name="value"></param>
         partial void OnCurrentTrialIndexChanged(int value)
         {
             if (CurrentTrialIndex >= 0 && TrialVMs.Count > CurrentTrialIndex)
@@ -72,6 +80,10 @@ namespace HurPsyExp.ExpDesign
             else { CurrentTrial = null; }
         }
 
+        /// <summary>
+        /// This command implementation moves to the previous trial as `CurrentTrial`
+        /// </summary>
+
         [RelayCommand]
         private void PreviousTrial()
         {
@@ -82,6 +94,9 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// This command implementation moves to the next trial as `CurrentTrial`
+        /// </summary>
         [RelayCommand]
         private void NextTrial()
         {
@@ -92,6 +107,9 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// This command implementation adds one new single-step trial and moves the `CurrentTrial` to that one.
+        /// </summary>
         [RelayCommand]
         private void AddSingleTrial()
         {
@@ -101,18 +119,29 @@ namespace HurPsyExp.ExpDesign
             CurrentTrialIndex = TrialVMs.Count - 1;
         }
 
+        /// <summary>
+        /// This command implementation adds multiple trials based on the combination of `Stimulus`-`Locator` pairing choices of the user.
+        /// </summary>
         [RelayCommand]
-        private void AddMultipleTrial()
+        private void AddMultipleTrial(object param)
         {
             AddingMode = false;
         }
 
+        /// <summary>
+        /// This command implementation will cancel adding multiple trials and close the **AddTrialPopup**.
+        /// </summary>
         [RelayCommand]
         private void AddMultipleTrialCancel()
         {
             AddingMode = false;
         }
 
+        /// <summary>
+        /// This event handler updates the Id of an `ExpTrial` object when its viewmodel reports an Id change.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TrialIdChanged(object? sender, IdChangeEventArgs e)
         {
             if (sender is TrialViewModel trvm && !string.IsNullOrEmpty(e.NewId))

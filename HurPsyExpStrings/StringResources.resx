@@ -293,4 +293,12 @@
     <value>Add Step</value>
     <comment>Tooltip for the button in TrialEditTemplate which adds a step to the trial</comment>
   </data>
+  <data name="Label_AddIdPairSet" xml:space="preserve">
+    <value>Add Id Pair Set</value>
+    <comment>Label for the button to add an IdPairSet in AddTrialPopup</comment>
+  </data>
+  <data name="Label_RepeatCount" xml:space="preserve">
+    <value>Repeat Count</value>
+    <comment>Label for the NumericUpDownSlider control in AddTrialPopup</comment>
+  </data>
 </root>

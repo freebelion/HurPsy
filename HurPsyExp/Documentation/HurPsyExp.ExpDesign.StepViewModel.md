@@ -50,11 +50,11 @@ private bool addingMode;
 The backing field for [AddPairCommand](HurPsyExp.ExpDesign.StepViewModel.md#HurPsyExp.ExpDesign.StepViewModel.AddPairCommand 'HurPsyExp.ExpDesign.StepViewModel.AddPairCommand').
 
 ```csharp
-private RelayCommand<ParameterPair>? addPairCommand;
+private RelayCommand<ExpPair>? addPairCommand;
 ```
 
 #### Field Value
-[CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[ParameterPair](HurPsyExp.ParameterPair.md 'HurPsyExp.ParameterPair')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
+[CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[HurPsyLib.ExpPair](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.ExpPair 'HurPsyLib.ExpPair')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
 
 <a name='HurPsyExp.ExpDesign.StepViewModel.cancelAddPairCommand'></a>
 
@@ -87,20 +87,20 @@ public bool AddingMode { get; set; }
 
 ## StepViewModel.AddPairCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1') instance wrapping [HurPsyExp.ExpDesign.StepViewModel.AddPair(HurPsyExp.ParameterPair)](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.StepViewModel.AddPair#HurPsyExp_ExpDesign_StepViewModel_AddPair_HurPsyExp_ParameterPair_ 'HurPsyExp.ExpDesign.StepViewModel.AddPair(HurPsyExp.ParameterPair)').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1') instance wrapping [AddPair(ExpPair)](HurPsyExp.ExpDesign.StepViewModel.md#HurPsyExp.ExpDesign.StepViewModel.AddPair(HurPsyLib.ExpPair) 'HurPsyExp.ExpDesign.StepViewModel.AddPair(HurPsyLib.ExpPair)').
 
 ```csharp
-public CommunityToolkit.Mvvm.Input.IRelayCommand<HurPsyExp.ParameterPair> AddPairCommand { get; }
+public CommunityToolkit.Mvvm.Input.IRelayCommand<HurPsyLib.ExpPair> AddPairCommand { get; }
 ```
 
 #### Property Value
-[CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[ParameterPair](HurPsyExp.ParameterPair.md 'HurPsyExp.ParameterPair')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
+[CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[HurPsyLib.ExpPair](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.ExpPair 'HurPsyLib.ExpPair')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
 
 <a name='HurPsyExp.ExpDesign.StepViewModel.CancelAddPairCommand'></a>
 
 ## StepViewModel.CancelAddPairCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.StepViewModel.CancelAddPair](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.StepViewModel.CancelAddPair 'HurPsyExp.ExpDesign.StepViewModel.CancelAddPair').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [CancelAddPair()](HurPsyExp.ExpDesign.StepViewModel.md#HurPsyExp.ExpDesign.StepViewModel.CancelAddPair() 'HurPsyExp.ExpDesign.StepViewModel.CancelAddPair()').
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand CancelAddPairCommand { get; }
@@ -121,3 +121,31 @@ public System.Collections.ObjectModel.ObservableCollection<HurPsyLib.ExpPair> Pa
 
 #### Property Value
 [System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[HurPsyLib.ExpPair](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.ExpPair 'HurPsyLib.ExpPair')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
+### Methods
+
+<a name='HurPsyExp.ExpDesign.StepViewModel.AddPair(HurPsyLib.ExpPair)'></a>
+
+## StepViewModel.AddPair(ExpPair) Method
+
+This command implementation adds a new `Locator`-`Stimulus` Id pair to the underlying trial step.
+
+```csharp
+private void AddPair(HurPsyLib.ExpPair pr);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.StepViewModel.AddPair(HurPsyLib.ExpPair).pr'></a>
+
+`pr` [HurPsyLib.ExpPair](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.ExpPair 'HurPsyLib.ExpPair')
+
+The `ParameterPair` object which brings in the Ids to be paired
+
+<a name='HurPsyExp.ExpDesign.StepViewModel.CancelAddPair()'></a>
+
+## StepViewModel.CancelAddPair() Method
+
+This command implementation cancels adding a new pair and hides the **AddPairPopup* control.
+
+```csharp
+private void CancelAddPair();
+```

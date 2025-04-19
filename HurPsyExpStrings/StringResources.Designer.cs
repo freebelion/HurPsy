@@ -223,6 +223,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Id Pair Set.
+        /// </summary>
+        public static string Label_AddIdPairSet {
+            get {
+                return ResourceManager.GetString("Label_AddIdPairSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Label_Cancel {
@@ -318,6 +327,15 @@ namespace HurPsyExpStrings {
         public static string Label_OK {
             get {
                 return ResourceManager.GetString("Label_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat Count.
+        /// </summary>
+        public static string Label_RepeatCount {
+            get {
+                return ResourceManager.GetString("Label_RepeatCount", resourceCulture);
             }
         }
         

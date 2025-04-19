@@ -71,23 +71,9 @@
         <GradientStop Color="OrangeRed" Offset="1.0"/>
     </LinearGradientBrush>
 
-    <RadialGradientBrush x:Key="ToggleBrush"
-                         GradientOrigin="0.5,0.5" Center="0.5,0.5"
-                         RadiusX="0.5" RadiusY="0.5">
-        <RadialGradientBrush.GradientStops>
-            <GradientStop Color="LightBlue" Offset="0.0" />
-            <GradientStop Color="SkyBlue" Offset="0.95" />
-            <GradientStop Color="SteelBlue" Offset="1.0" />
-        </RadialGradientBrush.GradientStops>
-    </RadialGradientBrush>
-    
-    <RadialGradientBrush x:Key="CheckedToggleBrush"
-                         GradientOrigin="0.5,0.5" Center="0.5,0.5"
-                         RadiusX="0.5" RadiusY="0.5">
-        <RadialGradientBrush.GradientStops>
-            <GradientStop Color="LightGoldenrodYellow" Offset="0.0" />
-            <GradientStop Color="Orange" Offset="0.95" />
-            <GradientStop Color="OrangeRed" Offset="1.0" />
-        </RadialGradientBrush.GradientStops>
-    </RadialGradientBrush>
+    <SolidColorBrush x:Key="ToggleBrush"
+                     Color="SkyBlue"/>
+
+    <SolidColorBrush x:Key="CheckedToggleBrush"
+                     Color="OrangeRed"/>
 </ResourceDictionary>

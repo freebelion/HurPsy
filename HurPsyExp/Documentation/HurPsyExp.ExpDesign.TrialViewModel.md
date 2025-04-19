@@ -48,7 +48,7 @@ private RelayCommand? addStepCommand;
 
 ## TrialViewModel.AddStepCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.TrialViewModel.AddStep](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.TrialViewModel.AddStep 'HurPsyExp.ExpDesign.TrialViewModel.AddStep').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [AddStep()](HurPsyExp.ExpDesign.TrialViewModel.md#HurPsyExp.ExpDesign.TrialViewModel.AddStep() 'HurPsyExp.ExpDesign.TrialViewModel.AddStep()').
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand AddStepCommand { get; }
@@ -69,3 +69,14 @@ public System.Collections.ObjectModel.ObservableCollection<HurPsyExp.ExpDesign.S
 
 #### Property Value
 [System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[StepViewModel](HurPsyExp.ExpDesign.StepViewModel.md 'HurPsyExp.ExpDesign.StepViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
+### Methods
+
+<a name='HurPsyExp.ExpDesign.TrialViewModel.AddStep()'></a>
+
+## TrialViewModel.AddStep() Method
+
+This command implementation adds a new step to the underlying trial.
+
+```csharp
+private void AddStep();
+```

@@ -32,6 +32,9 @@ namespace HurPsyExp.ExpDesign
             { StepVMs.Add(new StepViewModel(st)); }
         }
 
+        /// <summary>
+        /// This command implementation adds a new step to the underlying trial.
+        /// </summary>
         [RelayCommand]
         private void AddStep()
         {

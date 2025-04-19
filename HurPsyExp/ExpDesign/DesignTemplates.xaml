@@ -19,19 +19,19 @@
     <DataTemplate x:Key="IdObjectVMTemplate">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{Binding Source={StaticResource AppSettings}, Path=IconImageHeight}"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Margin="2"
-                   Style="{StaticResource IconImageStyle}"                                                                                                                                                                                                      
-                   Source="{Binding Path=IconImage}"
-                   VerticalAlignment="Top"/>
+            <ContentControl Grid.Column="0" Margin="2"
+                            Content="{Binding Path=IconImage}"
+                            Style="{StaticResource IconImageStyle}"
+                            VerticalAlignment="Center"/>
 
             <TextBox Grid.Column="1" Margin="2"
                      Text="{Binding Path=TempId}"
                      IsEnabled="{Binding Path=DataContext.EditMode, RelativeSource={RelativeSource AncestorType= Window}}"
-                     VerticalAlignment="Top"/>
+                     VerticalAlignment="Center"/>
         </Grid>
     </DataTemplate>
 
@@ -137,11 +137,6 @@
         </StackPanel>
     </DataTemplate>
 
-    <Image x:Key="AddStepIcon" Source="/Images/AddStep.png" x:Shared="False"
-           Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-           Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-           Stretch="Fill"/>
-    
     <DataTemplate x:Key="TrialEditTemplate">
         <Border Margin="1" BorderBrush="{StaticResource TrialBorderBrush}"
                 BorderThickness="1" CornerRadius="2" Padding="2">
@@ -171,6 +166,40 @@
         </Border>
     </DataTemplate>
 
+    <Grid x:Key="BlockEditContent" x:Shared="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="0" VerticalAlignment="Stretch"
+            Content="{StaticResource PreviousIcon}"
+            Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+            Command="{Binding PreviousTrialCommand}"
+            ToolTip="{x:Static expstrings:StringResources.Tooltip_PreviousTrial}"/>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <ContentControl Content="{Binding CurrentTrial}"
+                        ContentTemplate="{StaticResource TrialEditTemplate}"
+                        FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                        HorizontalContentAlignment="Stretch"/>
+
+            <ListBox Style="{StaticResource DesignListStyle}"
+                 ItemsSource="{Binding TrialVMs}"
+                 ItemTemplate="{StaticResource IdObjectVMTemplate}"
+                 SelectionMode="Single"
+                 SelectedIndex="{Binding CurrentTrialIndex, Mode=TwoWay}"
+                 IsEnabled="True"/>
+        </StackPanel>
+
+        <Button Grid.Column="2" VerticalAlignment="Stretch"
+            Content="{StaticResource NextIcon}"
+            Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+            Command="{Binding NextTrialCommand}"
+            ToolTip="{x:Static expstrings:StringResources.Tooltip_NextTrial}"/>
+    </Grid>
+
     <DataTemplate x:Key="BlockEditTemplate">
         <StackPanel Orientation="Vertical">
             <DockPanel LastChildFill="False">
@@ -194,52 +223,33 @@
                         Content="{StaticResource AddSingleTrialIcon}"
                         Style="{StaticResource DesignButtonStyle}"
                         Command="{Binding AddSingleTrialCommand}"
-                        ToolTip="{x:Static expstrings:StringResources.Tooltip_AddSingleTrial}"/>
+                        Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                              ToolTip="{x:Static expstrings:StringResources.Tooltip_AddSingleTrial}"/>
                 
                 <ToggleButton x:Name="btnAddMultipleTrial"
                               IsChecked="{Binding AddingMode, Mode=TwoWay}"
-                              Style="{StaticResource AddMultipleTrialToggleStyle}"
+                              Content="{StaticResource AddMultipleTrialIcon}"
+                              Style="{StaticResource DesignToggleStyle}"
+                              Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                              Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
                               ToolTip="{x:Static expstrings:StringResources.Tooltip_AddMultipleTrial}"/>
             </StackPanel>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0" VerticalAlignment="Stretch"
-                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-                        Command="{Binding PreviousTrialCommand}"
-                        ToolTip="{x:Static expstrings:StringResources.Tooltip_PreviousTrial}">
-                    <Image Grid.Column="0" Source="/Images/previous.png"
-                           Stretch="UniformToFill"/>
-                </Button>
-
-                <StackPanel Grid.Column="1" Orientation="Vertical">
-                    <ContentControl Content="{Binding CurrentTrial}"
-                                    ContentTemplate="{StaticResource TrialEditTemplate}"
-                                    FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
-                                    HorizontalContentAlignment="Stretch"/>
-
-                    <ListBox Style="{StaticResource DesignListStyle}"
-                             ItemsSource="{Binding TrialVMs}"
-                             ItemTemplate="{StaticResource IdObjectVMTemplate}"
-                             SelectionMode="Single"
-                             SelectedIndex="{Binding CurrentTrialIndex, Mode=TwoWay}"
-                             IsEnabled="True"/>
-                </StackPanel>
-
-                <Button Grid.Column="2" VerticalAlignment="Stretch"
-                        Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-                        Command="{Binding NextTrialCommand}"
-                        ToolTip="{x:Static expstrings:StringResources.Tooltip_NextTrial}">
-                    <Image Grid.Column="0" Source="/Images/next.png"
-                           Stretch="UniformToFill"/>
-                </Button>
-
-            </Grid>
+            <ContentControl>
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding AddingMode}" Value="True">
+                                <Setter Property="Content" Value="{StaticResource AddMultipleTrialPopup}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding AddingMode}" Value="False">
+                                <Setter Property="Content" Value="{StaticResource BlockEditContent}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
         </StackPanel>
     </DataTemplate>
 </ResourceDictionary>

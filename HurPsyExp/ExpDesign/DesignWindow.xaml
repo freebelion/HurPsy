@@ -64,55 +64,78 @@
             </Menu>
 
             <ToggleButton x:Name="btnEditMode" IsChecked="{Binding EditMode}"
-                          Style="{StaticResource DesignToggleStyle}">
-                <Image Source="/Images/editmode.png" Stretch="Fill"/>
-            </ToggleButton>
+                          Content="{StaticResource EditIcon}"
+                          Style="{StaticResource DesignToggleStyle}"/>
 
             <ToggleButton x:Name="btnAddingMode" IsChecked="{Binding AddingMode}"
-                          Style="{StaticResource DesignToggleStyle}">
-                <Image Source="/Images/increment.png" Stretch="Fill"/>
-            </ToggleButton>
+                          Content="{StaticResource AddIcon}"
+                          Style="{StaticResource DesignToggleStyle}"/>
 
             <Menu>
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_AddStimulus}"
-                          Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
+                <MenuItem Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
                           VerticalContentAlignment="Center">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/AddStimulus.png"/>
-                    </MenuItem.Icon>
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl Content="{StaticResource AddStimulusIcon}"
+                                            Style="{StaticResource IconImageStyle}"
+                                            VerticalAlignment="Center"/>
+                            <TextBlock Text="{x:Static expstrings:StringResources.Header_AddStimulus}"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </MenuItem.Header>
 
-                    <MenuItem Header="{x:Static expstrings:StringResources.Header_AddImageStimulus}"
-                              Command="{Binding AddingStimulusCommand}"
+                    <MenuItem Command="{Binding AddingStimulusCommand}"
                               CommandParameter="{x:Type psylib:ImageStimulus}">
-                        <MenuItem.Icon>
-                            <Image Source="/Images/ImageStimulus.png"/>
-                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource ImageStimulusIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_AddImageStimulus}"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_AddLocator}"
-                          Visibility="{Binding AddingLocatorMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
+                <MenuItem Visibility="{Binding AddingLocatorMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
                           VerticalContentAlignment="Center">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/AddLocator.png"/>
-                    </MenuItem.Icon>
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl Content="{StaticResource AddLocatorIcon}"
+                                            Style="{StaticResource IconImageStyle}"
+                                            VerticalAlignment="Center"/>
+                            <TextBlock Text="{x:Static expstrings:StringResources.Header_AddStimulus}"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </MenuItem.Header>
 
-                    <MenuItem Header="{x:Static expstrings:StringResources.Header_AddPointLocator}"
-                              Command="{Binding AddingLocatorCommand}"
+                    <MenuItem Command="{Binding AddingLocatorCommand}"
                               CommandParameter="{x:Type psylib:PointLocator}">
-                        <MenuItem.Icon>
-                            <Image Source="/Images/PointLocator.png"/>
-                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource PointLocatorIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_AddPointLocator}"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </MenuItem.Header>
                     </MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_AddBlock}"
-                          Command="{Binding AddingBlockCommand}"
+                <MenuItem Command="{Binding AddingBlockCommand}"
                           Visibility="{Binding AddingBlockMode, Mode=OneWay, Converter={StaticResource bvisConverter}}"
                           VerticalContentAlignment="Center">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/AddBlock.png"/>
-                    </MenuItem.Icon>
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl Content="{StaticResource AddBlockIcon}"
+                                            Style="{StaticResource IconImageStyle}"
+                                            VerticalAlignment="Center"/>
+                            <TextBlock Text="{x:Static expstrings:StringResources.Header_AddBlock}"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </MenuItem.Header>
                 </MenuItem>
             </Menu>
         </DockPanel>

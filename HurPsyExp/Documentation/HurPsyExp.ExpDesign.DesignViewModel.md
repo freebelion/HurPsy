@@ -262,7 +262,7 @@ private IdObjectViewModel? selectedItemVM;
 
 ## DesignViewModel.AddingBlockCommand Property
 
-Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [HurPsyExp.ExpDesign.DesignViewModel.AddingBlock](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.DesignViewModel.AddingBlock 'HurPsyExp.ExpDesign.DesignViewModel.AddingBlock').
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand') instance wrapping [AddingBlock()](HurPsyExp.ExpDesign.DesignViewModel.md#HurPsyExp.ExpDesign.DesignViewModel.AddingBlock() 'HurPsyExp.ExpDesign.DesignViewModel.AddingBlock()').
 
 ```csharp
 public CommunityToolkit.Mvvm.Input.IRelayCommand AddingBlockCommand { get; }
@@ -545,6 +545,16 @@ public System.Collections.ObjectModel.ObservableCollection<HurPsyExp.ExpDesign.I
 [System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[IdObjectViewModel](HurPsyExp.ExpDesign.IdObjectViewModel.md 'HurPsyExp.ExpDesign.IdObjectViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
 ### Methods
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.AddingBlock()'></a>
+
+## DesignViewModel.AddingBlock() Method
+
+This command implementation adds a new trial block.
+
+```csharp
+private void AddingBlock();
+```
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.AddingImageStimulus()'></a>
 
 ## DesignViewModel.AddingImageStimulus() Method
@@ -689,7 +699,7 @@ private void NewExperiment();
 
 ## DesignViewModel.OnAddingModeChanged(bool) Method
 
-This method handles MVVM Toolkit's value changed event; it modifies the boolean flags for hiding/showing the menus that will add Stimulus/Locator/Block, etc.
+This method handles MVVM Toolkit's value changed event for `AddingMode` property; it modifies the boolean flags for hiding/showing the menus that will add Stimulus/Locator/Block, etc.
 
 ```csharp
 private void OnAddingModeChanged(bool value);

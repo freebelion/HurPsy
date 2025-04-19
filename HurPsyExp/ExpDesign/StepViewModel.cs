@@ -11,6 +11,7 @@ using HurPsyLib;
 using System.Security.Cryptography.Pkcs;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Security.Cryptography;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HurPsyExp.ExpDesign
 {
@@ -44,22 +45,25 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// This command implementation adds a new `Locator`-`Stimulus` Id pair to the underlying trial step.
+        /// </summary>
+        /// <param name="pr">The `ParameterPair` object which brings in the Ids to be paired</param>
         [RelayCommand]
-        private void AddPair(ParameterPair dpobj)
+        private void AddPair(ExpPair pr)
         {
-            if (dpobj.Object1 is string locId && dpobj.Object2 is string stimid)
+            if (!string.IsNullOrEmpty(pr.LocatorId) && !string.IsNullOrEmpty(pr.StimulusId))
             {
-                if (!string.IsNullOrEmpty(locId) && !string.IsNullOrEmpty(stimid))
-                {
-                    ExpPair pr = new ExpPair(locId, stimid);
-                    ((ExpStep) ItemObject).StepPairs.Add(pr);
-                    PairVMs.Add(pr);
-                }
+                ((ExpStep)ItemObject).StepPairs.Add(pr);
+                PairVMs.Add(pr);
             }
 
             AddingMode = false;
         }
 
+        /// <summary>
+        /// This command implementation cancels adding a new pair and hides the **AddPairPopup* control.
+        /// </summary>
         [RelayCommand]
         private void CancelAddPair()
         {

@@ -165,7 +165,7 @@ namespace HurPsyExp.ExpDesign
                 _experiment = tryexp;
                 _experiment.FileName = openfilename;
                 CreateVMs();
-                DisplayContentChoice = ContentChoice.StimulusDefinitions;
+                DisplayContentChoice = ContentChoice.BlockDefinitions;
                 ChooseContent(DisplayContentChoice);
             }
             else
@@ -368,6 +368,9 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
+        /// <summary>
+        /// This command implementation adds a new trial block.
+        /// </summary>
         [RelayCommand]
         private void AddingBlock()
         {
@@ -381,7 +384,7 @@ namespace HurPsyExp.ExpDesign
 
         #region Events
         /// <summary>
-        /// This method handles MVVM Toolkit's value changed event; it modifies the boolean flags for hiding/showing the menus that will add Stimulus/Locator/Block, etc.
+        /// This method handles MVVM Toolkit's value changed event for `AddingMode` property; it modifies the boolean flags for hiding/showing the menus that will add Stimulus/Locator/Block, etc.
         /// </summary>
         /// <param name="value"></param>
         partial void OnAddingModeChanged(bool value)
@@ -396,8 +399,6 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         /// <param name="sender">`IdObjectViewModel` objects which reports a change in its `TempId` property</param>
         /// <param name="e">Id change parameters</param>
-
-
         private void ItemIdChanged(object? sender, IdChangeEventArgs e)
         {
             IdObjectViewModel? idobjvm = sender as IdObjectViewModel;

@@ -119,11 +119,11 @@ public bool Editable { get; set; }
 The path of the image file for the icon representing the inner element
 
 ```csharp
-public string IconImage { get; }
+public object? IconImage { get; }
 ```
 
 #### Property Value
-[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+[System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
 
 <a name='HurPsyExp.ExpDesign.IdObjectViewModel.ItemObject'></a>
 
