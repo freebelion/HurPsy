@@ -8,6 +8,7 @@
 | [AppSettings](HurPsyExp.AppSettings.md 'HurPsyExp.AppSettings') | Supports all classes in the .NET Framework class hierarchy and provides low-level services to derived classes. This is the ultimate base class of all classes in the .NET Framework; it is the root of the type hierarchy. |
 | [StartWindow](HurPsyExp.StartWindow.md 'HurPsyExp.StartWindow') | Interaction logic for StartWindow.xaml<br/>It contains the event handlers which display the design window or the run window, depending on the user's choice. |
 | [Utility](HurPsyExp.Utility.md 'HurPsyExp.Utility') | This class is actually a collection of static methods that will be used throughout the application. |
+| [Utility.PermList&lt;T&gt;](HurPsyExp.Utility.PermList_T_.md 'HurPsyExp.Utility.PermList<T>') | This privately nested class will help permutation lists for a list of objects |
 
 | Enums | |
 | :--- | :--- |

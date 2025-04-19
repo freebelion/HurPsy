@@ -170,5 +170,116 @@ namespace HurPsyExp
 
             return foundChild;
         }
+
+        /// <summary>
+        /// This privately nested class will help permutation lists for a list of objects
+        /// </summary>
+        /// <typeparam name="T">The generic type of the objects to be permuted</typeparam>
+        private class PermList<T>
+        {
+            private int _curindex;
+            private int _maxindex;
+            private List<T> _inlist;
+
+            public PermList()
+            {
+                _inlist = new List<T>();
+                _curindex = 0;
+                _maxindex = 0;
+            }
+
+            public PermList(IEnumerable<T> startlist) : this()
+            {
+                _inlist.AddRange(startlist);
+                _maxindex = startlist.Count();
+            }
+
+            public void Add(T element)
+            {
+                _inlist.Add(element);
+                _maxindex++;
+            }
+
+            public void ResetIndex()
+            { _curindex = 0; }
+
+            public T GetCurrent()
+            { return _inlist[_curindex]; }
+
+            public bool Next()
+            {
+                if (_curindex < _maxindex - 1)
+                { _curindex++; return true; }
+                else return false;
+            }
+        }
+
+        /// <summary>
+        /// This function will return a list of permuted arrays constructed from an indeterminate number of arrays which come as parameters
+        /// </summary>
+        /// <typeparam name="T">Generic type of objects which will be permuted</typeparam>
+        /// <param name="arrays">The list of object arrays to be permuted</param>
+        /// <returns></returns>
+        public static List<T[]> GetPermutations<T>(params List<T>[] arrays)
+        {
+            List<List<T>> lists = new List<List<T>>();
+            lists.AddRange(arrays.ToList());
+            return GetPermutations(lists);
+        }
+
+        /// <summary>
+        /// This function will return a list of permuted arrays constructed from a list of objects which come as a parameter
+        /// </summary>
+        /// <typeparam name="T">Generic type of objects which will be permuted</typeparam>
+        /// <param name="lists">The list of object lists to be permuted</param>
+        /// <returns></returns>
+        public static List<T[]> GetPermutations<T>(List<List<T>> lists)
+        {
+            int listCount = lists.Count;
+            List<PermList<T>> permlists = new List<PermList<T>>();
+            for (int i = 0; i < listCount; i++)
+            {
+                if (lists[i].Count > 0)
+                { permlists.Add(new PermList<T>(lists[i])); }
+            }
+
+            List<T[]> permarrays = new List<T[]>();
+
+            int listindex = 0;
+            while (true)
+            {
+            permloopstart:
+                T[] perm = new T[listCount];
+
+                for (int i = 0; i < listCount; i++)
+                {
+                    perm[i] = permlists[i].GetCurrent();
+                }
+
+                permarrays.Add(perm);
+
+                if (permlists[listindex].Next())
+                { continue; }
+                else
+                {
+                    while (listindex < listCount - 1)
+                    {
+                        listindex++;
+
+                        if (permlists[listindex].Next())
+                        {
+                            for (int j = 0; j < listindex; j++)
+                            { permlists[j].ResetIndex(); }
+                            listindex = 0;
+                            goto permloopstart;
+                        }
+                    }
+                }
+
+                break;
+            }
+
+            return permarrays;
+        }
     }
 }

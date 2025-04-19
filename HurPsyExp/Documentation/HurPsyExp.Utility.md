@@ -118,6 +118,60 @@ The name of the parent to find
 #### Returns
 [T](HurPsyExp.Utility.md#HurPsyExp.Utility.FindParent_T_(System.Windows.DependencyObject,string).T 'HurPsyExp.Utility.FindParent<T>(System.Windows.DependencyObject, string).T')
 
+<a name='HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_System.Collections.Generic.List_T__)'></a>
+
+## Utility.GetPermutations<T>(List<List<T>>) Method
+
+This function will return a list of permuted arrays constructed from a list of objects which come as a parameter
+
+```csharp
+public static System.Collections.Generic.List<T[]> GetPermutations<T>(System.Collections.Generic.List<System.Collections.Generic.List<T>> lists);
+```
+#### Type parameters
+
+<a name='HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_System.Collections.Generic.List_T__).T'></a>
+
+`T`
+
+Generic type of objects which will be permuted
+#### Parameters
+
+<a name='HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_System.Collections.Generic.List_T__).lists'></a>
+
+`lists` [System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[T](HurPsyExp.Utility.md#HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_System.Collections.Generic.List_T__).T 'HurPsyExp.Utility.GetPermutations<T>(System.Collections.Generic.List<System.Collections.Generic.List<T>>).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
+The list of object lists to be permuted
+
+#### Returns
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[T](HurPsyExp.Utility.md#HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_System.Collections.Generic.List_T__).T 'HurPsyExp.Utility.GetPermutations<T>(System.Collections.Generic.List<System.Collections.Generic.List<T>>).T')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
+<a name='HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_T_[])'></a>
+
+## Utility.GetPermutations<T>(List<T>[]) Method
+
+This function will return a list of permuted arrays constructed from an indeterminate number of arrays which come as parameters
+
+```csharp
+public static System.Collections.Generic.List<T[]> GetPermutations<T>(params System.Collections.Generic.List<T>[] arrays);
+```
+#### Type parameters
+
+<a name='HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_T_[]).T'></a>
+
+`T`
+
+Generic type of objects which will be permuted
+#### Parameters
+
+<a name='HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_T_[]).arrays'></a>
+
+`arrays` [System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[T](HurPsyExp.Utility.md#HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_T_[]).T 'HurPsyExp.Utility.GetPermutations<T>(System.Collections.Generic.List<T>[]).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')
+
+The list of object arrays to be permuted
+
+#### Returns
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[T](HurPsyExp.Utility.md#HurPsyExp.Utility.GetPermutations_T_(System.Collections.Generic.List_T_[]).T 'HurPsyExp.Utility.GetPermutations<T>(System.Collections.Generic.List<T>[]).T')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
 <a name='HurPsyExp.Utility.LoadFromXml_T_(string)'></a>
 
 ## Utility.LoadFromXml<T>(string) Method

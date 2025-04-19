@@ -173,7 +173,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" VerticalAlignment="Stretch"
+        <Button Grid.Column="0" VerticalAlignment="Top"
             Content="{StaticResource PreviousIcon}"
             Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
             Command="{Binding PreviousTrialCommand}"
@@ -181,23 +181,23 @@
 
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <ContentControl Content="{Binding CurrentTrial}"
-                        ContentTemplate="{StaticResource TrialEditTemplate}"
-                        FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
-                        HorizontalContentAlignment="Stretch"/>
+                            ContentTemplate="{StaticResource TrialEditTemplate}"
+                            FontSize="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"
+                            HorizontalContentAlignment="Stretch"/>
 
             <ListBox Style="{StaticResource DesignListStyle}"
-                 ItemsSource="{Binding TrialVMs}"
-                 ItemTemplate="{StaticResource IdObjectVMTemplate}"
-                 SelectionMode="Single"
-                 SelectedIndex="{Binding CurrentTrialIndex, Mode=TwoWay}"
-                 IsEnabled="True"/>
+                     ItemsSource="{Binding TrialVMs}"
+                     ItemTemplate="{StaticResource IdObjectVMTemplate}"
+                     SelectionMode="Single"
+                     SelectedIndex="{Binding CurrentTrialIndex, Mode=TwoWay}"
+                     IsEnabled="True"/>
         </StackPanel>
 
-        <Button Grid.Column="2" VerticalAlignment="Stretch"
-            Content="{StaticResource NextIcon}"
-            Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-            Command="{Binding NextTrialCommand}"
-            ToolTip="{x:Static expstrings:StringResources.Tooltip_NextTrial}"/>
+        <Button Grid.Column="2" VerticalAlignment="Top"
+                Content="{StaticResource NextIcon}"
+                Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                Command="{Binding NextTrialCommand}"
+                ToolTip="{x:Static expstrings:StringResources.Tooltip_NextTrial}"/>
     </Grid>
 
     <DataTemplate x:Key="BlockEditTemplate">

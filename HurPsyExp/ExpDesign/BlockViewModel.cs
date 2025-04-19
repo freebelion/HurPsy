@@ -123,10 +123,25 @@ namespace HurPsyExp.ExpDesign
         /// This command implementation adds multiple trials based on the combination of `Stimulus`-`Locator` pairing choices of the user.
         /// </summary>
         [RelayCommand]
-        private void AddMultipleTrial(object param)
+        private void AddMultipleTrial(TrialPattern trpattern)
         {
             AddingMode = false;
-        }
+
+            List<ExpStep> stepList = trpattern.ConstructTrialSteps();
+
+            ExpBlock? blck = this.ItemObject as ExpBlock;
+            if(blck != null)
+            {
+                // Construct single-step experiment trials by permuting the combinations in steplist
+                foreach (ExpStep stp in stepList)
+                {
+                    ExpTrial tr = new ExpTrial();
+                    tr.AddStep(stp);
+                    blck.AddTrial(tr);
+                    AddTrialVM(tr);
+                }
+            }
+        } 
 
         /// <summary>
         /// This command implementation will cancel adding multiple trials and close the **AddTrialPopup**.

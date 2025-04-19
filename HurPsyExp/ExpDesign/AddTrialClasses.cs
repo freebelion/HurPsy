@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HurPsyLib;
 
 namespace HurPsyExp.ExpDesign
 {
@@ -82,6 +83,40 @@ namespace HurPsyExp.ExpDesign
         private void AddIdPairSet()
         {
             IdPairSets.Add(new IdPairSet());
+        }
+
+        public List<ExpStep> ConstructTrialSteps()
+        {
+            List<List<ExpPair>> pairLists = new List<List<ExpPair>>();
+
+            foreach(IdPairSet idprset in IdPairSets)
+            {
+                if (idprset.LocatorId == null) continue;
+
+                List<ExpPair> pairList = new List<ExpPair>();
+
+                foreach(string stimId in idprset.SelectedStimulusIds)
+                {
+                    pairList.Add(new ExpPair(idprset.LocatorId, stimId));
+                }
+
+                if (pairList.Count > 0)
+                { pairLists.Add(pairList); }
+            }
+
+            List<ExpStep> expSteps = new List<ExpStep>();
+            if (pairLists.Count == 0) { return expSteps; }
+
+            // Construct experiment steps with permutations of those stimulus-locator pairs
+            List<ExpPair[]> pairPerms = Utility.GetPermutations(pairLists);
+
+            foreach (ExpPair[] pairSet in pairPerms)
+            {
+                ExpStep stp = new ExpStep();
+                stp.AddPairs(pairSet);
+                expSteps.Add(stp);
+            }
+            return expSteps;
         }
     }
 }
