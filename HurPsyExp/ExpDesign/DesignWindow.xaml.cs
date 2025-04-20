@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HurPsyLib;
 
 namespace HurPsyExp.ExpDesign
 {
@@ -27,15 +28,22 @@ namespace HurPsyExp.ExpDesign
         /// <summary>
         /// This default constructor simply initailizes the visual components of the window.
         /// </summary>
-        public DesignWindow()
+        public DesignWindow(Experiment? exp = null)
         {
-            DesignVM = new();
+            DesignVM = new DesignViewModel(exp);
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = DesignVM;
+        }
+
+        private void RunExperiment(object sender, RoutedEventArgs e)
+        {
+            ExpRun.RunWindow winrun = new ExpRun.RunWindow(DesignVM.CurrentExperiment);
+            winrun.Show();
+            this.Close();
         }
     }
 }

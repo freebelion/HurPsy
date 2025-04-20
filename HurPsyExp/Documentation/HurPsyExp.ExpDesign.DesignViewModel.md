@@ -12,29 +12,21 @@ public class DesignViewModel : CommunityToolkit.Mvvm.ComponentModel.ObservableOb
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [CommunityToolkit.Mvvm.ComponentModel.ObservableObject](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.ComponentModel.ObservableObject 'CommunityToolkit.Mvvm.ComponentModel.ObservableObject') &#129106; DesignViewModel
 ### Constructors
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.DesignViewModel()'></a>
+<a name='HurPsyExp.ExpDesign.DesignViewModel.DesignViewModel(HurPsyLib.Experiment)'></a>
 
-## DesignViewModel() Constructor
+## DesignViewModel(Experiment) Constructor
 
 This default constructor starts with a new experiment definition and empty VM collections
 
 ```csharp
-public DesignViewModel();
+public DesignViewModel(HurPsyLib.Experiment? exp=null);
 ```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.DesignViewModel(HurPsyLib.Experiment).exp'></a>
+
+`exp` [HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
 ### Fields
-
-<a name='HurPsyExp.ExpDesign.DesignViewModel._experiment'></a>
-
-## DesignViewModel._experiment Field
-
-The `Experiment` object managed by this viewmodel
-
-```csharp
-private Experiment _experiment;
-```
-
-#### Field Value
-[HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.addingBlockCommand'></a>
 
@@ -375,6 +367,19 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand<HurPsyExp.ContentChoice> Choose
 #### Property Value
 [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[ContentChoice](HurPsyExp.ContentChoice.md 'HurPsyExp.ContentChoice')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.CurrentExperiment'></a>
+
+## DesignViewModel.CurrentExperiment Property
+
+The `Experiment` object managed by this viewmodel
+
+```csharp
+public HurPsyLib.Experiment CurrentExperiment { get; set; }
+```
+
+#### Property Value
+[HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.DisplayContent'></a>
 
 ## DesignViewModel.DisplayContent Property
@@ -714,7 +719,7 @@ private void OnAddingModeChanged(bool value);
 
 ## DesignViewModel.SaveExperiment() Method
 
-The command implementation for saving an experiment definition onto the same file.  
+The command implementation for saving an experiment definition onto the same file  
 If the experiment did not yet have a valid file, SaveExperimentAs command implementation will be called.
 
 ```csharp
@@ -725,7 +730,7 @@ private void SaveExperiment();
 
 ## DesignViewModel.SaveExperimentAs() Method
 
-The command implementation for saving an experiment definition onto a file.
+The command implementation for saving an experiment definition onto a file
 
 ```csharp
 private void SaveExperimentAs();

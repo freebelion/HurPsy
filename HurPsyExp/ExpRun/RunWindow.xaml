@@ -9,8 +9,31 @@
         Title="{x:Static expstrings:StringResources.Title_RunWindow}"
         FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
         Height="800" Width="1400"
-        WindowState="Maximized" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        WindowState="Maximized" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <ItemsPanelTemplate x:Key="CanvasPanel">
+            <Canvas/>
+        </ItemsPanelTemplate>
+
+        <DataTemplate x:Key="VisualStimulusItem">
+            <Canvas>
+                <Image Source="{Binding VisualObject}"
+                       Canvas.Left="{Binding Xpos}"
+                       Canvas.Top="{Binding Ypos}"
+                       Width="{Binding VisualWidth}"
+                       Height="{Binding VisualHeight}"
+                       Stretch="Fill"/>
+            </Canvas>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
-        
+        <ItemsControl x:Name="VisualDisplay"
+                      ItemsSource="{Binding Path=VisualStimuli}"
+                      ItemsPanel="{StaticResource CanvasPanel}"
+                      ItemTemplate="{StaticResource VisualStimulusItem}"/>
+
     </Grid>
 </Window>

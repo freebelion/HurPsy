@@ -10,6 +10,20 @@ public static class Utility
 ```
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; Utility
+### Fields
+
+<a name='HurPsyExp.Utility.MM2DIU'></a>
+
+## Utility.MM2DIU Field
+
+Millimeters to DIU conversion ratio
+
+```csharp
+public const double MM2DIU = 3,77952755;
+```
+
+#### Field Value
+[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
 ### Properties
 
 <a name='HurPsyExp.Utility.RND'></a>
@@ -198,6 +212,27 @@ The path of the file
 
 #### Returns
 [T](HurPsyExp.Utility.md#HurPsyExp.Utility.LoadFromXml_T_(string).T 'HurPsyExp.Utility.LoadFromXml<T>(string).T')
+
+<a name='HurPsyExp.Utility.LoadImage(string)'></a>
+
+## Utility.LoadImage(string) Method
+
+This function will load and return a bitmap image from the file at the given path
+
+```csharp
+public static System.Windows.Media.Imaging.BitmapImage LoadImage(string filename);
+```
+#### Parameters
+
+<a name='HurPsyExp.Utility.LoadImage(string).filename'></a>
+
+`filename` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The path of the file containing the image
+
+#### Returns
+[System.Windows.Media.Imaging.BitmapImage](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Media.Imaging.BitmapImage 'System.Windows.Media.Imaging.BitmapImage')  
+The image object
 
 <a name='HurPsyExp.Utility.OpenFiles(string,bool)'></a>
 

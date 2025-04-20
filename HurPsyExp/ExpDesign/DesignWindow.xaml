@@ -36,6 +36,8 @@
                               Command="{Binding SaveExperimentCommand}"/>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperimentAs}"
                               Command="{Binding SaveExperimentAsCommand}"/>
+                    <MenuItem Header="{x:Static expstrings:StringResources.Header_RunExperiment}"
+                              Click="RunExperiment"/>
                 </MenuItem>
 
                 <MenuItem Header="{Binding DisplayContentLabel}">

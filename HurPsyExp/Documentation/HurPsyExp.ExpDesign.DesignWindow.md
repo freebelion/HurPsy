@@ -15,15 +15,20 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 Implements [System.Windows.Markup.IComponentConnector](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Markup.IComponentConnector 'System.Windows.Markup.IComponentConnector')
 ### Constructors
 
-<a name='HurPsyExp.ExpDesign.DesignWindow.DesignWindow()'></a>
+<a name='HurPsyExp.ExpDesign.DesignWindow.DesignWindow(HurPsyLib.Experiment)'></a>
 
-## DesignWindow() Constructor
+## DesignWindow(Experiment) Constructor
 
 This default constructor simply initailizes the visual components of the window.
 
 ```csharp
-public DesignWindow();
+public DesignWindow(HurPsyLib.Experiment? exp=null);
 ```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.DesignWindow.DesignWindow(HurPsyLib.Experiment).exp'></a>
+
+`exp` [HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
 ### Properties
 
 <a name='HurPsyExp.ExpDesign.DesignWindow.DesignVM'></a>

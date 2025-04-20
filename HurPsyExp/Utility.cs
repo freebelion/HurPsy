@@ -10,6 +10,7 @@ using System.Xml;
 using Microsoft.Win32;
 using System.Windows.Media;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace HurPsyExp
 {
@@ -18,6 +19,11 @@ namespace HurPsyExp
     /// </summary>
     public static class Utility
     {
+        /// <summary>
+        /// Millimeters to DIU conversion ratio
+        /// </summary>
+        public const double MM2DIU = 3.77952755;
+
         /// <summary>
         /// Application-wide pseudo-RNG
         /// </summary>
@@ -85,6 +91,24 @@ namespace HurPsyExp
             using XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(new FileStream(openfilename, FileMode.Open), new XmlDictionaryReaderQuotas());
             DataContractSerializer ser = new DataContractSerializer(typeof(T));
             return (T?)ser.ReadObject(reader);
+        }
+
+        /// <summary>
+        /// This function will load and return a bitmap image from the file at the given path
+        /// </summary>
+        /// <param name="filename">The path of the file containing the image</param>
+        /// <returns>The image object</returns>
+        public static BitmapImage LoadImage(string filename)
+        {// source: https://www.ridgesolutions.ie/index.php/2012/02/03/net-wpf-bitmapimage-file-locking
+            BitmapImage bmpImage = new BitmapImage();
+            var stream = File.OpenRead(filename);
+            bmpImage.BeginInit();
+            bmpImage.CacheOption = BitmapCacheOption.OnLoad;
+            bmpImage.StreamSource = stream;
+            bmpImage.EndInit();
+            stream.Close();
+            stream.Dispose();
+            return bmpImage;
         }
 
         /// <summary>
@@ -280,6 +304,19 @@ namespace HurPsyExp
             }
 
             return permarrays;
+        }
+
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = RND.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 }

@@ -15,15 +15,34 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 Implements [System.Windows.Markup.IComponentConnector](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Markup.IComponentConnector 'System.Windows.Markup.IComponentConnector')
 ### Constructors
 
-<a name='HurPsyExp.ExpRun.RunWindow.RunWindow()'></a>
+<a name='HurPsyExp.ExpRun.RunWindow.RunWindow(HurPsyLib.Experiment)'></a>
 
-## RunWindow() Constructor
+## RunWindow(Experiment) Constructor
 
 This default constructor simply initailizes the visual components of the window.
 
 ```csharp
-public RunWindow();
+public RunWindow(HurPsyLib.Experiment? exp=null);
 ```
+#### Parameters
+
+<a name='HurPsyExp.ExpRun.RunWindow.RunWindow(HurPsyLib.Experiment).exp'></a>
+
+`exp` [HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
+### Properties
+
+<a name='HurPsyExp.ExpRun.RunWindow.RunVM'></a>
+
+## RunWindow.RunVM Property
+
+The viewmodel which will keep updating this window during the run
+
+```csharp
+public HurPsyExp.ExpRun.RunViewModel RunVM { get; set; }
+```
+
+#### Property Value
+[RunViewModel](HurPsyExp.ExpRun.RunViewModel.md 'HurPsyExp.ExpRun.RunViewModel')
 ### Methods
 
 <a name='HurPsyExp.ExpRun.RunWindow.InitializeComponent()'></a>

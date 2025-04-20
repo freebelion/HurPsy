@@ -29,7 +29,7 @@ public Experiment();
 This `Dictionary` collection helps access `Locator` objects through their ids.
 
 ```csharp
-private Dictionary<string,Locator> LocatorDict;
+public Dictionary<string,Locator> LocatorDict;
 ```
 
 #### Field Value
@@ -42,7 +42,7 @@ private Dictionary<string,Locator> LocatorDict;
 This `Dictionary` collection helps access `Stimulus` objects through their ids.
 
 ```csharp
-private Dictionary<string,Stimulus> StimulusDict;
+public Dictionary<string,Stimulus> StimulusDict;
 ```
 
 #### Field Value

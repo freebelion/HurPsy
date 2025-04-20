@@ -27,13 +27,13 @@ namespace HurPsyLib
         /// This `Dictionary` collection helps access `Stimulus` objects through their ids.
         /// </summary>
         [DataMember]
-        private Dictionary<string, Stimulus> StimulusDict;
+        public Dictionary<string, Stimulus> StimulusDict;
 
         /// <summary>
         /// This `Dictionary` collection helps access `Locator` objects through their ids.
         /// </summary>
         [DataMember]
-        private Dictionary<string, Locator> LocatorDict;
+        public Dictionary<string, Locator> LocatorDict;
 
         /// <summary>
         /// The experiment's trial blocks

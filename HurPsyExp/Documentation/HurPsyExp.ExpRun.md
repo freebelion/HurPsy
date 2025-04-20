@@ -4,4 +4,6 @@
 
 | Classes | |
 | :--- | :--- |
+| [RunViewModel](HurPsyExp.ExpRun.RunViewModel.md 'HurPsyExp.ExpRun.RunViewModel') | This viewmodel class will handle running an experiment |
 | [RunWindow](HurPsyExp.ExpRun.RunWindow.md 'HurPsyExp.ExpRun.RunWindow') | Interaction logic for RunWindow.xaml |
+| [VisualStimulusViewModel](HurPsyExp.ExpRun.VisualStimulusViewModel.md 'HurPsyExp.ExpRun.VisualStimulusViewModel') | This viewmodel helps displays a visual stimulus on `RunWindow` |

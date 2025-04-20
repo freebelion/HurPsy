@@ -196,6 +196,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Run Experiment.
+        /// </summary>
+        public static string Header_RunExperiment {
+            get {
+                return ResourceManager.GetString("Header_RunExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Header_SaveExperiment {

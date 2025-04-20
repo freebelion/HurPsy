@@ -12,9 +12,9 @@
         Height="400" Width="450">
     
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <RadioButton Content="{x:Static expstrings:StringResources.Label_DesignExperiment}" Margin="5"
-                 Checked="DesignExperiment"/>
-        <RadioButton Content="{x:Static expstrings:StringResources.Label_RunExperiment}" Margin="5" 
-                 Checked="RunExperiment"/>
+        <RadioButton Content="{x:Static expstrings:StringResources.Label_DesignExperiment}"
+                     Margin="5" Checked="DesignExperiment"/>
+        <RadioButton Content="{x:Static expstrings:StringResources.Label_RunExperiment}"
+                     Margin="5" Checked="RunExperiment"/>
     </StackPanel>
 </Window>
