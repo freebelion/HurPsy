@@ -70,6 +70,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not load an expewriment to run!.
+        /// </summary>
+        public static string Error_NoExperimentLoaded {
+            get {
+                return ResourceManager.GetString("Error_NoExperimentLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experiment definition Files (*.xml) |*.xml.
         /// </summary>
         public static string Filter_ExperimentFiles {
@@ -367,6 +376,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Scale Factor.
+        /// </summary>
+        public static string Label_ScaleFactor {
+            get {
+                return ResourceManager.GetString("Label_ScaleFactor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Small Font Size.
         /// </summary>
         public static string Label_SmallFontSize {
@@ -489,6 +507,15 @@ namespace HurPsyExpStrings {
         public static string Tooltip_PreviousTrial {
             get {
                 return ResourceManager.GetString("Tooltip_PreviousTrial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Each square of this grid is 12px*12px; calculate the scale factor as 96 / (actual number of pixels in 1 inch on your display).
+        /// </summary>
+        public static string Tooltip_ScaleCanvas {
+            get {
+                return ResourceManager.GetString("Tooltip_ScaleCanvas", resourceCulture);
             }
         }
     }

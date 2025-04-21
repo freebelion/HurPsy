@@ -309,4 +309,16 @@
     <value>Cannot access AppSettings!</value>
     <comment>Error message for the relevant situation</comment>
   </data>
+  <data name="Error_NoExperimentLoaded" xml:space="preserve">
+    <value>Could not load an expewriment to run!</value>
+    <comment>Error message raised when no experiment was loaded on RunWindow</comment>
+  </data>
+  <data name="Label_ScaleFactor" xml:space="preserve">
+    <value>Scale Factor</value>
+    <comment>Label for the textbox which modifies the named app setting</comment>
+  </data>
+  <data name="Tooltip_ScaleCanvas" xml:space="preserve">
+    <value>Each square of this grid is 12px*12px; calculate the scale factor as 96 / (actual number of pixels in 1 inch on your display)</value>
+    <comment>Explanation for the Canvas which will display a grid underneath the ScaleFactor setting</comment>
+  </data>
 </root>

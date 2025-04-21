@@ -5,19 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:exprun="clr-namespace:HurPsyExp.ExpRun"
         xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
+        xmlns:expapp="clr-namespace:HurPsyExp"
+        xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib"
         mc:Ignorable="d"
         Title="{x:Static expstrings:StringResources.Title_RunWindow}"
         FontSize="{Binding Source={StaticResource AppSettings}, Path=FontSize}"
         Height="800" Width="1400"
         WindowState="Maximized" WindowStyle="None" WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" KeyDown="Window_KeyDown">
 
     <Window.Resources>
         <ItemsPanelTemplate x:Key="CanvasPanel">
             <Canvas/>
         </ItemsPanelTemplate>
 
-        <DataTemplate x:Key="VisualStimulusItem">
+        <exprun:VisualStimulusTemplateSelector x:Key="vistimTemplateSelector"/>
+
+        <Style x:Key="gridrect" TargetType="Rectangle">
+            <Setter Property="ContextMenu">
+                <Setter.Value>
+                    <ContextMenu DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=Rectangle}}">
+                        <MenuItem Header="{Binding Xpos}"/>
+                        <MenuItem Header="{Binding Ypos}"/>
+                    </ContextMenu>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ContextMenu.IsOpen" Value="True"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="ContextMenu.IsOpen" Value="False"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <DataTemplate x:Key="ImageStimulusTemplate">
             <Canvas>
                 <Image Source="{Binding VisualObject}"
                        Canvas.Left="{Binding Xpos}"
@@ -27,13 +50,25 @@
                        Stretch="Fill"/>
             </Canvas>
         </DataTemplate>
+        
+        <DataTemplate x:Key="VisualGridTemplate">
+            <Canvas>
+                <Rectangle Canvas.Left="{Binding Xpos}"
+                           Canvas.Top="{Binding Ypos}"
+                           Width="{Binding VisualWidth}"
+                           Height="{Binding VisualHeight}"
+                           Stroke="Black" StrokeThickness="0.25"
+                           Style="{StaticResource gridrect}"
+                           Fill="Wheat" Opacity="0.5"/>
+            </Canvas>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
         <ItemsControl x:Name="VisualDisplay"
                       ItemsSource="{Binding Path=VisualStimuli}"
                       ItemsPanel="{StaticResource CanvasPanel}"
-                      ItemTemplate="{StaticResource VisualStimulusItem}"/>
+                      ItemTemplateSelector="{StaticResource vistimTemplateSelector}"/>
 
     </Grid>
 </Window>

@@ -18,8 +18,8 @@ namespace HurPsyExp.ExpDesign
         /// <summary>
         /// This is the implementation of the template selection method of the base class.
         /// </summary>
-        /// <param name="item">The item to be dipslayed as is or for editing</param>
-        /// <param name="container">The container of the item</param>
+        /// <param name="item">The viewmodel of the item to be displayed for editing</param>
+        /// <param name="container">The container of the item visuals</param>
         /// <returns>The correct template associated with the item</returns>
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {

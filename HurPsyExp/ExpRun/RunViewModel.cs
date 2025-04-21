@@ -36,6 +36,8 @@ namespace HurPsyExp.ExpRun
         private ExpTrial currentTrial;
         private ExpStep currentStep;
 
+        private double scaleFactor;
+
         /// <summary>
         /// The collection of visual stimulus objects that will be presented together on the same step
         /// </summary>
@@ -59,6 +61,7 @@ namespace HurPsyExp.ExpRun
             VisualStimulusObjects = [];
 
             runwin = runwnd;
+            scaleFactor = ((App)Application.Current).CurrentSettings.ScaleFactor;
 
             if (exp != null)
             { _experiment = exp; }
@@ -86,7 +89,7 @@ namespace HurPsyExp.ExpRun
                 }
             }
             
-            throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotLoaded);
+            throw(new HurPsyException(HurPsyExpStrings.StringResources.Error_NoExperimentLoaded));
         }
 
         /// <summary>
@@ -114,21 +117,24 @@ namespace HurPsyExp.ExpRun
         /// </summary>
         public void StartExperiment()
         {
-            LoadVisualStimulusObjects();
+            if (_experiment != null)
+            {
+                LoadVisualStimulusObjects();
 
-            currentBlockIndex = 0;
-            currentTrialIndex = 0;
-            currentStepIndex = 0;
+                currentBlockIndex = 0;
+                currentTrialIndex = 0;
+                currentStepIndex = 0;
 
-            // There may have to be just-in-case sanity checks against zero blocks/trials/steps
-            currentBlock = _experiment.Blocks[0];
-            if (currentBlock.MustShuffleTrials)
-            { currentBlock.Trials.Shuffle(); }
+                // There may have to be just-in-case sanity checks against zero blocks/trials/steps
+                currentBlock = _experiment.Blocks[0];
+                if (currentBlock.MustShuffleTrials)
+                { currentBlock.Trials.Shuffle(); }
 
-            currentTrial = currentBlock.Trials[0];
-            currentStep = currentTrial.Steps[0];
+                currentTrial = currentBlock.Trials[0];
+                currentStep = currentTrial.Steps[0];
 
-            LoadStep();
+                LoadStep();
+            }
         }
 
         /// <summary>
@@ -149,10 +155,11 @@ namespace HurPsyExp.ExpRun
                 Locator loc = _experiment.LocatorDict[pr.LocatorId];
                 HurPsyPoint locpnt = loc.GetLocation(vistim);
 
-                vistimVM.Xpos = (System.Windows.SystemParameters.PrimaryScreenWidth / 2) + (Utility.MM2DIU * locpnt.X) - (vistim.VisualSize.Width / 2);
-                vistimVM.Ypos = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - (Utility.MM2DIU * locpnt.Y) - (vistim.VisualSize.Height / 2);
-                vistimVM.VisualWidth = Utility.MM2DIU * vistim.VisualSize.Width;
-                vistimVM.VisualHeight = Utility.MM2DIU * vistim.VisualSize.Height;
+                vistimVM.Xpos = (System.Windows.SystemParameters.PrimaryScreenWidth / 2) + Utility.MM2DIU * (locpnt.X - vistim.VisualSize.Width / 2) / scaleFactor;
+                vistimVM.Ypos = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - Utility.MM2DIU * (locpnt.Y + vistim.VisualSize.Height / 2) / scaleFactor;
+                vistimVM.VisualWidth = Utility.MM2DIU * vistim.VisualSize.Width / scaleFactor;
+                vistimVM.VisualHeight = Utility.MM2DIU * vistim.VisualSize.Height / scaleFactor;
+             
                 vistimVM.VisualObject = VisualStimulusObjects[vistim.Id];
                 VisualStimuli.Add(vistimVM);
             }

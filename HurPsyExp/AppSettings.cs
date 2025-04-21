@@ -107,6 +107,9 @@ namespace HurPsyExp
         /// </summary>
         [ObservableProperty]
         private double stepTime = MinZero;
+
+        [ObservableProperty]
+        private double scaleFactor;
         #endregion
 
         #region Constructor(s)
@@ -125,7 +128,7 @@ namespace HurPsyExp
             MaxButtonHeight = 64;
             CommandButtonHeight = 24;
             IconImageHeight = 24;
-
+            ScaleFactor = 1;
             WindowWidth = 800;
             WindowHeight = 600;
             DesignLayout = LayoutChoice.SinglePanel;
@@ -237,6 +240,7 @@ namespace HurPsyExp
                         this.DesignLayout = loadedSettings.DesignLayout;
 
                         this.StepTime = loadedSettings.StepTime;
+                        this.ScaleFactor= loadedSettings.ScaleFactor;
                     }
                 }
             }

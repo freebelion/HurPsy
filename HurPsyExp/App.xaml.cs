@@ -18,8 +18,7 @@ namespace HurPsyExp
         /// <param name="e"></param>
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            AppSettings appSettings = (AppSettings)this.Resources["AppSettings"];
-            appSettings.DeSerializeJson();
+            CurrentSettings.DeSerializeJson();
         }
 
         /// <summary>
@@ -29,8 +28,7 @@ namespace HurPsyExp
         /// <param name="e"></param>
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            AppSettings appSettings = (AppSettings)this.Resources["AppSettings"];
-            appSettings.SerializeJson();
+            CurrentSettings.SerializeJson();
         }
 
         /// <summary>

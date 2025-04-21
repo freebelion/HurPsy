@@ -234,6 +234,19 @@ public static readonly PropertyChangingEventArgs MenuFontSize;
 #### Field Value
 [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
 
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ScaleFactor'></a>
+
+## __KnownINotifyPropertyChangingArgs.ScaleFactor Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "ScaleFactor" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs ScaleFactor;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
+
 <a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Selected'></a>
 
 ## __KnownINotifyPropertyChangingArgs.Selected Field

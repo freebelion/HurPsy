@@ -222,6 +222,20 @@
                     <TextBox Text="{Binding StepTime}"
                              TextAlignment="Center"
                              Background="{StaticResource ControlBackground}"/>
+
+                    <TextBlock Margin="0,2,0,0"
+                               Text="{x:Static expstrings:StringResources.Label_ScaleFactor}"/>
+                    <TextBox Text="{Binding ScaleFactor}"
+                             TextAlignment="Center"
+                             Background="{StaticResource ControlBackground}"/>
+                    <Canvas x:Name="ScaleCanvas" Background="Wheat" Width="240" Height="240">
+                        <Canvas.ToolTip>
+                            <ToolTip>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Tooltip_ScaleCanvas}"
+                                           TextWrapping="Wrap" Width="240"/>
+                            </ToolTip>
+                        </Canvas.ToolTip>
+                    </Canvas>
                 </StackPanel>
             </ScrollViewer>
         </Expander>

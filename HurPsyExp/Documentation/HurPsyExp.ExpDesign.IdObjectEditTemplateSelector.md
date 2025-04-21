@@ -27,13 +27,13 @@ public override System.Windows.DataTemplate SelectTemplate(object item, System.W
 
 `item` [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
 
-The item to be dipslayed as is or for editing
+The viewmodel of the item to be displayed for editing
 
 <a name='HurPsyExp.ExpDesign.IdObjectEditTemplateSelector.SelectTemplate(object,System.Windows.DependencyObject).container'></a>
 
 `container` [System.Windows.DependencyObject](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.DependencyObject 'System.Windows.DependencyObject')
 
-The container of the item
+The container of the item visuals
 
 #### Returns
 [System.Windows.DataTemplate](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.DataTemplate 'System.Windows.DataTemplate')  

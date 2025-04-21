@@ -45,6 +45,17 @@ public HurPsyExp.ExpDesign.DesignViewModel DesignVM { get; set; }
 [DesignViewModel](HurPsyExp.ExpDesign.DesignViewModel.md 'HurPsyExp.ExpDesign.DesignViewModel')
 ### Methods
 
+<a name='HurPsyExp.ExpDesign.DesignWindow.DrawScaleCanvas()'></a>
+
+## DesignWindow.DrawScaleCanvas() Method
+
+This inner method draws a grid inside the `ScaleCanvas` on the settings panel on the right,  
+so that a user can calculate the scale correction factor for placing visual stimuli on the screen.
+
+```csharp
+private void DrawScaleCanvas();
+```
+
 <a name='HurPsyExp.ExpDesign.DesignWindow.InitializeComponent()'></a>
 
 ## DesignWindow.InitializeComponent() Method
