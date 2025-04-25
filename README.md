@@ -14,7 +14,8 @@ but they can also be incorporated into other design programs
 or visual applications specifically created for single experiments.
 
 
-+ **HurPsyExp** is a WPF-based desktop application
++ [**HurPsyExp**](HurPsyExp/README.md)
+is a WPF-based desktop application
 which will help design and run experiments by utilizing
 the **HurPsyLib** library classes.
 It is being developed to perfect the visual interface
