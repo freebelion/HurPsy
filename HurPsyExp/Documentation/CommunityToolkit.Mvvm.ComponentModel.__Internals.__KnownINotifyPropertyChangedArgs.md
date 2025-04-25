@@ -182,6 +182,19 @@ public static readonly PropertyChangedEventArgs EditMode;
 #### Field Value
 [System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs')
 
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ExperimentName'></a>
+
+## __KnownINotifyPropertyChangedArgs.ExperimentName Field
+
+The cached [System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') instance for all "ExperimentName" generated properties.
+
+```csharp
+public static readonly PropertyChangedEventArgs ExperimentName;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs')
+
 <a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FontSize'></a>
 
 ## __KnownINotifyPropertyChangedArgs.FontSize Field

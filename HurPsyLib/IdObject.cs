@@ -28,7 +28,17 @@ namespace HurPsyLib
 		/// </summary>
 		public IdObject()
 		{
-            Id = GetType().Name + "_" + Guid.NewGuid().ToString().Substring(0, 8);
+            Id = CreateId(GetType());
+        }
+
+		/// <summary>
+		/// This statis function is an attempt to create -hopefully unique- temporary Id strings for newly created objects.
+		/// </summary>
+		/// <param name="objty"></param>
+		/// <returns></returns>
+		public static string CreateId(Type objty)
+		{
+            return objty.Name + "_" + Guid.NewGuid().ToString().Substring(0, 8);
         }
 	}
 }

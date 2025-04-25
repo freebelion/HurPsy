@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Label_DesignExperiment" xml:space="preserve">
-    <value>Design an Experiment</value>
-    <comment>Label for the design session option on Startup Dialog</comment>
-  </data>
   <data name="Label_RunExperiment" xml:space="preserve">
     <value>Run an Experiment</value>
     <comment>Label for the run session option on Startup Dialog</comment>
@@ -309,10 +305,6 @@
     <value>Cannot access AppSettings!</value>
     <comment>Error message for the relevant situation</comment>
   </data>
-  <data name="Error_NoExperimentLoaded" xml:space="preserve">
-    <value>Could not load an expewriment to run!</value>
-    <comment>Error message raised when no experiment was loaded on RunWindow</comment>
-  </data>
   <data name="Label_ScaleFactor" xml:space="preserve">
     <value>Scale Factor</value>
     <comment>Label for the textbox which modifies the named app setting</comment>
@@ -320,5 +312,17 @@
   <data name="Tooltip_ScaleCanvas" xml:space="preserve">
     <value>Each square of this grid is 12px*12px; calculate the scale factor as 96 / (actual number of pixels in 1 inch on your display)</value>
     <comment>Explanation for the Canvas which will display a grid underneath the ScaleFactor setting</comment>
+  </data>
+  <data name="Label_FileName" xml:space="preserve">
+    <value>File Name</value>
+    <comment>Label for any TextBlock which displays the filename for an object</comment>
+  </data>
+  <data name="Warning_SaveExperimentFirst" xml:space="preserve">
+    <value>Please save the experiment first</value>
+    <comment>The warning message when the user should save the experiment definition before adding stimulus objects</comment>
+  </data>
+  <data name="Label_DesignExperiment" xml:space="preserve">
+    <value>Design an Experiment</value>
+    <comment>Label for the design session option on Startup Dialog</comment>
   </data>
 </root>

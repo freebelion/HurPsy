@@ -47,7 +47,9 @@
                 <Setter Property="Content" Value="{StaticResource AddPairPopup}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="False">
-                <Setter Property="Content" Value="{StaticResource AddPairIcon}"/>
+                <Setter Property="Content" Value="{StaticResource AddIcon}"/>
+                <Setter Property="Height" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
+                <Setter Property="Width" Value="{Binding Source={StaticResource AppSettings}, Path=SmallFontSize}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

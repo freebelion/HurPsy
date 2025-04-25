@@ -132,6 +132,19 @@ private RelayCommand<ContentChoice>? chooseContentCommand;
 #### Field Value
 [CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[ContentChoice](HurPsyExp.ContentChoice.md 'HurPsyExp.ContentChoice')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.currentExperiment'></a>
+
+## DesignViewModel.currentExperiment Field
+
+The `Experiment` object managed by this viewmodel
+
+```csharp
+private Experiment currentExperiment;
+```
+
+#### Field Value
+[HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.displayContent'></a>
 
 ## DesignViewModel.displayContent Field
@@ -184,6 +197,19 @@ private bool editMode;
 #### Field Value
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.experimentName'></a>
+
+## DesignViewModel.experimentName Field
+
+A property to expose the experiment's name
+
+```csharp
+private string experimentName;
+```
+
+#### Field Value
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.loadExperimentCommand'></a>
 
 ## DesignViewModel.loadExperimentCommand Field
@@ -209,6 +235,19 @@ private RelayCommand? newExperimentCommand;
 
 #### Field Value
 [CommunityToolkit.Mvvm.Input.RelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand 'CommunityToolkit.Mvvm.Input.RelayCommand')
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.runExperimentCommand'></a>
+
+## DesignViewModel.runExperimentCommand Field
+
+The backing field for [RunExperimentCommand](HurPsyExp.ExpDesign.DesignViewModel.md#HurPsyExp.ExpDesign.DesignViewModel.RunExperimentCommand 'HurPsyExp.ExpDesign.DesignViewModel.RunExperimentCommand').
+
+```csharp
+private RelayCommand<Window>? runExperimentCommand;
+```
+
+#### Field Value
+[CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.Windows.Window](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Window 'System.Windows.Window')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.saveExperimentAsCommand'></a>
 
@@ -367,19 +406,6 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand<HurPsyExp.ContentChoice> Choose
 #### Property Value
 [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[ContentChoice](HurPsyExp.ContentChoice.md 'HurPsyExp.ContentChoice')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.CurrentExperiment'></a>
-
-## DesignViewModel.CurrentExperiment Property
-
-The `Experiment` object managed by this viewmodel
-
-```csharp
-public HurPsyLib.Experiment CurrentExperiment { get; set; }
-```
-
-#### Property Value
-[HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
-
 <a name='HurPsyExp.ExpDesign.DesignViewModel.DisplayContent'></a>
 
 ## DesignViewModel.DisplayContent Property
@@ -432,6 +458,19 @@ public bool EditMode { get; set; }
 #### Property Value
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.ExperimentName'></a>
+
+## DesignViewModel.ExperimentName Property
+
+A property to expose the experiment's name
+
+```csharp
+public string ExperimentName { get; set; }
+```
+
+#### Property Value
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.LoadExperimentCommand'></a>
 
 ## DesignViewModel.LoadExperimentCommand Property
@@ -483,6 +522,19 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand NewExperimentCommand { get; }
 
 #### Property Value
 [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand')
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.RunExperimentCommand'></a>
+
+## DesignViewModel.RunExperimentCommand Property
+
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1') instance wrapping [HurPsyExp.ExpDesign.DesignViewModel.RunExperiment(System.Windows.Window)](https://docs.microsoft.com/en-us/dotnet/api/HurPsyExp.ExpDesign.DesignViewModel.RunExperiment#HurPsyExp_ExpDesign_DesignViewModel_RunExperiment_System_Windows_Window_ 'HurPsyExp.ExpDesign.DesignViewModel.RunExperiment(System.Windows.Window)').
+
+```csharp
+public CommunityToolkit.Mvvm.Input.IRelayCommand<System.Windows.Window> RunExperimentCommand { get; }
+```
+
+#### Property Value
+[CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[System.Windows.Window](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Window 'System.Windows.Window')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.SaveExperimentAsCommand'></a>
 
@@ -633,7 +685,7 @@ private void ClearVMs();
 
 ## DesignViewModel.CreateVM(IdObject) Method
 
-This little function creates a VM associated with an experiment item and initializes it.
+This little function creates a viewmodel object associated with an experiment item and initializes it.
 
 ```csharp
 private HurPsyExp.ExpDesign.IdObjectViewModel CreateVM(HurPsyLib.IdObject idobj);
@@ -651,7 +703,7 @@ private HurPsyExp.ExpDesign.IdObjectViewModel CreateVM(HurPsyLib.IdObject idobj)
 
 ## DesignViewModel.CreateVMs() Method
 
-This method will create the viewmodel objects for a loaded experiment
+This method will create the viewmodel objects for the items in a loaded experiment.
 
 ```csharp
 private void CreateVMs();
@@ -714,6 +766,21 @@ private void OnAddingModeChanged(bool value);
 <a name='HurPsyExp.ExpDesign.DesignViewModel.OnAddingModeChanged(bool).value'></a>
 
 `value` [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.OnExperimentNameChanged(string)'></a>
+
+## DesignViewModel.OnExperimentNameChanged(string) Method
+
+Relay the name change to the source experiment.
+
+```csharp
+private void OnExperimentNameChanged(string value);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.OnExperimentNameChanged(string).value'></a>
+
+`value` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.SaveExperiment()'></a>
 

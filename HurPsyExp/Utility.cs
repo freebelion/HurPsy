@@ -35,7 +35,7 @@ namespace HurPsyExp
         /// <param name="filenameFilter">The filename filter for the file selection dialog</param>
         /// <param name="openMultiple">The boolean flag indicating if multiple selections are permitted</param>
         /// <returns>An array containing the chosen files' paths</returns>
-        public static string[]? OpenFiles(string filenameFilter, bool openMultiple)
+        public static string[]? FileOpenDialog(string filenameFilter, bool openMultiple)
         {
             OpenFileDialog opf = new OpenFileDialog();
             opf.Filter = filenameFilter;
@@ -50,13 +50,15 @@ namespace HurPsyExp
         /// <summary>
         /// This function will open a save-file selection dialog and return the selected file' path as a string
         /// </summary>
+        /// <param name="fileName">Suggested filename for the file selection dialog</param>
         /// <param name="filenameFilter">The filename filter for the file selection dialog</param>
         /// <returns>The full path for the file</returns>
-        public static string? FileSaveName(string filenameFilter)
+        public static string? FileSaveDialog(string fileName, string filenameFilter)
         {
             SaveFileDialog svf = new SaveFileDialog();
             svf.Filter = filenameFilter;
-
+            svf.FileName = SanitizeFileName(fileName);
+            
             if (svf.ShowDialog() == true)
             {
                 return svf.FileName;
@@ -78,6 +80,17 @@ namespace HurPsyExp
             using FileStream fs = File.Open(savefilename, FileMode.Create);
             using var writer = XmlWriter.Create(fs, xmlset);
             ser.WriteObject(writer, obj);
+        }
+
+        /// <summary>
+        /// A short method to remove undesirable chatracters from filenames (just in case)
+        /// Copied from: https://stackoverflow.com/questions/146134/how-to-remove-illegal-characters-from-path-and-filenames
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        private static string  SanitizeFileName(string fileName)
+        {
+            return string.Concat(fileName.Split(Path.GetInvalidFileNameChars()));
         }
 
         /// <summary>

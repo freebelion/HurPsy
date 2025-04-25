@@ -9,13 +9,16 @@ public class Experiment
 ```
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; Experiment
+
+Derived  
+&#8627; [ExpSession](HurPsyLib.ExpSession.md 'HurPsyLib.ExpSession')
 ### Constructors
 
 <a name='HurPsyLib.Experiment.Experiment()'></a>
 
 ## Experiment() Constructor
 
-This default constructor starts with empty collections and assigns the default values to other properties.
+This default constructor starts with empty collections and a temporary name and uses that name as a local file path.
 
 ```csharp
 public Experiment();
@@ -62,14 +65,27 @@ public System.Collections.Generic.List<HurPsyLib.ExpBlock> Blocks { get; set; }
 #### Property Value
 [System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[ExpBlock](HurPsyLib.ExpBlock.md 'HurPsyLib.ExpBlock')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
 
-<a name='HurPsyLib.Experiment.FileName'></a>
+<a name='HurPsyLib.Experiment.FilePath'></a>
 
-## Experiment.FileName Property
+## Experiment.FilePath Property
 
 Full path of the file where the experiment definition is stored
 
 ```csharp
-public string FileName { get; set; }
+public string FilePath { get; set; }
+```
+
+#### Property Value
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+<a name='HurPsyLib.Experiment.Name'></a>
+
+## Experiment.Name Property
+
+A name which will help a designer to remember this experiment.
+
+```csharp
+public string Name { get; set; }
 ```
 
 #### Property Value
@@ -100,7 +116,7 @@ The block to be added
 This function attempts to add the given `Locator` object to the dictionary collection and reports on the outcome.
 
 ```csharp
-public bool AddLocator(HurPsyLib.Locator loc);
+public void AddLocator(HurPsyLib.Locator loc);
 ```
 #### Parameters
 
@@ -110,10 +126,6 @@ public bool AddLocator(HurPsyLib.Locator loc);
 
 The object to be added
 
-#### Returns
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')  
-The success of the operation
-
 <a name='HurPsyLib.Experiment.AddStimulus(HurPsyLib.Stimulus)'></a>
 
 ## Experiment.AddStimulus(Stimulus) Method
@@ -121,7 +133,7 @@ The success of the operation
 This function attempts to add the given `Stimulus` object to the dictionary collection and reports on the outcome.
 
 ```csharp
-public bool AddStimulus(HurPsyLib.Stimulus stim);
+public void AddStimulus(HurPsyLib.Stimulus stim);
 ```
 #### Parameters
 
@@ -130,10 +142,6 @@ public bool AddStimulus(HurPsyLib.Stimulus stim);
 `stim` [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')
 
 The object to be added
-
-#### Returns
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')  
-The success of the operation
 
 <a name='HurPsyLib.Experiment.GetLocatorItems()'></a>
 
@@ -206,6 +214,19 @@ Id to check
 
 #### Returns
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
+<a name='HurPsyLib.Experiment.ShallowCopy()'></a>
+
+## Experiment.ShallowCopy() Method
+
+This method will help clone the experiment items onto `Session` objects.
+
+```csharp
+public HurPsyLib.Experiment ShallowCopy();
+```
+
+#### Returns
+[Experiment](HurPsyLib.Experiment.md 'HurPsyLib.Experiment')
 
 <a name='HurPsyLib.Experiment.StimulusIdChanged(HurPsyLib.Stimulus,string)'></a>
 

@@ -67,3 +67,22 @@ public void InitializeComponent();
 ```
 
 Implements [InitializeComponent()](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Markup.IComponentConnector.InitializeComponent 'System.Windows.Markup.IComponentConnector.InitializeComponent')
+
+<a name='HurPsyExp.ExpDesign.DesignWindow.Window_Loaded(object,System.Windows.RoutedEventArgs)'></a>
+
+## DesignWindow.Window_Loaded(object, RoutedEventArgs) Method
+
+When this window is loaded, the window adopts its `dataContext` and draws the grid which will be used to calculate the scale factor.
+
+```csharp
+private void Window_Loaded(object sender, System.Windows.RoutedEventArgs e);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.DesignWindow.Window_Loaded(object,System.Windows.RoutedEventArgs).sender'></a>
+
+`sender` [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object')
+
+<a name='HurPsyExp.ExpDesign.DesignWindow.Window_Loaded(object,System.Windows.RoutedEventArgs).e'></a>
+
+`e` [System.Windows.RoutedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.RoutedEventArgs 'System.Windows.RoutedEventArgs')

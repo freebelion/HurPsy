@@ -5,6 +5,7 @@
 | [ExpBlock](HurPsyLib.ExpBlock.md 'HurPsyLib.ExpBlock') | This class represents a block of experiment trials. |
 | [Experiment](HurPsyLib.Experiment.md 'HurPsyLib.Experiment') | This class represents the complete definition of a computerized psychology experiment. |
 | [ExpPair](HurPsyLib.ExpPair.md 'HurPsyLib.ExpPair') | This class represents an association between a `Stimulus` and a `Locator` which specifies a location for the stimulus. |
+| [ExpSession](HurPsyLib.ExpSession.md 'HurPsyLib.ExpSession') | This class represents an experiment session with simple UserId and RunTime info, along with the actual order of blocks, trials and steps. |
 | [ExpStep](HurPsyLib.ExpStep.md 'HurPsyLib.ExpStep') | This class represents a trial step of an experiment,<br/>a step being a collection of stimuli presented together, for a specified period of time. |
 | [ExpTrial](HurPsyLib.ExpTrial.md 'HurPsyLib.ExpTrial') | This class represents an experiment trial made up of one or more steps. |
 | [HurPsyCommon](HurPsyLib.HurPsyCommon.md 'HurPsyLib.HurPsyCommon') | This static class serves as a container for global objects utilized by all the `HurPsyLib` objects |

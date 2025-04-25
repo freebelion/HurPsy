@@ -37,18 +37,18 @@ The reference to the window element (for updating the display step by step)
 The reference to an existing experiment (if any)
 ### Fields
 
-<a name='HurPsyExp.ExpRun.RunViewModel._experiment'></a>
+<a name='HurPsyExp.ExpRun.RunViewModel.currentSession'></a>
 
-## RunViewModel._experiment Field
+## RunViewModel.currentSession Field
 
 A reference to the `Experiment` object representing the experiment being run
 
 ```csharp
-private Experiment _experiment;
+private ExpSession currentSession;
 ```
 
 #### Field Value
-[HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
+[HurPsyLib.ExpSession](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.ExpSession 'HurPsyLib.ExpSession')
 
 <a name='HurPsyExp.ExpRun.RunViewModel.runwin'></a>
 
@@ -62,6 +62,19 @@ private RunWindow runwin;
 
 #### Field Value
 [RunWindow](HurPsyExp.ExpRun.RunWindow.md 'HurPsyExp.ExpRun.RunWindow')
+
+<a name='HurPsyExp.ExpRun.RunViewModel.scaleFactor'></a>
+
+## RunViewModel.scaleFactor Field
+
+The scale factor used to display visuals on correct positions on displays that don't support standard DIU.
+
+```csharp
+private double scaleFactor;
+```
+
+#### Field Value
+[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
 ### Properties
 
 <a name='HurPsyExp.ExpRun.RunViewModel.VisualStimuli'></a>
@@ -102,11 +115,13 @@ private static HurPsyLib.Experiment LoadExperiment();
 ```
 
 #### Returns
-[HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')
+[HurPsyLib.Experiment](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.Experiment 'HurPsyLib.Experiment')  
+A reference to the experiment definition loaded from the file
 
 #### Exceptions
 
-[HurPsyLib.HurPsyException](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.HurPsyException 'HurPsyLib.HurPsyException')
+[HurPsyLib.HurPsyException](https://docs.microsoft.com/en-us/dotnet/api/HurPsyLib.HurPsyException 'HurPsyLib.HurPsyException')  
+The exception thrown when a valid definition could not be loaded
 
 <a name='HurPsyExp.ExpRun.RunViewModel.LoadStep()'></a>
 

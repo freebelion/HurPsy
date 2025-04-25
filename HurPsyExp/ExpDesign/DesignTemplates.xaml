@@ -40,6 +40,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -50,15 +51,23 @@
                        Text="{x:Static expstrings:StringResources.Label_VisualWidth}"
                        TextAlignment="Center"/>
             <TextBox Grid.Row="1" Grid.Column="0" Margin="2"
-                     TextAlignment="Right" VerticalContentAlignment="Center"
+                     TextAlignment="Right"
                      Text="{Binding VisualSize.Width, StringFormat='0.0'}"/>
 
             <TextBlock Grid.Row="0" Grid.Column="1"
                        Text="{x:Static expstrings:StringResources.Label_VisualHeight}"
                        TextAlignment="Center"/>
             <TextBox Grid.Row="1" Grid.Column="1" Margin="2"
-                     TextAlignment="Right" VerticalContentAlignment="Center"
+                     TextAlignment="Right"
                      Text="{Binding VisualSize.Height, StringFormat='0.0'}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="2" Padding="2"
+                       Text="{x:Static expstrings:StringResources.Label_FileName}"
+                       TextAlignment="Right"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="2" Padding="2"
+                       TextAlignment="Left"
+                       Text="{Binding FileName}"
+                       Background="{StaticResource ControlBackground}"/>
         </Grid>
     </DataTemplate>
 
@@ -171,10 +180,10 @@
         </Grid.ColumnDefinitions>
 
         <Button Grid.Column="0" VerticalAlignment="Top"
-            Content="{StaticResource PreviousIcon}"
-            Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-            Command="{Binding PreviousTrialCommand}"
-            ToolTip="{x:Static expstrings:StringResources.Tooltip_PreviousTrial}"/>
+                Content="{StaticResource PreviousIcon}"
+                Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
+                Command="{Binding PreviousTrialCommand}"
+                ToolTip="{x:Static expstrings:StringResources.Tooltip_PreviousTrial}"/>
 
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <ContentControl Content="{Binding CurrentTrial}"
@@ -222,7 +231,7 @@
                         Command="{Binding AddSingleTrialCommand}"
                         Height="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
                         Width="{Binding Source={StaticResource AppSettings}, Path=CommandButtonHeight}"
-                              ToolTip="{x:Static expstrings:StringResources.Tooltip_AddSingleTrial}"/>
+                        ToolTip="{x:Static expstrings:StringResources.Tooltip_AddSingleTrial}"/>
                 
                 <ToggleButton x:Name="btnAddMultipleTrial"
                               IsChecked="{Binding AddingMode, Mode=TwoWay}"

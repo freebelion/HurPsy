@@ -34,6 +34,11 @@ namespace HurPsyExp.ExpDesign
             InitializeComponent();
         }
 
+        /// <summary>
+        /// When this window is loaded, the window adopts its `dataContext` and draws the grid which will be used to calculate the scale factor.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = DesignVM;
@@ -65,14 +70,6 @@ namespace HurPsyExp.ExpDesign
                 ln.StrokeThickness = 0.25;
                 ScaleCanvas.Children.Add(ln);
             }
-        }
-
-        private void RunExperiment(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            ExpRun.RunWindow winrun = new ExpRun.RunWindow(DesignVM.CurrentExperiment);
-            winrun.Show();
-            this.Close();
         }
     }
 }

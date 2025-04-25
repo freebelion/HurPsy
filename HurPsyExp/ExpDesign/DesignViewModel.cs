@@ -16,6 +16,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HurPsyExpStrings;
 using HurPsyLib;
+using System.IO;
 
 namespace HurPsyExp.ExpDesign
 {
@@ -86,7 +87,13 @@ namespace HurPsyExp.ExpDesign
         /// <summary>
         /// The `Experiment` object managed by this viewmodel
         /// </summary>
-        public Experiment CurrentExperiment { get; set; }
+        private Experiment currentExperiment;
+
+        /// <summary>
+        /// A property to expose the experiment's name
+        /// </summary>
+        [ObservableProperty]
+        private string experimentName;
 
         /// <summary>
         /// Collection of viewmodels associated with the experiment's `Stimulus` objects
@@ -138,8 +145,11 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         public DesignViewModel(Experiment? exp = null)
         {
-            if (exp != null) { CurrentExperiment = exp; }
-            else { CurrentExperiment = new Experiment(); }
+            if (exp != null)
+            { currentExperiment = exp; }
+            else { currentExperiment = new Experiment(); }
+
+            ExperimentName = currentExperiment.Name;
 
             StimulusVMs = [];
             LocatorVMs = [];
@@ -152,7 +162,7 @@ namespace HurPsyExp.ExpDesign
             DisplayContentChoice = ContentChoice.NoDefinitions;
             DisplayContentLabel = StringResources.Header_Definitions;
 
-            LoadTestExperiment();
+            // LoadTestExperiment();
         }
         #endregion
 
@@ -163,8 +173,9 @@ namespace HurPsyExp.ExpDesign
             Experiment? tryexp = Utility.LoadFromXml<Experiment>(openfilename);
             if (tryexp != null)
             {
-                CurrentExperiment = tryexp;
-                CurrentExperiment.FileName = openfilename;
+                currentExperiment = tryexp;
+                ExperimentName = currentExperiment.Name;
+                currentExperiment.FilePath = openfilename;
                 CreateVMs();
                 DisplayContentChoice = ContentChoice.BlockDefinitions;
                 ChooseContent(DisplayContentChoice);
@@ -174,7 +185,16 @@ namespace HurPsyExp.ExpDesign
         }
 
         /// <summary>
-        /// This little function creates a VM associated with an experiment item and initializes it.
+        /// Relay the name change to the source experiment.
+        /// </summary>
+        /// <param name="value"></param>
+        partial void OnExperimentNameChanged(string value)
+        {
+            currentExperiment.Name = value;
+        }
+
+        /// <summary>
+        /// This little function creates a viewmodel object associated with an experiment item and initializes it.
         /// </summary>
         /// <param name="idobj"></param>
         /// <returns></returns>
@@ -202,21 +222,21 @@ namespace HurPsyExp.ExpDesign
         }
 
         /// <summary>
-        /// This method will create the viewmodel objects for a loaded experiment
+        /// This method will create the viewmodel objects for the items in a loaded experiment.
         /// </summary>
         private void CreateVMs()
         {
             ClearVMs();
 
-            List<Stimulus> StimulusItems = CurrentExperiment.GetStimulusItems();
+            List<Stimulus> StimulusItems = currentExperiment.GetStimulusItems();
             foreach (var item in StimulusItems)
             { StimulusVMs.Add(CreateVM(item)); }
 
-            List<Locator> LocatorItems = CurrentExperiment.GetLocatorItems();
+            List<Locator> LocatorItems = currentExperiment.GetLocatorItems();
             foreach (var item in LocatorItems)
             { LocatorVMs.Add(CreateVM(item)); }
 
-            foreach (var item in CurrentExperiment.Blocks)
+            foreach (var item in currentExperiment.Blocks)
             { BlockVMs.Add(CreateVM(item)); }
         }
 
@@ -225,20 +245,40 @@ namespace HurPsyExp.ExpDesign
         /// </summary>
         private void AddingImageStimulus()
         {
-            string[]? selectedFiles = Utility.OpenFiles(HurPsyExpStrings.StringResources.Filter_ImageFiles, true);
+            string[]? selectedFiles = Utility.FileOpenDialog(HurPsyExpStrings.StringResources.Filter_ImageFiles, true);
 
             if (selectedFiles != null && selectedFiles.Length > 0)
             {
-                foreach (string strFile in selectedFiles)
+                foreach (string strFilePath in selectedFiles)
                 {
                     ImageStimulus imgstim = new();
-                    string? basename = System.IO.Path.GetFileNameWithoutExtension(strFile);
+                    string? basename = Path.GetFileNameWithoutExtension(strFilePath);
                     if(basename != null) { imgstim.Id = basename; }
-                    imgstim.FileName = strFile;
-                    CurrentExperiment.AddStimulus(imgstim);
+                    // store the filename without the path (using relative paths only)
+                    CopyStimulusItem(imgstim, strFilePath);
+                    currentExperiment.AddStimulus(imgstim);
                     IdObjectViewModel stimvm = CreateVM(imgstim);
                     StimulusVMs.Add(stimvm);
                 }
+            }
+        }
+
+        private void CopyStimulusItem(Stimulus stim, string originalFilePath)
+        {
+            // If the experiment definition doesn't yet have a file, make sure the user saves it first
+            if(string.IsNullOrEmpty(currentExperiment.FilePath))
+            {
+                MessageBox.Show(HurPsyExpStrings.StringResources.Warning_SaveExperimentFirst);
+                SaveExperimentAs();
+            }
+
+            // Get the directory path for the experiment's definition file
+            string? expDirectoryPath = Path.GetDirectoryName(currentExperiment.FilePath);
+            if (expDirectoryPath != null)
+            {
+                stim.FileName = Path.GetFileName(originalFilePath);
+                string newFilePath = Path.Combine(expDirectoryPath, stim.FileName);
+                File.Copy(originalFilePath, newFilePath, true);
             }
         }
         #endregion
@@ -251,7 +291,8 @@ namespace HurPsyExp.ExpDesign
         private void NewExperiment()
         {
             ClearVMs();
-            CurrentExperiment = new Experiment();
+            currentExperiment = new Experiment();
+            ExperimentName = currentExperiment.Name;
         }
 
         /// <summary>
@@ -260,16 +301,17 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void LoadExperiment()
         {
-            string[]? selectedFiles = Utility.OpenFiles(HurPsyExpStrings.StringResources.Filter_ExperimentFiles, false);
+            string[]? selectedFiles = Utility.FileOpenDialog(HurPsyExpStrings.StringResources.Filter_ExperimentFiles, false);
 
-            if(selectedFiles != null && System.IO.File.Exists(selectedFiles[0]))
+            if(selectedFiles != null && File.Exists(selectedFiles[0]))
             {
                 string openfilename = selectedFiles[0];
                 Experiment? tryexp = Utility.LoadFromXml<Experiment>(openfilename);
                 if (tryexp != null)
                 {
-                    CurrentExperiment = tryexp;
-                    CurrentExperiment.FileName = openfilename;
+                    currentExperiment = tryexp;
+                    ExperimentName = currentExperiment.Name;
+                    currentExperiment.FilePath = openfilename;
                     CreateVMs();
                     ChooseContent(DisplayContentChoice);
                 }
@@ -285,9 +327,9 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void SaveExperiment()
         {
-            if (System.IO.File.Exists(CurrentExperiment.FileName))
+            if (File.Exists(currentExperiment.FilePath))
             {
-                Utility.SaveToXml<Experiment>(CurrentExperiment, CurrentExperiment.FileName);
+                Utility.SaveToXml<Experiment>(currentExperiment, currentExperiment.FilePath);
             }
             else { SaveExperimentAs(); }
         }
@@ -298,13 +340,21 @@ namespace HurPsyExp.ExpDesign
         [RelayCommand]
         private void SaveExperimentAs()
         {
-            string? savefilename = Utility.FileSaveName(HurPsyExpStrings.StringResources.Filter_ExperimentFiles);
+            string? savefilename = Utility.FileSaveDialog(currentExperiment.Name + ".xml", HurPsyExpStrings.StringResources.Filter_ExperimentFiles);
 
             if (savefilename != null)
             {
-                CurrentExperiment.FileName = savefilename;
-                Utility.SaveToXml<Experiment>(CurrentExperiment, savefilename);
+                currentExperiment.FilePath = savefilename;
+                Utility.SaveToXml<Experiment>(currentExperiment, savefilename);
             }
+        }
+
+        [RelayCommand]
+        private void RunExperiment(Window designWindow)
+        {
+            designWindow.Close();
+            ExpRun.RunWindow runWindow = new ExpRun.RunWindow(currentExperiment);
+            runWindow.Show();
         }
 
         /// <summary>
@@ -362,7 +412,7 @@ namespace HurPsyExp.ExpDesign
             {
                 case "PointLocator":
                     PointLocator ploc = new();
-                    CurrentExperiment.AddLocator(ploc);
+                    currentExperiment.AddLocator(ploc);
                     IdObjectViewModel plocvm = CreateVM(ploc);
                     LocatorVMs.Add(plocvm);
                     break;
@@ -376,7 +426,7 @@ namespace HurPsyExp.ExpDesign
         private void AddingBlock()
         {
             ExpBlock blck = new();
-            CurrentExperiment.AddBlock(blck);
+            currentExperiment.AddBlock(blck);
             IdObjectViewModel blckvm = CreateVM(blck);
             BlockVMs.Add(blckvm);
         }
@@ -407,13 +457,13 @@ namespace HurPsyExp.ExpDesign
             if (idobjvm != null && !string.IsNullOrEmpty(e.NewId))
             {
                 switch(idobjvm.ItemObject)
-                {
+                {// In cases Id change is rejected (due to duplicate Ids) revert the viewmodel TempId to the object Id.
                     case Stimulus stim:
-                        if(!CurrentExperiment.StimulusIdChanged(stim, e.NewId))
+                        if(!currentExperiment.StimulusIdChanged(stim, e.NewId))
                         { idobjvm.TempId = stim.Id; }
                         break;
                     case Locator loc:
-                        if (!CurrentExperiment.LocatorIdChanged(loc, e.NewId))
+                        if (!currentExperiment.LocatorIdChanged(loc, e.NewId))
                         { idobjvm.TempId = loc.Id; }
                         break;
                     case ExpBlock blck:

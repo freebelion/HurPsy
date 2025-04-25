@@ -40,18 +40,51 @@ public static System.Random RND { get; set; }
 [System.Random](https://docs.microsoft.com/en-us/dotnet/api/System.Random 'System.Random')
 ### Methods
 
-<a name='HurPsyExp.Utility.FileSaveName(string)'></a>
+<a name='HurPsyExp.Utility.FileOpenDialog(string,bool)'></a>
 
-## Utility.FileSaveName(string) Method
+## Utility.FileOpenDialog(string, bool) Method
+
+This function will open a open-file selection dialog and return the selected files' paths as an array of strings
+
+```csharp
+public static string[]? FileOpenDialog(string filenameFilter, bool openMultiple);
+```
+#### Parameters
+
+<a name='HurPsyExp.Utility.FileOpenDialog(string,bool).filenameFilter'></a>
+
+`filenameFilter` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The filename filter for the file selection dialog
+
+<a name='HurPsyExp.Utility.FileOpenDialog(string,bool).openMultiple'></a>
+
+`openMultiple` [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
+The boolean flag indicating if multiple selections are permitted
+
+#### Returns
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')  
+An array containing the chosen files' paths
+
+<a name='HurPsyExp.Utility.FileSaveDialog(string,string)'></a>
+
+## Utility.FileSaveDialog(string, string) Method
 
 This function will open a save-file selection dialog and return the selected file' path as a string
 
 ```csharp
-public static string? FileSaveName(string filenameFilter);
+public static string? FileSaveDialog(string fileName, string filenameFilter);
 ```
 #### Parameters
 
-<a name='HurPsyExp.Utility.FileSaveName(string).filenameFilter'></a>
+<a name='HurPsyExp.Utility.FileSaveDialog(string,string).fileName'></a>
+
+`fileName` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+Suggested filename for the file selection dialog
+
+<a name='HurPsyExp.Utility.FileSaveDialog(string,string).filenameFilter'></a>
 
 `filenameFilter` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
@@ -234,32 +267,24 @@ The path of the file containing the image
 [System.Windows.Media.Imaging.BitmapImage](https://docs.microsoft.com/en-us/dotnet/api/System.Windows.Media.Imaging.BitmapImage 'System.Windows.Media.Imaging.BitmapImage')  
 The image object
 
-<a name='HurPsyExp.Utility.OpenFiles(string,bool)'></a>
+<a name='HurPsyExp.Utility.SanitizeFileName(string)'></a>
 
-## Utility.OpenFiles(string, bool) Method
+## Utility.SanitizeFileName(string) Method
 
-This function will open a open-file selection dialog and return the selected files' paths as an array of strings
+A short method to remove undesirable chatracters from filenames (just in case)  
+Copied from: https://stackoverflow.com/questions/146134/how-to-remove-illegal-characters-from-path-and-filenames
 
 ```csharp
-public static string[]? OpenFiles(string filenameFilter, bool openMultiple);
+private static string SanitizeFileName(string fileName);
 ```
 #### Parameters
 
-<a name='HurPsyExp.Utility.OpenFiles(string,bool).filenameFilter'></a>
+<a name='HurPsyExp.Utility.SanitizeFileName(string).fileName'></a>
 
-`filenameFilter` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
-The filename filter for the file selection dialog
-
-<a name='HurPsyExp.Utility.OpenFiles(string,bool).openMultiple'></a>
-
-`openMultiple` [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
-
-The boolean flag indicating if multiple selections are permitted
+`fileName` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
 #### Returns
-[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')  
-An array containing the chosen files' paths
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
 <a name='HurPsyExp.Utility.SaveToXml_T_(T,string)'></a>
 

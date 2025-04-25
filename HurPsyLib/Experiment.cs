@@ -10,18 +10,25 @@ using System.Xml;
 
 namespace HurPsyLib
 {
-	/// <summary>
-	/// This class represents the complete definition of a computerized psychology experiment.
-	/// </summary>
-	[DataContract]
+    /// <summary>
+    /// This class represents the complete definition of a computerized psychology experiment.
+    /// </summary>
+    [KnownType(typeof(ExpSession))]
+    [DataContract]
 	public class Experiment
 	{
         #region Data members and properties
         /// <summary>
+        /// A name which will help a designer to remember this experiment.
+        /// </summary>
+        [DataMember]
+        public string Name { get; set; }
+
+        /// <summary>
         /// Full path of the file where the experiment definition is stored
         /// </summary>
         [DataMember]
-        public string FileName { get; set; } = string.Empty;
+        public string FilePath { get; set; } = string.Empty;
 
         /// <summary>
         /// This `Dictionary` collection helps access `Stimulus` objects through their ids.
@@ -44,10 +51,12 @@ namespace HurPsyLib
 
         #region Constructor(s)
         /// <summary>
-        /// This default constructor starts with empty collections and assigns the default values to other properties.
+        /// This default constructor starts with empty collections and a temporary name and uses that name as a local file path.
         /// </summary>
         public Experiment()
 		{
+            Name = IdObject.CreateId(this.GetType());
+            FilePath = Name + ".xml";
 			StimulusDict = [];
             LocatorDict = [];
             Blocks = [];
@@ -66,15 +75,11 @@ namespace HurPsyLib
         /// </summary>
         /// <param name="stim">The object to be added</param>
         /// <returns>The success of the operation</returns>
-        public bool AddStimulus(Stimulus stim)
+        public void AddStimulus(Stimulus stim)
         {
-            try
-            {
-                StimulusDict.Add(stim.Id, stim);
-                return true;
-            }
-            catch
-            { return false; }
+            while(StimulusIdExists(stim.Id))
+            { stim.Id = IdObject.CreateId(stim.GetType()); }
+            StimulusDict.Add(stim.Id, stim);
         }
 
         /// <summary>
@@ -102,7 +107,8 @@ namespace HurPsyLib
             // First, remove the key-value pair with the old id
             StimulusDict.Remove(stim.Id);
             stim.Id = newid;
-            return AddStimulus(stim);
+            AddStimulus(stim);
+            return true;
         }
 
         /// <summary>
@@ -110,15 +116,11 @@ namespace HurPsyLib
         /// </summary>
         /// <param name="loc">The object to be added</param>
         /// <returns>The success of the operation</returns>
-        public bool AddLocator(Locator loc)
+        public void AddLocator(Locator loc)
         {
-            try
-            {
-                LocatorDict.Add(loc.Id, loc);
-                return true;
-            }
-            catch
-            { return false; }
+            while (LocatorIdExists(loc.Id))
+            { loc.Id = IdObject.CreateId(loc.GetType()); }
+            LocatorDict.Add(loc.Id, loc);
         }
 
         /// <summary>
@@ -146,7 +148,17 @@ namespace HurPsyLib
             // First, remove the key-value pair with the old id
             LocatorDict.Remove(loc.Id);
             loc.Id = newid;
-            return AddLocator(loc);
+            AddLocator(loc);
+            return true;
+        }
+
+        /// <summary>
+        /// This method will help clone the experiment items onto `Session` objects.
+        /// </summary>
+        /// <returns></returns>
+        public Experiment ShallowCopy()
+        {
+            return (Experiment)MemberwiseClone();
         }
         #endregion
     }

@@ -70,15 +70,6 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Could not load an expewriment to run!.
-        /// </summary>
-        public static string Error_NoExperimentLoaded {
-            get {
-                return ResourceManager.GetString("Error_NoExperimentLoaded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Experiment definition Files (*.xml) |*.xml.
         /// </summary>
         public static string Filter_ExperimentFiles {
@@ -282,6 +273,15 @@ namespace HurPsyExpStrings {
         public static string Label_DesignExperiment {
             get {
                 return ResourceManager.GetString("Label_DesignExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Name.
+        /// </summary>
+        public static string Label_FileName {
+            get {
+                return ResourceManager.GetString("Label_FileName", resourceCulture);
             }
         }
         
@@ -516,6 +516,15 @@ namespace HurPsyExpStrings {
         public static string Tooltip_ScaleCanvas {
             get {
                 return ResourceManager.GetString("Tooltip_ScaleCanvas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please save the experiment first.
+        /// </summary>
+        public static string Warning_SaveExperimentFirst {
+            get {
+                return ResourceManager.GetString("Warning_SaveExperimentFirst", resourceCulture);
             }
         }
     }

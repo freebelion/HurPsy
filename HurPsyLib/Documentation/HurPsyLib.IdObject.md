@@ -41,3 +41,22 @@ public string Id { get; set; }
 
 #### Property Value
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+### Methods
+
+<a name='HurPsyLib.IdObject.CreateId(System.Type)'></a>
+
+## IdObject.CreateId(Type) Method
+
+This statis function is an attempt to create -hopefully unique- temporary Id strings for newly created objects.
+
+```csharp
+public static string CreateId(System.Type objty);
+```
+#### Parameters
+
+<a name='HurPsyLib.IdObject.CreateId(System.Type).objty'></a>
+
+`objty` [System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')
+
+#### Returns
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')

@@ -25,9 +25,12 @@
 
     <DockPanel x:Name="MainPanel" LastChildFill="True">
         <DockPanel DockPanel.Dock="Top" LastChildFill="True" Background="{StaticResource MenuBrush}">
+            <TextBox Text="{Binding ExperimentName}" IsEnabled="{Binding EditMode}"/>
+            
             <Menu x:Name="MainMenu"
-                  FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}">
-                <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}" Margin="2">
+                  FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"
+                  Margin="2">
+                <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}">
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"
                               Command="{Binding NewExperimentCommand}"/>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_LoadExperiment}"
@@ -36,10 +39,16 @@
                               Command="{Binding SaveExperimentCommand}"/>
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperimentAs}"
                               Command="{Binding SaveExperimentAsCommand}"/>
+                    <!--made use of: https://stackoverflow.com/questions/16172462/close-window-from-viewmodel
+                       As mentioned there, this is not strictly proper in MVVM arhitecture.-->
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_RunExperiment}"
-                              Click="RunExperiment"/>
+                              Command="{Binding RunExperimentCommand, Mode=OneWay}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
                 </MenuItem>
+            </Menu>
 
+            <Menu FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"
+                  Margin="2">
                 <MenuItem Header="{Binding DisplayContentLabel}">
                     <MenuItem Command="{Binding ChooseContentCommand}"
                               CommandParameter="{x:Static expapp:ContentChoice.StimulusDefinitions}">
@@ -88,7 +97,8 @@
                           Content="{StaticResource AddIcon}"
                           Style="{StaticResource DesignToggleStyle}"/>
 
-            <Menu>
+            <Menu FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"
+                  Margin="2">
                 <MenuItem Visibility="{Binding AddingStimulusMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
@@ -120,7 +130,7 @@
                             <ContentControl Content="{StaticResource AddLocatorIcon}"
                                             Style="{StaticResource IconImageStyle}"
                                             VerticalAlignment="Center"/>
-                            <TextBlock Text="{x:Static expstrings:StringResources.Header_AddStimulus}"
+                            <TextBlock Text="{x:Static expstrings:StringResources.Header_AddLocator}"
                                        VerticalAlignment="Center" Margin="2"/>
                         </StackPanel>
                     </MenuItem.Header>

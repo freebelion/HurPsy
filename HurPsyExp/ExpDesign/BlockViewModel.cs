@@ -143,6 +143,8 @@ namespace HurPsyExp.ExpDesign
                     blck.AddTrial(tr);
                     AddTrialVM(tr);
                 }
+                // At the end, point to the last trial as the current one.
+                CurrentTrialIndex = TrialVMs.Count - 1;
             }
         } 
 
