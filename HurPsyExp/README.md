@@ -29,18 +29,22 @@ to easily write the code for their specialized experiments.
 
 
 It is true that a PC is not the best device 
-to run experiments with precisely timed steps
-and accurately measured response times.
-Nor do I claim that this will be possible
+to run precisely controlled experiments
+with accurate response measurements.
+Nor do I imagine that this will ever be possible
 on the operating system and the framework
 where I started developing this project.
 My main goal was, and will continue to be,
-design an easy-to-user interface.
-Such an interface should still help the researchers
-who has access to dedicated devices
-where they can  run  precisely controlled experiments
-and measuring devices which can accurately record
-user responses. I did not have access to such devices,
+design an easy-to-use interface.
+Such an interface may still help the researchers
+who has access to sophisticated devices 
+specifically designed to run controlled experiments
+while taking accurate measurements.
+I did not have access to such devices,
 and I have not drawn inspiration from any software
 such dedicated devices may use.
+My inspiration was solely based on the experience
+I acquired while writing programs for researchers
+of experimental psychology and
+the feedback they gave me.
 

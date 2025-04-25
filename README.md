@@ -5,7 +5,7 @@ psychology experiments on computer screens.
 
 The projects are:
 
-+ **HurPsyLib** class library is a collection of classes
++ [**HurPsyLib**](HurPsyLib/README.md) class library is a collection of classes
 which represent experiments and parts and objects
 that make up experiments.<br>
 They are utilized in the GUI-based experiment design
