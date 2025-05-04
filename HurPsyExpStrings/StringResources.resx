@@ -325,4 +325,12 @@
     <value>Design an Experiment</value>
     <comment>Label for the design session option on Startup Dialog</comment>
   </data>
+  <data name="Header_AddRectLocator" xml:space="preserve">
+    <value>Rect Locator</value>
+    <comment>Header for the menu item which adds a RectLocator definition</comment>
+  </data>
+  <data name="Error_CannotFindStimulusFile" xml:space="preserve">
+    <value>Cannot find the stimulus file: </value>
+    <comment>The error message shown when a stimulus file cannot be found</comment>
+  </data>
 </root>

@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.IO;
 using HurPsyLib;
+using HurPsyExpStrings;
 
 namespace HurPsyExp.ExpRun
 {
@@ -25,11 +27,6 @@ namespace HurPsyExp.ExpRun
         /// A reference to the `Experiment` object representing the experiment being run
         /// </summary>
         private ExpSession currentSession;
-
-        /// <summary>
-        /// The scale factor used to display visuals on correct positions on displays that don't support standard DIU.
-        /// </summary>
-        private double scaleFactor;
 
         /// <summary>
         /// The collection of visual stimulus objects that will be presented together on the same step
@@ -53,8 +50,7 @@ namespace HurPsyExp.ExpRun
             VisualStimulusObjects = [];
 
             runwin = runwnd;
-            scaleFactor = ((App)Application.Current).CurrentSettings.ScaleFactor;
-
+            
             if (exp != null)
             { currentSession = new ExpSession(exp); }
             else // Bring up the dialog box to load an experiment definition from a file
@@ -93,12 +89,20 @@ namespace HurPsyExp.ExpRun
             VisualStimulusObjects.Clear();
 
             List<Stimulus> expStims = currentSession.GetStimulusItems();
+            string? expDirectoryPath = Path.GetDirectoryName(currentSession.FilePath);
 
             foreach (VisualStimulus vistim in expStims)
             {
-                if(vistim is ImageStimulus imgstim)
+                string stimFilePath = (expDirectoryPath != null) ? Path.Combine(expDirectoryPath, vistim.FileName) : vistim.FileName;
+                // Check if the stimulus file is actually in its place
+                if (!System.IO.File.Exists(stimFilePath))
                 {
-                    BitmapImage imgobj = Utility.LoadImage(imgstim.FileName);
+                    MessageBox.Show(StringResources.Error_CannotFindStimulusFile + stimFilePath);
+                    Application.Current.Shutdown();
+                }
+                if (vistim is ImageStimulus imgstim)
+                {
+                    BitmapImage imgobj = Utility.LoadImage(stimFilePath);
                     VisualStimulusObjects.Add(imgstim.Id, imgobj);
                 }
             }
@@ -127,17 +131,10 @@ namespace HurPsyExp.ExpRun
 
                 if (stim is not VisualStimulus vistim) continue;
 
-                VisualStimulusViewModel vistimVM = new VisualStimulusViewModel();
-
                 Locator loc = currentSession.LocatorDict[pr.LocatorId];
                 HurPsyPoint locpnt = loc.GetLocation(vistim);
-
-                vistimVM.Xpos = (System.Windows.SystemParameters.PrimaryScreenWidth / 2) + Utility.MM2DIU * (locpnt.X - vistim.VisualSize.Width / 2) / scaleFactor;
-                vistimVM.Ypos = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - Utility.MM2DIU * (locpnt.Y + vistim.VisualSize.Height / 2) / scaleFactor;
-                vistimVM.VisualWidth = Utility.MM2DIU * vistim.VisualSize.Width / scaleFactor;
-                vistimVM.VisualHeight = Utility.MM2DIU * vistim.VisualSize.Height / scaleFactor;
-
-                vistimVM.VisualObject = VisualStimulusObjects[vistim.Id];
+                
+                VisualStimulusViewModel vistimVM = new VisualStimulusViewModel(vistim, locpnt, VisualStimulusObjects[vistim.Id]);
                 VisualStimuli.Add(vistimVM);
             }
 

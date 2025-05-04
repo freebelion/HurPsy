@@ -184,19 +184,6 @@ private string displayContentLabel;
 #### Field Value
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.editMode'></a>
-
-## DesignViewModel.editMode Field
-
-The boolean indicator of editing Mode
-
-```csharp
-private bool editMode;
-```
-
-#### Field Value
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
-
 <a name='HurPsyExp.ExpDesign.DesignViewModel.experimentName'></a>
 
 ## DesignViewModel.experimentName Field
@@ -444,19 +431,6 @@ public string DisplayContentLabel { get; set; }
 
 #### Property Value
 [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
-
-<a name='HurPsyExp.ExpDesign.DesignViewModel.EditMode'></a>
-
-## DesignViewModel.EditMode Property
-
-The boolean indicator of editing Mode
-
-```csharp
-public bool EditMode { get; set; }
-```
-
-#### Property Value
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.ExperimentName'></a>
 

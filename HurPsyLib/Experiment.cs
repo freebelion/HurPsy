@@ -28,7 +28,7 @@ namespace HurPsyLib
         /// Full path of the file where the experiment definition is stored
         /// </summary>
         [DataMember]
-        public string FilePath { get; set; } = string.Empty;
+        public string FilePath { get; set; }
 
         /// <summary>
         /// This `Dictionary` collection helps access `Stimulus` objects through their ids.
@@ -55,9 +55,11 @@ namespace HurPsyLib
         /// </summary>
         public Experiment()
 		{
+            // Create a temporary unique name
             Name = IdObject.CreateId(this.GetType());
-            FilePath = Name + ".xml";
-			StimulusDict = [];
+            // Keep file path empty until the experiment definition is saved in a file
+            FilePath = string.Empty;
+            StimulusDict = [];
             LocatorDict = [];
             Blocks = [];
 		}
@@ -104,10 +106,15 @@ namespace HurPsyLib
         public bool StimulusIdChanged(Stimulus stim, string newid)
         {
             if(StimulusIdExists(newid)) return false;
-            // First, remove the key-value pair with the old id
+            // record the old Id
+            string oldId = stim.Id;
+            // Replace the Id-Stimulus pair in StimulusDict
             StimulusDict.Remove(stim.Id);
             stim.Id = newid;
             AddStimulus(stim);
+            // Pass on the id change to the blocks
+            foreach(var blck in Blocks)
+            { blck.ChangeStimulusId(oldId, newid); }
             return true;
         }
 
@@ -145,10 +152,15 @@ namespace HurPsyLib
         public bool LocatorIdChanged(Locator loc, string newid)
         {
             if (LocatorIdExists(newid)) return false;
-            // First, remove the key-value pair with the old id
+            // record the old Id
+            string oldId = loc.Id;
+            // Replace the Id-Locator pair in LocatorDict
             LocatorDict.Remove(loc.Id);
             loc.Id = newid;
             AddLocator(loc);
+            // Pass on the id change to the blocks
+            foreach (var blck in Blocks)
+            { blck.ChangeLocatorId(oldId, newid); }
             return true;
         }
 

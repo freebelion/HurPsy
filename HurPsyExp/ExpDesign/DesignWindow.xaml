@@ -7,6 +7,7 @@
         xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
         xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
         xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib"
+        xmlns:wpfbhv="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="{x:Static expstrings:StringResources.Title_DesignWindow}"
         Width="{Binding Source={StaticResource AppSettings}, Path=WindowWidth, Mode=TwoWay}"
@@ -25,11 +26,9 @@
 
     <DockPanel x:Name="MainPanel" LastChildFill="True">
         <DockPanel DockPanel.Dock="Top" LastChildFill="True" Background="{StaticResource MenuBrush}">
-            <TextBox Text="{Binding ExperimentName}" IsEnabled="{Binding EditMode}"/>
-            
             <Menu x:Name="MainMenu"
-                  FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"
-                  Margin="2">
+      FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"
+      Margin="2">
                 <MenuItem Header="{x:Static expstrings:StringResources.Header_Experiment}">
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_NewExperiment}"
                               Command="{Binding NewExperimentCommand}"/>
@@ -40,13 +39,26 @@
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_SaveExperimentAs}"
                               Command="{Binding SaveExperimentAsCommand}"/>
                     <!--made use of: https://stackoverflow.com/questions/16172462/close-window-from-viewmodel
-                       As mentioned there, this is not strictly proper in MVVM arhitecture.-->
+                        As mentioned there, this is not strictly proper in MVVM arhitecture.-->
                     <MenuItem Header="{x:Static expstrings:StringResources.Header_RunExperiment}"
                               Command="{Binding RunExperimentCommand, Mode=OneWay}"
                               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
                 </MenuItem>
             </Menu>
+            
+            <TextBox Text="{Binding ExperimentName}"
+                     IsReadOnly="True" MinWidth="150">
+                <wpfbhv:Interaction.Triggers>
+                    <wpfbhv:EventTrigger EventName="MouseDoubleClick">
+                        <wpfbhv:ChangePropertyAction PropertyName="IsReadOnly" Value="False"/>
+                    </wpfbhv:EventTrigger>
 
+                    <wpfbhv:EventTrigger EventName="MouseLeave">
+                        <wpfbhv:ChangePropertyAction PropertyName="IsReadOnly" Value="True"/>
+                    </wpfbhv:EventTrigger>
+                </wpfbhv:Interaction.Triggers>
+            </TextBox>
+            
             <Menu FontSize="{Binding Source={StaticResource AppSettings}, Path=MenuFontSize}"
                   Margin="2">
                 <MenuItem Header="{Binding DisplayContentLabel}">
@@ -88,10 +100,6 @@
                     </MenuItem>
                 </MenuItem>
             </Menu>
-
-            <ToggleButton x:Name="btnEditMode" IsChecked="{Binding EditMode}"
-                          Content="{StaticResource EditIcon}"
-                          Style="{StaticResource DesignToggleStyle}"/>
 
             <ToggleButton x:Name="btnAddingMode" IsChecked="{Binding AddingMode}"
                           Content="{StaticResource AddIcon}"
@@ -143,6 +151,19 @@
                                                 Style="{StaticResource IconImageStyle}"
                                                 VerticalAlignment="Center"/>
                                 <TextBlock Text="{x:Static expstrings:StringResources.Header_AddPointLocator}"
+                                           VerticalAlignment="Center" Margin="2"/>
+                            </StackPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
+
+                    <MenuItem Command="{Binding AddingLocatorCommand}"
+                              CommandParameter="{x:Type psylib:RectLocator}">
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource RectLocatorIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_AddRectLocator}"
                                            VerticalAlignment="Center" Margin="2"/>
                             </StackPanel>
                         </MenuItem.Header>

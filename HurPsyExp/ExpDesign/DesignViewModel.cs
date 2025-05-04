@@ -52,12 +52,6 @@ namespace HurPsyExp.ExpDesign
         private string displayContentLabel;
 
         /// <summary>
-        /// The boolean indicator of editing Mode
-        /// </summary>
-        [ObservableProperty]
-        private bool editMode;
-
-        /// <summary>
         /// The boolean indicator of Add Items Mode
         /// </summary>
         [ObservableProperty]
@@ -156,7 +150,6 @@ namespace HurPsyExp.ExpDesign
             BlockVMs = [];
           
             AddingMode = false;
-            EditMode = false;
             DisplayContent = [];
             SelectedItemVM = null;
             DisplayContentChoice = ContentChoice.NoDefinitions;
@@ -167,9 +160,8 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Methods
-        private void LoadTestExperiment()
+        private void LoadExperimentFromFile(string openfilename)
         {
-            string openfilename = @"C:\Users\freeb\Documents\HurPsyTest\deney1\deney1.xml";
             Experiment? tryexp = Utility.LoadFromXml<Experiment>(openfilename);
             if (tryexp != null)
             {
@@ -254,7 +246,7 @@ namespace HurPsyExp.ExpDesign
                     ImageStimulus imgstim = new();
                     string? basename = Path.GetFileNameWithoutExtension(strFilePath);
                     if(basename != null) { imgstim.Id = basename; }
-                    // store the filename without the path (using relative paths only)
+                    // copy the stimulus file onto the same directory as the experiment
                     CopyStimulusItem(imgstim, strFilePath);
                     currentExperiment.AddStimulus(imgstim);
                     IdObjectViewModel stimvm = CreateVM(imgstim);
@@ -263,7 +255,7 @@ namespace HurPsyExp.ExpDesign
             }
         }
 
-        private void CopyStimulusItem(Stimulus stim, string originalFilePath)
+        private void CopyStimulusItem(Stimulus stim, string oldStimulusFilePath)
         {
             // If the experiment definition doesn't yet have a file, make sure the user saves it first
             if(string.IsNullOrEmpty(currentExperiment.FilePath))
@@ -276,9 +268,18 @@ namespace HurPsyExp.ExpDesign
             string? expDirectoryPath = Path.GetDirectoryName(currentExperiment.FilePath);
             if (expDirectoryPath != null)
             {
-                stim.FileName = Path.GetFileName(originalFilePath);
-                string newFilePath = Path.Combine(expDirectoryPath, stim.FileName);
-                File.Copy(originalFilePath, newFilePath, true);
+                stim.FileName = Path.GetFileName(oldStimulusFilePath);
+                string newStimulusFilePath = Path.Combine(expDirectoryPath, stim.FileName);
+                // Check if the stimulus file is actually in the old place
+                if (File.Exists(oldStimulusFilePath))
+                {
+                    File.Copy(oldStimulusFilePath, newStimulusFilePath, true);
+                }
+                else
+                {
+                    MessageBox.Show(StringResources.Error_CannotFindStimulusFile + oldStimulusFilePath);
+                    Application.Current.Shutdown();
+                }
             }
         }
         #endregion
@@ -305,18 +306,7 @@ namespace HurPsyExp.ExpDesign
 
             if(selectedFiles != null && File.Exists(selectedFiles[0]))
             {
-                string openfilename = selectedFiles[0];
-                Experiment? tryexp = Utility.LoadFromXml<Experiment>(openfilename);
-                if (tryexp != null)
-                {
-                    currentExperiment = tryexp;
-                    ExperimentName = currentExperiment.Name;
-                    currentExperiment.FilePath = openfilename;
-                    CreateVMs();
-                    ChooseContent(DisplayContentChoice);
-                }
-                else
-                { throw new HurPsyException(HurPsyLibStrings.StringResources.Error_ExperimentNotLoaded + openfilename); }
+                LoadExperimentFromFile(selectedFiles[0]);
             }
         }
 
@@ -344,8 +334,24 @@ namespace HurPsyExp.ExpDesign
 
             if (savefilename != null)
             {
+                // Record the old file directory, just in case
+                string? oldDirectoryPath = Path.GetDirectoryName(currentExperiment.FilePath);
+
+                // Do the file save and record the directory path again
                 currentExperiment.FilePath = savefilename;
                 Utility.SaveToXml<Experiment>(currentExperiment, savefilename);
+                string? newDirectoryPath = Path.GetDirectoryName(currentExperiment.FilePath);
+
+                // If the old and new directory paths different, copy the stimulus files to the new path
+                if (oldDirectoryPath != null && newDirectoryPath != null && newDirectoryPath != oldDirectoryPath)
+                {
+                    var stimItems = currentExperiment.GetStimulusItems();
+                    foreach(Stimulus stim in stimItems)
+                    {
+                        string oldStimulusFilePath = Path.Combine(oldDirectoryPath, stim.FileName);
+                        CopyStimulusItem(stim, oldStimulusFilePath);
+                    }
+                }
             }
         }
 

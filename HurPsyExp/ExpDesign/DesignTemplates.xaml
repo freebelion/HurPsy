@@ -4,7 +4,7 @@
                     xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
                     xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
                     xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib"
-                    xmlns:wpfint="http://schemas.microsoft.com/xaml/behaviors">
+                    xmlns:wpfbhv="http://schemas.microsoft.com/xaml/behaviors">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ExpDesign/DesignStyles.xaml"/>
@@ -30,8 +30,18 @@
 
             <TextBox Grid.Column="1" Margin="2"
                      Text="{Binding Path=TempId}"
-                     IsEnabled="{Binding Path=DataContext.EditMode, RelativeSource={RelativeSource AncestorType= Window}}"
-                     VerticalAlignment="Center"/>
+                     IsReadOnly="True"
+                     VerticalAlignment="Center">
+                <wpfbhv:Interaction.Triggers>
+                    <wpfbhv:EventTrigger EventName="MouseDoubleClick">
+                        <wpfbhv:ChangePropertyAction PropertyName="IsReadOnly" Value="False"/>
+                    </wpfbhv:EventTrigger>
+
+                    <wpfbhv:EventTrigger EventName="MouseLeave">
+                        <wpfbhv:ChangePropertyAction PropertyName="IsReadOnly" Value="True"/>
+                    </wpfbhv:EventTrigger>
+                </wpfbhv:Interaction.Triggers>
+            </TextBox>
         </Grid>
     </DataTemplate>
 
@@ -149,12 +159,12 @@
             <StackPanel Orientation="Vertical"
                         Background="{StaticResource TrialTemplateBrush}">
                 <DockPanel LastChildFill="False">
-                    <TextBlock DockPanel.Dock="Left"
+                    <TextBlock DockPanel.Dock="Left" Opacity="0.5"
                                Text="{Binding TempId}" Margin="2"/>
                     <CheckBox DockPanel.Dock="Left"
                               IsChecked="{Binding ItemObject.IsFixed}"
                               Content="{x:Static expstrings:StringResources.Label_IsFixed}"
-                              Margin="2"/>
+                              Margin="8,2,2,2"/>
 
                     <Button DockPanel.Dock="Right"
                             Content="{StaticResource AddStepIcon}"

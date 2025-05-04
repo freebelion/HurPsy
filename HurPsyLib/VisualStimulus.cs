@@ -22,13 +22,6 @@ namespace HurPsyLib
 		public HurPsySize VisualSize { get; set; }
 
 		/// <summary>
-		/// Any object representing a visual stimulus must have a property to get/set its preferred anchor point
-		/// (which is the middle center of the stimulus object, by default)
-		/// </summary>
-		[DataMember]
-		public HurPsyOrigin AnchorChoice { get; set; }
-
-		/// <summary>
 		/// This default constructor starts with an empty (zero) size
 		/// </summary>
 		public VisualStimulus()

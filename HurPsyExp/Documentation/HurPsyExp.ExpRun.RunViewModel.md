@@ -62,19 +62,6 @@ private RunWindow runwin;
 
 #### Field Value
 [RunWindow](HurPsyExp.ExpRun.RunWindow.md 'HurPsyExp.ExpRun.RunWindow')
-
-<a name='HurPsyExp.ExpRun.RunViewModel.scaleFactor'></a>
-
-## RunViewModel.scaleFactor Field
-
-The scale factor used to display visuals on correct positions on displays that don't support standard DIU.
-
-```csharp
-private double scaleFactor;
-```
-
-#### Field Value
-[System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
 ### Properties
 
 <a name='HurPsyExp.ExpRun.RunViewModel.VisualStimuli'></a>

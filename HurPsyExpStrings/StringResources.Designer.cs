@@ -70,6 +70,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot find the stimulus file: .
+        /// </summary>
+        public static string Error_CannotFindStimulusFile {
+            get {
+                return ResourceManager.GetString("Error_CannotFindStimulusFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Experiment definition Files (*.xml) |*.xml.
         /// </summary>
         public static string Filter_ExperimentFiles {
@@ -120,6 +129,15 @@ namespace HurPsyExpStrings {
         public static string Header_AddPointLocator {
             get {
                 return ResourceManager.GetString("Header_AddPointLocator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rect Locator.
+        /// </summary>
+        public static string Header_AddRectLocator {
+            get {
+                return ResourceManager.GetString("Header_AddRectLocator", resourceCulture);
             }
         }
         

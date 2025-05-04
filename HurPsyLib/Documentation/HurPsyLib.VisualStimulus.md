@@ -25,20 +25,6 @@ public VisualStimulus();
 ```
 ### Properties
 
-<a name='HurPsyLib.VisualStimulus.AnchorChoice'></a>
-
-## VisualStimulus.AnchorChoice Property
-
-Any object representing a visual stimulus must have a property to get/set its preferred anchor point  
-(which is the middle center of the stimulus object, by default)
-
-```csharp
-public HurPsyLib.HurPsyOrigin AnchorChoice { get; set; }
-```
-
-#### Property Value
-[HurPsyOrigin](HurPsyLib.HurPsyOrigin.md 'HurPsyLib.HurPsyOrigin')
-
 <a name='HurPsyLib.VisualStimulus.VisualSize'></a>
 
 ## VisualStimulus.VisualSize Property

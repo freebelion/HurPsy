@@ -15,7 +15,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 ## ImageStimulus() Constructor
 
-This default constructor starts with an image size of 10 mm by 10 mm (I didn't want to cause surprise by starting with zero size)
+This default constructor starts with an image size of 10 by 10 (I didn't want to cause surprise by starting with zero size)
 
 ```csharp
 public ImageStimulus();

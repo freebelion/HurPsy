@@ -35,6 +35,8 @@
            Source="/Images/lbase.png" Stretch="UniformToFill"/>
     <Image x:Key="PointLocatorIcon" x:Shared="False"
            Source="/Images/PointLocator.png" Stretch="UniformToFill"/>
+    <Image x:Key="RectLocatorIcon" x:Shared="False"
+           Source="/Images/RectLocator.png" Stretch="UniformToFill"/>
     <Image x:Key="BlockIcon" x:Shared="False"
            Source="/Images/block.png" Stretch="UniformToFill"/>
     <Image x:Key="TrialIcon" x:Shared="False"

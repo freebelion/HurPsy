@@ -17,10 +17,6 @@
 | [ImageStimulus](HurPsyLib.ImageStimulus.md 'HurPsyLib.ImageStimulus') | This class represents an image served as a visual stimulus (hence it implements the `VisualStimulus` interface) |
 | [Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator') | This abstract class serves as the blueprint for all subclasses which will help position `Stimulus` objects. |
 | [PointLocator](HurPsyLib.PointLocator.md 'HurPsyLib.PointLocator') | This class stores a specific location point and uses its coordinates to produce a location for any visual stimulus |
+| [Response](HurPsyLib.Response.md 'HurPsyLib.Response') | This abstract class represents a response definition identified by a unique string provided by its base class `IdObject` |
 | [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus') | This abstract class serves as the blueprint for all classes which will represent different types of experimental stimuli. |
 | [VisualStimulus](HurPsyLib.VisualStimulus.md 'HurPsyLib.VisualStimulus') | This abstract class will be the basis for all classes which will represent visual stimuli. |
-
-| Enums | |
-| :--- | :--- |
-| [HurPsyOrigin](HurPsyLib.HurPsyOrigin.md 'HurPsyLib.HurPsyOrigin') | This `enum` contains the allowed origin preferences when specifying stimulus locations and anchor points for visual stimulus rectangles. |
-| [HurPsyUnit](HurPsyLib.HurPsyUnit.md 'HurPsyLib.HurPsyUnit') | This `enum` contains the allowed unit choices which will be used with  stimulus locations and sizes. |

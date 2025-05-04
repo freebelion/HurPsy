@@ -36,19 +36,12 @@
     <None Remove="Images\PointLocator.svg" />
     <None Remove="Images\previous.png" />
     <None Remove="Images\previous.svg" />
+    <None Remove="Images\RectLocator.png" />
+    <None Remove="Images\RectLocator.svg" />
     <None Remove="Images\sbase.png" />
     <None Remove="Images\sbase.svg" />
     <None Remove="Images\trial.png" />
     <None Remove="Images\trial.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
-      <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>4</VersionMinor>
-      <VersionMajor>2</VersionMajor>
-      <Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
-    </COMReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -82,6 +75,7 @@
     <Resource Include="Images\next.png" />
     <Resource Include="Images\PointLocator.png" />
     <Resource Include="Images\previous.png" />
+    <Resource Include="Images\RectLocator.png" />
     <Resource Include="Images\sbase.png" />
     <Resource Include="Images\trial.png" />
   </ItemGroup>

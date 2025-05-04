@@ -169,19 +169,6 @@ public static readonly PropertyChangedEventArgs Editable;
 #### Field Value
 [System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs')
 
-<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.EditMode'></a>
-
-## __KnownINotifyPropertyChangedArgs.EditMode Field
-
-The cached [System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') instance for all "EditMode" generated properties.
-
-```csharp
-public static readonly PropertyChangedEventArgs EditMode;
-```
-
-#### Field Value
-[System.ComponentModel.PropertyChangedEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs')
-
 <a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ExperimentName'></a>
 
 ## __KnownINotifyPropertyChangedArgs.ExperimentName Field

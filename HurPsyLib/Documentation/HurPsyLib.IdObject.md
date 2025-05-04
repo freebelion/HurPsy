@@ -15,6 +15,7 @@ Derived
 &#8627; [ExpStep](HurPsyLib.ExpStep.md 'HurPsyLib.ExpStep')  
 &#8627; [ExpTrial](HurPsyLib.ExpTrial.md 'HurPsyLib.ExpTrial')  
 &#8627; [Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')  
+&#8627; [Response](HurPsyLib.Response.md 'HurPsyLib.Response')  
 &#8627; [Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')
 ### Constructors
 

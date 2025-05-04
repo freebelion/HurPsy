@@ -14,12 +14,11 @@ namespace HurPsyLib
     public class ImageStimulus : VisualStimulus
     {
         /// <summary>
-        /// This default constructor starts with an image size of 10 mm by 10 mm (I didn't want to cause surprise by starting with zero size)
+        /// This default constructor starts with an image size of 10 by 10 (I didn't want to cause surprise by starting with zero size)
         /// </summary>
         public ImageStimulus()
         {
             VisualSize = new HurPsySize(10, 10);
-            VisualSize.Unit = HurPsyUnit.MM;
         }
     }
 }

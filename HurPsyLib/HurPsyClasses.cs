@@ -5,32 +5,6 @@ using System.Runtime.Serialization;
 namespace HurPsyLib
 {
 	/// <summary>
-	/// This `enum` contains the allowed unit choices which will be used with  stimulus locations and sizes.
-	/// </summary>
-	[DataContract]
-	public enum HurPsyUnit
-	{
-		/// <summary>
-		/// The default unit choice is millimeter, but more choices may become available if there is demand and time to implement
-		/// </summary>
-		[EnumMember]
-		MM
-	}
-
-	/// <summary>
-	/// This `enum` contains the allowed origin preferences when specifying stimulus locations and anchor points for visual stimulus rectangles.
-	/// </summary>
-	[DataContract]
-	public enum HurPsyOrigin
-	{
-		/// <summary>
-		/// The default origin choice is middle of the viewbox or visual stimulus rectangle; other choices may become available in the future.
-		/// </summary>
-		[EnumMember]
-		MiddleCenter 
-	}
-
-	/// <summary>
 	/// This class represents a point object to specify a position on the experiment's coordinate system.
 	/// Its whole point is to keep `HurPsyLib` objects independent of the GUIs used for designing or running experiments.
 	/// </summary>
@@ -48,12 +22,6 @@ namespace HurPsyLib
 		/// </summary>
 		[DataMember]
 		public double Y { get; set; }
-
-		/// <summary>
-		/// The property to get/set the unit choice; it will be fully utilized when more unit choices become available
-		/// </summary>
-		[DataMember]
-		public HurPsyUnit Unit { get; set; }
 
 		/// <summary>
 		/// This default constructor starts with zero positions
@@ -96,17 +64,14 @@ namespace HurPsyLib
 		[DataMember]
 		private double sizeY;
 
-		/// <summary>
-		/// The property to get/set the unit choice; it will be fully utilized when more unit choices become available
-		/// </summary>
-		[DataMember]
-		public HurPsyUnit Unit { get; set; }
-
-		/// <summary>
-		/// This default constructor starts with zero dimensions
-		/// </summary>
-		public HurPsySize()
-		{ sizeX = 0; sizeY = 0; }
+        /// <summary>
+        /// This default constructor starts with zero dimensions
+        /// </summary>
+        public HurPsySize()
+		{
+			sizeX = 0;
+			sizeY = 0;
+		}
 
 		/// <summary>
 		/// This parametrized constructor accepts initial dimensions

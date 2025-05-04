@@ -46,19 +46,6 @@ Initial horizontal position
 Initial vertical position
 ### Properties
 
-<a name='HurPsyLib.HurPsyPoint.Unit'></a>
-
-## HurPsyPoint.Unit Property
-
-The property to get/set the unit choice; it will be fully utilized when more unit choices become available
-
-```csharp
-public HurPsyLib.HurPsyUnit Unit { get; set; }
-```
-
-#### Property Value
-[HurPsyUnit](HurPsyLib.HurPsyUnit.md 'HurPsyLib.HurPsyUnit')
-
 <a name='HurPsyLib.HurPsyPoint.X'></a>
 
 ## HurPsyPoint.X Property

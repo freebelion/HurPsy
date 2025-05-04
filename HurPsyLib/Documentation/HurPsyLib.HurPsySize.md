@@ -82,19 +82,6 @@ public double Height { get; set; }
 #### Property Value
 [System.Double](https://docs.microsoft.com/en-us/dotnet/api/System.Double 'System.Double')
 
-<a name='HurPsyLib.HurPsySize.Unit'></a>
-
-## HurPsySize.Unit Property
-
-The property to get/set the unit choice; it will be fully utilized when more unit choices become available
-
-```csharp
-public HurPsyLib.HurPsyUnit Unit { get; set; }
-```
-
-#### Property Value
-[HurPsyUnit](HurPsyLib.HurPsyUnit.md 'HurPsyLib.HurPsyUnit')
-
 <a name='HurPsyLib.HurPsySize.Width'></a>
 
 ## HurPsySize.Width Property

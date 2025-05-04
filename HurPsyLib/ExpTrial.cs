@@ -20,7 +20,7 @@ namespace HurPsyLib
         public List<ExpStep> Steps { get; set; }
 
         /// <summary>
-        /// The boolean indicator specifying if this trial will be shuffled within the block
+        /// The boolean indicator specifying if this trial will be fixed within the block (i.e. not to be shuffled) 
         /// </summary>
         [DataMember]
         public bool IsFixed { get; set; }
