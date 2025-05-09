@@ -15,6 +15,7 @@
 | [HurPsyTimePeriod](HurPsyLib.HurPsyTimePeriod.md 'HurPsyLib.HurPsyTimePeriod') | This class helps specify a time period. |
 | [IdObject](HurPsyLib.IdObject.md 'HurPsyLib.IdObject') | This abstract class enables all instances of derived classes to have temporary Ids assigned. |
 | [ImageStimulus](HurPsyLib.ImageStimulus.md 'HurPsyLib.ImageStimulus') | This class represents an image served as a visual stimulus (hence it implements the `VisualStimulus` interface) |
+| [KeyResponse](HurPsyLib.KeyResponse.md 'HurPsyLib.KeyResponse') | This class represents a keyboard response |
 | [Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator') | This abstract class serves as the blueprint for all subclasses which will help position `Stimulus` objects. |
 | [PointLocator](HurPsyLib.PointLocator.md 'HurPsyLib.PointLocator') | This class stores a specific location point and uses its coordinates to produce a location for any visual stimulus |
 | [Response](HurPsyLib.Response.md 'HurPsyLib.Response') | This abstract class represents a response definition identified by a unique string provided by its base class `IdObject` |

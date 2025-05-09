@@ -9,9 +9,6 @@ public class Experiment
 ```
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; Experiment
-
-Derived  
-&#8627; [ExpSession](HurPsyLib.ExpSession.md 'HurPsyLib.ExpSession')
 ### Constructors
 
 <a name='HurPsyLib.Experiment.Experiment()'></a>
@@ -32,11 +29,24 @@ public Experiment();
 This `Dictionary` collection helps access `Locator` objects through their ids.
 
 ```csharp
-public Dictionary<string,Locator> LocatorDict;
+private Dictionary<string,Locator> LocatorDict;
 ```
 
 #### Field Value
 [System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
+
+<a name='HurPsyLib.Experiment.ResponseDict'></a>
+
+## Experiment.ResponseDict Field
+
+This `Dictionary` collection helps access `Response` objects through their ids.
+
+```csharp
+private Dictionary<string,Response> ResponseDict;
+```
+
+#### Field Value
+[System.Collections.Generic.Dictionary&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')[Response](HurPsyLib.Response.md 'HurPsyLib.Response')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary`2')
 
 <a name='HurPsyLib.Experiment.StimulusDict'></a>
 
@@ -45,7 +55,7 @@ public Dictionary<string,Locator> LocatorDict;
 This `Dictionary` collection helps access `Stimulus` objects through their ids.
 
 ```csharp
-public Dictionary<string,Stimulus> StimulusDict;
+private Dictionary<string,Stimulus> StimulusDict;
 ```
 
 #### Field Value
@@ -143,6 +153,27 @@ public void AddStimulus(HurPsyLib.Stimulus stim);
 
 The object to be added
 
+<a name='HurPsyLib.Experiment.GetLocatorItem(string)'></a>
+
+## Experiment.GetLocatorItem(string) Method
+
+This inline function will help access a `Locator` object through its Id
+
+```csharp
+public HurPsyLib.Locator GetLocatorItem(string locId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.GetLocatorItem(string).locId'></a>
+
+`locId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The Id string
+
+#### Returns
+[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')  
+The `Locator` object with that Id
+
 <a name='HurPsyLib.Experiment.GetLocatorItems()'></a>
 
 ## Experiment.GetLocatorItems() Method
@@ -155,6 +186,40 @@ public System.Collections.Generic.List<HurPsyLib.Locator> GetLocatorItems();
 
 #### Returns
 [System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
+<a name='HurPsyLib.Experiment.GetResponseItems()'></a>
+
+## Experiment.GetResponseItems() Method
+
+This inline function will return a list containing `Locator` definitions in the experiment
+
+```csharp
+public System.Collections.Generic.List<HurPsyLib.Response> GetResponseItems();
+```
+
+#### Returns
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Response](HurPsyLib.Response.md 'HurPsyLib.Response')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
+<a name='HurPsyLib.Experiment.GetStimulusItem(string)'></a>
+
+## Experiment.GetStimulusItem(string) Method
+
+This inline function will help access a `Stimulus` object through its Id
+
+```csharp
+public HurPsyLib.Stimulus GetStimulusItem(string stimId);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.GetStimulusItem(string).stimId'></a>
+
+`stimId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The Id string
+
+#### Returns
+[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')  
+The `Stimulus` object with that Id
 
 <a name='HurPsyLib.Experiment.GetStimulusItems()'></a>
 
@@ -207,6 +272,26 @@ public bool LocatorIdExists(string newid);
 #### Parameters
 
 <a name='HurPsyLib.Experiment.LocatorIdExists(string).newid'></a>
+
+`newid` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+Id to check
+
+#### Returns
+[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
+<a name='HurPsyLib.Experiment.ResponseIdExists(string)'></a>
+
+## Experiment.ResponseIdExists(string) Method
+
+The inline function to check for duplicate `Response` Ids
+
+```csharp
+private bool ResponseIdExists(string newid);
+```
+#### Parameters
+
+<a name='HurPsyLib.Experiment.ResponseIdExists(string).newid'></a>
 
 `newid` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 

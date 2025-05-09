@@ -5,6 +5,8 @@
            Source="/Images/AddStimulus.png" Stretch="UniformToFill"/>
     <Image x:Key="AddLocatorIcon" x:Shared="False"
            Source="/Images/AddLocator.png" Stretch="UniformToFill"/>
+    <Image x:Key="AddResponseIcon" x:Shared="False"
+           Source="/Images/AddResponse.png" Stretch="UniformToFill"/>
     <Image x:Key="AddBlockIcon" x:Shared="False"
            Source="/Images/addblock.png" Stretch="UniformToFill"/>
     <Image x:Key="AddSingleTrialIcon" x:Shared="False"
@@ -41,4 +43,8 @@
            Source="/Images/block.png" Stretch="UniformToFill"/>
     <Image x:Key="TrialIcon" x:Shared="False"
            Source="/Images/trial.png" Stretch="UniformToFill"/>
+    <Image x:Key="ResponseIcon" x:Shared="False"
+           Source="/Images/response.png" Stretch="UniformToFill"/>
+    <Image x:Key="KeyResponseIcon" x:Shared="False"
+           Source="/Images/KeyResponse.png" Stretch="UniformToFill"/>
 </ResourceDictionary>

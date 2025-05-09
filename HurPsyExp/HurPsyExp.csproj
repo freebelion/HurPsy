@@ -18,6 +18,8 @@
     <None Remove="Images\addlocator.svg" />
     <None Remove="Images\AddMultipleTrial.png" />
     <None Remove="Images\AddMultipleTrial.svg" />
+    <None Remove="Images\AddResponse.png" />
+    <None Remove="Images\AddResponse.svg" />
     <None Remove="Images\addsingletrial.png" />
     <None Remove="Images\addsingletrial.svg" />
     <None Remove="Images\AddStep.png" />
@@ -29,6 +31,8 @@
     <None Remove="Images\editmode.svg" />
     <None Remove="Images\ImageStimulus.svg" />
     <None Remove="Images\increment.svg" />
+    <None Remove="Images\KeyResponse.png" />
+    <None Remove="Images\KeyResponse.svg" />
     <None Remove="Images\lbase.png" />
     <None Remove="Images\lbase.svg" />
     <None Remove="Images\next.png" />
@@ -38,10 +42,17 @@
     <None Remove="Images\previous.svg" />
     <None Remove="Images\RectLocator.png" />
     <None Remove="Images\RectLocator.svg" />
+    <None Remove="Images\response.png" />
+    <None Remove="Images\response.svg" />
     <None Remove="Images\sbase.png" />
     <None Remove="Images\sbase.svg" />
     <None Remove="Images\trial.png" />
     <None Remove="Images\trial.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddResponse.png" />
+    <Resource Include="Images\KeyResponse.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,6 +87,7 @@
     <Resource Include="Images\PointLocator.png" />
     <Resource Include="Images\previous.png" />
     <Resource Include="Images\RectLocator.png" />
+    <Resource Include="Images\response.png" />
     <Resource Include="Images\sbase.png" />
     <Resource Include="Images\trial.png" />
   </ItemGroup>

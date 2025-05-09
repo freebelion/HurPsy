@@ -161,6 +161,10 @@
     <value>Locator Definitions</value>
     <comment>Header for the MenuItem which displays Locator Definitions</comment>
   </data>
+  <data name="Header_ResponseDefinitions" xml:space="preserve">
+    <value>Response Definitions</value>
+    <comment>Header for the MenuItem which displays Response Definitions</comment>
+  </data>
   <data name="Header_BlockDefinitions" xml:space="preserve">
     <value>Block Definitions</value>
     <comment>Header for the MenuItem which displays Block Definitions</comment>
@@ -172,6 +176,14 @@
   <data name="Header_AddStimulus" xml:space="preserve">
     <value>Add Stimulus</value>
     <comment>Header for the top MenuItem which adds Stimulus definitions in DesignWindow.xaml</comment>
+  </data>
+  <data name="Header_AddResponse" xml:space="preserve">
+    <value>Add Response</value>
+    <comment>Header for the top MenuItem which adds Response definitions in DesignWindow.xaml</comment>
+  </data>
+  <data name="Header_AddKeyResponse" xml:space="preserve">
+    <value>Add Key Response</value>
+    <comment>Header for the MenuItem in AddingResponseMenu which adds a KeyResponse definition</comment>
   </data>
   <data name="Header_AddImageStimulus" xml:space="preserve">
     <value>Image Stimulus</value>

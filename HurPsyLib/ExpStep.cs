@@ -26,6 +26,12 @@ namespace HurPsyLib
         [DataMember]
         public HurPsyTimePeriod StepTime { get; set; }
 
+        [DataMember]
+        public string? AllowedResponseId { get; set; }
+
+        [DataMember]
+        public string? ExpectedResponseId { get; set; }
+
         /// <summary>
         /// This default constructor starts with the defaults.
         /// </summary>
@@ -33,6 +39,8 @@ namespace HurPsyLib
         {
             StepPairs = [];
             StepTime = new();
+            AllowedResponseId = null;
+            ExpectedResponseId = null;
         }
 
         /// <summary>

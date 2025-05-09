@@ -115,6 +115,15 @@ namespace HurPsyExpStrings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Key Response.
+        /// </summary>
+        public static string Header_AddKeyResponse {
+            get {
+                return ResourceManager.GetString("Header_AddKeyResponse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Locator.
         /// </summary>
         public static string Header_AddLocator {
@@ -138,6 +147,15 @@ namespace HurPsyExpStrings {
         public static string Header_AddRectLocator {
             get {
                 return ResourceManager.GetString("Header_AddRectLocator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Response.
+        /// </summary>
+        public static string Header_AddResponse {
+            get {
+                return ResourceManager.GetString("Header_AddResponse", resourceCulture);
             }
         }
         
@@ -210,6 +228,15 @@ namespace HurPsyExpStrings {
         public static string Header_NewExperiment {
             get {
                 return ResourceManager.GetString("Header_NewExperiment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Response Definitions.
+        /// </summary>
+        public static string Header_ResponseDefinitions {
+            get {
+                return ResourceManager.GetString("Header_ResponseDefinitions", resourceCulture);
             }
         }
         

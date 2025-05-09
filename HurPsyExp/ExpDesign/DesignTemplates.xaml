@@ -4,7 +4,8 @@
                     xmlns:expdesign="clr-namespace:HurPsyExp.ExpDesign"
                     xmlns:expstrings="clr-namespace:HurPsyExpStrings;assembly=HurPsyExpStrings"
                     xmlns:psylib="clr-namespace:HurPsyLib;assembly=HurPsyLib"
-                    xmlns:wpfbhv="http://schemas.microsoft.com/xaml/behaviors">
+                    xmlns:wpfbhv="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ExpDesign/DesignStyles.xaml"/>
@@ -108,6 +109,20 @@
         </Grid>
     </DataTemplate>
 
+    <expdesign:KeyCodeToKeyNameConverter x:Key="keycodeconv"/>
+
+    <ObjectDataProvider x:Key="KeyEnum" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="Key"/>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <DataTemplate x:Key="KeyResponseEditTemplate">
+        <ComboBox ItemsSource="{Binding Source={StaticResource KeyEnum}}"
+                  Text="{Binding Path=ItemObject.KeyCode, Mode=TwoWay, Converter={StaticResource keycodeconv}}"/>
+    </DataTemplate>
+    
     <DataTemplate x:Key="PairTemplate">
         <Border Style="{StaticResource PairBorder}"
                 Background="{StaticResource PairTemplateBrush}"

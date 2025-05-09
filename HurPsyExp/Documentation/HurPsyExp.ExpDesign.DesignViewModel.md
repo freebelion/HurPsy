@@ -93,6 +93,32 @@ private bool addingMode;
 #### Field Value
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.addingResponseCommand'></a>
+
+## DesignViewModel.addingResponseCommand Field
+
+The backing field for [AddingResponseCommand](HurPsyExp.ExpDesign.DesignViewModel.md#HurPsyExp.ExpDesign.DesignViewModel.AddingResponseCommand 'HurPsyExp.ExpDesign.DesignViewModel.AddingResponseCommand').
+
+```csharp
+private RelayCommand<Type>? addingResponseCommand;
+```
+
+#### Field Value
+[CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.addingResponseMode'></a>
+
+## DesignViewModel.addingResponseMode Field
+
+This will be an indicator that the user will be adding new `Response` definitions
+
+```csharp
+private bool addingResponseMode;
+```
+
+#### Field Value
+[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.addingStimulusCommand'></a>
 
 ## DesignViewModel.addingStimulusCommand Field
@@ -341,6 +367,32 @@ public bool AddingMode { get; set; }
 #### Property Value
 [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.AddingResponseCommand'></a>
+
+## DesignViewModel.AddingResponseCommand Property
+
+Gets an [CommunityToolkit.Mvvm.Input.IRelayCommand&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1') instance wrapping [AddingResponse(Type)](HurPsyExp.ExpDesign.DesignViewModel.md#HurPsyExp.ExpDesign.DesignViewModel.AddingResponse(System.Type) 'HurPsyExp.ExpDesign.DesignViewModel.AddingResponse(System.Type)').
+
+```csharp
+public CommunityToolkit.Mvvm.Input.IRelayCommand<System.Type> AddingResponseCommand { get; }
+```
+
+#### Property Value
+[CommunityToolkit.Mvvm.Input.IRelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')[System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand-1 'CommunityToolkit.Mvvm.Input.IRelayCommand`1')
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.AddingResponseMode'></a>
+
+## DesignViewModel.AddingResponseMode Property
+
+This will be an indicator that the user will be adding new `Response` definitions
+
+```csharp
+public bool AddingResponseMode { get; set; }
+```
+
+#### Property Value
+[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.AddingStimulusCommand'></a>
 
 ## DesignViewModel.AddingStimulusCommand Property
@@ -497,6 +549,19 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand NewExperimentCommand { get; }
 #### Property Value
 [CommunityToolkit.Mvvm.Input.IRelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.IRelayCommand 'CommunityToolkit.Mvvm.Input.IRelayCommand')
 
+<a name='HurPsyExp.ExpDesign.DesignViewModel.ResponseVMs'></a>
+
+## DesignViewModel.ResponseVMs Property
+
+Collection of viewmodels associated with the experiment's `Response` objects
+
+```csharp
+public System.Collections.ObjectModel.ObservableCollection<HurPsyExp.ExpDesign.IdObjectViewModel> ResponseVMs { get; set; }
+```
+
+#### Property Value
+[System.Collections.ObjectModel.ObservableCollection&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')[IdObjectViewModel](HurPsyExp.ExpDesign.IdObjectViewModel.md 'HurPsyExp.ExpDesign.IdObjectViewModel')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.ObjectModel.ObservableCollection-1 'System.Collections.ObjectModel.ObservableCollection`1')
+
 <a name='HurPsyExp.ExpDesign.DesignViewModel.RunExperimentCommand'></a>
 
 ## DesignViewModel.RunExperimentCommand Property
@@ -612,6 +677,23 @@ private void AddingLocator(System.Type locType);
 `locType` [System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')
 
 The subtype of `Locator`
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.AddingResponse(System.Type)'></a>
+
+## DesignViewModel.AddingResponse(Type) Method
+
+This command implementation is the first step in adding `Response` definitions to the experiment.
+
+```csharp
+private void AddingResponse(System.Type resType);
+```
+#### Parameters
+
+<a name='HurPsyExp.ExpDesign.DesignViewModel.AddingResponse(System.Type).resType'></a>
+
+`resType` [System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')
+
+The subtype of `Response`
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.AddingStimulus(System.Type)'></a>
 

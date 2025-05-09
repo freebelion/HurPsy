@@ -70,6 +70,12 @@ namespace HurPsyExp.ExpDesign
         private bool addingLocatorMode;
 
         /// <summary>
+        /// This will be an indicator that the user will be adding new `Response` definitions
+        /// </summary>
+        [ObservableProperty]
+        private bool addingResponseMode;
+
+        /// <summary>
         /// This will be an indicator that the user will be adding new `Block` definitions
         /// </summary>
         [ObservableProperty]
@@ -128,6 +134,11 @@ namespace HurPsyExp.ExpDesign
         }
 
         /// <summary>
+        /// Collection of viewmodels associated with the experiment's `Response` objects
+        /// </summary>
+        public ObservableCollection<IdObjectViewModel> ResponseVMs { get; set; }
+
+        /// <summary>
         /// Collection of viewmodels associated with the experiment's trial blocks
         /// </summary>
         public ObservableCollection<IdObjectViewModel> BlockVMs { get; set; }
@@ -147,6 +158,7 @@ namespace HurPsyExp.ExpDesign
 
             StimulusVMs = [];
             LocatorVMs = [];
+            ResponseVMs = [];
             BlockVMs = [];
           
             AddingMode = false;
@@ -228,6 +240,10 @@ namespace HurPsyExp.ExpDesign
             foreach (var item in LocatorItems)
             { LocatorVMs.Add(CreateVM(item)); }
 
+            List<Response> ResponseItems = currentExperiment.GetResponseItems();
+            foreach (var item in ResponseItems)
+            { ResponseVMs.Add(CreateVM(item)); }
+
             foreach (var item in currentExperiment.Blocks)
             { BlockVMs.Add(CreateVM(item)); }
         }
@@ -281,6 +297,11 @@ namespace HurPsyExp.ExpDesign
                     Application.Current.Shutdown();
                 }
             }
+        }
+
+        private void LoadTestExperiment()
+        {
+            LoadExperimentFromFile(@"C:\Users\freeb\Documents\HurPsyTest\deney1\deney1.xml");           
         }
         #endregion
 
@@ -385,6 +406,10 @@ namespace HurPsyExp.ExpDesign
                     DisplayContent = LocatorVMs;
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_LocatorDefinitions;
                     break;
+                case ContentChoice.ResponseDefinitions:
+                    DisplayContent = ResponseVMs;
+                    DisplayContentLabel = HurPsyExpStrings.StringResources.Header_ResponseDefinitions;
+                    break;
                 case ContentChoice.BlockDefinitions:
                     DisplayContent = BlockVMs;
                     DisplayContentLabel = HurPsyExpStrings.StringResources.Header_BlockDefinitions;
@@ -426,6 +451,24 @@ namespace HurPsyExp.ExpDesign
         }
 
         /// <summary>
+        /// This command implementation is the first step in adding `Response` definitions to the experiment.
+        /// </summary>
+        /// <param name="resType">The subtype of `Response`</param>
+        [RelayCommand]
+        private void AddingResponse(Type resType)
+        {
+            switch (resType.Name)
+            {
+                case "KeyResponse":
+                    KeyResponse krep = new();
+                    currentExperiment.AddResponse(krep);
+                    IdObjectViewModel krepvm = CreateVM(krep);
+                    ResponseVMs.Add(krepvm);
+                    break;
+            }
+        }
+
+        /// <summary>
         /// This command implementation adds a new trial block.
         /// </summary>
         [RelayCommand]
@@ -448,6 +491,7 @@ namespace HurPsyExp.ExpDesign
         {
             AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
             AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
+            AddingResponseMode = AddingMode && (DisplayContentChoice == ContentChoice.ResponseDefinitions);
             AddingBlockMode = AddingMode && (DisplayContentChoice == ContentChoice.BlockDefinitions);
         }
 

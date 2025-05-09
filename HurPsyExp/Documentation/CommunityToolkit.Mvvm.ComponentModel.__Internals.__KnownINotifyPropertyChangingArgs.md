@@ -52,6 +52,19 @@ public static readonly PropertyChangingEventArgs AddingMode;
 #### Field Value
 [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
 
+<a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.AddingResponseMode'></a>
+
+## __KnownINotifyPropertyChangingArgs.AddingResponseMode Field
+
+The cached [System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs') instance for all "AddingResponseMode" generated properties.
+
+```csharp
+public static readonly PropertyChangingEventArgs AddingResponseMode;
+```
+
+#### Field Value
+[System.ComponentModel.PropertyChangingEventArgs](https://docs.microsoft.com/en-us/dotnet/api/System.ComponentModel.PropertyChangingEventArgs 'System.ComponentModel.PropertyChangingEventArgs')
+
 <a name='CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.AddingStimulusMode'></a>
 
 ## __KnownINotifyPropertyChangingArgs.AddingStimulusMode Field

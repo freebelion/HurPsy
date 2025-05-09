@@ -34,13 +34,19 @@ namespace HurPsyLib
         /// This `Dictionary` collection helps access `Stimulus` objects through their ids.
         /// </summary>
         [DataMember]
-        public Dictionary<string, Stimulus> StimulusDict;
+        private Dictionary<string, Stimulus> StimulusDict;
 
         /// <summary>
         /// This `Dictionary` collection helps access `Locator` objects through their ids.
         /// </summary>
         [DataMember]
-        public Dictionary<string, Locator> LocatorDict;
+        private Dictionary<string, Locator> LocatorDict;
+
+        /// <summary>
+        /// This `Dictionary` collection helps access `Response` objects through their ids.
+        /// </summary>
+        [DataMember]
+        private Dictionary<string, Response> ResponseDict;
 
         /// <summary>
         /// The experiment's trial blocks
@@ -61,6 +67,7 @@ namespace HurPsyLib
             FilePath = string.Empty;
             StimulusDict = [];
             LocatorDict = [];
+            ResponseDict = [];
             Blocks = [];
 		}
         #endregion
@@ -89,6 +96,13 @@ namespace HurPsyLib
         /// </summary>
         /// <returns></returns>
         public List<Stimulus> GetStimulusItems() => StimulusDict.Values.ToList();
+
+        /// <summary>
+        /// This inline function will help access a `Stimulus` object through its Id
+        /// </summary>
+        /// <param name="stimId">The Id string</param>
+        /// <returns>The `Stimulus` object with that Id</returns>
+        public Stimulus GetStimulusItem(string stimId) => StimulusDict[stimId];
 
         /// <summary>
         /// The inline function to check for duplicate stimulus Ids
@@ -144,6 +158,13 @@ namespace HurPsyLib
         public List<Locator> GetLocatorItems() => LocatorDict.Values.ToList();
 
         /// <summary>
+        /// This inline function will help access a `Locator` object through its Id
+        /// </summary>
+        /// <param name="locId">The Id string</param>
+        /// <returns>The `Locator` object with that Id</returns>
+        public Locator GetLocatorItem(string locId) => LocatorDict[locId];
+
+        /// <summary>
         /// This function updates the Id of a `Locator` item, provided that the Id is not a duplicate.
         /// </summary>
         /// <param name="loc">The object whose Id will be changed</param>
@@ -164,6 +185,26 @@ namespace HurPsyLib
             return true;
         }
 
+        public void AddResponse(Response rep)
+        {
+            while (ResponseIdExists(rep.Id))
+            { rep.Id = IdObject.CreateId(rep.GetType()); }
+            ResponseDict.Add(rep.Id, rep);
+        }
+
+        /// <summary>
+        /// The inline function to check for duplicate `Response` Ids
+        /// </summary>
+        /// <param name="newid">Id to check</param>
+        /// <returns></returns>
+        private bool ResponseIdExists(string newid) => ResponseDict.ContainsKey(newid);
+
+        /// <summary>
+        /// This inline function will return a list containing `Locator` definitions in the experiment
+        /// </summary>
+        /// <returns></returns>
+        public List<Response> GetResponseItems() => ResponseDict.Values.ToList();
+
         /// <summary>
         /// This method will help clone the experiment items onto `Session` objects.
         /// </summary>
@@ -172,6 +213,7 @@ namespace HurPsyLib
         {
             return (Experiment)MemberwiseClone();
         }
+
         #endregion
     }
 }

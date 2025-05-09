@@ -36,6 +36,10 @@
         /// </summary>
         LocatorDefinitions,
         /// <summary>
+        /// Response definitions are to be displayed
+        /// </summary>
+        ResponseDefinitions,
+        /// <summary>
         /// Block definitions nare to be displayed
         /// </summary>
         BlockDefinitions

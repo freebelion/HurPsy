@@ -9,13 +9,16 @@ public abstract class Response : HurPsyLib.IdObject
 ```
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [IdObject](HurPsyLib.IdObject.md 'HurPsyLib.IdObject') &#129106; Response
+
+Derived  
+&#8627; [KeyResponse](HurPsyLib.KeyResponse.md 'HurPsyLib.KeyResponse')
 ### Methods
 
 <a name='HurPsyLib.Response.Equals(HurPsyLib.Response)'></a>
 
 ## Response.Equals(Response) Method
 
-Derived classes has to provide a way to check their equality (in terms of content) with another object of this abstract type.
+Derived classes has to provide a way to check their equality (in terms of content) with another instance of the class.
 
 ```csharp
 public abstract bool Equals(HurPsyLib.Response rep);

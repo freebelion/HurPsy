@@ -14,7 +14,7 @@ public enum ContentChoice
 
 <a name='HurPsyExp.ContentChoice.BlockDefinitions'></a>
 
-`BlockDefinitions` 3
+`BlockDefinitions` 4
 
 Block definitions nare to be displayed
 
@@ -29,6 +29,12 @@ Locator definitions are to be displayed
 `NoDefinitions` 0
 
 No definitions are to be displayed
+
+<a name='HurPsyExp.ContentChoice.ResponseDefinitions'></a>
+
+`ResponseDefinitions` 3
+
+Response definitions are to be displayed
 
 <a name='HurPsyExp.ContentChoice.StimulusDefinitions'></a>
 

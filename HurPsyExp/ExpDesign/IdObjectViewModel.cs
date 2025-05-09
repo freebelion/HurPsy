@@ -59,9 +59,11 @@ namespace HurPsyExp.ExpDesign
                     case PointLocator ploc:
                         return App.Current.TryFindResource("PointLocatorIcon");
                     case ExpBlock blck:
-                        return App.Current.TryFindResource("BlockIcon"); ;
+                        return App.Current.TryFindResource("BlockIcon");
                     case ExpTrial tr:
-                        return App.Current.TryFindResource("TrialIcon"); ;
+                        return App.Current.TryFindResource("TrialIcon");
+                    case KeyResponse krep:
+                        return App.Current.TryFindResource("KeyResponseIcon");
                 }
 
                 return null;

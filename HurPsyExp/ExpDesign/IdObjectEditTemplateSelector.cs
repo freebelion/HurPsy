@@ -35,6 +35,8 @@ namespace HurPsyExp.ExpDesign
                         return (DataTemplate)element.FindResource("ImageStimulusEditTemplate");
                     case PointLocator ploc:
                         return (DataTemplate)element.FindResource("PointLocatorEditTemplate");
+                    case KeyResponse krep:
+                        return (DataTemplate)element.FindResource("KeyResponseEditTemplate");
                     case ExpBlock blck:
                         return (DataTemplate)element.FindResource("BlockEditTemplate");
                 }

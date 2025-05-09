@@ -89,7 +89,7 @@ namespace HurPsyExp.ExpRun
             VisualStimulusObjects.Clear();
 
             List<Stimulus> expStims = currentSession.GetStimulusItems();
-            string? expDirectoryPath = Path.GetDirectoryName(currentSession.FilePath);
+            string? expDirectoryPath = Path.GetDirectoryName(currentSession.ExperimentFilePath);
 
             foreach (VisualStimulus vistim in expStims)
             {
@@ -127,11 +127,11 @@ namespace HurPsyExp.ExpRun
 
             foreach (ExpPair pr in currentSession.CurrentStep.StepPairs)
             {
-                Stimulus stim = currentSession.StimulusDict[pr.StimulusId];
+                Stimulus stim = currentSession.GetStimulusItem(pr.StimulusId);
 
                 if (stim is not VisualStimulus vistim) continue;
 
-                Locator loc = currentSession.LocatorDict[pr.LocatorId];
+                Locator loc = currentSession.GetLocatorItem(pr.LocatorId);
                 HurPsyPoint locpnt = loc.GetLocation(vistim);
                 
                 VisualStimulusViewModel vistimVM = new VisualStimulusViewModel(vistim, locpnt, VisualStimulusObjects[vistim.Id]);

@@ -11,7 +11,7 @@ namespace HurPsyLib
     /// This class represents an experiment session with simple UserId and RunTime info, along with the actual order of blocks, trials and steps.
     /// </summary>
     [DataContract]
-    public class ExpSession : Experiment
+    public class ExpSession
     {
         #region Data members and properties
         // Simple session info
@@ -21,6 +21,8 @@ namespace HurPsyLib
         private DateTime sessionStart;
         [DataMember]
         private DateTime sessionEnd;
+        [DataMember]
+        private Experiment sourceExperiment;
         
         // Index values for current experiment objects
         private int currentBlockIndex;
@@ -30,7 +32,7 @@ namespace HurPsyLib
         // References to current experiment objects
         private ExpBlock CurrentBlock
         {
-            get { return Blocks[currentBlockIndex]; }
+            get { return sourceExperiment.Blocks[currentBlockIndex]; }
         }
 
         private ExpTrial CurrentTrial
@@ -56,7 +58,10 @@ namespace HurPsyLib
         public ExpSession(Experiment? exp)
         {
             if(exp != null )
-            { InitializeSession(exp); }
+            {
+                sourceExperiment = exp;
+                InitializeSession();
+            }
         }
         #endregion
 
@@ -65,27 +70,13 @@ namespace HurPsyLib
         /// This method handles the initial setup: it clones the collections of the source experiment and reorders them as needed.
         /// This may consist of shuffling the unfixed trials; further reordering must be done by the user on the application that runs the session.
         /// </summary>
-        private void InitializeSession(Experiment exp)
+        private void InitializeSession()
         {
-            // Create a name and file path for the session, using the Experiment properties
-            Name = exp.Name + "_Session" + userId.ToString();
-            // Copy the dictionary collections from the original experiment definition
-            StimulusDict = exp.StimulusDict;
-            LocatorDict = exp.LocatorDict;
-
-            foreach (ExpBlock blck in exp.Blocks)
+            foreach (ExpBlock blck in sourceExperiment.Blocks)
             {
-                // Create a temporary clone of the original block's trial list.
-                List<ExpTrial> tempTrials = blck.Trials.ToList();
-                // Shuffle those temp trials if needed.
+                // Shuffle the block trials if needed.
                 if(blck.MustShuffleTrials)
-                { ShuffleTrials(tempTrials); }
-                // Session block will be the same as the original block
-                ExpBlock sesblck = blck;
-                // but will use the shuffled clone list of trials.
-                sesblck.Trials = tempTrials;
-                // That way, the original block's list of trials will remain in the original order.
-                Blocks.Add(sesblck);
+                { ShuffleTrials(blck.Trials); }
             }
         }
 
@@ -142,7 +133,7 @@ namespace HurPsyLib
                 currentStepIndex = 0;
                 return true;
             }
-            else if (currentBlockIndex < Blocks.Count - 1)
+            else if (currentBlockIndex < sourceExperiment.Blocks.Count - 1)
             {
                 currentBlockIndex++;
                 currentTrialIndex = 0;
@@ -152,5 +143,36 @@ namespace HurPsyLib
             else
             { return false; }
         }
+
+        /// <summary>
+        /// A shorthand access to the source experiment's file path
+        /// </summary>
+        public string ExperimentFilePath { get => sourceExperiment.FilePath; }
+
+        /// <summary>
+        /// This inline function will return a list containing `Stimulus` definitions in the experiment
+        /// </summary>
+        /// <returns></returns>
+        public List<Stimulus> GetStimulusItems() => sourceExperiment.GetStimulusItems();
+
+        /// <summary>
+        /// This inline function will help access a `Stimulus` object through its Id
+        /// </summary>
+        /// <param name="stimId">The Id string</param>
+        /// <returns>The `Stimulus` object with that Id</returns>
+        public Stimulus GetStimulusItem(string stimId) => sourceExperiment.GetStimulusItem(stimId);
+
+        /// <summary>
+        /// This inline function will return a list containing `Locator` definitions in the experiment
+        /// </summary>
+        /// <returns></returns>
+        public List<Locator> GetLocatorItems() => sourceExperiment.GetLocatorItems();
+
+        /// <summary>
+        /// This inline function will help access a `Locator` object through its Id
+        /// </summary>
+        /// <param name="locId">The Id string</param>
+        /// <returns>The `Locator` object with that Id</returns>
+        public Locator GetLocatorItem(string locId) => sourceExperiment.GetLocatorItem(locId);
     }
 }

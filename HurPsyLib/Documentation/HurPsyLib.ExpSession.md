@@ -5,10 +5,10 @@
 This class represents an experiment session with simple UserId and RunTime info, along with the actual order of blocks, trials and steps.
 
 ```csharp
-public class ExpSession : HurPsyLib.Experiment
+public class ExpSession
 ```
 
-Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; [Experiment](HurPsyLib.Experiment.md 'HurPsyLib.Experiment') &#129106; ExpSession
+Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; ExpSession
 ### Constructors
 
 <a name='HurPsyLib.ExpSession.ExpSession(HurPsyLib.Experiment)'></a>
@@ -39,23 +39,99 @@ public HurPsyLib.ExpStep CurrentStep { get; }
 
 #### Property Value
 [ExpStep](HurPsyLib.ExpStep.md 'HurPsyLib.ExpStep')
+
+<a name='HurPsyLib.ExpSession.ExperimentFilePath'></a>
+
+## ExpSession.ExperimentFilePath Property
+
+A shorthand access to the source experiment's file path
+
+```csharp
+public string ExperimentFilePath { get; }
+```
+
+#### Property Value
+[System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
 ### Methods
 
-<a name='HurPsyLib.ExpSession.InitializeSession(HurPsyLib.Experiment)'></a>
+<a name='HurPsyLib.ExpSession.GetLocatorItem(string)'></a>
 
-## ExpSession.InitializeSession(Experiment) Method
+## ExpSession.GetLocatorItem(string) Method
+
+This inline function will help access a `Locator` object through its Id
+
+```csharp
+public HurPsyLib.Locator GetLocatorItem(string locId);
+```
+#### Parameters
+
+<a name='HurPsyLib.ExpSession.GetLocatorItem(string).locId'></a>
+
+`locId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The Id string
+
+#### Returns
+[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')  
+The `Locator` object with that Id
+
+<a name='HurPsyLib.ExpSession.GetLocatorItems()'></a>
+
+## ExpSession.GetLocatorItems() Method
+
+This inline function will return a list containing `Locator` definitions in the experiment
+
+```csharp
+public System.Collections.Generic.List<HurPsyLib.Locator> GetLocatorItems();
+```
+
+#### Returns
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Locator](HurPsyLib.Locator.md 'HurPsyLib.Locator')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
+<a name='HurPsyLib.ExpSession.GetStimulusItem(string)'></a>
+
+## ExpSession.GetStimulusItem(string) Method
+
+This inline function will help access a `Stimulus` object through its Id
+
+```csharp
+public HurPsyLib.Stimulus GetStimulusItem(string stimId);
+```
+#### Parameters
+
+<a name='HurPsyLib.ExpSession.GetStimulusItem(string).stimId'></a>
+
+`stimId` [System.String](https://docs.microsoft.com/en-us/dotnet/api/System.String 'System.String')
+
+The Id string
+
+#### Returns
+[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')  
+The `Stimulus` object with that Id
+
+<a name='HurPsyLib.ExpSession.GetStimulusItems()'></a>
+
+## ExpSession.GetStimulusItems() Method
+
+This inline function will return a list containing `Stimulus` definitions in the experiment
+
+```csharp
+public System.Collections.Generic.List<HurPsyLib.Stimulus> GetStimulusItems();
+```
+
+#### Returns
+[System.Collections.Generic.List&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')[Stimulus](HurPsyLib.Stimulus.md 'HurPsyLib.Stimulus')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List`1')
+
+<a name='HurPsyLib.ExpSession.InitializeSession()'></a>
+
+## ExpSession.InitializeSession() Method
 
 This method handles the initial setup: it clones the collections of the source experiment and reorders them as needed.  
 This may consist of shuffling the unfixed trials; further reordering must be done by the user on the application that runs the session.
 
 ```csharp
-private void InitializeSession(HurPsyLib.Experiment exp);
+private void InitializeSession();
 ```
-#### Parameters
-
-<a name='HurPsyLib.ExpSession.InitializeSession(HurPsyLib.Experiment).exp'></a>
-
-`exp` [Experiment](HurPsyLib.Experiment.md 'HurPsyLib.Experiment')
 
 <a name='HurPsyLib.ExpSession.NextStep()'></a>
 

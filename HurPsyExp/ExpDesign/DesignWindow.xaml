@@ -87,6 +87,18 @@
                         </MenuItem.Header>
                     </MenuItem>
                     <MenuItem Command="{Binding ChooseContentCommand}"
+                              CommandParameter="{x:Static expapp:ContentChoice.ResponseDefinitions}">
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource ResponseIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_ResponseDefinitions}"
+                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem Command="{Binding ChooseContentCommand}"
                               CommandParameter="{x:Static expapp:ContentChoice.BlockDefinitions}">
                         <MenuItem.Header>
                             <StackPanel Orientation="Horizontal">
@@ -164,6 +176,31 @@
                                                 Style="{StaticResource IconImageStyle}"
                                                 VerticalAlignment="Center"/>
                                 <TextBlock Text="{x:Static expstrings:StringResources.Header_AddRectLocator}"
+                                           VerticalAlignment="Center" Margin="2"/>
+                            </StackPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Visibility="{Binding AddingResponseMode, Mode=OneWay, Converter={StaticResource bvisConverter}}">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl Content="{StaticResource AddResponseIcon}"
+                                            Style="{StaticResource IconImageStyle}"
+                                            VerticalAlignment="Center"/>
+                            <TextBlock Text="{x:Static expstrings:StringResources.Header_AddResponse}"
+                                       VerticalAlignment="Center" Margin="2"/>
+                        </StackPanel>
+                    </MenuItem.Header>
+
+                    <MenuItem Command="{Binding AddingResponseCommand}"
+                              CommandParameter="{x:Type psylib:KeyResponse}">
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl Content="{StaticResource KeyResponseIcon}"
+                                                Style="{StaticResource IconImageStyle}"
+                                                VerticalAlignment="Center"/>
+                                <TextBlock Text="{x:Static expstrings:StringResources.Header_AddKeyResponse}"
                                            VerticalAlignment="Center" Margin="2"/>
                             </StackPanel>
                         </MenuItem.Header>
