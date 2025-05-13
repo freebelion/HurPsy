@@ -55,31 +55,31 @@ namespace HurPsyExp.ExpDesign
         /// The boolean indicator of Add Items Mode
         /// </summary>
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(AddingStimulusMode))]
+        [NotifyPropertyChangedFor(nameof(AddingLocatorMode))]
+        [NotifyPropertyChangedFor(nameof(AddingResponseMode))]
+        [NotifyPropertyChangedFor(nameof(AddingBlockMode))]
         private bool addingMode;
 
         /// <summary>
         /// This will be an indicator that the user will be adding new `Stimulus` definitions
         /// </summary>
-        [ObservableProperty]
-        private bool addingStimulusMode;
+        public bool AddingStimulusMode => AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
 
         /// <summary>
         /// This will be an indicator that the user will be adding new `Locator` definitions
         /// </summary>
-        [ObservableProperty]
-        private bool addingLocatorMode;
+        public bool AddingLocatorMode => AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
 
         /// <summary>
         /// This will be an indicator that the user will be adding new `Response` definitions
         /// </summary>
-        [ObservableProperty]
-        private bool addingResponseMode;
+        public bool AddingResponseMode => AddingMode && (DisplayContentChoice == ContentChoice.ResponseDefinitions);
 
         /// <summary>
         /// This will be an indicator that the user will be adding new `Block` definitions
         /// </summary>
-        [ObservableProperty]
-        private bool addingBlockMode;
+        public bool AddingBlockMode => AddingMode && (DisplayContentChoice == ContentChoice.BlockDefinitions);
 
         #endregion
 
@@ -483,18 +483,7 @@ namespace HurPsyExp.ExpDesign
         #endregion
 
         #region Events
-        /// <summary>
-        /// This method handles MVVM Toolkit's value changed event for `AddingMode` property; it modifies the boolean flags for hiding/showing the menus that will add Stimulus/Locator/Block, etc.
-        /// </summary>
-        /// <param name="value"></param>
-        partial void OnAddingModeChanged(bool value)
-        {
-            AddingStimulusMode = AddingMode && (DisplayContentChoice == ContentChoice.StimulusDefinitions);
-            AddingLocatorMode = AddingMode && (DisplayContentChoice == ContentChoice.LocatorDefinitions);
-            AddingResponseMode = AddingMode && (DisplayContentChoice == ContentChoice.ResponseDefinitions);
-            AddingBlockMode = AddingMode && (DisplayContentChoice == ContentChoice.BlockDefinitions);
-        }
-
+        
         /// <summary>
         /// This is for handling the Id change events for `IdObjectViewModel` objects.
         /// </summary>

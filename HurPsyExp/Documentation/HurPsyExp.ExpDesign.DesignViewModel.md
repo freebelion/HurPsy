@@ -41,19 +41,6 @@ private RelayCommand? addingBlockCommand;
 #### Field Value
 [CommunityToolkit.Mvvm.Input.RelayCommand](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand 'CommunityToolkit.Mvvm.Input.RelayCommand')
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.addingBlockMode'></a>
-
-## DesignViewModel.addingBlockMode Field
-
-This will be an indicator that the user will be adding new `Block` definitions
-
-```csharp
-private bool addingBlockMode;
-```
-
-#### Field Value
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
-
 <a name='HurPsyExp.ExpDesign.DesignViewModel.addingLocatorCommand'></a>
 
 ## DesignViewModel.addingLocatorCommand Field
@@ -66,19 +53,6 @@ private RelayCommand<Type>? addingLocatorCommand;
 
 #### Field Value
 [CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
-
-<a name='HurPsyExp.ExpDesign.DesignViewModel.addingLocatorMode'></a>
-
-## DesignViewModel.addingLocatorMode Field
-
-This will be an indicator that the user will be adding new `Locator` definitions
-
-```csharp
-private bool addingLocatorMode;
-```
-
-#### Field Value
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.addingMode'></a>
 
@@ -106,19 +80,6 @@ private RelayCommand<Type>? addingResponseCommand;
 #### Field Value
 [CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
 
-<a name='HurPsyExp.ExpDesign.DesignViewModel.addingResponseMode'></a>
-
-## DesignViewModel.addingResponseMode Field
-
-This will be an indicator that the user will be adding new `Response` definitions
-
-```csharp
-private bool addingResponseMode;
-```
-
-#### Field Value
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
-
 <a name='HurPsyExp.ExpDesign.DesignViewModel.addingStimulusCommand'></a>
 
 ## DesignViewModel.addingStimulusCommand Field
@@ -131,19 +92,6 @@ private RelayCommand<Type>? addingStimulusCommand;
 
 #### Field Value
 [CommunityToolkit.Mvvm.Input.RelayCommand&lt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')[System.Type](https://docs.microsoft.com/en-us/dotnet/api/System.Type 'System.Type')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/CommunityToolkit.Mvvm.Input.RelayCommand-1 'CommunityToolkit.Mvvm.Input.RelayCommand`1')
-
-<a name='HurPsyExp.ExpDesign.DesignViewModel.addingStimulusMode'></a>
-
-## DesignViewModel.addingStimulusMode Field
-
-This will be an indicator that the user will be adding new `Stimulus` definitions
-
-```csharp
-private bool addingStimulusMode;
-```
-
-#### Field Value
-[System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.chooseContentCommand'></a>
 
@@ -322,7 +270,7 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand AddingBlockCommand { get; }
 This will be an indicator that the user will be adding new `Block` definitions
 
 ```csharp
-public bool AddingBlockMode { get; set; }
+public bool AddingBlockMode { get; }
 ```
 
 #### Property Value
@@ -348,7 +296,7 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand<System.Type> AddingLocatorComma
 This will be an indicator that the user will be adding new `Locator` definitions
 
 ```csharp
-public bool AddingLocatorMode { get; set; }
+public bool AddingLocatorMode { get; }
 ```
 
 #### Property Value
@@ -387,7 +335,7 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand<System.Type> AddingResponseComm
 This will be an indicator that the user will be adding new `Response` definitions
 
 ```csharp
-public bool AddingResponseMode { get; set; }
+public bool AddingResponseMode { get; }
 ```
 
 #### Property Value
@@ -413,7 +361,7 @@ public CommunityToolkit.Mvvm.Input.IRelayCommand<System.Type> AddingStimulusComm
 This will be an indicator that the user will be adding new `Stimulus` definitions
 
 ```csharp
-public bool AddingStimulusMode { get; set; }
+public bool AddingStimulusMode { get; }
 ```
 
 #### Property Value
@@ -807,21 +755,6 @@ The command implementation for creating a new experiment definition.
 ```csharp
 private void NewExperiment();
 ```
-
-<a name='HurPsyExp.ExpDesign.DesignViewModel.OnAddingModeChanged(bool)'></a>
-
-## DesignViewModel.OnAddingModeChanged(bool) Method
-
-This method handles MVVM Toolkit's value changed event for `AddingMode` property; it modifies the boolean flags for hiding/showing the menus that will add Stimulus/Locator/Block, etc.
-
-```csharp
-private void OnAddingModeChanged(bool value);
-```
-#### Parameters
-
-<a name='HurPsyExp.ExpDesign.DesignViewModel.OnAddingModeChanged(bool).value'></a>
-
-`value` [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
 <a name='HurPsyExp.ExpDesign.DesignViewModel.OnExperimentNameChanged(string)'></a>
 

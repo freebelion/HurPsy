@@ -13,40 +13,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\addblock.png" />
     <None Remove="Images\addblock.svg" />
     <None Remove="Images\addlocator.svg" />
-    <None Remove="Images\AddMultipleTrial.png" />
     <None Remove="Images\AddMultipleTrial.svg" />
-    <None Remove="Images\AddResponse.png" />
     <None Remove="Images\AddResponse.svg" />
-    <None Remove="Images\addsingletrial.png" />
     <None Remove="Images\addsingletrial.svg" />
-    <None Remove="Images\AddStep.png" />
     <None Remove="Images\AddStep.svg" />
     <None Remove="Images\AddStimulus.svg" />
-    <None Remove="Images\block.png" />
     <None Remove="Images\block.svg" />
     <None Remove="Images\decrement.svg" />
     <None Remove="Images\editmode.svg" />
     <None Remove="Images\ImageStimulus.svg" />
     <None Remove="Images\increment.svg" />
-    <None Remove="Images\KeyResponse.png" />
     <None Remove="Images\KeyResponse.svg" />
-    <None Remove="Images\lbase.png" />
     <None Remove="Images\lbase.svg" />
-    <None Remove="Images\next.png" />
     <None Remove="Images\next.svg" />
     <None Remove="Images\PointLocator.svg" />
-    <None Remove="Images\previous.png" />
     <None Remove="Images\previous.svg" />
-    <None Remove="Images\RectLocator.png" />
     <None Remove="Images\RectLocator.svg" />
-    <None Remove="Images\response.png" />
     <None Remove="Images\response.svg" />
-    <None Remove="Images\sbase.png" />
     <None Remove="Images\sbase.svg" />
-    <None Remove="Images\trial.png" />
     <None Remove="Images\trial.svg" />
   </ItemGroup>
 
